@@ -1,0 +1,135 @@
+.auth-wrapper{
+    position: absolute;
+    background-color: #e7ebe4;
+    width: 100%;
+    min-height: 100%;
+}
+
+.auth-wrapper header{
+    background-color: #ffffff;
+    height: 70px;
+}
+
+.auth-wrapper header img{
+    background-color: #ffffff;
+    height: 60px;
+}
+
+.auth-wrapper .auth-content{
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    padding-top: 0%;
+    height:calc(100% - 70px) ;
+}
+
+.auth-wrapper .auth-content main{
+    position: relative;
+    background-color: #e0d6d6;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height:calc(100% - 84px) ;
+}
+
+.auth-wrapper .auth-content main .content{
+    min-height: 300px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 20px;
+    align-self: center;
+    
+}
+.auth-wrapper .auth-content main .content h1{
+    text-align: left;
+    margin-top: 0px;
+    margin-left: 50px;
+    margin-right: 50px;
+} 
+
+.auth-wrapper .auth-content main .content input{
+    
+    position: relative;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border-width: 0px;
+    background: #f3f0f0;
+    height: 40px;
+
+} 
+.auth-wrapper .auth-content main .content p{
+    text-align: left;
+    margin-top: 0px;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: #091e34;
+    font-weight:lighter;
+    font-size: 12px;
+
+} 
+
+.auth-wrapper .auth-content main .content button{
+
+    position: relative;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 10px;
+    height: 40px;
+    border-width: 0px;
+    background-color: #4b6bdc;
+    background-color: #000000;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+} 
+
+.auth-wrapper .auth-content footer{
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-top: -10px;
+    text-align: center;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 9999;
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #fff;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+
+/* Define how the dark mode works when using the 'dark' class */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* @import "tailwindcss/preflight"; 
+@tailwind utilities; */
+/* @import "tailwindcss"; */
+
+
+
+
+@layer utilities {
+    .scrollbar-none {
+      -ms-overflow-style: none;  /* IE & Edge */
+      scrollbar-width: none;     /* Firefox */
+    }
+  
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;             /* Chrome, Safari */
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(40%);
+    }
+    
+    .dark input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(40%);
+    }
+
+    /* light mode  */
+    ::-webkit-scrollbar{
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track{
+      background: white;
+    }
+    ::-webkit-scrollbar-thumb{
+      background: grey;
+      break-before: 999px;
+    }
+
+    ::-webkit-scrollbar-track{
+      background: #0f172a ;
+    }
+    ::-webkit-scrollbar-thumb{
+      background: #1e293b;
+    }
+  }
+
+  :root {
+    --background: #ffffff;
+    --text: #111111;
+    --border: #e5e5e5;
+    --sidebar-bg: #fafafa;
+    --main-bg: #fafafa;
+    --hover: #f3f3f3;
+  }
+  
+  .dark {
+    --background: #0f172a;
+    --text: #f1f5f9;
+    --border: #1e293b;
+    --sidebar-bg: #020817;
+    --main-bg: #020817;
+    --card-primary: #5a627424;
+    --primary: #5a627424;
+    --hover: #1e293b;
+  }

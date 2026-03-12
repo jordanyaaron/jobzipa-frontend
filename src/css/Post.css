@@ -1,0 +1,848 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    font-family: Arial, sans-serif;
+   
+}
+
+
+.post-wrapper{
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    top: 0;
+}
+
+.post-wrapper header{
+    background-color: #fff;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: -10px;
+}
+
+.post-wrapper header img{
+    height: 65px;
+    margin: 10px
+
+}
+
+.post-content{
+    height: calc(100vh - 82px);
+    background-color: #f0f0f0;
+    width: 100%;
+    position: fixed;
+    top: 80px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: center;
+}
+.post-wrapper .post-content main{
+    text-align: left;
+    margin-bottom: 2px;
+    padding: 60px;
+    padding-top: 13px;
+    width: 750px;
+    position: relative;
+    display: inline-block;
+    min-height: calc(100vh - 162px); 
+    margin-top: 3px;          
+    margin-bottom: 1px;          
+    background-color: white;
+    overflow-y: auto;
+}
+
+
+
+.post-wrapper .post-content main .datail-box h1{
+    color: #3E907D;
+    font-weight: 900;
+    margin-bottom: 0px;
+}
+
+.post-wrapper .post-content main .datail-box .custumer-inputs-box{
+    width: calc(100% - 40px);
+    margin-left: 30px;
+    display: flex;
+}
+
+
+
+.custumer-input{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* margin: 10px; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* margin-left: 30px; */
+}
+
+.custumer-input input{
+    height: 35px;
+    padding: 5px;
+    width: calc(100% - 40px);
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid rgb(211, 202, 202);
+}
+
+
+.custumer-input  label{
+    font-size: 22px;
+}
+
+
+
+.post-wrapper .post-content main .datail-box  span{
+    color: #3E907D;
+    font-size:Small;
+    margin-left: 10px;
+    text-decoration: underline;
+    font-style: italic;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.post-wrapper .post-content main .datail-box .subdetail-box{
+    margin: 10px;
+}
+
+.post-wrapper .post-content 
+main .datail-box 
+.subdetail-box .logo-preview{
+    position: relative;
+    width: 200px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.post-wrapper .post-content 
+main .datail-box 
+.subdetail-box .logo-preview img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #ccc,
+}
+
+.post-wrapper .post-content 
+main .datail-box 
+.subdetail-box .logo-preview 
+.buttons-container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 30px;
+    right: 5px;
+}
+
+.post-wrapper .post-content 
+main .datail-box 
+.subdetail-box .logo-preview 
+.buttons-container button{
+    position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    border-width: 0px;
+    background-color: #00000095;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    height: 30px;
+    width: 30px;
+}
+
+.post-wrapper .post-content 
+main .datail-box 
+.subdetail-box .logo-preview 
+.buttons-container button img{
+    height: 15px;
+    width: 15px;
+    align-self: center;
+    border-width: 0px;
+    border-radius: 0%;
+}
+
+.post-wrapper .post-content 
+main .datail-box 
+.subdetail-box .logo-preview{
+}
+
+.post-wrapper .post-content 
+main .datail-box 
+.subdetail-box  h3{
+    font-size: 25px;
+    font-weight: 400;
+    height: auto;
+}
+.post-wrapper .post-content 
+main .datail-box 
+.subdetail-box .logo-input-button{
+    height: 130px;
+    width: calc(100% - 40px);
+    background-color: #3E907D;
+    background: linear-gradient(to right, #3E907D, #061a1fbb);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-width: 0px;
+}
+
+.post-wrapper .post-content main .datail-box 
+.subdetail-box .logo-input-button:hover{
+    background-color: #061713;
+    background: linear-gradient(to right, #142a25, #061a1fbb);
+}
+
+/* .QuillDivBox{
+    width: calc(100% - 40px);
+} */
+
+
+.post-wrapper .post-content main 
+.datail-box .subdetail-box 
+.logo-input-button img{
+    height: 30px;
+    width: 30px;
+    align-self: center;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+
+.post-wrapper .post-content main .datail-box .subdetail-box 
+.logo-input-button p{
+    color: #fff;
+    font-weight: 100;
+    font-size: 18px;
+    cursor: pointer;
+}
+.post-wrapper .post-content main .datail-box #logoInput {
+    display: none;
+}
+
+
+.post-wrapper .post-content 
+main .datail-box 
+.subdetail-box{
+
+}
+.post-wrapper .post-content main .datail-box .subdetail-box .textarea-wrapper{
+   padding-top: 0px;
+   border: 0px solid #ccc; 
+   /* width: 100%; */
+   margin-left: 20px;
+   margin-right: 20px;
+   margin-bottom: 20px;
+}
+
+
+.post-wrapper .post-content main 
+.datail-box .subdetail-box 
+.textarea-wrapper input{
+    border: 1px solid #ccc; 
+    width: calc(100% - 20px);
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 18px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+ }
+
+ .post-wrapper .post-content main 
+ .datail-box .subdetail-box 
+ .textarea-wrapper input:focus{
+    outline: none;
+ }
+ 
+
+
+.post-wrapper .post-content 
+main .datail-box 
+.subdetail-box textarea {
+    padding-top: 0px;
+    border: 0px solid #ccc; 
+    width: 480px;
+    min-height: 25px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    overflow: hidden; 
+    resize: none; 
+    line-height: 1.2;
+    font-weight: 100;
+    /* position: relative;
+    display: inline-block;
+    width: 500px; 
+    padding: 10px; 
+    padding-top: 20px;
+    min-height: 30px;
+    font-size: 16px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    overflow: hidden; */
+}
+
+textarea:focus {
+    outline: none;   /* inaondoa ile blue outline */
+    border-color: transparent; /* kama unataka pia kuondoa border */
+    box-shadow: none; /* huondoa glow effect */
+}
+
+
+.post-wrapper .post-content main .datail-box
+ .subdetail-box #company-bio-wrapper .ql-toolbar{
+    
+    /* width: calc(100% - 40px); */
+}
+.post-wrapper .post-content main .datail-box .hints-container{
+    margin-top: 20px;
+}
+
+
+.post-wrapper .post-content main .datail-box .hints-container .hints-title{
+    font-weight: 600;
+}
+
+.post-wrapper .post-content main 
+.datail-box .hints-container 
+.hints-details{
+    font-size: 12px;
+    color: grey;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.positions-box{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.positions-box .multiple-positons-check{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.positions-box .multiple-positons-check label{
+   margin-left: 10px;
+   font-size: 18px;
+   margin-top: 3px;
+   position: absolute;
+   color: grey;
+}
+
+
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.positions-box .multiple-positons-check input{
+   height: 20px;
+   width: 20px;
+   border-top: 2px solid #2046d0;
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.positions-box .position-input-container{
+    position: relative;
+    width: calc(320px);
+    height: 60px;
+    border: 1px solid #ccc; 
+    margin-bottom: 20px;
+}
+
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.positions-box .position-input-container input{
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border-width: 0px;
+    width: calc(100% - 25px);
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.positions-box .position-input-container span{
+    color: #000;
+    font-style: normal;
+    text-decoration: none;
+    position: absolute;
+    left: -10px;
+    top: 20px;
+}
+
+
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.positions-box .number-input{
+  padding: 20px;
+  width: calc(300px);
+}
+
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box .location-list{
+   /* background-color: #8d1212; */
+   /* border: 1px solid #000; */
+   width: calc(100% - 40px);
+   margin-left: 20px;
+   padding-left: 0px;
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box .location-list li{
+    position: relative;
+    display: inline-block;
+    margin-right: 5px;
+    background-color: #3e907d38;
+    height: 30px;
+    font-size: 14px;
+    padding-top: 14px;
+    padding-left: 25px;
+    padding-right: 25px;
+    max-width: 200px;
+    border-radius: 30px;
+    overflow-x: hidden;
+    white-space: nowrap;  /* Zuia ku-wrap kwenda mstari mpya */
+    overflow: hidden;  /* Ficha maandishi yanayozidi */
+    text-overflow: ellipsis;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box .location-list li img{
+    position: absolute;
+    height: 10px;
+    cursor: pointer;
+    top: 17px;
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box .location-list li span{
+    cursor: default;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-top: -14px;
+}
+
+
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box .select-container{
+    
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.select-container.for-location-country{
+    margin-left: 20px;
+    width: 280px;
+    position: relative;
+    display: block;
+    height: 60px;
+    padding: 0px; 
+    font-size: 16px; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    overflow: hidden; 
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.select-container.for-location-country i{
+   position: absolute;
+   right: 13px;
+   top: 25px;
+   display: block;
+   height: 6px;
+   width: 6px;
+   border: 2px solid #ccc; 
+   border-top: 0px solid #000;
+   border-left: 0px solid #000;
+   transform: rotate(45deg);
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.select-container.for-location-country select{
+    margin: 0px;
+    padding-top: 20px;
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    background-color: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #ccc; 
+}
+
+#add-location-btn{
+    margin: 20px;
+    margin-top: 10px;
+    border: 0px solid #000;
+    font-weight: 900;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #3E907D;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.job-categorisations{
+    /* border: 1px solid #000; */
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.job-categorisations .job-categorisation{
+   display: inline-block;
+   width: calc(50% - 10px);
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.job-categorisations 
+.job-categorisation:nth-child(2){
+   margin-left: 16px;
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box .job-categorisations 
+.job-categorisation .select-container{
+   margin-left: 0px;
+   margin-right: 0px;
+   padding-right: 0px;
+   margin-top: 15px;
+   position: relative;
+   height: 60px;
+   width: 100%;
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box .job-categorisations 
+.job-categorisation .select-container  i{
+   position: absolute;
+   right: 13px;
+   top: 25px;
+   display: block;
+   height: 6px;
+   width: 6px;
+   border: 2px solid #ccc; 
+   border-top: 0px solid #000;
+   border-left: 0px solid #000;
+   transform: rotate(45deg);
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box .job-categorisations 
+.job-categorisation .select-container select{
+   margin: 0px;
+   padding-top: 20px;
+   padding: 20px;
+   position: absolute;
+   width: 100%;
+   height: 60px;
+   background-color: transparent;
+   appearance: none;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   border: 1px solid #ccc; 
+}
+
+/*  */
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.job-categorisations .job-categorisation:last-of-type{
+   display: inline-block;
+   width: calc(100%);
+   margin-top: 20px;
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.job-categorisations .job-categorisation:last-of-type ul{
+    position: relative;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 0px;
+
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.job-categorisations 
+.job-categorisation:last-of-type ul li{
+    position: relative;
+    display: inline-block;
+    list-style: none;
+    margin-right: 5px;
+    padding-left:50px;
+    padding-right: 30px;
+    padding-top: 15px;
+    border-radius: 30px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    background-color: #00800021;
+    position: relative;
+    display: inline-block;
+    margin-right: 5px;
+    height: 30px;
+    font-size: 14px;
+    max-width: 200px;
+    border-radius: 30px;
+    overflow-x: hidden;
+    white-space: nowrap;  /* Zuia ku-wrap kwenda mstari mpya */
+    overflow: hidden;  /* Ficha maandishi yanayozidi */
+    text-overflow: ellipsis;
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.job-categorisations 
+.job-categorisation:last-of-type ul li img{
+    position: absolute;
+    left: 28px;
+    top: 18px;
+    height: 10px;
+    width: 10px;
+
+}
+
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.job-categorisations 
+.job-categorisation:last-of-type ul  li span{
+    cursor: default;
+    text-decoration: none;
+    margin-left: 0px;
+    margin-top: -10px;
+}
+
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.job-categorisations 
+.job-categorisation:last-of-type
+.job-category-select{
+    
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.job-categorisations 
+.job-categorisation:last-of-type 
+.tags-contaier{
+    position: relative;
+    width: 140px;
+    height: 50px;
+    overflow: hidden;
+}
+
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.job-categorisations 
+.job-categorisation:last-of-type
+.tags-contaier button{
+    position: absolute;
+    width: 140px;
+    height: 50px;
+    overflow: hidden;
+    background-color: #3E907D;
+    border-width: 0px;
+    border-radius: 10px;
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.job-categorisations 
+.job-categorisation:last-of-type
+.tags-contaier button img{
+    position: absolute;
+    height: 15px;
+    left: 17px;
+    top: 16px;
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.job-categorisations 
+.job-categorisation:last-of-type
+.tags-contaier button span{
+    height: 20px;
+    color: white;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.job-categorisations 
+.job-categorisation:last-of-type
+.tags-contaier select{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: transparent;
+    position: absolute;
+    width: 140px;
+    height: 50px;
+    padding: 5px;
+    border-width: 0px;
+    background-color:transparent ;
+    cursor: pointer;
+}
+
+.post-wrapper .post-content main
+.datail-box .subdetail-box 
+.job-categorisations 
+.job-categorisation:last-of-type
+.tags-contaier select:focus{
+    outline: none;
+}
+
+
+
+
+.submition-button-container{
+    position: relative;
+    display: block;
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: auto;
+    height: 55px;
+}
+
+.submition-button-container button{ 
+    position: relative;
+    display: block;
+    border-radius: 45px;
+    margin-top: 0px;
+    margin-left: 0px;
+    border-width: 0px;
+    background-color: #3E907D;
+    background: linear-gradient(to right, #3E907D, #061a1fbb);
+    width: auto;
+    height: 55px;
+    font-size: 22px;
+    color: white;
+    width: 100%;
+    height: 55px;
+}
+
+
+
+.post-wrapper .post-content main .datail-box .subdetail-box  {}
+.post-wrapper .post-content  footer{
+    background-color: #fff;
+    padding: 20px;
+    padding-top: 10px;
+    margin-top: -2px;
+    margin-bottom: -20px;
+    height: 60px;
+}
+footer p{
+    /* margin-top: 20px; */
+    color: grey;
+    font-size: 12px;
+}
+
+footer p a{
+    text-decoration: none;
+    color: #3E907D;
+    margin-left: 4px;
+}
+
+
+/* 🖥️ Large Desktop - 1200px and above */
+@media (min-width: 1200px) {
+    /* Styles for large desktop screens */
+  }
+  
+  /* 💻 Standard Desktop/Laptop - between 992px and 1199px */
+  @media (min-width: 992px) and (max-width: 1199px) {
+    /* Styles for normal laptops/desktops */
+    
+  }
+  
+  /* 📱 Tablets (landscape) - between 768px and 991px */
+  @media (min-width: 768px) and (max-width: 991px) {
+    /* Styles for tablets in landscape mode */
+  }
+  
+  /* 📲 Tablets (portrait) - between 600px and 767px 
+  (min-width: 600px) ifadhi hii
+  
+  */
+  @media (max-width: 767px) {
+    .post-wrapper .post-content main{
+        width:calc(100vw - 40px) ;
+        padding: -20px;
+    }
+    /* Styles for small tablets and large phones */
+  }
+  
+  /* 📱 Large Smartphones - between 480px and 599px */
+  @media (min-width: 480px) and (max-width: 599px) {
+    /* Styles for large smartphones */
+  }
+  
+  /* 📱 Small Smartphones - below 480px */
+  @media (max-width: 479px) {
+    /* Styles for small phones */
+  }
+  
+  /* 📺 Ultra-Wide Screens (4K monitors) - above 1600px */
+  @media (min-width: 1600px) {
+    /* Styles for ultra-wide / 4K displays */
+  }
+  

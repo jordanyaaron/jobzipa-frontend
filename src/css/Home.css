@@ -1,0 +1,128 @@
+.main-wrapper{
+    position: absolute;
+    width: 100%;
+    height: calc(100vh);
+    margin: 0px;
+    top: 0px;
+}
+
+/* Force toolbar items to align left */
+.ql-toolbar.ql-snow {
+    display: flex;
+    justify-content: flex-start !important;
+    align-items: left;
+    text-align: left;
+    padding-top: 20px;
+    /* height: 0px;
+    overflow: hidden; */
+    /* background-color: #e8e5e5; */
+    flex-wrap: wrap;
+    /* padding-left: 8px; */
+  }
+  
+  /* Ensure groups (formats) also align left */
+  .ql-toolbar.ql-snow .ql-formats {
+    display: flex;
+    background-color: #fff;
+    justify-content: flex-start !important;
+  }
+
+  /* Ondoa nafasi kubwa kushoto kwenye group la kwanza */
+.ql-toolbar.ql-snow .ql-formats:first-child {
+    margin-left: -40px !important;
+    margin-right: 20px !important;
+    padding-left: 0px !important;
+    background-color: transparent;
+  }
+  
+  /* Pia toa padding kwenye dropdown ya headings */
+  .ql-toolbar .ql-picker {
+    margin-left: 0 !important;
+  }
+  
+  /* Optional: punguza gap kati ya groups zingine */
+  .ql-toolbar.ql-snow .ql-formats {
+    margin-right: 4px !important;
+  }
+
+  /* inaanzia apa */
+
+  .main-wrapper .content-container{
+    position: absolute;
+    top: 64px;
+    height: calc(100vh - 65px);
+    display: flex;
+    overflow-y: scroll;
+    border-top: 1px solid #e6dddd88;
+  }
+
+  .main-wrapper .content-container nav{
+    width: 300px;
+    height: calc(100% - 20px);
+    padding-top: 20px;
+    border-right: 1px solid #e6dddd88;
+  }
+
+  .main-wrapper .content-container nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0%;
+  }
+
+  .main-wrapper .content-container nav ul li{
+
+    display: block;
+    margin-left: 20px;
+    margin-right: 10px;
+    height: 40px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+
+
+  .main-wrapper .content-container nav ul li .nav-link {
+    display: block;
+    position: relative;
+    text-decoration: none;
+  }
+  .main-wrapper .content-container nav ul li .nav-link  img{
+    position: absolute;
+    top: 2px;
+    height: 18px;
+  }
+
+  .main-wrapper .content-container nav ul li .nav-link{
+    display: block;
+    padding-top: px;
+  }
+
+  .main-wrapper .content-container nav ul li .nav-link span{
+    display: block;
+    margin-left: 40px;
+    margin-right: 0px;
+    margin-top: 2px;
+    font-size: 20px;
+    font-weight: 900;
+    color: black;
+  }
+
+  .main-wrapper .content-container main{
+    width: 700px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-right: 1px solid #e6dddd88;
+
+  }
+
+  .main-wrapper .content-container .ad-section{
+    height: 180px;
+    margin-left: 00px;
+    margin-top: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+    background-color: #e6dddd88;
+  }
+
+
+  
+  

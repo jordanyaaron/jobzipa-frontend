@@ -1,0 +1,160 @@
+import React from 'react';
+import { Routes , Route } from 'react-router-dom';
+
+// route
+
+import ProtectedRoute from "./ProtectedRoute";
+
+// layouts
+import MianLayout from '../layouts/MainLayout';
+import PostLayout from '../layouts/PostLayout';
+import AuthLayout from '../layouts/AuthLayout';
+import DashboardLayout from '../layouts/DashboardLayout';
+
+// elements
+import Home from '../pages/Home';
+import NotFound from '../pages/NotFound';
+import PostJob from '../pages/posting/Post';
+import Login from '../pages/auth/Login';
+import ForgotPassword from '../pages/auth/ForgotPassword';
+import StaffCompleteRegistration from '../pages/auth/StaffCompleteRegistration';
+import ResetPassword from '../pages/auth/ResetPassword';
+import ResetPasswordEmailSent from '../pages/auth/ResetPasswordEmailSent';
+import InviteStaff from '../pages/auth/InviteStaff';
+// import AdminDashboard from '../pages/dashboard/AdminDashboard';
+import StaffDashboard from '../pages/dashboard/StaffDashboard';
+
+
+// dashboards
+// super dashboard
+import OverviewsSuper from '../pages/dashboard/super/Overviews'
+import AnalyticsSuper from '../pages/dashboard/super/Analytics'
+import JobsSuper from '../pages/dashboard/super/Jobs'
+import NotificationSuper from '../pages/dashboard/super/Notifications'
+import ReportSuper from '../pages/dashboard/super/Reports'
+import RevenueAndFinace from '../pages/dashboard/super/RevenueAndFinace'
+import WinningTeam from '../pages/dashboard/super/WinningTeam'
+import SettingsSuper from '../pages/dashboard/super/Settings'
+
+const AppRoutes = ({ darkMode, setDarkMode }) => {
+    return (
+      <Routes>
+        <Route  element={<MianLayout darkMode={darkMode} setDarkMode={setDarkMode} />}>
+            <Route path="/" element={<Home />} />
+            {/* <Route path="/invite-staff" element={<InviteStaff />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/faq" element={<FaQ/>} /> */}
+        </Route>
+
+        <Route element={<AuthLayout/>}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/complete-registration" element={<StaffCompleteRegistration />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/rps-notification" element={<ResetPasswordEmailSent />} />
+            <Route path="/invite-staff" element={
+                <ProtectedRoute requireSuperuser={true}>
+                  <InviteStaff />
+                </ProtectedRoute>
+              } 
+            />
+        </Route> 
+
+        <Route element={<DashboardLayout  darkMode={darkMode} setDarkMode={setDarkMode} />}>
+            {/* super */}
+            <Route path="/super" element={
+                <ProtectedRoute requireSuperuser={true}>
+                  <OverviewsSuper />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route path="/super/jobs" element={
+                <ProtectedRoute requireSuperuser={true}>
+                  <JobsSuper />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route path="/super/notifications" element={
+                <ProtectedRoute requireSuperuser={true}>
+                  <NotificationSuper />
+                </ProtectedRoute>
+              } 
+            />
+            
+            <Route path="/super/analytics" element={
+                <ProtectedRoute requireSuperuser={true}>
+                  <AnalyticsSuper />
+                </ProtectedRoute>
+              } 
+            />
+            
+            <Route path="/super/revenue" element={
+                <ProtectedRoute requireSuperuser={true}>
+                  <RevenueAndFinace />
+                </ProtectedRoute>
+              } 
+            />
+            
+            <Route path="/super/staff" element={
+                <ProtectedRoute requireSuperuser={true}>
+                  <WinningTeam />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route path="/super/report" element={
+                <ProtectedRoute requireSuperuser={true}>
+                  <ReportSuper />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route path="/super/settings" element={
+                <ProtectedRoute requireSuperuser={true}>
+                  <SettingsSuper />
+                </ProtectedRoute>
+              } 
+            />
+            
+
+
+            <Route path="/admin" element={
+                <ProtectedRoute requireSuperuser={true}>
+                  <OverviewsSuper />
+                </ProtectedRoute>
+              } 
+            />
+            <Route path="/dashboard" element={
+                <ProtectedRoute requireStaff={true}>
+                  <StaffDashboard />
+                </ProtectedRoute>
+              } 
+            />
+        </Route> 
+
+
+        {/* <Route element={<AuthLayout/>}>
+            <Route path="/forgot-password" element={<ResetPassword />} />
+            <Route path="/rps-notification" element={
+              <ProtectedRoute requiredRole="admin">
+                <AdminDashboard />
+              </ProtectedRoute>
+            } />
+        </Route>
+        */}
+        <Route element={<PostLayout darkMode={darkMode} setDarkMode={setDarkMode} />}>
+            <Route path="/post" element={
+                <ProtectedRoute requireStuff={true}>
+                  <PostJob />
+                </ProtectedRoute>
+              } 
+            />
+        </Route> 
+        <Route path='*' element={<NotFound/>}></Route>
+      </Routes>
+    );
+  };
+  
+  export default AppRoutes;

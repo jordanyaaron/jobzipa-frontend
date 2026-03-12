@@ -1,0 +1,218 @@
+/* .quill-container {
+    height: calc(100vh - 100px); 
+    margin-right: 20px;    
+    margin-left: 20px;   
+  }
+  
+  .quill-container .ql-container {
+    height: 90%;
+  }
+  
+  .quill-container .ql-editor {
+    height: 100%;
+    overflow-y: auto;     
+  }
+  
+  .quill-container .ql-editor::-webkit-scrollbar {
+    width: 3px;   
+  }
+  
+  .quill-container .ql-editor::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .quill-container .ql-editor::-webkit-scrollbar-thumb {
+    background-color: rgba(14, 77, 185, 0.928);
+    border-radius: 10px;
+  } */
+
+
+  @reference "../index.css";
+
+  .ql-toolbar {
+    @apply flex flex-wrap items-center gap-2;
+    background-color: #ffffff; /* gray-100 light */
+    border: 0px solid #d1d5db; /* gray-300 light */
+  }
+  
+  .dark .ql-toolbar {
+    background-color: #1f2937 ; /* gray-800 dark */
+    border-color: #374151; /* gray-700 dark */
+  }
+
+  /* Kila group ya buttons */
+.ql-toolbar .ql-formats {
+  @apply flex items-center gap-1;
+}
+
+/* Ondoa margin za default za Quill */
+.ql-toolbar .ql-formats {
+  margin-right: 0 !important;
+  @apply !bg-gray-100 dark:!bg-gray-800;
+}
+
+  /* ===== BUTTONS BASE STYLE ===== */
+
+  .ql-toolbar button {
+    @apply rounded-md p-2;
+    @apply !text-gray-600 dark:!text-gray-300;
+    @apply transition-colors duration-200;
+    @apply !bg-gray-100 dark:!bg-gray-700;
+  }
+
+
+  /* ===== ICON COLOR (important sana) ===== */
+
+  .ql-toolbar button .ql-stroke {
+    stroke: #4B5563; /* gray-600 */
+  }
+
+  .dark .ql-toolbar button .ql-stroke {
+    stroke: #d1d5db91; /* gray-300 */
+  }
+
+  .ql-toolbar button .ql-fill {
+    fill: #61634b;
+  }
+
+  .dark .ql-toolbar button .ql-fill {
+    fill: #d1d5db76;
+  }
+
+
+
+
+  /* ===== HOVER STATE ===== */
+
+  .ql-toolbar button:hover {
+    @apply bg-gray-100 dark:bg-gray-700;
+  }
+
+
+  /* ===== ACTIVE STATE ===== */
+
+  .ql-toolbar button.ql-active {
+    @apply !bg-blue-100 dark:!bg-blue-900;
+  }
+
+  .ql-toolbar button.ql-active .ql-stroke {
+    stroke: #b0eb25 !important; /* blue-600 */
+  }
+
+  .dark .ql-toolbar button.ql-active .ql-stroke {
+    stroke: #60A5FA; /* blue-400 */
+  }
+
+  .ql-toolbar button.ql-active .ql-fill {
+    fill: #2563EB;
+  }
+
+  .dark .ql-toolbar button.ql-active .ql-fill {
+    fill: #60A5FA;
+  }
+
+  /* .ql-toolbar.ql-snow {
+    display: flex;
+    justify-content: flex-start !important;
+    align-items: left;
+    text-align: left;
+    padding-top: 20px;
+    flex-wrap: wrap;
+  } */
+  
+  /* Ensure groups (formats) also align left */
+  .ql-toolbar.ql-snow .ql-formats {
+    display: flex;
+    background-color: #fff;
+    justify-content: flex-start !important;
+  }
+
+  /* Ondoa nafasi kubwa kushoto kwenye group la kwanza */
+.ql-toolbar.ql-snow .ql-formats:first-child {
+    margin-left: 0px !important;
+    margin-right: 20px !important;
+    padding-left: 0px !important;
+    background-color: transparent;
+  }
+  
+  /* Pia toa padding kwenye dropdown ya headings */
+  .ql-toolbar .ql-picker {
+    margin-left: 0 !important;
+  }
+  
+  /* Optional: punguza gap kati ya groups zingine */
+  .ql-toolbar.ql-snow .ql-formats {
+    margin-right: 4px !important;
+  }
+  
+  
+
+  .ql-container.ql-snow {
+    /* Alama ya ! inakaa mbele ya class name */
+    @apply !bg-white dark:!bg-gray-800;
+    @apply !border-t-0;
+    border: 0 !important;
+    
+  }
+  
+  .ql-editor {
+    @apply !bg-white dark:!bg-gray-800;
+    @apply !border-t-0;
+    
+    @apply !border !border-gray-300 dark:!border-gray-700;
+    @apply rounded-b-md;
+    @apply !text-gray-800 dark:!text-gray-100;
+  
+  /* Focus state kama input */
+  @apply focus:outline-none focus:ring-0 focus:ring-blue-500 dark:focus:ring-blue-400;
+    border-top: 0 !important;
+    outline: none !important;
+    font-style: normal;
+    font-size: 16px;
+  }
+
+  
+   
+
+  .ql-editor.ql-blank::before {
+    color: #94a3b8; /* slate-400 */
+    font-style: normal;
+    font-size: 16px;
+    opacity: 1;
+  }
+
+  .dark .ql-editor.ql-blank::before {
+    color: #64748b; /* slate-500 */
+  }
+
+
+  /* ===== Scrollbar width ===== */
+.ql-editor::-webkit-scrollbar {
+  width: 6px;   /* unaweza kuweka 4px kama unataka nyembamba zaidi */
+}
+
+
+/* ===== Scrollbar track ===== */
+.ql-editor::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ===== Scrollbar thumb ===== */
+.ql-editor::-webkit-scrollbar-thumb {
+  background-color: #9CA3AF; /* gray-400 */
+  border-radius: 9999px;
+}
+
+/* ===== Dark mode thumb ===== */
+.dark .ql-editor::-webkit-scrollbar-thumb {
+  background-color: #4B5563; /* gray-600 */
+}
+
+/* Hover effect */
+.ql-editor::-webkit-scrollbar-thumb:hover {
+  background-color: #6B7280; /* gray-500 */
+}
+
+.dark .ql-editor::-webkit-scrollbar-thumb:hover {
+  background-color: #9CA3AF; /* gray-400 */
+}

@@ -1,0 +1,39 @@
+.device-box {
+    position: fixed;        /* floating juu ya page zote */
+    bottom: 20px;           /* mbali kidogo na chini */
+    left: 20px;             /* mbali kidogo na pembeni kushoto */
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-family: monospace;
+    font-size: 14px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+  
+  .device-box:hover {
+    transform: scale(1.1);  /* optional hover effect */
+  }
+  
+
+  .test-rest {
+    position: fixed;        /* floating juu ya page zote */
+    bottom: 20px;           /* mbali kidogo na chini */
+    right: 20px;             /* mbali kidogo na pembeni kushoto */
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-family: monospace;
+    font-size: 14px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    display: none;
+  }
+  
+  .test-rest :hover {
+    transform: scale(1.1);  /* optional hover effect */
+  }
