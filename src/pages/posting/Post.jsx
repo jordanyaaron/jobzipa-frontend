@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AdminPost from './admin';
+import AdminPost from './Admin';
 import GeustPost from './Geust';
 import TypicalPost from './Typical';
 import Posting from './Posting';
