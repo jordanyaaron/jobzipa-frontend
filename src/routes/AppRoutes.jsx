@@ -14,14 +14,16 @@ import DashboardLayout from '../layouts/DashboardLayout';
 // elements
 import Home from '../pages/Home';
 import NotFound from '../pages/NotFound';
-import PostJob from '../pages/posting/Post';
+
+import PostAJob from '../pages/posting/PostAJob';
 import Login from '../pages/auth/Login';
 import ForgotPassword from '../pages/auth/ForgotPassword';
 import StaffCompleteRegistration from '../pages/auth/StaffCompleteRegistration';
 import ResetPassword from '../pages/auth/ResetPassword';
 import ResetPasswordEmailSent from '../pages/auth/ResetPasswordEmailSent';
 import InviteStaff from '../pages/auth/InviteStaff';
-// import AdminDashboard from '../pages/dashboard/AdminDashboard';
+// import AdminDashboard from '../pages/dashboard/AdminDashboard';PostAJob
+// import PostAJob from '../pages/dashboard/AdminDashboard';
 import StaffDashboard from '../pages/dashboard/StaffDashboard';
 
 
@@ -119,7 +121,6 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
             />
             
 
-
             <Route path="/admin" element={
                 <ProtectedRoute requireSuperuser={true}>
                   <OverviewsSuper />
@@ -147,7 +148,7 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
         <Route element={<PostLayout darkMode={darkMode} setDarkMode={setDarkMode} />}>
             <Route path="/post" element={
                 <ProtectedRoute requireStuff={true}>
-                  <PostJob />
+                  <PostAJob />
                 </ProtectedRoute>
               } 
             />

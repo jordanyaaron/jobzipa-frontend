@@ -13,7 +13,7 @@ import removeLogoIcon from '../../assets/icons/removeImg.png';
 // import plusIcon from '../../assets/icons/plus.png';
 
 
-function AdminPost({ darkMode, setDarkMode }) {
+export default function PostAJob ({ darkMode, setDarkMode })  {
     const fileInputRef = useRef(null); // tunatumia ref ku-access input
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [biography, setBiography] = useState("");
@@ -267,18 +267,14 @@ function AdminPost({ darkMode, setDarkMode }) {
             handleRemoveLogo()
             bioQuill.current?.clear();
             descriptionQuill.current?.clear();
-       
           };
           
         const isQuillContentEmpty = (html) => {
             if (!html) return true;
-            
             const temp = document.createElement("div");
             temp.innerHTML = html;
-            
             // chukua maandishi halisi
             const text = temp.textContent || temp.innerText || "";
-            
             return text.trim().length === 0;
         };
           
@@ -461,18 +457,18 @@ function AdminPost({ darkMode, setDarkMode }) {
                 setLocationCountry("");
         };
 
-     //  ADD LOCATION ON SUBMIT IF ANY
-     const handleAddLocationOnSubmit  = () => {
+    //  ADD LOCATION ON SUBMIT IF ANY
+        const handleAddLocationOnSubmit  = () => {
         const region = locationRigion.trim();
         const country = locationCountry.trim();
 
 
         console.log('LOCATION IS:' + region)
       
-        // 1️⃣ Copy current locations
+    // 1️⃣ Copy current locations
         let finalLocations = [...locations];
       
-        // 2️⃣ Auto-add input location ikiwa ipo na si duplicate
+    // 2️⃣ Auto-add input location ikiwa ipo na si duplicate
         if (region) {
           const duplicate = finalLocations.some(
             (loc) =>
@@ -519,16 +515,16 @@ function AdminPost({ darkMode, setDarkMode }) {
 
     //  CHECKBOX
         const handleCheckboxChange = (e) => {
-        const checked = e.target.checked;
-        setIsMultiple(checked);
+            const checked = e.target.checked;
+            setIsMultiple(checked);
 
-        if (checked) {
-            setPositionType("text");
-            setPositionValue("multiple Positions");
-        } else {
-            setPositionType("number");
-            setPositionValue("");
-        }
+            if (checked) {
+                setPositionType("text");
+                setPositionValue("multiple Positions");
+            } else {
+                setPositionType("number");
+                setPositionValue("");
+            }
         };
 
     return(
@@ -537,7 +533,9 @@ function AdminPost({ darkMode, setDarkMode }) {
                  mt-[3px] mb-[1px] p-[30px] pt-[13px] 
                  overflow-y-auto text-left
                  w-full sm:w-full md:w-[650px] lg:w-[650px]"> */}
-                <div className="m-[0px]">
+                <div 
+                    className="m-[2px]"
+                >
                     {/* Organisation */}
                     
                     <h1 className="
@@ -1779,4 +1777,3 @@ function AdminPost({ darkMode, setDarkMode }) {
     );
 }
 
-export default AdminPost
