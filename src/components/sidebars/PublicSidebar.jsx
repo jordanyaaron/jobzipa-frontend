@@ -34,14 +34,14 @@ const PublicSidebar = ({ closeDrawer }) => {
               to={link.to}
               onClick={closeDrawer}
               className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2 rounded-lg transition
+                `flex items-center gap-3 px-3 py-2 rounded-lg transition 
                 ${isActive ? "bg-[var(--hover)] font-medium" : "hover:bg-[var(--hover)]"}`
               }
             >
 
-              <Icon className="h-5 w-5" />
+              <Icon className="h-5 w-5 text-[var(--text)]" />
 
-              <span>{link.name}</span>
+              <span className=" text-[var(--text)]">{link.name}</span>
 
             </NavLink>
           );

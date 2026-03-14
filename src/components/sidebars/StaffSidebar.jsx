@@ -51,8 +51,8 @@ const StaffSidebar = ({ closeDrawer }) => {
                 onClick={handleLogout}
                 className="flex w-full items-center gap-3 px-3 py-2 rounded-lg transition hover:bg-[var(--hover)]"
               >
-                <Icon className="h-5 w-5" />
-                <span>{link.name}</span>
+                <Icon className="h-5 w-5  text-[var(--text)]" />
+                <span className=" text-[var(--text)]">{link.name}</span>
               </button>
             );
           }
@@ -68,8 +68,8 @@ const StaffSidebar = ({ closeDrawer }) => {
                 ${isActive ? "bg-[var(--hover)] font-medium" : "hover:bg-[var(--hover)]"}`
               }
             >
-              <Icon className="h-5 w-5" />
-              <span>{link.name}</span>
+              <Icon className="h-5 w-5  text-[var(--text)]" />
+              <span className=" text-[var(--text)]">{link.name}</span>
             </NavLink>
           );
 
