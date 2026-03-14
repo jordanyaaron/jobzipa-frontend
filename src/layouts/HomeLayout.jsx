@@ -9,15 +9,13 @@ const HomeLayout = ({ darkMode, setDarkMode, user }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const toggleDrawer = () => setDrawerOpen(!drawerOpen);
-
+  const user = JSON.parse(localStorage.getItem("user") || "null");
   const isStaff =
     user?.is_staff ||
     user?.is_admin ||
     user?.is_superstaff ||
     user?.is_superuser;
 
-    console.log("USER:", user);
-    console.log("is_staff:", user?.is_staff);
 
   return (
     <div className="flex min-h-screen bg-[var(--main-bg)]">
