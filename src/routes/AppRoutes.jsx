@@ -7,6 +7,7 @@ import ProtectedRoute from "./ProtectedRoute";
 
 // layouts
 import MianLayout from '../layouts/MainLayout';
+import HomeLayout from '../layouts/HomeLayout';
 import PostLayout from '../layouts/PostLayout';
 import AuthLayout from '../layouts/AuthLayout';
 import DashboardLayout from '../layouts/DashboardLayout';
@@ -41,7 +42,7 @@ import SettingsSuper from '../pages/dashboard/super/Settings'
 const AppRoutes = ({ darkMode, setDarkMode }) => {
     return (
       <Routes>
-        <Route  element={<MianLayout darkMode={darkMode} setDarkMode={setDarkMode} />}>
+        <Route  element={<HomeLayout darkMode={darkMode} setDarkMode={setDarkMode} />}>
             <Route path="/" element={<Home />} />
             {/* <Route path="/invite-staff" element={<InviteStaff />} />
             <Route path="/contact" element={<ContactUs />} />
