@@ -49,7 +49,11 @@ const StaffSidebar = ({ closeDrawer }) => {
               <button
                 key={link.name}
                 onClick={handleLogout}
-                className="flex w-full items-center gap-3 px-3 py-2 rounded-lg transition hover:bg-[var(--hover)]"
+                className="
+                  flex w-full items-center 
+                  gap-3 px-3 py-2 rounded-lg 
+                  transition hover:bg-[var(--hover)]
+                "
               >
                 <Icon className="h-5 w-5  text-[var(--text)]" />
                 <span className=" text-[var(--text)]">{link.name}</span>

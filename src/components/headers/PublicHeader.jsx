@@ -34,7 +34,7 @@ const PublicHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
             onClick={toggleDrawer}
             className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]"
           >
-            <Bars3Icon className="h-6 w-6" />
+            <Bars3Icon className="h-6 w-6  text-[var(--text)]" />
           </button>
 
           <Link to="/" className="flex items-center">
