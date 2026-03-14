@@ -5,7 +5,7 @@ import StaffSidebar from "../components/sidebars/StaffSidebar";
 import PublicHeader from "../components/headers/PublicHeader";
 import StaffHeader from "../components/headers/StaffHeader";
 
-const HomeLayout = ({ darkMode, setDarkMode, user }) => {
+const HomeLayout = ({ darkMode, setDarkMode}) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const toggleDrawer = () => setDrawerOpen(!drawerOpen);
