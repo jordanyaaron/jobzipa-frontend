@@ -35,7 +35,7 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
         <div className="flex items-center gap-3">
           <button
             onClick={toggleDrawer}
-            className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]"
+            className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
           >
             <Bars3Icon className="h-6 w-6" />
           </button>
