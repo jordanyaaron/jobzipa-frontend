@@ -30,12 +30,10 @@ const AdminLogin = () => {
     try {
       const response = await api.post("auth/login/", formData, { skipAuth: true });
       const { access, refresh, user } = response.data;
-      console.log(response.data)
       // Store tokens
       localStorage.setItem("access", response.data.access);
       localStorage.setItem("refresh", response.data.refresh);
       localStorage.setItem("user", JSON.stringify(response.data.user));
-      console.log(JSON.stringify(user))
       // Redirect based on role
       if (response.data.user.is_superuser) {
         navigate("/super" , { replace : true } );
@@ -44,8 +42,8 @@ const AdminLogin = () => {
       } else {
         navigate("/" , { replace : true } );
       }
-    } catch (err) {
-      console.log(err)
+    // } catch (err) {
+    //   console.log(err)
       setError(JSON.stringify(err.response?.data));
     }finally {
       setLoading(false);
