@@ -9,7 +9,7 @@ import {
   PlusIcon
 } from "@heroicons/react/24/outline";
 
-import JobzipaLogo from "../assets/logos/jobzipa.png";
+import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
 const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
   const [search, setSearch] = useState("");

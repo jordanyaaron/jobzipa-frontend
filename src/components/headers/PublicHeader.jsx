@@ -8,7 +8,7 @@ import {
   Bars3Icon
 } from "@heroicons/react/24/outline";
 
-import JobzipaLogo from "../assets/logos/jobzipa.png";
+import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
 const PublicHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
   const [search, setSearch] = useState("");
