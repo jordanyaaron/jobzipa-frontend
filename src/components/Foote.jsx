@@ -8,7 +8,7 @@ function Footer() {
     return(
         <>
             <footer className="
-                bg-white dark:bg-gray-800
+                bg-[var(--main-bg)]
                 p-5 pt-[30px]
                 -mt-[2px]
                 -mb-5
