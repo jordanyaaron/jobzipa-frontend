@@ -54,6 +54,7 @@
     --text: #111111;
     --border: #e5e5e5;
     --sidebar-bg: #fafafa;
+    --header-bg:#ffffffe0;
     --main-bg: #fafafa;
     --hover: #f3f3f3;
   }
@@ -64,6 +65,7 @@
     --border: #1e293b;
     --sidebar-bg: #020817;
     --main-bg: #020817;
+    --header-bg: #154fe0;
     --card-primary: #5a627424;
     --primary: #5a627424;
     --hover: #1e293b;

@@ -26,7 +26,7 @@ const PublicHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
   }, [windowWidth, mobileSearchOpen]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-40 border-b bg-[var(--border)] bg-[var(--background)]">
+    <header className="fixed top-0 left-0 w-full z-40 border-b bg-[var(--border)]  bg-[var(--header-bg)]">
       <div className="flex items-center justify-between px-4 md:px-6 h-16">
         {/* Left */}
         <div className="flex items-center gap-3">
