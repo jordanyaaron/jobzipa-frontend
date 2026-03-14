@@ -28,8 +28,7 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
 
   return (
     <header
-      className="fixed top-0 left-0 w-full z-40 border-b"
-      style={{ background: "var(--background)", borderColor: "var(--border)" }}
+      className="fixed top-0 left-0 w-full z-40 border-b  bg-[var(--border)] bg-[var(--background)"
     >
       <div className="flex items-center justify-between px-4 md:px-6 h-16">
         {/* Left */}
