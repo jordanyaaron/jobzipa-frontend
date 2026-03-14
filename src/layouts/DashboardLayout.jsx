@@ -15,51 +15,7 @@ import SuperSideBar from "../components/SuperSidebar";
 import "../css/DeviceSize.css"; // CSS file
 import Footer from "../components/Foote";
 
-// const DashboardLayout = ({ darkMode, setDarkMode }) => (
-//     <div className="min-h-screen  bg-gray-100 dark:bg-gray-900 transition-colors  transition-colors duration-300">
 
-//     <header className="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 z-50">
-//       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-6 h-16">
-        
-//         <div className="flex items-center">
-//           <img src={JobzipaLogo} alt="Logo" className="h-14 md:h-16" />
-//         </div>
-
-//         <button
-//           onClick={() => setDarkMode(!darkMode)}
-//           className="p-2 rounded-lg text-gray-800 dark:text-gray-200 hover:text-green-500 transition"
-//         >
-//           {darkMode ? (
-//             <SunIcon className="h-6 w-6 text-yellow-400" />
-//           ) : (
-//             <MoonIcon className="h-6 w-6 text-gray-900 dark:text-gray-100" />
-//           )}
-//         </button>
-
-//       </div>
-//     </header>
-
-//     <div className="flex-1 pt-[64px] overflow-y-auto  scrollbar-none">
-//          <div className="flex flex-1 pt-16 md:pt-0">
-
-//             <SideBar />
-
-//             <main className="flex-1 p-6 border-l bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-800 p-4" >
-//                 <Outlet />
-//             </main>
-
-//         </div>
-
-//       <DeviceSize />
-
-      
-      
-//     </div>
-    
-//   </div>
-// )
-
-  // export default DashboardLayout;
 
 
 export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
