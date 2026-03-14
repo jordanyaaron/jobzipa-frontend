@@ -16,6 +16,9 @@ const HomeLayout = ({ darkMode, setDarkMode, user }) => {
     user?.is_superstaff ||
     user?.is_superuser;
 
+    console.log("USER:", user);
+    console.log("is_staff:", user?.is_staff);
+
   return (
     <div className="flex min-h-screen bg-[var(--main-bg)]">
 
