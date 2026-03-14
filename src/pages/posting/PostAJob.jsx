@@ -228,13 +228,23 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
 
             setIsLoading(true)
             
+            const token = localStorage.getItem("access")
+                
             console.log({
                 job_mode: mode,
                 application_link: applicationLink,
-              });
+            });
         
             try {
-                await api.post("jobs/create/", formData);
+                await api.post(
+                    "jobs/create/" , 
+                    formData ,
+                    {
+                        headers: {
+                          Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
                 setIsLoading(false)
                 toast.success("Job posted successfully!");
                 resetJobForm()
