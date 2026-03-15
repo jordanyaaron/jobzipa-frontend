@@ -11,7 +11,7 @@ const GenaralSettings = () => {
         </nav> */}
         <main 
             className="
-                min-h-[calc(100vh-160px)]
+                min-h-[calc(100vh-100px)]
             "
         >
          <h1>

@@ -11,7 +11,7 @@ const FaQ = () => {
         </nav> */}
         <main 
             className="
-                min-h-[calc(100% - 60px)]
+                min-h-[calc(100vh-100px)]
             "
         >
          <h1>
