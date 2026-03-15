@@ -38,15 +38,13 @@ const StaffSidebar = ({ closeDrawer }) => {
 
   return (
     <aside className="h-full p-4">
-      <div className="h-16 flex  border-b border-[var(--border)]">
+      <div className="h-9 flex items-center border-b border-[var(--border)]">
         <XMarkIcon className="h-6 w-6 text-[var(--text)]" />
-        <img 
-            src={JobzipaLogo} 
-            className="
-                ml-[10px]
-                h-9
-            "
-            alt="" srcset=""
+
+        <img
+          src={JobzipaLogo}
+          className="ml-[10px] h-9"
+          alt="Jobzipa logo"
         />
       </div>
       <nav className="space-y-2">
