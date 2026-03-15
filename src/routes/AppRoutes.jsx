@@ -14,6 +14,9 @@ import DashboardLayout from '../layouts/DashboardLayout';
 
 // elements
 import Home from '../pages/Home';
+import GenaralBookmark from '../pages/Bookmacked';
+import GenealNotifications from '../pages/Notifacations';
+import GenaralSettings from '../pages/GeneralSettings';
 import NotFound from '../pages/NotFound';
 
 import PostAJob from '../pages/posting/PostAJob';
@@ -44,6 +47,9 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
       <Routes>
         <Route  element={<HomeLayout darkMode={darkMode} setDarkMode={setDarkMode} />}>
             <Route path="/" element={<Home />} />
+            <Route path="/bookmark" element={<GenaralBookmark />} />
+            <Route path="/notifications" element={<GenealNotifications />} />
+            <Route path="settings" element={<GenaralSettings />} />
             {/* <Route path="/invite-staff" element={<InviteStaff />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/faq" element={<FaQ/>} /> */}

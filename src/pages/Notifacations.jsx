@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Nav';
 import Footer from '../components/Foote';
 
-const Home = () => {
+const GenealNotifications = () => {
   return <>
     <div className="content-container">
         {/* <nav>
             <Navbar/>
         </nav> */}
-        <main
-          className="
-            min-h-[calc(100% - 60px)]
-          "
+        <main 
+            className="
+                min-h-[calc(100% - 60px)]
+            "
         >
          <h1>
-            Jobs
+            Notifications
          </h1>
         </main>
         <aside>
@@ -27,4 +27,4 @@ const Home = () => {
   </>
 };
 
-export default Home;
+export default GenealNotifications;
