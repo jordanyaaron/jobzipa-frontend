@@ -12,7 +12,7 @@ import {
 } from "@heroicons/react/24/outline";
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
-const StaffSidebar = ({ closeDrawer }) => {
+const StaffSidebar = ({ toggleDrawer }) => {
 
   const navigate = useNavigate();
 
