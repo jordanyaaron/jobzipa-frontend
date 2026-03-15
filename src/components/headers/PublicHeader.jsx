@@ -51,8 +51,8 @@ const PublicHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
               placeholder="Search jobs..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 rounded-lg border focus:outline-none"
-              style={{ background: "var(--main-bg)", borderColor: "var(--border)" }}
+              className="w-full pl-10 pr-4 py-2 rounded-lg border border-[var(--border)] focus:outline-none text-[var(--text)] placeholder:text-[var(--placeholder)]"
+              
             />
           </div>
         </div>

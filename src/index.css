@@ -57,7 +57,10 @@
     --header-bg:#ffffffe0;
     --main-bg: #fafafa;
     --hover: #f3f3f3;
+    --placeholder: #6b7280;
   }
+
+
   
   .dark {
     --background: #0f172a;
@@ -69,4 +72,5 @@
     --card-primary: #5a627424;
     --primary: #5a627424;
     --hover: #1e293b;
+    --placeholder: #94a3b8;
   }

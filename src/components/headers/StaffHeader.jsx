@@ -37,7 +37,7 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
             onClick={toggleDrawer}
             className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
           >
-            <Bars3Icon className="h-6 w-6" />
+            <Bars3Icon className="h-6 w-6   text-[var(--text)]" />
           </button>
 
           <Link to="/" className="flex items-center">
@@ -54,8 +54,13 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
               placeholder="Search jobs..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 rounded-lg border focus:outline-none"
-              style={{ background: "var(--main-bg)", borderColor: "var(--border)" }}
+              className="
+                    w-full pl-10 pr-4 py-2
+                    text-[var(--text)]
+                    rounded-lg border focus:outline-none 
+                    bg-[var(--main-bg)] border-[var(--border)] 
+                    placeholder:text-[var(--placeholder)]
+                "
             />
           </div>
         </div>
@@ -67,7 +72,7 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
             onClick={() => setMobileSearchOpen(true)}
             className="md:hidden p-2 rounded-lg hover:bg-[var(--hover)]"
           >
-            <MagnifyingGlassIcon className="h-6 w-6" />
+            <MagnifyingGlassIcon className="h-6 w-6 text-[var(--text)]" />
           </button>
 
           {/* Post Button with Plus Icon */}
@@ -75,7 +80,7 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
             to="/post"
             className="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
           >
-            <PlusIcon className="h-5 w-5" />
+            <PlusIcon className="h-5 w-5 text-[var(--text)]" />
             Post
           </Link>
 
@@ -87,7 +92,7 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
             {darkMode ? (
               <SunIcon className="h-6 w-6 text-yellow-400" />
             ) : (
-              <MoonIcon className="h-6 w-6" />
+              <MoonIcon className="h-6 w-6 text-[var(--text)]" />
             )}
           </button>
         </div>
