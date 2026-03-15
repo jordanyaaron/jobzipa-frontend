@@ -42,7 +42,7 @@ const HomeLayout = ({ darkMode, setDarkMode}) => {
         }`}
       >
         {isStaff ? (
-          <StaffSidebar />
+          <StaffSidebar  toggleDrawer={toggleDrawer} />
         ) : (
           <PublicSidebar toggleDrawer={toggleDrawer} />
         )}
