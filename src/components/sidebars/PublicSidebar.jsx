@@ -62,7 +62,7 @@ const PublicSidebar = ({ toggleDrawer }) => {
               replace={link.replace}
               onClick={toggleDrawer}
               className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2 rounded-lg transition
+                `flex w-full items-center gap-3 px-3 py-2 rounded-lg transition
                 ${
                   isActive
                     ? "bg-[var(--hover)] font-medium"
