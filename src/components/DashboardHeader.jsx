@@ -18,7 +18,7 @@ export default function DashboardHeader({ setSidebarOpen }) {
                 src={JobzipaLogo} 
                 className="
                     mt-[3px]
-                    h-14
+                    h-9
                 "
                 alt="" srcset=""
              />
