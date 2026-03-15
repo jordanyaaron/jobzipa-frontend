@@ -15,7 +15,7 @@ const GenaralSettings = () => {
             "
         >
          <h1>
-            Se
+            Frequent Asked Questions
          </h1>
         </main>
         <aside>
@@ -27,4 +27,4 @@ const GenaralSettings = () => {
   </>
 };
 
-export default GenaralSettings;
+export default Faq;

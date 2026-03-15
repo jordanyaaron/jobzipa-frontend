@@ -7,6 +7,7 @@ import {
   Cog6ToothIcon,
   QuestionMarkCircleIcon ,
   XMarkIcon ,
+  HomeIcon ,
   UserCircleIcon ,
   ArrowRightStartOnRectangleIcon,
   ArrowLeftStartOnRectangleIcon,
@@ -18,7 +19,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
 const PublicSidebar = ({ toggleDrawer }) => {
 
   const navLinks = [
-    { name: "Jobs", icon: BriefcaseIcon, to: "/jobs" },
+    { name: "Home", icon: HomeIcon, to: "/" },
     { name: "Notifications", icon: BellIcon, to: "/notifications" },
     { name: "Bookmarked", icon: BookmarkIcon, to: "/bookmarked" },
     { name: "Login", icon: UserCircleIcon, to: "/login" },
