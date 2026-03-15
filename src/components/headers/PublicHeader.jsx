@@ -79,7 +79,14 @@ const PublicHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
 
       {/* Mobile Search Overlay */}
       {mobileSearchOpen && (
-        <div className="absolute top-0 left-0 w-full h-16 flex items-center px-4" style={{ background: "var(--background)" }}>
+        <div 
+            className="
+                absolute top-0 
+                bg-[var(--main)]
+                left-0 w-full h-16 
+                flex items-center px-4
+            " 
+        >
           <button
             onClick={() => setMobileSearchOpen(false)}
             className="mr-4 p-2 rounded-lg hover:bg-[var(--hover)]"

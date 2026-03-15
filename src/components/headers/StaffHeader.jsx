@@ -100,7 +100,12 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
 
       {/* Mobile Search Overlay */}
       {mobileSearchOpen && (
-        <div className="absolute top-0 left-0 w-full h-16 flex items-center px-4 "  >
+        <div 
+            className="
+                absolute top-0 left-0 w-full h-16 
+                flex items-center px-4 bg-[var(--main)]
+            "  
+        >
           <button
             onClick={() => setMobileSearchOpen(false)}
             className="mr-4 p-2 rounded-lg hover:bg-[var(--hover)]"

@@ -21,7 +21,7 @@ const HomeLayout = ({ darkMode, setDarkMode}) => {
     <div className="flex min-h-screen bg-[var(--main-bg)]">
 
       {/* Desktop Sidebar */}
-      <aside className="hidden lg:pt-[65px] lg:flex shrink-0 w-64 border-r border-[var(--border)] bg-[var(--sidebar-bg)]">
+      <aside className="hidden lg:flex shrink-0 w-64 border-r border-[var(--border)] bg-[var(--sidebar-bg)]">
         {isStaff ? <StaffSidebar /> : <PublicSidebar />}
       </aside>
 

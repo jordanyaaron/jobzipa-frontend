@@ -72,15 +72,15 @@ export default function SuperSideBar({ sidebarOpen, setSidebarOpen }) {
   
           {/* Top Section (Logo) */}
           <div className="h-16 flex  border-b border-[var(--border)]">
-          <img 
-                src={JobzipaLogo} 
-                className="
-                    mt-[4px]
-                    ml-[25px]
-                    h-12
-                "
-                alt="" srcset=""
-             />
+            <img 
+                  src={JobzipaLogo} 
+                  className="
+                      mt-[4px]
+                      ml-[25px]
+                      h-12
+                  "
+                  alt="" srcset=""
+              />
           </div>
   
           {/* Navigation */}

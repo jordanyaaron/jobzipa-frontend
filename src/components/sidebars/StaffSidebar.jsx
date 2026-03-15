@@ -7,8 +7,10 @@ import {
   BookmarkIcon,
   Cog6ToothIcon,
   QuestionMarkCircleIcon,
-  PowerIcon
+  PowerIcon ,
+  XMarkIcon
 } from "@heroicons/react/24/outline";
+import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
 const StaffSidebar = ({ closeDrawer }) => {
 
@@ -36,7 +38,18 @@ const StaffSidebar = ({ closeDrawer }) => {
 
   return (
     <aside className="h-full p-4">
-
+      <div className="h-16 flex  border-b border-[var(--border)]">
+        <XMarkIcon className="h-6 w-6 text-[var(--text)]" />
+        <img 
+            src={JobzipaLogo} 
+            className="
+                mt-[4px]
+                ml-[25px]
+                h-9
+            "
+            alt="" srcset=""
+        />
+      </div>
       <nav className="space-y-2">
 
         {navLinks.map((link) => {
