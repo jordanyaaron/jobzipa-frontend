@@ -38,8 +38,13 @@ const StaffSidebar = ({ closeDrawer }) => {
 
   return (
     <aside className="h-full p-4">
-      <div className="h-9 flex items-center border-b border-[var(--border)]">
-        <XMarkIcon className="h-6 w-6 text-[var(--text)]" />
+      <div className="h-9 flex items-center pb-[10px] border-b border-[var(--border)]">
+        <XMarkIcon 
+            className="
+              h-6 w-6 bg-[var(--hover)]  text-[var(--text)]
+            " 
+            onClick={closeDrawer}
+        />
 
         <img
           src={JobzipaLogo}
