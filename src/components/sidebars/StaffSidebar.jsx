@@ -43,8 +43,7 @@ const StaffSidebar = ({ closeDrawer }) => {
         <img 
             src={JobzipaLogo} 
             className="
-                mt-[4px]
-                ml-[25px]
+                ml-[10px]
                 h-9
             "
             alt="" srcset=""

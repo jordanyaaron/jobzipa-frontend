@@ -30,7 +30,11 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
     <header
       className="fixed top-0 left-0 w-full z-40 border-b  border-[var(--border)] bg-[var(--header-bg)]"
     >
-      <div className="flex items-center justify-between px-4 md:px-6 h-16">
+      <div 
+            className={`flex items-center justify-between px-4 md:px-6 h-16 transition-all duration-200 ${
+                mobileSearchOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
+      >
         {/* Left */}
         <div className="flex items-center gap-3">
           <button
@@ -100,35 +104,43 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
 
       {/* Mobile Search Overlay */}
       {mobileSearchOpen && (
-        <div 
+        <div
             className="
-                absolute top-0 left-0 w-full h-16 
-                flex items-center px-4 bg-[var(--main)]
-            "  
-        >
-          <button
-            onClick={() => setMobileSearchOpen(false)}
-            className="mr-4 p-2 rounded-lg hover:bg-[var(--hover)]"
-          >
-            <ArrowLeftIcon className="h-6 w-6 text-[var(--text)]" />
-          </button>
-
-          <input
-            type="text"
-            placeholder="Search jobs..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="
-                flex-1 px-4 py-2 rounded-lg 
-                text-[var(--text)] 
-                bg-[var(--main-bg)]
-                border border-[var(--border)] 
-                focus:outline-none 
+            fixed top-0 left-0 w-full h-16
+            z-50
+            flex items-center px-4
+            bg-[var(--header-bg)]
+            border-b border-[var(--border)]
+            transition-all duration-300
             "
-            autoFocus
-          />
-        </div>
-      )}
+        >
+            {/* Close button */}
+            <button
+            onClick={() => setMobileSearchOpen(false)}
+                className="mr-3 p-2 rounded-lg hover:bg-[var(--hover)]"
+            >
+            <ArrowLeftIcon className="h-6 w-6 text-[var(--text)]" />
+            </button>
+
+            {/* Search input */}
+            <input
+                type="text"
+                placeholder="Search jobs..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="
+                    flex-1 px-4 py-2
+                    rounded-lg
+                    border border-[var(--border)]
+                    bg-[var(--main-bg)]
+                    text-[var(--text)]
+                    placeholder:text-[var(--placeholder)]
+                    focus:outline-none
+                "
+                autoFocus
+            />
+            </div>
+        )}
     </header>
   );
 };
