@@ -8,7 +8,10 @@ import {
   Cog6ToothIcon,
   QuestionMarkCircleIcon,
   PowerIcon ,
-  XMarkIcon
+  XMarkIcon ,
+  Squares2X2Icon,
+  ArrowRightStartOnRectangleIcon,
+  ArrowLeftStartOnRectangleIcon,
 } from "@heroicons/react/24/outline";
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
@@ -17,13 +20,13 @@ const StaffSidebar = ({ toggleDrawer }) => {
   const navigate = useNavigate();
 
   const navLinks = [
-    { name: "Jobs", icon: BriefcaseIcon, to: "/jobs" },
-    { name: "Dashboard", icon: HomeIcon, to: "/super" },
+    { name: "Home", icon: HomeIcon, to: "/" },
+    { name: "Dashboard", icon: Squares2X2Icon, to: "/super" },
     { name: "Notifications", icon: BellIcon, to: "/notifications" },
     { name: "Bookmarked", icon: BookmarkIcon, to: "/bookmarked" },
     { name: "Settings", icon: Cog6ToothIcon, to: "/settings" },
     { name: "FAQ", icon: QuestionMarkCircleIcon, to: "/faq" },
-    { name: "Logout", icon: PowerIcon, action: "logout" },
+    { name: "Logout", icon: ArrowLeftStartOnRectangleIcon, action: "logout" },
   ];
 
   const handleLogout = () => {
@@ -56,7 +59,7 @@ const StaffSidebar = ({ toggleDrawer }) => {
           alt="Jobzipa logo"
         />
       </div>
-      <nav className="space-y-2">
+      <nav className="space-y-2  pt-2">
 
         {navLinks.map((link) => {
 

@@ -6,7 +6,11 @@ import {
   BookmarkIcon,
   Cog6ToothIcon,
   QuestionMarkCircleIcon ,
-  XMarkIcon
+  XMarkIcon ,
+  UserCircleIcon ,
+  ArrowRightStartOnRectangleIcon,
+  ArrowLeftStartOnRectangleIcon,
+
 } from "@heroicons/react/24/outline";
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
@@ -17,7 +21,7 @@ const PublicSidebar = ({ toggleDrawer }) => {
     { name: "Jobs", icon: BriefcaseIcon, to: "/jobs" },
     { name: "Notifications", icon: BellIcon, to: "/notifications" },
     { name: "Bookmarked", icon: BookmarkIcon, to: "/bookmarked" },
-    { name: "Login", icon: BookmarkIcon, to: "/login" },
+    { name: "Login", icon: UserCircleIcon, to: "/login" },
     { name: "Settings", icon: Cog6ToothIcon, to: "/settings" },
     { name: "FAQ", icon: QuestionMarkCircleIcon, to: "/faq" },
   ];
@@ -44,7 +48,7 @@ const PublicSidebar = ({ toggleDrawer }) => {
         />
       </div>
 
-      <nav className="space-y-2">
+      <nav className="space-y-2 pt-2">
 
         {navLinks.map((link) => {
 
