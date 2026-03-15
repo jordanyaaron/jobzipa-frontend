@@ -31,7 +31,7 @@ const StaffSidebar = ({ closeDrawer }) => {
     localStorage.removeItem("refresh");
     localStorage.removeItem("user");
 
-    closeDrawer?.();
+    toggleDrawer();
 
     navigate("/");
   };
@@ -40,7 +40,7 @@ const StaffSidebar = ({ closeDrawer }) => {
     <aside className="h-full p-4">
       <div className="h-12 pl-2 flex items-center pb-[10px] border-b border-[var(--border)]">
         <button
-          onClick={closeDrawer}
+          onClick={toggleDrawer}
               className="p-2 rounded-lg bg-[var(--hover)]  hover:bg-[var(--hover)]"
           >
           <XMarkIcon 
@@ -85,7 +85,7 @@ const StaffSidebar = ({ closeDrawer }) => {
             <NavLink
               key={link.name}
               to={link.to}
-              onClick={closeDrawer}
+              onClick={toggleDrawer}
               className={({ isActive }) =>
                 `flex items-center gap-3 px-3 py-2 rounded-lg transition
                 ${isActive ? "bg-[var(--hover)] font-medium" : "hover:bg-[var(--hover)]"}`
