@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Nav';
 import Footer from '../components/Foote';
 
-const GenaralSettings = () => {
+const FaQ = () => {
   return <>
     <div className="content-container">
         {/* <nav>
@@ -27,4 +27,4 @@ const GenaralSettings = () => {
   </>
 };
 
-export default Faq;
+export default FaQ;

@@ -17,7 +17,7 @@ import Home from '../pages/Home';
 import GenaralBookmark from '../pages/Bookmacked';
 import GenealNotifications from '../pages/Notifacations';
 import GenaralSettings from '../pages/GeneralSettings';
-import Faq from '../pages/Faq';
+import FaQ from '../pages/Faq';
 import NotFound from '../pages/NotFound';
 
 import PostAJob from '../pages/posting/PostAJob';
@@ -49,7 +49,7 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
         <Route  element={<HomeLayout darkMode={darkMode} setDarkMode={setDarkMode} />}>
             <Route path="/" element={<Home />} />
             <Route path="/bookmarked" element={<GenaralBookmark />} />
-            <Route path="/faq" element={<Faq />} />
+            <Route path="/faq" element={<FaQ />} />
             <Route path="/notifications" element={<GenealNotifications />} />
             <Route path="/settings" element={<GenaralSettings />} />
             {/* <Route path="/invite-staff" element={<InviteStaff />} />
