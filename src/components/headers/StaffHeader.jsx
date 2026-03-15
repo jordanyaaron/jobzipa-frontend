@@ -80,7 +80,7 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
             to="/post"
             className="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
           >
-            <PlusIcon className="h-5 w-5 text-[var(--text)]" />
+            <PlusIcon className="h-5 w-5 text-white" />
             Post
           </Link>
 
@@ -100,12 +100,12 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
 
       {/* Mobile Search Overlay */}
       {mobileSearchOpen && (
-        <div className="absolute top-0 left-0 w-full h-16 flex items-center px-4" style={{ background: "var(--background)" }}>
+        <div className="absolute top-0 left-0 w-full h-16 flex items-center px-4 "  >
           <button
             onClick={() => setMobileSearchOpen(false)}
             className="mr-4 p-2 rounded-lg hover:bg-[var(--hover)]"
           >
-            <ArrowLeftIcon className="h-6 w-6" />
+            <ArrowLeftIcon className="h-6 w-6 text-[var(--text)]" />
           </button>
 
           <input
@@ -113,8 +113,13 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
             placeholder="Search jobs..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="flex-1 px-4 py-2 rounded-lg border focus:outline-none"
-            style={{ background: "var(--main-bg)", borderColor: "var(--border)" }}
+            className="
+                flex-1 px-4 py-2 rounded-lg 
+                text-[var(--text)] 
+                bg-[var(--main-bg)]
+                border border-[var(--border)] 
+                focus:outline-none 
+            "
             autoFocus
           />
         </div>

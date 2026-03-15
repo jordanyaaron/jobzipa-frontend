@@ -84,7 +84,7 @@ const PublicHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
             onClick={() => setMobileSearchOpen(false)}
             className="mr-4 p-2 rounded-lg hover:bg-[var(--hover)]"
           >
-            <ArrowLeftIcon className="h-6 w-6" />
+            <ArrowLeftIcon className="h-6 w-6 text-[var(--text)] " />
           </button>
 
           <input
@@ -92,8 +92,12 @@ const PublicHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
             placeholder="Search jobs..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="flex-1 px-4 py-2 rounded-lg border focus:outline-none"
-            style={{ background: "var(--main-bg)", borderColor: "var(--border)" }}
+            className="
+                flex-1 px-4 py-2 
+                rounded-lg border border-[var(--border)] focus:outline-none
+                text-[var(--text)] 
+                bg-[var(--main-bg)]
+            "
             autoFocus
           />
         </div>
