@@ -20,12 +20,12 @@ const StaffSidebar = ({ toggleDrawer }) => {
   const navigate = useNavigate();
 
   const navLinks = [
-    { name: "Home", icon: HomeIcon, to: "/" },
-    { name: "Dashboard", icon: Squares2X2Icon, to: "/super" },
-    { name: "Notifications", icon: BellIcon, to: "/notifications" },
-    { name: "Bookmarked", icon: BookmarkIcon, to: "/bookmarked" },
-    { name: "Settings", icon: Cog6ToothIcon, to: "/settings" },
-    { name: "FAQ", icon: QuestionMarkCircleIcon, to: "/faq" },
+    { name: "Home", icon: HomeIcon, to: "/", replace: true },
+    { name: "Dashboard", icon: Squares2X2Icon, to: "/super", replace: false },
+    { name: "Notifications", icon: BellIcon, to: "/notifications", replace: true },
+    { name: "Bookmarked", icon: BookmarkIcon, to: "/bookmarked", replace: true },
+    { name: "Settings", icon: Cog6ToothIcon, to: "/settings", replace: true },
+    { name: "FAQ", icon: QuestionMarkCircleIcon, to: "/faq", replace: true },
     { name: "Logout", icon: ArrowLeftStartOnRectangleIcon, action: "logout" },
   ];
 
@@ -33,9 +33,6 @@ const StaffSidebar = ({ toggleDrawer }) => {
     localStorage.removeItem("access");
     localStorage.removeItem("refresh");
     localStorage.removeItem("user");
-
-    toggleDrawer();
-
     navigate("/");
   };
 
@@ -70,7 +67,12 @@ const StaffSidebar = ({ toggleDrawer }) => {
             return (
               <button
                 key={link.name}
-                onClick={handleLogout}
+                onClick={
+                  ()=>{
+                    toggleDrawer();
+                    handleLogout();
+                  }
+                }
                 className="
                   flex w-full items-center 
                   gap-3 px-3 py-2 rounded-lg 
@@ -88,14 +90,19 @@ const StaffSidebar = ({ toggleDrawer }) => {
             <NavLink
               key={link.name}
               to={link.to}
+              replace={link.replace}
               onClick={toggleDrawer}
               className={({ isActive }) =>
                 `flex items-center gap-3 px-3 py-2 rounded-lg transition
-                ${isActive ? "bg-[var(--hover)] font-medium" : "hover:bg-[var(--hover)]"}`
+                ${
+                  isActive
+                    ? "bg-[var(--hover)] font-medium"
+                    : "hover:bg-[var(--hover)]"
+                }`
               }
             >
-              <Icon className="h-5 w-5  text-[var(--text)]" />
-              <span className=" text-[var(--text)]">{link.name}</span>
+              <Icon className="h-5 w-5 text-[var(--text)]" />
+              <span className="text-[var(--text)]">{link.name}</span>
             </NavLink>
           );
 

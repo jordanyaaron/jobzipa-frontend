@@ -5,7 +5,7 @@ import Footer from '../components/Foote';
 
 const FaQ = () => {
   return <>
-    <div className="content-container">
+    <div className="h-full">
         {/* <nav>
             <Navbar/>
         </nav> */}

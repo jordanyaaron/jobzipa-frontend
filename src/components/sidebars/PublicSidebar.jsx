@@ -19,12 +19,12 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
 const PublicSidebar = ({ toggleDrawer }) => {
 
   const navLinks = [
-    { name: "Home", icon: HomeIcon, to: "/" },
-    { name: "Notifications", icon: BellIcon, to: "/notifications" },
-    { name: "Bookmarked", icon: BookmarkIcon, to: "/bookmarked" },
-    { name: "Login", icon: UserCircleIcon, to: "/login" },
-    { name: "Settings", icon: Cog6ToothIcon, to: "/settings" },
-    { name: "FAQ", icon: QuestionMarkCircleIcon, to: "/faq" },
+    { name: "Home", icon: HomeIcon, to: "/", replace: true },
+    { name: "Notifications", icon: BellIcon, to: "/notifications", replace: true },
+    { name: "Bookmarked", icon: BookmarkIcon, to: "/bookmarked", replace: true },
+    { name: "Login", icon: UserCircleIcon, to: "/login", replace: false },
+    { name: "Settings", icon: Cog6ToothIcon, to: "/settings", replace: true },
+    { name: "FAQ", icon: QuestionMarkCircleIcon, to: "/faq", replace: true },
   ];
 
   return (
@@ -59,17 +59,19 @@ const PublicSidebar = ({ toggleDrawer }) => {
             <NavLink
               key={link.name}
               to={link.to}
+              replace={link.replace}
               onClick={toggleDrawer}
               className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2 rounded-lg transition 
-                ${isActive ? "bg-[var(--hover)] font-medium" : "hover:bg-[var(--hover)]"}`
+                `flex items-center gap-3 px-3 py-2 rounded-lg transition
+                ${
+                  isActive
+                    ? "bg-[var(--hover)] font-medium"
+                    : "hover:bg-[var(--hover)]"
+                }`
               }
             >
-
               <Icon className="h-5 w-5 text-[var(--text)]" />
-
-              <span className=" text-[var(--text)]">{link.name}</span>
-
+              <span className="text-[var(--text)]">{link.name}</span>
             </NavLink>
           );
 

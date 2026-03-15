@@ -5,13 +5,13 @@ import Footer from '../components/Foote';
 
 const GenaralBookmark = () => {
   return <>
-    <div className="content-container">
+    <div className="h-full">
         {/* <nav>
             <Navbar/>
         </nav> */}
         <main 
             className="
-                min-h-[calc(100% - 60px)]
+                min-h-[calc(100vh-160px)]
             "
         >
          <h1>
