@@ -68,7 +68,7 @@ const PublicHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
             onClick={() => setMobileSearchOpen(true)}
             className="md:hidden p-2 rounded-lg hover:bg-[var(--hover)]"
           >
-            <MagnifyingGlassIcon className="h-6 w-6" />
+            <MagnifyingGlassIcon className="h-6 w-6 text-[var(--text)]" />
           </button>
 
           {/* Dark mode toggle */}
