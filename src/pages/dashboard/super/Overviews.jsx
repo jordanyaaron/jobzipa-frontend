@@ -34,12 +34,53 @@ export default function OverviewsSuper(){
             >
               <div
                 className="
-                  bg-(--card-primary)
+                  grid grid-cols-1 md:grid-cols-4
                   md:col-span-2
                   min-h-[360px]
                   rounded-lg
                 "
-              ></div>
+              >
+                <div 
+                  className="
+                    p-4 border rounded-lg 
+                    border-[var(--border)]
+                    col-span-2
+                  "
+                >
+                  <p className="text-sm opacity-70">Total Jobs</p>
+                  <h2 className="text-2xl font-bold">120</h2>
+                </div>
+                <div 
+                  className="
+                    p-4 border rounded-lg 
+                    border-[var(--border)]
+                    col-span-2
+                  "
+                >
+                  <p className="text-sm opacity-70">Total Jobs</p>
+                  <h2 className="text-2xl font-bold">120</h2>
+                </div>
+                <div 
+                  className="
+                    p-4 border rounded-lg 
+                    border-[var(--border)]
+                    col-span-2
+                  "
+                >
+                  <p className="text-sm opacity-70">Total Jobs</p>
+                  <h2 className="text-2xl font-bold">120</h2>
+                </div>
+                <div 
+                  className="
+                    p-4 border rounded-lg 
+                    border-[var(--border)]
+                    col-span-2
+                  "
+                >
+                  <p className="text-sm opacity-70">Total Jobs</p>
+                  <h2 className="text-2xl font-bold">120</h2>
+                </div>
+              </div>
 
               <div
                 className="

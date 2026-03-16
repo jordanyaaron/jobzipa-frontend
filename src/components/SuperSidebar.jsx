@@ -87,7 +87,6 @@ export default function SuperSideBar({ toggleDrawer , sidebarOpen, setSidebarOpe
               border-b border-[var(--border)]
             "
           >
-            
             {sidebarOpen && (
                 <button
                 onClick={toggleDrawer}
