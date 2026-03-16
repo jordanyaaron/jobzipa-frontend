@@ -80,7 +80,7 @@ export default function SuperSideBar({ toggleDrawer , sidebarOpen, setSidebarOpe
         >
   
           {/* Top Section (Logo) */}
-          <div className="h-16 flex  border-b border-[var(--border)]">
+          <div className="h-16 flex items-center  border-b border-[var(--border)]">
             <button
               onClick={toggleDrawer}
                   className="p-2 rounded-lg bg-[var(--hover)]  hover:bg-[var(--hover)]"
@@ -116,7 +116,7 @@ export default function SuperSideBar({ toggleDrawer , sidebarOpen, setSidebarOpe
                     `flex items-center gap-3 px-3 py-2 rounded-lg transition
                     ${
                         isActive
-                        ? "bg-[var(--primary)] text-[var(--text)]"
+                        ? "bg-[var(--hover)]  text-[var(--text)]"
                         : "hover:bg-[var(--hover)]"
                     }`
                     }
