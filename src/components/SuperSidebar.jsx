@@ -83,7 +83,7 @@ export default function SuperSideBar({ toggleDrawer , sidebarOpen, setSidebarOpe
           <div 
             className="
               h-16  flex items-center  
-              gap-3 px-3
+              gap-1 px-3
               border-b border-[var(--border)]
             "
           >
