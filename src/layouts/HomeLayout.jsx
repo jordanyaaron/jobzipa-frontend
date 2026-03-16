@@ -37,7 +37,7 @@ const HomeLayout = ({ darkMode, setDarkMode}) => {
 
       {/* Mobile Drawer */}
       <aside
-        className={`fixed top-0 left-0 z-50 h-full w-64 bg-[var(--sidebar-bg)] border-r border-[var(--border)] lg:hidden transform transition-transform duration-300 ${
+        className={`fixed flex top-0 left-0 z-50 h-full w-64 bg-[var(--sidebar-bg)] border-r border-[var(--border)] lg:hidden transform transition-transform duration-300 ${
           drawerOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
