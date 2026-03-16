@@ -21,7 +21,7 @@ export default function OverviewsSuper(){
           >
             <h1
               className="
-                text-2xl 
+                text-lg md:text-xl lg:text-2xl font-bold
                 mb-[20px]
               "
             >Jobs</h1>
@@ -130,7 +130,7 @@ export default function OverviewsSuper(){
               <div
                 className="
                   bg-(--card-primary)
-                  md:col-span-1
+                  col-span-2 md:col-span-1
                   min-h-[280px]
                   rounded-lg
                 "
