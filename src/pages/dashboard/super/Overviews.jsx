@@ -29,7 +29,7 @@ export default function OverviewsSuper(){
               className="
                 w-full
                 grid grid-cols-1 md:grid-cols-3
-                gap-1
+                gap-o
               "
             >
               <div
@@ -85,7 +85,7 @@ export default function OverviewsSuper(){
 
               <div
                 className="
-                  bg-(--card-primary)
+                  border-[var(--border)]
                   md:col-span-1
                   min-h-[280px]
                   rounded-lg
