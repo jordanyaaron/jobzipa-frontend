@@ -60,7 +60,7 @@ export default function OverviewsSuper(){
                   "
                 >
                   <div>
-                    <p className="text-sm opacity-70">Recent Jobs</p>
+                    <p className="text-sm opacity-70 mb-[20px]" >Recent Jobs</p>
                     <h2 className="text-2xl font-bold">0</h2>
                   </div>
 
@@ -76,7 +76,7 @@ export default function OverviewsSuper(){
                   "
                 >
                   <div>
-                    <p className="text-sm opacity-70">Approved Jobs</p>
+                    <p className="text-sm opacity-70 mb-[20px]">Approved Jobs</p>
                     <h2 className="text-2xl font-bold">120</h2>
                   </div>
 
@@ -92,7 +92,7 @@ export default function OverviewsSuper(){
                   "
                 >
                   <div>
-                    <p className="text-sm opacity-70">Pending Jobs</p>
+                    <p className="text-sm opacity-70 mb-[20px]">Pending Jobs</p>
                     <h2 className="text-2xl font-bold">120</h2>
                   </div>
 
@@ -108,7 +108,7 @@ export default function OverviewsSuper(){
                   "
                 >
                   <div>
-                    <p className="text-sm opacity-70">Repoted Jobs</p>
+                    <p className="text-sm opacity-70 mb-[20px]">Repoted Jobs</p>
                     <h2 className="text-2xl font-bold">120</h2>
                   </div>
 
