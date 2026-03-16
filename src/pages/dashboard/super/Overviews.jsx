@@ -1,3 +1,5 @@
+import { BriefcaseIcon, MoonIcon } from "@heroicons/react/24/outline";
+
 export default function OverviewsSuper(){
   return(
     <>
@@ -7,7 +9,7 @@ export default function OverviewsSuper(){
           w-full  max-w-[1144px]
           block  
           bg-(--main-bg)
-          mx-auto  p-6 pt-3
+          mx-auto  p-3 md:p-6 pt-3
         "
       >
         
@@ -47,10 +49,15 @@ export default function OverviewsSuper(){
                     border-[var(--border)]
                     col-span-1
                     md:col-span-2
+                    flex items-center justify-between
                   "
                 >
-                  <p className="text-sm opacity-70">Total Jobs</p>
-                  <h2 className="text-2xl font-bold">120</h2>
+                  <div>
+                    <p className="text-sm opacity-70">Total Jobs</p>
+                    <h2 className="text-2xl font-bold">120</h2>
+                  </div>
+
+                  <BriefcaseIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
                 </div>
                 <div 
                   className="
@@ -58,10 +65,15 @@ export default function OverviewsSuper(){
                     border-[var(--border)]
                     col-span-1
                     md:col-span-2
+                    flex items-center justify-between
                   "
                 >
-                  <p className="text-sm opacity-70">Total Jobs</p>
-                  <h2 className="text-2xl font-bold">120</h2>
+                  <div>
+                    <p className="text-sm opacity-70">Total Jobs</p>
+                    <h2 className="text-2xl font-bold">120</h2>
+                  </div>
+
+                  <BriefcaseIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
                 </div>
                 <div 
                   className="
@@ -69,10 +81,15 @@ export default function OverviewsSuper(){
                     border-[var(--border)]
                     col-span-1
                     md:col-span-2
+                    flex items-center justify-between
                   "
                 >
-                  <p className="text-sm opacity-70">Total Jobs</p>
-                  <h2 className="text-2xl font-bold">120</h2>
+                  <div>
+                    <p className="text-sm opacity-70">Total Jobs</p>
+                    <h2 className="text-2xl font-bold">120</h2>
+                  </div>
+
+                  <BriefcaseIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
                 </div>
                 <div 
                   className="
@@ -80,10 +97,15 @@ export default function OverviewsSuper(){
                     border-[var(--border)]
                     col-span-1
                     md:col-span-2
+                    flex items-center justify-between
                   "
                 >
-                  <p className="text-sm opacity-70">Total Jobs</p>
-                  <h2 className="text-2xl font-bold">120</h2>
+                  <div>
+                    <p className="text-sm opacity-70">Total Jobs</p>
+                    <h2 className="text-2xl font-bold">120</h2>
+                  </div>
+
+                  <BriefcaseIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
                 </div>
               </div>
 
