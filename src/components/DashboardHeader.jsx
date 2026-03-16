@@ -9,7 +9,7 @@ export default function DashboardHeader({ setSidebarOpen }) {
         <div 
             className="
                 flex-1
-                justify-between
+                items-center
                 h-16
             "
         >
@@ -24,7 +24,7 @@ export default function DashboardHeader({ setSidebarOpen }) {
         <div 
             className="
                 w-[80px]
-                justify-between
+                items-center
                 h-16
             "
         >
