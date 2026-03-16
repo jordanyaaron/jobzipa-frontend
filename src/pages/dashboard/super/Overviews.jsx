@@ -28,15 +28,15 @@ export default function OverviewsSuper(){
             <div
               className="
                 w-full
-                grid grid-cols-1 md:grid-cols-3
-                gap-o
+                grid grid-cols-2 md:grid-cols-3
+                gap-2
               "
             >
               <div
                 className="
-                  grid grid-cols-1 md:grid-cols-4 
+                  grid grid-cols-2 md:grid-cols-4 
                   gap-2
-                  md:col-span-2
+                  col-span-2
                   min-h-[360px]
                   rounded-lg
                 "
@@ -45,7 +45,8 @@ export default function OverviewsSuper(){
                   className="
                     p-4 border rounded-lg 
                     border-[var(--border)]
-                    col-span-2
+                    col-span-1
+                    md:col-span-2
                   "
                 >
                   <p className="text-sm opacity-70">Total Jobs</p>
@@ -55,7 +56,8 @@ export default function OverviewsSuper(){
                   className="
                     p-4 border rounded-lg 
                     border-[var(--border)]
-                    col-span-2
+                    col-span-1
+                    md:col-span-2
                   "
                 >
                   <p className="text-sm opacity-70">Total Jobs</p>
@@ -65,7 +67,8 @@ export default function OverviewsSuper(){
                   className="
                     p-4 border rounded-lg 
                     border-[var(--border)]
-                    col-span-2
+                    col-span-1
+                    md:col-span-2
                   "
                 >
                   <p className="text-sm opacity-70">Total Jobs</p>
@@ -75,7 +78,8 @@ export default function OverviewsSuper(){
                   className="
                     p-4 border rounded-lg 
                     border-[var(--border)]
-                    col-span-2
+                    col-span-1
+                    md:col-span-2
                   "
                 >
                   <p className="text-sm opacity-70">Total Jobs</p>
