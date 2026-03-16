@@ -39,7 +39,7 @@ export default function OverviewsSuper(){
                   grid grid-cols-2 md:grid-cols-4 
                   gap-2
                   col-span-2
-                  min-h-[360px]
+                  min-h-[260px]
                   rounded-lg
                 "
               >
