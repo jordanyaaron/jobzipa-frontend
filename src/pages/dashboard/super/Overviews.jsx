@@ -24,7 +24,7 @@ export default function OverviewsSuper(){
                 text-2xl 
                 mb-[20px]
               "
-            >Overview name</h1>
+            >Jobs</h1>
             <div
               className="
                 w-full
@@ -91,7 +91,7 @@ export default function OverviewsSuper(){
                 className="
                   md:col-span-1
                   min-h-[280px]
-                  border-[var(--border)]
+                  border border-[var(--border)]
                   rounded-lg
                 "
               ></div>
