@@ -80,17 +80,26 @@ export default function SuperSideBar({ toggleDrawer , sidebarOpen, setSidebarOpe
         >
   
           {/* Top Section (Logo) */}
-          <div className="h-16 flex items-center  border-b border-[var(--border)]">
-            <button
-              onClick={toggleDrawer}
-                  className="p-2 rounded-lg bg-[var(--hover)]  hover:bg-[var(--hover)]"
-              >
-              <XMarkIcon 
-                  className="
-                    h-6 w-6  text-[var(--text)]
-                  " 
-              />
-            </button>
+          <div 
+            className="
+              h-16  flex items-center  
+              gap-3 px-3
+              border-b border-[var(--border)]
+            "
+          >
+            
+            {sidebarOpen && (
+                <button
+                onClick={toggleDrawer}
+                    className="p-2 rounded-lg bg-[var(--hover)]  hover:bg-[var(--hover)]"
+                >
+                <XMarkIcon 
+                    className="
+                      h-6 w-6  text-[var(--text)]
+                    " 
+                />
+              </button>
+            )}
 
             <img
               src={JobzipaLogo}
