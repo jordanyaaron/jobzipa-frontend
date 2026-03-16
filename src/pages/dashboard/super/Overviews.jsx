@@ -89,6 +89,7 @@ export default function OverviewsSuper(){
 
               <div
                 className="
+                  col-span-2
                   md:col-span-1
                   min-h-[280px]
                   border border-[var(--border)]
