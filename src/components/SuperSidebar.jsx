@@ -8,49 +8,58 @@ import {
     CurrencyDollarIcon,
     BellIcon,
     Cog6ToothIcon,
+    XMarkIcon ,
     ExclamationTriangleIcon
   } from "@heroicons/react/24/outline";
-export default function SuperSideBar({ sidebarOpen, setSidebarOpen }) {
+export default function SuperSideBar({ toggleDrawer , sidebarOpen, setSidebarOpen }) {
     const navLinks = [
         {
           name: "Dashboard",
           path: "/super",
-          icon: HomeIcon
+          icon: HomeIcon,
+          replace : true
         },
         {
           name: "Jobs",
           path: "/super/jobs",
-          icon: BriefcaseIcon
+          icon: BriefcaseIcon,
+          replace : true
         },
         {
           name: "Winning Team",
           path: "/super/staff",
-          icon: UsersIcon
+          icon: UsersIcon,
+          replace : true
         },
         {
           name: "Analytics",
           path: "/super/analytics",
-          icon: ChartBarIcon
+          icon: ChartBarIcon,
+          replace : true
         },
         {
           name: "Revenue",
           path: "/super/revenue",
-          icon: CurrencyDollarIcon
+          icon: CurrencyDollarIcon,
+          replace : true
         },
         {
           name: "Notifications",
           path: "/super/notifications",
-          icon: BellIcon
+          icon: BellIcon,
+          replace : true
         },
         {
           name: "Reports",
           path: "/super/report",
-          icon: ExclamationTriangleIcon
+          icon: ExclamationTriangleIcon,
+          replace : true
         },
         {
           name: "Settings",
           path: "/super/settings",
-          icon: Cog6ToothIcon
+          icon: Cog6ToothIcon ,
+          replace : true
         }
       ];
     return (
@@ -72,15 +81,22 @@ export default function SuperSideBar({ sidebarOpen, setSidebarOpen }) {
   
           {/* Top Section (Logo) */}
           <div className="h-16 flex  border-b border-[var(--border)]">
-            <img 
-                  src={JobzipaLogo} 
+            <button
+              onClick={toggleDrawer}
+                  className="p-2 rounded-lg bg-[var(--hover)]  hover:bg-[var(--hover)]"
+              >
+              <XMarkIcon 
                   className="
-                      mt-[4px]
-                      ml-[25px]
-                      h-12
-                  "
-                  alt="" srcset=""
+                    h-6 w-6  text-[var(--text)]
+                  " 
               />
+            </button>
+
+            <img
+              src={JobzipaLogo}
+              className="ml-[10px] h-9"
+              alt="Jobzipa logo"
+            />
           </div>
   
           {/* Navigation */}
@@ -94,12 +110,13 @@ export default function SuperSideBar({ sidebarOpen, setSidebarOpen }) {
                 <NavLink
                     key={link.path}
                     to={link.path}
-                    replace
+                    replace={link.replace}
+                    onClick={toggleDrawer}
                     className={({ isActive }) =>
                     `flex items-center gap-3 px-3 py-2 rounded-lg transition
                     ${
                         isActive
-                        ? "bg-[var(--primary)] text-white"
+                        ? "bg-[var(--primary)] text-[var(--text)]"
                         : "hover:bg-[var(--hover)]"
                     }`
                     }

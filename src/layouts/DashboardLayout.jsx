@@ -20,7 +20,7 @@ import Footer from "../components/Foote";
 
 export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  const toggleDrawer = () => setSidebarOpen(!sidebarOpen);
   useEffect(() => {
     const handleResize = () => {
 
@@ -40,7 +40,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
     <div className="flex h-screen bg-[var(--background)] text-[var(--text)]">
 
       {/* Sidebar */}
-      <SuperSideBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      <SuperSideBar toggleDrawer={toggleDrawer} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
       {/* Divider line (desktop only) */}
       <div className="hidden md:block w-px bg-[var(--border)]" />

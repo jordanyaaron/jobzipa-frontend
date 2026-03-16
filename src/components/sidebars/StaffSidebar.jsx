@@ -38,7 +38,7 @@ const StaffSidebar = ({ toggleDrawer }) => {
 
   return (
     <aside className="h-full p-4 w-64 ">
-      <div className="h-13 pl-2 flex items-center pb-[10px] border-b border-[var(--border)]">
+      <div className="h-12 pl-2 flex items-center pb-[10px] border-b border-[var(--border)]">
         <button
           onClick={toggleDrawer}
               className="p-2 rounded-lg bg-[var(--hover)]  hover:bg-[var(--hover)]"
