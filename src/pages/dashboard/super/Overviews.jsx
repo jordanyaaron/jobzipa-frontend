@@ -1,4 +1,11 @@
-import { BriefcaseIcon, MoonIcon } from "@heroicons/react/24/outline";
+import { 
+  BriefcaseIcon,
+  MoonIcon ,
+  ExclamationTriangleIcon, 
+  ClockIcon, SparklesIcon,
+  CheckCircleIcon
+  
+} from "@heroicons/react/24/outline";
 
 export default function OverviewsSuper(){
   return(
@@ -53,11 +60,11 @@ export default function OverviewsSuper(){
                   "
                 >
                   <div>
-                    <p className="text-sm opacity-70">Total Jobs</p>
-                    <h2 className="text-2xl font-bold">120</h2>
+                    <p className="text-sm opacity-70">Recent Jobs</p>
+                    <h2 className="text-2xl font-bold">0</h2>
                   </div>
 
-                  <BriefcaseIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                  <SparklesIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
                 </div>
                 <div 
                   className="
@@ -69,11 +76,11 @@ export default function OverviewsSuper(){
                   "
                 >
                   <div>
-                    <p className="text-sm opacity-70">Total Jobs</p>
+                    <p className="text-sm opacity-70">Approved Jobs</p>
                     <h2 className="text-2xl font-bold">120</h2>
                   </div>
 
-                  <BriefcaseIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                  <ClockIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
                 </div>
                 <div 
                   className="
@@ -85,11 +92,11 @@ export default function OverviewsSuper(){
                   "
                 >
                   <div>
-                    <p className="text-sm opacity-70">Total Jobs</p>
+                    <p className="text-sm opacity-70">Pending Jobs</p>
                     <h2 className="text-2xl font-bold">120</h2>
                   </div>
 
-                  <BriefcaseIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                  <ClockIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
                 </div>
                 <div 
                   className="
@@ -101,11 +108,11 @@ export default function OverviewsSuper(){
                   "
                 >
                   <div>
-                    <p className="text-sm opacity-70">Total Jobs</p>
+                    <p className="text-sm opacity-70">Repoted Jobs</p>
                     <h2 className="text-2xl font-bold">120</h2>
                   </div>
 
-                  <BriefcaseIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                  <ExclamationTriangleIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
                 </div>
               </div>
 
