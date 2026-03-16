@@ -28,58 +28,39 @@ const PublicSidebar = ({ toggleDrawer }) => {
   ];
 
   return (
-    <aside className="h-full p-4">
-      <div className="h-13 pl-2 flex items-center pb-[10px] border-b border-[var(--border)]">
-        
-        <button
+    <aside className="h-full">
+  <div className="h-13 pl-2 flex items-center pb-[10px] border-b border-[var(--border)]">
+    <button
+      onClick={toggleDrawer}
+      className="p-2 rounded-lg bg-[var(--hover)] hover:bg-[var(--hover)]"
+    >
+      <XMarkIcon className="h-6 w-6 text-[var(--text)]" />
+    </button>
+
+    <img src={JobzipaLogo} className="ml-[10px] h-9" alt="Jobzipa logo" />
+  </div>
+
+  <nav className="space-y-2 pt-2">
+    {navLinks.map((link) => {
+      const Icon = link.icon;
+      return (
+        <NavLink
+          key={link.name}
+          to={link.to}
+          replace={link.replace}
           onClick={toggleDrawer}
-              className="p-2 rounded-lg bg-[var(--hover)]  hover:bg-[var(--hover)]"
-          >
-          <XMarkIcon 
-              className="
-                h-6 w-6  text-[var(--text)]
-              " 
-          />
-        </button>
-
-        <img
-          src={JobzipaLogo}
-          className="ml-[10px] h-9"
-          alt="Jobzipa logo"
-        />
-      </div>
-
-      <nav className="space-y-2 pt-2">
-
-        {navLinks.map((link) => {
-
-          const Icon = link.icon;
-
-          return (
-            <NavLink
-              key={link.name}
-              to={link.to}
-              replace={link.replace}
-              onClick={toggleDrawer}
-              className={({ isActive }) =>
-                `flex w-full items-center gap-3 px-3 py-2 rounded-lg transition
-                ${
-                  isActive
-                    ? "bg-[var(--hover)] font-medium"
-                    : "hover:bg-[var(--hover)]"
-                }`
-              }
-            >
-              <Icon className="h-5 w-5 text-[var(--text)]" />
-              <span className="text-[var(--text)]">{link.name}</span>
-            </NavLink>
-          );
-
-        })}
-
-      </nav>
-
-    </aside>
+          className={({ isActive }) =>
+            `flex w-full items-center gap-3 px-4 py-2 transition
+             ${isActive ? "bg-[var(--hover)] font-medium" : "hover:bg-[var(--hover)]"}`
+          }
+        >
+          <Icon className="h-5 w-5 text-[var(--text)]" />
+          <span className="text-[var(--text)]">{link.name}</span>
+        </NavLink>
+      );
+    })}
+  </nav>
+</aside>
   );
 };
 
