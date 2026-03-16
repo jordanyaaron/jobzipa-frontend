@@ -29,7 +29,7 @@ export default function DashboardHeader({ setSidebarOpen }) {
             "
         >
           <button
-              onClick={toggleDrawer}
+              onClick={setSidebarOpen}
               className="
                 lg:hidden p-2 rounded-lg cursor-pointer
                 hover:bg-[var(--hover)]  text-[var(--text)] 
