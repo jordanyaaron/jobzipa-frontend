@@ -29,12 +29,13 @@ export default function OverviewsSuper(){
               className="
                 w-full
                 grid grid-cols-1 md:grid-cols-3
-                gap-2
+                gap-0
               "
             >
               <div
                 className="
-                  grid grid-cols-1 md:grid-cols-4
+                  grid grid-cols-1 md:grid-cols-4 
+                  gap-2
                   md:col-span-2
                   min-h-[360px]
                   rounded-lg
