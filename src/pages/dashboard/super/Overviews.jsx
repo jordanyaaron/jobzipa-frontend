@@ -85,9 +85,9 @@ export default function OverviewsSuper(){
 
               <div
                 className="
-                  border-[var(--border)]
                   md:col-span-1
                   min-h-[280px]
+                  border-[var(--border)]
                   rounded-lg
                 "
               ></div>
