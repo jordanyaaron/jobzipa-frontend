@@ -29,7 +29,7 @@ export default function OverviewsSuper(){
               className="
                 w-full
                 grid grid-cols-1 md:grid-cols-3
-                gap-0
+                gap-1
               "
             >
               <div
