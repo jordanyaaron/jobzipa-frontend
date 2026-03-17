@@ -7,7 +7,7 @@ import {
   
 } from "@heroicons/react/24/outline";
 import { PieChart, Pie } from "recharts";
-import api from '../../../components/charts/ApprovedJobs'
+import ApprovedJobChart from '../../../components/charts/ApprovedJobs'
 
 
 
