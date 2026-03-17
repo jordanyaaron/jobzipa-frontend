@@ -9,7 +9,7 @@ export default function ApprovedJobChart({data}) {
     const handleResize = () => {
       if (window.innerWidth < 640) setChartHeight(180); // small screens
       else if (window.innerWidth < 1095) setChartHeight(200); // md screens
-      else setChartHeight(300); // desktop
+      else setChartHeight(250); // desktop
     };
 
     handleResize();
