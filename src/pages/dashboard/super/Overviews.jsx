@@ -177,31 +177,49 @@ export default function OverviewsSuper(){
           >
             <h1
               className="
-                text-2xl 
+                text-lg md:text-xl lg:text-2xl font-bold
                 mb-[20px]
               "
-            >Overview name</h1>
+            >Staffs</h1>
             <div
               className="
                 w-full
-                grid grid-cols-1 md:grid-cols-2
+                grid grid-cols-4
                 gap-2
               "
             >
               <div
                 className="
-                  bg-(--card-primary)
-                  md:col-span-1
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-2
                   min-h-[280px]
-                  rounded-lg
                 "
               ></div>
               <div
                 className="
-                  bg-(--card-primary)
-                  col-span-2 md:col-span-1
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-2
                   min-h-[280px]
-                  rounded-lg
+                "
+              ></div>
+
+              <div
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-2
+                  min-h-[280px]
+                "
+              ></div>
+
+              <div
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-2
+                  min-h-[280px]
                 "
               ></div>
 
