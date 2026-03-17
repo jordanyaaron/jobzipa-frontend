@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { PieChart, Pie } from "recharts";
 import ApprovedJobChart from '../../../components/charts/ApprovedJobs'
+import DeviceSize from '../../../components/DeviceSize'
 
 
 
@@ -20,6 +21,7 @@ export default function OverviewsSuper(){
   
   return(
     <>
+      <DeviceSize />
       <div
         className="
           h-auto
