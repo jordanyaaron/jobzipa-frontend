@@ -133,9 +133,26 @@ export default function OverviewsSuper(){
                   min-h-[280px]
                   border border-[var(--border)]
                   rounded-lg
+                  p-4
+                  flex flex-col
+                  justify-between
                 "
               >
-                <ApprovedJobChart data={data}/>
+                {/* Chart */}
+                <ApprovedJobChart data={data} />
+
+                {/* Legend */}
+                <div className="mt-4 flex flex-wrap justify-around gap-4">
+                  {data.map((item) => (
+                    <div key={item.name} className="flex items-center gap-2">
+                      <span
+                        className="w-4 h-4 rounded-full"
+                        style={{ backgroundColor: item.fill }}
+                      ></span>
+                      <span className="text-sm text-[var(--text)]">{item.name}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
         </div>
