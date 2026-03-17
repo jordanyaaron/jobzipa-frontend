@@ -22,7 +22,7 @@ export default function ApprovedJobChart({data}) {
     <PieChart>
       <Pie
         data={data}
-        cx="50%"
+        cx="30%"
         cy="50%"      // center vertically
         startAngle={180}
         endAngle={0}
