@@ -1,10 +1,27 @@
+import React, { useState, useEffect } from "react";
 import { PieChart, Pie, ResponsiveContainer } from "recharts";
 
 
 export default function ApprovedJobChart({data}) {
+  const [chartHeight, setChartHeight] = useState(300);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) setChartHeight(80); // small screens
+      else if (window.innerWidth < 1095) setChartHeight(100); // md screens
+      else setChartHeight(300); // desktop
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div className="w-full h-[140px] relative">
-      <ResponsiveContainer>
+      <ResponsiveContainer 
+        width="100%"
+        height={chartHeight}
+      >
         <PieChart>
           <Pie
             data={data}
