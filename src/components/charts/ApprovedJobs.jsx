@@ -19,7 +19,6 @@ export default function ApprovedJobChart({data}) {
   return (
     <div className="w-full h-[140px] relative">
       <ResponsiveContainer 
-        width="100%"
         height={chartHeight}
       >
         <PieChart>
