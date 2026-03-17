@@ -36,7 +36,7 @@ export default function ApprovedJobChart({data}) {
 
   {/* Center Content */}
   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-    <p className="text-sm opacity-70">Participants</p>
+    <p className="text-sm opacity-70 hidden md:block">Participants</p>
     <h2 className="text-xl md:text-2xl font-bold">120</h2>
   </div>
 </div>

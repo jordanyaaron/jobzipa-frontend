@@ -142,6 +142,7 @@ export default function OverviewsSuper(){
                   gap-4
                 "
               >
+                <p className="text-sm opacity-70 block md:hidden">Approved</p>
                 {/* Chart */}
                 <div className="w-1/2 md:w-full flex justify-center">
                   <ApprovedJobChart data={data} />
