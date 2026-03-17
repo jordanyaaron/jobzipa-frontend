@@ -6,8 +6,15 @@ import {
   CheckCircleIcon
   
 } from "@heroicons/react/24/outline";
+import { PieChart, Pie } from "recharts";
+
+
 
 export default function OverviewsSuper(){
+  const data = [
+    { name: "A", value: 40 },
+    { name: "B", value: 60 },
+  ];
   return(
     <>
       <div
@@ -124,7 +131,11 @@ export default function OverviewsSuper(){
                   border border-[var(--border)]
                   rounded-lg
                 "
-              ></div>
+              >
+                <PieChart width={200} height={200}>
+                  <Pie data={data} dataKey="value" outerRadius={80} fill="#8884d8" />
+                </PieChart>
+              </div>
             </div>
         </div>
 
