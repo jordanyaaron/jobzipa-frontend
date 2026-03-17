@@ -25,7 +25,7 @@ export default function ApprovedJobChart({data}) {
           <Pie
             data={data}
             cx="50%"
-            cy="100%"
+            cy="50%"
             startAngle={180}
             endAngle={0}
             innerRadius='50%'
