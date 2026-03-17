@@ -7,9 +7,9 @@ export default function ApprovedJobChart({data}) {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 640) setChartHeight(120); // small screens
-      else if (window.innerWidth < 1095) setChartHeight(230); // md screens
-      else setChartHeight(250); // desktop
+      if (window.innerWidth < 640) setChartHeight(130); // small screens
+      else if (window.innerWidth < 1095) setChartHeight(250); // md screens
+      else setChartHeight(260); // desktop
     };
 
     handleResize();
@@ -22,7 +22,7 @@ export default function ApprovedJobChart({data}) {
     <PieChart>
       <Pie
         data={data}
-        cx="30%"
+        cx="50%"
         cy="50%"      // center vertically
         startAngle={180}
         endAngle={0}
