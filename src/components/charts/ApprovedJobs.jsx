@@ -8,7 +8,7 @@ export default function ApprovedJobChart({data}) {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) setChartHeight(180); // small screens
-      else if (window.innerWidth < 1095) setChartHeight(200); // md screens
+      else if (window.innerWidth < 1095) setChartHeight(230); // md screens
       else setChartHeight(250); // desktop
     };
 
@@ -17,7 +17,7 @@ export default function ApprovedJobChart({data}) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return (
-    <div className="w-full h-[140px] relative">
+    <div className="w-full h-[140px] relative bg-green">
       <ResponsiveContainer 
         height={chartHeight}
       >
@@ -38,7 +38,7 @@ export default function ApprovedJobChart({data}) {
 
       {/* Center Content */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-        <p className="text-sm opacity-70">Participants</p>
+        <p className="text-sm opacity-70">approved</p>
         <h2 className="text-xl md:text-2xl font-bold">120</h2>
       </div>
     </div>
