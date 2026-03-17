@@ -17,7 +17,7 @@ export default function ApprovedJobChart({data}) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return (
-    <div className="w-full h-[140px] relative  justify-start md:justify-between">
+    <div className="w-full h-[110px] md:h-[140px] relative  justify-start md:justify-between">
       <ResponsiveContainer 
         height={chartHeight}
       >
