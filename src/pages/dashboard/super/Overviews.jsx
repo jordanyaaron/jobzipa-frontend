@@ -7,14 +7,17 @@ import {
   
 } from "@heroicons/react/24/outline";
 import { PieChart, Pie } from "recharts";
+import api from '../../../components/charts/ApprovedJobs'
 
 
 
 export default function OverviewsSuper(){
   const data = [
-    { name: "A", value: 40 },
-    { name: "B", value: 60 },
-  ];
+    { name: "active", value: 20, fill: "#facc15" },
+    { name: "expired", value: 50, fill: "#22c55e" },
+    { name: "Unspecified", value: 15, fill: "#ef4444" },
+];
+  
   return(
     <>
       <div
@@ -132,9 +135,7 @@ export default function OverviewsSuper(){
                   rounded-lg
                 "
               >
-                <PieChart width={200} height={200}>
-                  <Pie data={data} dataKey="value" outerRadius={80} fill="#8884d8" />
-                </PieChart>
+                <ApprovedJobChart data={data}/>
               </div>
             </div>
         </div>
