@@ -7,9 +7,9 @@ export default function ApprovedJobChart({data}) {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 640) setChartHeight(30); // small screens
-      else if (window.innerWidth < 1095) setChartHeight(50); // md screens
-      else setChartHeight(200); // desktop
+      if (window.innerWidth < 640) setChartHeight(180); // small screens
+      else if (window.innerWidth < 1095) setChartHeight(200); // md screens
+      else setChartHeight(300); // desktop
     };
 
     handleResize();
