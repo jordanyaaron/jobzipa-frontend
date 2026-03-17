@@ -25,10 +25,10 @@ export default function ApprovedJobChart({data}) {
           <Pie
             data={data}
             cx="50%"
-            cy="50%"
+            cy="40%"
             startAngle={180}
             endAngle={0}
-            innerRadius='50%'
+            innerRadius='45%'
             outerRadius='80%'
             paddingAngle={4}
             dataKey="value"
@@ -37,8 +37,8 @@ export default function ApprovedJobChart({data}) {
       </ResponsiveContainer>
 
       {/* Center Content */}
-      <div className="absolute top-3 bottom-3 left-1/2 -translate-x-1/2 text-center">
-        <p className="text-sm opacity-70">Total Jobs</p>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+        <p className="text-sm opacity-70">Participants</p>
         <h2 className="text-xl md:text-2xl font-bold">120</h2>
       </div>
     </div>
