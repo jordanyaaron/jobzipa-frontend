@@ -28,7 +28,7 @@ export default function ApprovedJobChart({data}) {
             cy="40%"
             startAngle={180}
             endAngle={0}
-            innerRadius='45%'
+            innerRadius='60%'
             outerRadius='80%'
             paddingAngle={4}
             dataKey="value"
