@@ -3,7 +3,11 @@ import {
   MoonIcon ,
   ExclamationTriangleIcon, 
   ClockIcon, SparklesIcon,
-  CheckCircleIcon
+  CheckCircleIcon,
+  ShieldCheckIcon,
+  StarIcon,
+  ClockIcon,
+  UserIcon,
   
 } from "@heroicons/react/24/outline";
 import { PieChart, Pie } from "recharts";
@@ -120,7 +124,7 @@ export default function OverviewsSuper(){
                   "
                 >
                   <div>
-                    <p className="text-sm opacity-70 mb-[20px]">Repoted Jobs</p>
+                    <p className="text-sm opacity-70 mb-[20px]">Reported Jobs</p>
                     <h2 className="text-2xl font-bold">120</h2>
                   </div>
 
@@ -188,41 +192,71 @@ export default function OverviewsSuper(){
                 gap-2
               "
             >
-              <div
-                className="
-                  p-4 border rounded-lg 
-                  border-[var(--border)]
-                  col-span-2
-                  min-h-[280px]
-                "
-              ></div>
-              <div
-                className="
-                  p-4 border rounded-lg 
-                  border-[var(--border)]
-                  col-span-2
-                  min-h-[280px]
-                "
-              ></div>
+              <div 
+                  className="
+                    p-4 border rounded-lg 
+                    border-[var(--border)]
+                    col-span-1
+                    md:col-span-2
+                    flex items-center justify-between
+                  "
+                >
+                  <div>
+                    <h2 className="text-2xl font-bold">1</h2>
+                    <p className="text-sm opacity-70 mb-[20px]" >Recent Jobs</p>
+                  </div>
 
-              <div
-                className="
-                  p-4 border rounded-lg 
-                  border-[var(--border)]
-                  col-span-2
-                  min-h-[280px]
-                "
-              ></div>
+                  <StarIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                </div>
+                <div 
+                  className="
+                    p-4 border rounded-lg 
+                    border-[var(--border)]
+                    col-span-1
+                    md:col-span-2
+                    flex items-center justify-between
+                  "
+                >
+                  <div>
+                    <h2 className="text-2xl font-bold">2</h2>
+                    <p className="text-sm opacity-70 mb-[20px]">Admins</p>
+                  </div>
 
-              <div
-                className="
-                  p-4 border rounded-lg 
-                  border-[var(--border)]
-                  col-span-2
-                  min-h-[280px]
-                "
-              ></div>
+                  <ShieldCheckIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                </div>
+                <div 
+                  className="
+                    p-4 border rounded-lg 
+                    border-[var(--border)]
+                    col-span-1
+                    md:col-span-2
+                    flex items-center justify-between
+                  "
+                >
+                  <div>
+                    <h2 className="text-2xl font-bold">4</h2>
+                    <p className="text-sm opacity-70 mb-[20px]">Moderators</p>
+                  </div>
 
+                  <UserIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                </div>
+                <div 
+                  className="
+                    p-4 border rounded-lg 
+                    border-[var(--border)]
+                    col-span-1
+                    md:col-span-2
+                    flex items-center justify-between
+                  "
+                >
+                  <div>
+
+                    <h2 className="text-2xl font-bold">10</h2>
+                    <p className="text-sm opacity-70 mb-[20px]">Unapproved Staffs</p>
+                  </div>
+
+                  <ExclamationTriangleIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                </div>
               
             </div>
           </div>
