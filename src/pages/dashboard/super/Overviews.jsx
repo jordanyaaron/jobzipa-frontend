@@ -143,12 +143,12 @@ export default function OverviewsSuper(){
                 "
               >
                 {/* Chart */}
-                <div className="w-full md:w-1/2 flex justify-center">
+                <div className="w-1/2 md:w-full flex justify-center">
                   <ApprovedJobChart data={data} />
                 </div>
 
                 {/* Legend */}
-                <div className="flex flex-row md:flex-col flex-wrap gap-2 md:gap-3 justify-center md:justify-start w-full md:w-1/2">
+                <div className="flex flex-col flex-wrap gap-2 justify-start w-1/2  md:w-full">
                   {data.map((entry) => (
                     <div key={entry.name} className="flex items-center gap-2">
                       {/* Color box */}
