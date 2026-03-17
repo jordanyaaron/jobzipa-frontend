@@ -195,14 +195,13 @@ export default function OverviewsSuper(){
                   className="
                     p-4 border rounded-lg 
                     border-[var(--border)]
-                    col-span-1
-                    md:col-span-2
+                    col-span-2
                     flex items-center justify-between
                   "
                 >
                   <div>
                     <h2 className="text-2xl font-bold">1</h2>
-                    <p className="text-sm opacity-70 mb-[20px]" >Recent Jobs</p>
+                    <p className="text-sm opacity-70 mt-[20px]" >Recent Jobs</p>
                   </div>
 
                   <StarIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
@@ -211,14 +210,13 @@ export default function OverviewsSuper(){
                   className="
                     p-4 border rounded-lg 
                     border-[var(--border)]
-                    col-span-1
-                    md:col-span-2
+                    col-span-2
                     flex items-center justify-between
                   "
                 >
                   <div>
                     <h2 className="text-2xl font-bold">2</h2>
-                    <p className="text-sm opacity-70 mb-[20px]">Admins</p>
+                    <p className="text-sm opacity-70 mt-[20px]">Admins</p>
                   </div>
 
                   <ShieldCheckIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
@@ -227,14 +225,13 @@ export default function OverviewsSuper(){
                   className="
                     p-4 border rounded-lg 
                     border-[var(--border)]
-                    col-span-1
-                    md:col-span-2
+                    col-span-2
                     flex items-center justify-between
                   "
                 >
                   <div>
                     <h2 className="text-2xl font-bold">4</h2>
-                    <p className="text-sm opacity-70 mb-[20px]">Moderators</p>
+                    <p className="text-sm opacity-70 mt-[20px]">Moderators</p>
                   </div>
 
                   <UserIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
@@ -243,15 +240,14 @@ export default function OverviewsSuper(){
                   className="
                     p-4 border rounded-lg 
                     border-[var(--border)]
-                    col-span-1
-                    md:col-span-2
+                    col-span-2
                     flex items-center justify-between
                   "
                 >
                   <div>
 
                     <h2 className="text-2xl font-bold">10</h2>
-                    <p className="text-sm opacity-70 mb-[20px]">Unapproved Staffs</p>
+                    <p className="text-sm opacity-70 mt-[20px]">Unapproved Staffs</p>
                   </div>
 
                   <ExclamationTriangleIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
