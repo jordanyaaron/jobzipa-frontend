@@ -131,14 +131,16 @@ export default function OverviewsSuper(){
               <div
                 className="
                   col-span-2
+                  min-h-[160px]
                   md:col-span-1
-                  min-h-[280px]
+                  md:min-h-[280px]
                   border border-[var(--border)]
                   rounded-lg
                   p-4
                   flex flex-row 
                   md:flex-col
-                  justify-between
+                  justify-start
+                  md:justify-between
                 "
               >
                 {/* Chart */}
