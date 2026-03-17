@@ -132,7 +132,7 @@ export default function OverviewsSuper(){
                 className="
                   col-span-2
                   md:col-span-1
-                  min-h-[160px] md:min-h-[280px]
+                  min-h-[120px] md:min-h-[280px]
                   border border-[var(--border)]
                   rounded-lg
                   p-4
