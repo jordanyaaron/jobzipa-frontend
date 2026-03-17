@@ -129,39 +129,39 @@ export default function OverviewsSuper(){
               </div>
 
               <div
-  className="
-    col-span-2
-    md:col-span-1
-    min-h-[160px] md:min-h-[280px]
-    border border-[var(--border)]
-    rounded-lg
-    p-4
-    flex flex-col md:flex-row
-    justify-start md:justify-between
-    items-center
-    gap-4
-  "
->
-  {/* Chart */}
-  <div className="w-full md:w-1/2 flex justify-center">
-    <ApprovedJobChart data={data} />
-  </div>
+                className="
+                  col-span-2
+                  md:col-span-1
+                  min-h-[160px] md:min-h-[280px]
+                  border border-[var(--border)]
+                  rounded-lg
+                  p-4
+                  flex flex-row md:flex-col
+                  justify-start md:justify-between
+                  items-center
+                  gap-4
+                "
+              >
+                {/* Chart */}
+                <div className="w-full md:w-1/2 flex justify-center">
+                  <ApprovedJobChart data={data} />
+                </div>
 
-  {/* Legend */}
-  <div className="flex flex-row md:flex-col flex-wrap gap-2 md:gap-3 justify-center md:justify-start w-full md:w-1/2">
-    {data.map((entry) => (
-      <div key={entry.name} className="flex items-center gap-2">
-        {/* Color box */}
-        <div
-          className="w-4 h-4 rounded-sm"
-          style={{ backgroundColor: entry.fill }}
-        />
-        {/* Label */}
-        <span className="text-sm text-[var(--text)]">{entry.name}</span>
-      </div>
-    ))}
-  </div>
-</div>
+                {/* Legend */}
+                <div className="flex flex-row md:flex-col flex-wrap gap-2 md:gap-3 justify-center md:justify-start w-full md:w-1/2">
+                  {data.map((entry) => (
+                    <div key={entry.name} className="flex items-center gap-2">
+                      {/* Color box */}
+                      <div
+                        className="w-4 h-4 rounded-sm"
+                        style={{ backgroundColor: entry.fill }}
+                      />
+                      {/* Label */}
+                      <span className="text-sm text-[var(--text)]">{entry.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
         </div>
 
