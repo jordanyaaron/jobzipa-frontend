@@ -136,7 +136,8 @@ export default function OverviewsSuper(){
                   border border-[var(--border)]
                   rounded-lg
                   p-4
-                  flex flex-col
+                  flex flex-row 
+                  md:flex-col
                   justify-between
                 "
               >
@@ -144,14 +145,16 @@ export default function OverviewsSuper(){
                 <ApprovedJobChart data={data} />
 
                 {/* Legend */}
-                <div className="mt-4 flex flex-wrap justify-around gap-4">
-                  {data.map((item) => (
-                    <div key={item.name} className="flex items-center gap-2">
-                      <span
-                        className="w-4 h-4 rounded-full"
-                        style={{ backgroundColor: item.fill }}
-                      ></span>
-                      <span className="text-sm text-[var(--text)]">{item.name}</span>
+                <div className="flex flex-col gap-2 mt-4">
+                  {data.map((entry) => (
+                    <div key={entry.name} className="flex items-center gap-2">
+                      {/* Color box */}
+                      <div
+                        className="w-4 h-4 rounded-sm"
+                        style={{ backgroundColor: entry.fill }}
+                      />
+                      {/* Label */}
+                      <span className="text-sm text-[var(--text)]">{entry.name}</span>
                     </div>
                   ))}
                 </div>
