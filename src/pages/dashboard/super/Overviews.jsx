@@ -15,6 +15,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { PieChart, Pie } from "recharts";
 import ApprovedJobChart from '../../../components/charts/ApprovedJobs'
+import FinanceChart from '../../../components/charts/FinanceChart'
 import DeviceSize from '../../../components/DeviceSize'
 
 
@@ -24,7 +25,13 @@ export default function OverviewsSuper(){
     { name: "active", value: 20, fill: "#facc15" },
     { name: "expired", value: 50, fill: "#22c55e" },
     { name: "Unspecified", value: 15, fill: "#ef4444" },
-];
+  ];
+  const financeData = [
+    { name: "Jan", revenue: 4000, staff: 2400, profit: 1600 },
+    { name: "Feb", revenue: 3000, staff: 1398, profit: 1602 },
+    { name: "Mar", revenue: 5000, staff: 2000, profit: 3000 },
+    { name: "Apr", revenue: 4780, staff: 1890, profit: 2890 },
+  ];
   
   return(
     <>
@@ -387,7 +394,9 @@ export default function OverviewsSuper(){
                   col-span-3 lg:col-span-2
                   grid grid-cols-1
                 "
-              ></div>
+              >
+                <FinanceChart />
+              </div>
             </div>
           </div>
         </div>
