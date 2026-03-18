@@ -552,6 +552,7 @@ export default function OverviewsSuper(){
                 <div
                   className="
                       col-span-1
+                      grig grid-cols-1
                       flex items-center justify-between gap-2
                   "
                 >
@@ -561,7 +562,7 @@ export default function OverviewsSuper(){
                     return (
                       <div
                         key={item.name}
-                        className="flex items-center justify-between gap-2"
+                        className="flex col-span-1 items-center justify-between gap-2"
                       >
                         <div className="flex items-center gap-2">
                           <div
