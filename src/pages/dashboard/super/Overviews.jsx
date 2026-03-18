@@ -417,7 +417,7 @@ export default function OverviewsSuper(){
         <div 
           className="
             block  w-full 
-            mb-20px
+            mb-[20px]
             overflow-y-auto
           "
         >
@@ -579,11 +579,11 @@ export default function OverviewsSuper(){
             </div>
           </div>
         </div>
-        
+
         <div 
           className="
             block  w-full 
-            mb-20px
+            mb-[20px]
             overflow-y-auto
           "
         >
