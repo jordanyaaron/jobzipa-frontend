@@ -579,9 +579,12 @@ export default function OverviewsSuper(){
             </div>
           </div>
         </div>
+        
         <div 
           className="
-            
+            block  w-full 
+            mb-20px
+            overflow-y-auto
           "
         >
           <h1
