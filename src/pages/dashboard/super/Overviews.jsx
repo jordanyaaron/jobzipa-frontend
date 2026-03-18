@@ -549,20 +549,14 @@ export default function OverviewsSuper(){
                 >
                   <PayoutDonutChart data={payoutData} />
                 </div>
-                <div
-                  className="
-                      col-span-1
-                      grig grid-cols-1 
-                      flex flex-row items-center justify-between gap-2
-                  "
-                >
+                <div className="col-span-1 flex flex-col gap-2">
                   {payoutData.map((item) => {
                     const percent = ((item.value / total) * 100).toFixed(1);
 
                     return (
                       <div
                         key={item.name}
-                        className="flex col-span-1  gap-2"
+                        className="flex items-center justify-between w-full"
                       >
                         <div className="flex items-center gap-2">
                           <div
