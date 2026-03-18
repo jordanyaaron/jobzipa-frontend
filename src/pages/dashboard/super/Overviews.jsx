@@ -593,7 +593,7 @@ export default function OverviewsSuper(){
           <div
             className="
               w-full
-              grid grid-4 gap-2
+              grid grid-cols-4 gap-2
             "
           >
             <div 
