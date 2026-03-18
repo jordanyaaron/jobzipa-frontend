@@ -45,6 +45,7 @@ export default function OverviewsSuper(){
     { name: "Rejected", value: 1000, fill: "#ef4444" }, // 🔴 red
   ];
   
+  const total = payoutData.reduce((sum, item) => sum + item.value, 0);
   return(
     <>
       <DeviceSize />
@@ -542,6 +543,32 @@ export default function OverviewsSuper(){
                 "
               >
                 <PayoutDonutChart data={payoutData} />
+                
+
+                <div className="w-1/2 md:w-full flex flex-col gap-2">
+                  {payoutData.map((item) => {
+                    const percent = ((item.value / total) * 100).toFixed(1);
+
+                    return (
+                      <div
+                        key={item.name}
+                        className="flex items-center justify-between gap-2"
+                      >
+                        <div className="flex items-center gap-2">
+                          <div
+                            className="w-3 h-3 rounded-sm"
+                            style={{ backgroundColor: item.fill }}
+                          />
+                          <span className="text-sm">{item.name}</span>
+                        </div>
+
+                        <span className="text-xs opacity-70">
+                          {percent}%
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
