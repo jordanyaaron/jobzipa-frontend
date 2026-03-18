@@ -540,6 +540,7 @@ export default function OverviewsSuper(){
                   border-[var(--border)]
                   col-span-3 lg:col-span-2
                   grid grid-cols-2
+                   flex flex-col items-center justify-between
                 "
               >
                 <div
