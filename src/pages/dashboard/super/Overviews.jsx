@@ -1,9 +1,13 @@
 import { 
   BriefcaseIcon,
   MoonIcon ,
-  ExclamationTriangleIcon, 
-  ClockIcon, SparklesIcon,
+  ExclamationTriangleIcon,
+  SparklesIcon, 
+  ClockIcon, 
   CheckCircleIcon,
+  BanknotesIcon,
+  XCircleIcon,
+  CheckBadgeIcon,
   ShieldCheckIcon,
   StarIcon,
   UserIcon,
@@ -385,6 +389,140 @@ export default function OverviewsSuper(){
                   </div>
 
                   <EyeIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                </div>
+              </div>
+              <div
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-3 lg:col-span-2
+                  grid grid-cols-1
+                "
+              >
+                <FinanceChart data={financeData} />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div 
+          className="
+            block  w-full 
+            mb-20px
+            overflow-y-auto
+          "
+        >
+          <h1
+            className="
+                text-lg md:text-xl lg:text-2xl font-bold
+                mb-[20px]
+            "
+          >Payouts</h1>
+          <div
+            className="
+              w-full
+              grid grid-cols-1 
+              gap-2
+            "
+          >
+            <div
+              className="
+                col-span-1
+                min-h-[140px]
+                grid grid-cols-6 
+                gap-2
+                rounded-lg
+              "
+            > 
+              <div 
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-6 lg:col-span-2
+                  flex items-center justify-between
+                "
+              >
+                <div>
+                  <h2 className="text-2xl font-bold">100</h2>
+                  <p className="text-sm opacity-70 mt-[20px]" >Tota Requests</p>
+                </div>
+
+                <BanknotesIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+              </div>
+              <div 
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-3 lg:col-span-2
+                  flex items-center justify-between
+                "
+              >
+                <div>
+                  <h2 className="text-2xl font-bold">29</h2>
+                  <p className="text-sm opacity-70 mt-[20px]" >Paid</p>
+                </div>
+
+                <CheckCircleIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+              </div>
+              <div 
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-3 lg:col-span-2
+                  flex items-center justify-between
+                "
+              >
+                <div>
+                  <h2 className="text-2xl font-bold">30</h2>
+                  <p className="text-sm opacity-70 mt-[20px]" >Approved</p>
+                </div>
+
+                <CheckBadgeIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+              </div>
+            </div>
+            <div
+              className="
+                col-span-1
+                min-h-[140px]
+                grid grid-cols-3 gap-2
+                rounded-lg
+              "
+            >
+              <div
+                className="
+                  col-span-3 lg:col-span-1
+                  grid grid-cols-2 gap-2
+                "
+              > 
+                <div 
+                  className="
+                    p-4 border rounded-lg 
+                    border-[var(--border)]
+                    col-span-1 lg:col-span-2
+                    flex items-center justify-between
+                  "
+                >
+                  <div>
+                    <h2 className="text-2xl font-bold">20</h2>
+                    <p className="text-sm opacity-70 mt-[20px]" >Pending</p>
+                  </div>
+
+                  <ClockIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                </div>
+                <div 
+                  className="
+                    p-4 border rounded-lg 
+                    border-[var(--border)]
+                    col-span-1 lg:col-span-2
+                    flex items-center justify-between
+                  "
+                >
+                  <div>
+                    <h2 className="text-2xl font-bold">0</h2>
+                    <p className="text-sm opacity-70 mt-[20px]" >Rejected</p>
+                  </div>
+
+                  <XCircleIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
                 </div>
               </div>
               <div
