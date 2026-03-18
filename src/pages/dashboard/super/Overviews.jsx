@@ -192,16 +192,170 @@ export default function OverviewsSuper(){
               "
             >
               <div 
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-2
+                  flex items-center justify-between
+                "
+              >
+                <div>
+                  <h2 className="text-2xl font-bold">1</h2>
+                  <p className="text-sm opacity-70 mt-[20px]" >Super User</p>
+                </div>
+
+                <StarIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+              </div>
+              <div 
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-2
+                  flex items-center justify-between
+                "
+              >
+                <div>
+                  <h2 className="text-2xl font-bold">2</h2>
+                  <p className="text-sm opacity-70 mt-[20px]">Admins</p>
+                </div>
+
+                <ShieldCheckIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+              </div>
+              <div 
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-2
+                  flex items-center justify-between
+                "
+              >
+                <div>
+                  <h2 className="text-2xl font-bold">4</h2>
+                  <p className="text-sm opacity-70 mt-[20px]">Moderators</p>
+                </div>
+
+                <UserIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+              </div>
+              <div 
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-2
+                  flex items-center justify-between
+                "
+              >
+                <div>
+
+                  <h2 className="text-2xl font-bold">10</h2>
+                  <p className="text-sm opacity-70 mt-[20px]">Unapproved Staffs</p>
+                </div>
+
+                <ExclamationTriangleIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+              </div>
+              
+            </div>
+        </div>
+
+        <div 
+          className="
+            block  w-full 
+            mb-20px
+            overflow-y-auto
+          "
+        >
+          <h1
+            className="
+                text-lg md:text-xl lg:text-2xl font-bold
+                mb-[20px]
+            "
+          >Finances</h1>
+          <div
+            className="
+              w-full
+              grid grid-cols-1 
+              gap-2
+            "
+          >
+            <div
+              className="
+                col-span-1
+                min-h-[280px]
+                grid grid-cols-6 
+                gap-2
+                rounded-lg
+              "
+            >
+              <div 
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-6 lg:col-span-2
+                  flex items-center justify-between
+                "
+              >
+                <div>
+                  <h2 className="text-2xl font-bold">$20,001.00</h2>
+                  <p className="text-sm opacity-70 mt-[20px]" >Total Eanings</p>
+                </div>
+
+                <StarIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+              </div>
+              <div 
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-3 lg:col-span-2
+                  flex items-center justify-between
+                "
+              >
+                <div>
+                  <h2 className="text-2xl font-bold">$4,001.00</h2>
+                  <p className="text-sm opacity-70 mt-[20px]" >Staffs Earning</p>
+                </div>
+
+                <StarIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+              </div>
+              <div 
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-3 lg:col-span-2
+                  flex items-center justify-between
+                "
+              >
+                <div>
+                  <h2 className="text-2xl font-bold">$16,001.00</h2>
+                  <p className="text-sm opacity-70 mt-[20px]" >Net Profit</p>
+                </div>
+
+                <StarIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+              </div>
+            </div>
+            <div
+              className="
+                col-span-1
+                min-h-[280px]
+                grid grid-cols-3 
+                rounded-lg
+              "
+            >
+              <div
+                className="
+                  col-span-3 lg:col-span-1
+                  grid grid-cols-2
+                "
+              >
+                <div 
                   className="
                     p-4 border rounded-lg 
                     border-[var(--border)]
-                    col-span-2
+                    col-span-1 lg:col-span-2
                     flex items-center justify-between
                   "
                 >
                   <div>
-                    <h2 className="text-2xl font-bold">1</h2>
-                    <p className="text-sm opacity-70 mt-[20px]" >Recent Jobs</p>
+                    <h2 className="text-2xl font-bold">100764</h2>
+                    <p className="text-sm opacity-70 mt-[20px]" >Homepage Views</p>
                   </div>
 
                   <StarIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
@@ -210,92 +364,29 @@ export default function OverviewsSuper(){
                   className="
                     p-4 border rounded-lg 
                     border-[var(--border)]
-                    col-span-2
+                    col-span-1 lg:col-span-2
                     flex items-center justify-between
                   "
                 >
                   <div>
-                    <h2 className="text-2xl font-bold">2</h2>
-                    <p className="text-sm opacity-70 mt-[20px]">Admins</p>
+                    <h2 className="text-2xl font-bold">60764</h2>
+                    <p className="text-sm opacity-70 mt-[20px]" >Job Views</p>
                   </div>
 
-                  <ShieldCheckIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                  <StarIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
                 </div>
-                <div 
-                  className="
-                    p-4 border rounded-lg 
-                    border-[var(--border)]
-                    col-span-2
-                    flex items-center justify-between
-                  "
-                >
-                  <div>
-                    <h2 className="text-2xl font-bold">4</h2>
-                    <p className="text-sm opacity-70 mt-[20px]">Moderators</p>
-                  </div>
-
-                  <UserIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
-                </div>
-                <div 
-                  className="
-                    p-4 border rounded-lg 
-                    border-[var(--border)]
-                    col-span-2
-                    flex items-center justify-between
-                  "
-                >
-                  <div>
-
-                    <h2 className="text-2xl font-bold">10</h2>
-                    <p className="text-sm opacity-70 mt-[20px]">Unapproved Staffs</p>
-                  </div>
-
-                  <ExclamationTriangleIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
-                </div>
-              
-            </div>
-          </div>
-
-          <div 
-            className="
-              block  w-full 
-              mb-20px
-              overflow-y-auto
-            "
-          >
-            <h1
-              className="
-                text-2xl 
-                mb-[20px]
-              "
-            >Overview name</h1>
-            <div
-              className="
-                w-full
-                grid grid-cols-1 md:grid-cols-3
-                gap-2
-              "
-            >
+              </div>
               <div
                 className="
-                  bg-(--card-primary)
-                  md:col-span-1
-                  min-h-[280px]
-                  rounded-lg
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-3 lg:col-span-2
+                  grid grid-cols-1
                 "
               ></div>
-              <div
-                className="
-                  bg-(--card-primary)
-                  md:col-span-2
-                  min-h-[280px]
-                  rounded-lg
-                "
-              ></div>
-
-              
             </div>
           </div>
+        </div>
       </div>
     </>
   );
