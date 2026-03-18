@@ -1,4 +1,5 @@
 import React,{ useState , useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import JobzipaLogo from '../assets/logos/jobzipa.png';
@@ -6,6 +7,7 @@ import DeviceSize from "../components/DeviceSize";
 import "../css/DeviceSize.css";// Importing Components
 import Header from "../components/Header";
 import DashboardHeader from "../components/DashboardHeader";
+import SuperJobsHeader from "../components/headers/SuperJobsHeader";
 
 import SideBar from "../components/SideBar";
 import SuperSideBar from "../components/SuperSidebar";
@@ -36,6 +38,14 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
 
   }, []);
 
+  const renderHeader = () => {
+    if (location.pathname.startsWith("/super/jobs")) {
+      return <SuperJobsHeader setSidebarOpen={setSidebarOpen} />;
+    }
+    // default
+    return <DashboardHeader setSidebarOpen={setSidebarOpen} />;
+  };
+
   return (
     <div className="flex h-screen bg-[var(--background)] text-[var(--text)]">
 
@@ -49,7 +59,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
       <div className="flex flex-col flex-1">
 
         {/* Header (mobile & tablet) */}
-        <DashboardHeader setSidebarOpen={setSidebarOpen} />
+      {renderHeader()}
 
         {/* Main content */}
         <main 
