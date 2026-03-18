@@ -552,8 +552,8 @@ export default function OverviewsSuper(){
                 <div
                   className="
                       col-span-1
-                      grig grid-cols-1
-                      flex items-center justify-between gap-2
+                      grig grid-cols-1 
+                      flex flex-row items-center justify-between gap-2
                   "
                 >
                   {payoutData.map((item) => {
