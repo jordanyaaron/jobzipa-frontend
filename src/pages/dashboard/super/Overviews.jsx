@@ -7,6 +7,10 @@ import {
   ShieldCheckIcon,
   StarIcon,
   UserIcon,
+  HomeModernIcon,
+  EyeIcon, CurrencyDollarIcon,
+  UserGroupIcon, ArrowTrendingUpIcon,
+  UsersIcon
   
 } from "@heroicons/react/24/outline";
 import { PieChart, Pie } from "recharts";
@@ -284,7 +288,7 @@ export default function OverviewsSuper(){
                 gap-2
                 rounded-lg
               "
-            >
+            > 
               <div 
                 className="
                   p-4 border rounded-lg 
@@ -294,11 +298,11 @@ export default function OverviewsSuper(){
                 "
               >
                 <div>
-                  <h2 className="text-2xl font-bold">$20,001.00</h2>
+                  <h2 className="text-2xl font-bold">$20,001</h2>
                   <p className="text-sm opacity-70 mt-[20px]" >Total Eanings</p>
                 </div>
 
-                <StarIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                <CurrencyDollarIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
               </div>
               <div 
                 className="
@@ -309,11 +313,11 @@ export default function OverviewsSuper(){
                 "
               >
                 <div>
-                  <h2 className="text-2xl font-bold">$4,001.00</h2>
+                  <h2 className="text-2xl font-bold">$4,001</h2>
                   <p className="text-sm opacity-70 mt-[20px]" >Staffs Earning</p>
                 </div>
 
-                <StarIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                <UserGroupIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
               </div>
               <div 
                 className="
@@ -324,27 +328,27 @@ export default function OverviewsSuper(){
                 "
               >
                 <div>
-                  <h2 className="text-2xl font-bold">$16,001.00</h2>
+                  <h2 className="text-2xl font-bold">$16,001</h2>
                   <p className="text-sm opacity-70 mt-[20px]" >Net Profit</p>
                 </div>
 
-                <StarIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                <ArrowTrendingUpIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
               </div>
             </div>
             <div
               className="
                 col-span-1
-                min-h-[280px]
-                grid grid-cols-3 
+                min-h-[140px]
+                grid grid-cols-3 gap-2
                 rounded-lg
               "
             >
               <div
                 className="
                   col-span-3 lg:col-span-1
-                  grid grid-cols-2
+                  grid grid-cols-2 gap-2
                 "
-              >
+              > 
                 <div 
                   className="
                     p-4 border rounded-lg 
@@ -358,7 +362,7 @@ export default function OverviewsSuper(){
                     <p className="text-sm opacity-70 mt-[20px]" >Homepage Views</p>
                   </div>
 
-                  <StarIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                  <HomeModernIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
                 </div>
                 <div 
                   className="
@@ -373,7 +377,7 @@ export default function OverviewsSuper(){
                     <p className="text-sm opacity-70 mt-[20px]" >Job Views</p>
                   </div>
 
-                  <StarIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+                  <EyeIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
                 </div>
               </div>
               <div
