@@ -562,7 +562,7 @@ export default function OverviewsSuper(){
                     return (
                       <div
                         key={item.name}
-                        className="flex col-span-1 items-center justify-between gap-2"
+                        className="flex col-span-1  gap-2"
                       >
                         <div className="flex items-center gap-2">
                           <div
