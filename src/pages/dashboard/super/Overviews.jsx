@@ -20,6 +20,7 @@ import {
 import { PieChart, Pie } from "recharts";
 import ApprovedJobChart from '../../../components/charts/ApprovedJobs'
 import FinanceChart from '../../../components/charts/FinanceChart'
+import PayoutDonutChart from '../../../components/charts/PayoutChart'
 import DeviceSize from '../../../components/DeviceSize'
 
 
@@ -35,6 +36,13 @@ export default function OverviewsSuper(){
     { name: "Feb", revenue: 3000, staff: 1398, profit: 1602 },
     { name: "Mar", revenue: 5000, staff: 2000, profit: 3000 },
     { name: "Apr", revenue: 4780, staff: 1890, profit: 2890 },
+  ];
+
+  const payoutData = [
+    { name: "Pending", value: 2000, fill: "#f59e0b" },   // 🟡 yellow
+    { name: "Approved", value: 3000, fill: "#3b82f6" }, // 🔵 blue
+    { name: "Paid", value: 8000, fill: "#22c55e" },     // 🟢 green
+    { name: "Rejected", value: 1000, fill: "#ef4444" }, // 🔴 red
   ];
   
   return(
@@ -533,7 +541,7 @@ export default function OverviewsSuper(){
                   grid grid-cols-1
                 "
               >
-                <FinanceChart data={financeData} />
+                <PayoutDonutChart data={payoutData} />
               </div>
             </div>
           </div>
