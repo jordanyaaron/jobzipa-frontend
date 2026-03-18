@@ -1,6 +1,5 @@
 import React,{ useState , useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { Outlet } from "react-router-dom";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import JobzipaLogo from '../assets/logos/jobzipa.png';
 import DeviceSize from "../components/DeviceSize";
@@ -23,6 +22,7 @@ import Footer from "../components/Foote";
 export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const toggleDrawer = () => setSidebarOpen(!sidebarOpen);
+  const location = useLocation();
   useEffect(() => {
     const handleResize = () => {
 
