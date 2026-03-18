@@ -579,6 +579,86 @@ export default function OverviewsSuper(){
             </div>
           </div>
         </div>
+        <div 
+          className="
+            
+          "
+        >
+          <h1
+            className="
+                text-lg md:text-xl lg:text-2xl font-bold
+                mb-[20px]
+            "
+          >Reports</h1>
+          <div
+            className="
+              w-full
+              grid grid-2 gap-4
+            "
+          >
+            <div 
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-2
+                  flex items-center justify-between
+                "
+              >
+                <div>
+                  <h2 className="text-2xl font-bold">100</h2>
+                  <p className="text-sm opacity-70 mt-[20px]" >Total Reports</p>
+                </div>
+
+                <ExclamationTriangleIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+              </div>
+              <div 
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-2
+                  flex items-center justify-between
+                "
+              >
+                <div>
+                  <h2 className="text-2xl font-bold">6</h2>
+                  <p className="text-sm opacity-70 mt-[20px]">Resolved</p>
+                </div>
+
+                <CheckCircleIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+              </div>
+              <div 
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-2
+                  flex items-center justify-between
+                "
+              >
+                <div>
+                  <h2 className="text-2xl font-bold">40</h2>
+                  <p className="text-sm opacity-70 mt-[20px]">Pending</p>
+                </div>
+
+                <ClockIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+              </div>
+              <div 
+                className="
+                  p-4 border rounded-lg 
+                  border-[var(--border)]
+                  col-span-2
+                  flex items-center justify-between
+                "
+              >
+                <div>
+
+                  <h2 className="text-2xl font-bold">40</h2>
+                  <p className="text-sm opacity-70 mt-[20px]">Rejected Reports</p>
+                </div>
+
+                <XCircleIcon className="h-8 w-8 opacity-70 text-[var(--text)]" />
+              </div>
+          </div>
+        </div>
       </div>
     </>
   );
