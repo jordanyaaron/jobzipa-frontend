@@ -395,7 +395,7 @@ export default function OverviewsSuper(){
                   grid grid-cols-1
                 "
               >
-                <FinanceChart />
+                <FinanceChart data={financeData} />
               </div>
             </div>
           </div>
