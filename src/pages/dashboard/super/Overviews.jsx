@@ -539,13 +539,21 @@ export default function OverviewsSuper(){
                   p-4 border rounded-lg 
                   border-[var(--border)]
                   col-span-3 lg:col-span-2
-                  grid grid-cols-1
+                  grid grid-cols-2
                 "
               >
-                <PayoutDonutChart data={payoutData} />
-                
-
-                <div className="w-1/2 md:w-full flex flex-col gap-2">
+                <div
+                  className="
+                      col-span-1
+                  "
+                >
+                  <PayoutDonutChart data={payoutData} />
+                </div>
+                <div
+                  className="
+                      col-span-1
+                  "
+                >
                   {payoutData.map((item) => {
                     const percent = ((item.value / total) * 100).toFixed(1);
 
@@ -569,6 +577,7 @@ export default function OverviewsSuper(){
                     );
                   })}
                 </div>
+                
               </div>
             </div>
           </div>
