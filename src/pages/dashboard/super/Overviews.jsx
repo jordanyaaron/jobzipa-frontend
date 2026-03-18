@@ -552,6 +552,7 @@ export default function OverviewsSuper(){
                 <div
                   className="
                       col-span-1
+                      flex items-center justify-between gap-2
                   "
                 >
                   {payoutData.map((item) => {
