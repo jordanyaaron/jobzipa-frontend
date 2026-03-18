@@ -283,7 +283,7 @@ export default function OverviewsSuper(){
             <div
               className="
                 col-span-1
-                min-h-[280px]
+                min-h-[140px]
                 grid grid-cols-6 
                 gap-2
                 rounded-lg
