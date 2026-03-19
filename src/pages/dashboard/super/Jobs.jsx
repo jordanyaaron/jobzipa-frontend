@@ -25,13 +25,43 @@ export default function JobsSuper() {
   ];
 
   return (
-    <div className="p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
+    <div className="md:p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
   
-      {/* Example chart */}
-      <div className="block w-full h-[300px] border border-[var(--border)]"></div>
+      <div className="hidden lg:flex lg:flex-row md:items-center md:justify-between gap-3 min-w-0">
+        <h1 className="text-lg md:text-2xl font-bold">Jobs</h1>
 
+        <div className="flex gap-2 w-full md:w-auto min-w-0">
+          {/* Search */}
+          <input
+            type="text"
+            placeholder="Search jobs..."
+            className="
+              w-full md:w-[250px]
+              px-3 py-2 rounded-lg border
+              border-[var(--border)]
+              bg-[var(--background)]
+              text-sm
+            "
+          />
+
+          {/* Filter */}
+          <select
+            className="
+              px-3 py-2 rounded-lg border
+              border-[var(--border)]
+              bg-[var(--background)]
+              text-sm
+            "
+          >
+            <option value="">All</option>
+            <option value="active">Active</option>
+            <option value="pending">Pending</option>
+            <option value="reported">Reported</option>
+          </select>
+        </div>
+      </div>
       {/* Scrollable row */}
-      <div className="flex overflow-x-auto gap-3 border border-[var(--border)]">
+      <div className="flex mt-16 pl-4  overflow-x-auto gap-3 border border-[var(--border)]  rounded-lg">
       <table className="min-w-[700px] w-full text-sm">
             <thead className="bg-[var(--hover)] text-left">
               <tr>
