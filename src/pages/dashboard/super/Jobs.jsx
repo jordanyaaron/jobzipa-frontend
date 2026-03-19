@@ -25,10 +25,10 @@ export default function JobsSuper() {
   ];
 
   return (
-    <div className="p-4 space-y-4">
+    <div className="p-4 w-full overflow-x-auto space-y-4">
 
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      <div className="flex-col hidden lg:flex md:flex-row md:items-center md:justify-between gap-3">
         <h1 className="text-lg md:text-2xl font-bold">Jobs</h1>
 
         <div className="flex gap-2 w-full md:w-auto">
