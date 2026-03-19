@@ -25,10 +25,16 @@ export default function JobsSuper() {
       date: "2026-03-17",
     },
   ];
-  const filteredJobs =
-    jobFilter === "all"
-      ? jobs
-      : jobs.filter((job) => job.status === jobFilter);
+  const filteredJobs = jobs.filter((job) => {
+    const matchesFilter =
+      jobFilter === "all" || job.status === jobFilter;
+  
+    const matchesSearch =
+      job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      job.staff.toLowerCase().includes(searchQuery.toLowerCase());
+  
+    return matchesFilter && matchesSearch;
+  });
   return (
     <div className="p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
   
