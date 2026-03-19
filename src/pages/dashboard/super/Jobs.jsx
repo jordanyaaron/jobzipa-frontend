@@ -25,7 +25,7 @@ export default function JobsSuper() {
   ];
 
   return (
-    <div className="p-4 w-[calc(100vw)] lg:w-[calc(100vw-540px)] space-y-4 overflow-x-hidden">
+    <div className="p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
   
       {/* Example chart */}
       <div className="block w-full h-[300px] border border-[var(--border)]"></div>
