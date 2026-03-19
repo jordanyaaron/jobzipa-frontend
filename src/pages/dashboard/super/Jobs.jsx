@@ -6,7 +6,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function JobsSuper() {
-  const { jobFilter } = useOutletContext(); //
+  const { jobFilter, setJobFilter } = useOutletContext();
   const jobs = [
     {
       id: 1,
@@ -51,14 +51,11 @@ export default function JobsSuper() {
 
           {/* Filter */}
           <select
-            className="
-              px-3 py-2 rounded-lg border
-              border-[var(--border)]
-              bg-[var(--background)]
-              text-sm
-            "
+            value={jobFilter}
+            onChange={(e) => setJobFilter(e.target.value)}
+            className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
           >
-            <option value="">All</option>
+            <option value="all">All</option>
             <option value="active">Active</option>
             <option value="pending">Pending</option>
             <option value="reported">Reported</option>
