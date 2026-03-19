@@ -69,6 +69,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
             overflow-y-auto 
             overflow-w-hidden
             bg-(--background) 
+            min-w-0
           "
         >
           
