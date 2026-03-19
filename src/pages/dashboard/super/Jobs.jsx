@@ -6,7 +6,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function JobsSuper() {
-  const { jobFilter, setJobFilter } = useOutletContext();
+  const { jobFilter, setJobFilter, searchQuery, setSearchQuery } = useOutletContext();
   const jobs = [
     {
       id: 1,
@@ -39,6 +39,8 @@ export default function JobsSuper() {
           {/* Search */}
           <input
             type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search jobs..."
             className="
               w-full md:w-[250px]

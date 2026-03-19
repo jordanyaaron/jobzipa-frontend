@@ -12,7 +12,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
 const filterOptions = ["all", "active", "pending", "reported"];
 
-const SuperJobsHeader = ({ setSidebarOpen, onFilter }) => {
+const SuperJobsHeader = ({ setSidebarOpen , onFilter , onSearch }) => {
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef();
@@ -109,6 +109,7 @@ const SuperJobsHeader = ({ setSidebarOpen, onFilter }) => {
 
           <input
             type="text"
+            onChange={(e) => onSearch(e.target.value)}
             placeholder="Search jobs..."
             className="flex-1 px-4 py-2 rounded-lg border border-[var(--border)] bg-[var(--main-bg)] text-[var(--text)] focus:outline-none"
             autoFocus

@@ -24,6 +24,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
   const toggleDrawer = () => setSidebarOpen(!sidebarOpen);
   const location = useLocation();
   const [jobFilter, setJobFilter] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
     const handleResize = () => {
 
@@ -41,7 +42,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
 
   const renderHeader = () => {
     if (location.pathname.startsWith("/super/jobs")) {
-      return <SuperJobsHeader setSidebarOpen={setSidebarOpen} onFilter={setJobFilter} />;
+      return <SuperJobsHeader setSidebarOpen={setSidebarOpen} onFilter={setJobFilter} onSearch={setSearchQuery}/>;
     }
     // default
     return <DashboardHeader setSidebarOpen={setSidebarOpen} />;
