@@ -64,7 +64,7 @@ export default function JobsSuper() {
 
       {/* Table */}
       <div className="w-full overflow-x-auto border border-[var(--border)] rounded-lg">
-        <table className="w-full text-sm">
+        <table className="min-w-[700px] text-sm">
           <thead className="bg-[var(--hover)] text-left">
             <tr>
               <th className="p-3">Title</th>
