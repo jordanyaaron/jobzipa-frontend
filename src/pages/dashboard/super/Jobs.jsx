@@ -25,7 +25,7 @@ export default function JobsSuper() {
   ];
 
   return (
-    <div className="md:p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
+    <div className="p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
   
       <div className="hidden lg:flex lg:flex-row md:items-center md:justify-between gap-3 min-w-0">
         <h1 className="text-lg md:text-2xl font-bold">Jobs</h1>
@@ -61,7 +61,7 @@ export default function JobsSuper() {
         </div>
       </div>
       {/* Scrollable row */}
-      <div className="flex mt-16 pl-4  overflow-x-auto gap-3 border border-[var(--border)]  rounded-lg">
+      <div className="flex mt-16 lg:mt-0  min-h-[calc(100vh-64px)]  overflow-x-auto gap-3 border border-[var(--border)]  rounded-lg">
       <table className="min-w-[700px] w-full text-sm">
             <thead className="bg-[var(--hover)] text-left">
               <tr>
