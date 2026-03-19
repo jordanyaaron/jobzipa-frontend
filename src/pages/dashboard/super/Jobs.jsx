@@ -31,7 +31,7 @@ export default function JobsSuper() {
       <div className="block w-full h-[300px] border border-[var(--border)]"></div>
 
       {/* Scrollable row */}
-      <div className="flex overflow-x-auto gap-3 h-[300px] border border-[var(--border)]">
+      <div className="flex overflow-x-auto gap-3 border border-[var(--border)]">
       <table className="min-w-[700px] w-full text-sm">
             <thead className="bg-[var(--hover)] text-left">
               <tr>
