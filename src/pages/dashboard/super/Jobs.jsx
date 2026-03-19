@@ -38,12 +38,12 @@ export default function JobsSuper() {
       >
         <div
         className="
-          inline-block w-100  h-[200]  border border-[var(--border)]
+          w-100  h-[200]  border border-[var(--border)]
         "
       ></div>
         <div
           className="
-            inline-block w-100  h-[200]  border border-[var(--border)]
+            w-100  h-[200]  border border-[var(--border)]
           "
         ></div>
       </div>
