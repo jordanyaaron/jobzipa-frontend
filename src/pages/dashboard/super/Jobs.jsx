@@ -1,3 +1,4 @@
+import { useOutletContext } from "react-router-dom";
 import {
   EyeIcon,
   PencilSquareIcon,
@@ -5,6 +6,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function JobsSuper() {
+  const { jobFilter } = useOutletContext(); //
   const jobs = [
     {
       id: 1,
@@ -23,7 +25,10 @@ export default function JobsSuper() {
       date: "2026-03-17",
     },
   ];
-
+  const filteredJobs =
+    jobFilter === "all"
+      ? jobs
+      : jobs.filter((job) => job.status === jobFilter);
   return (
     <div className="p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
   
@@ -61,7 +66,7 @@ export default function JobsSuper() {
         </div>
       </div>
       {/* Scrollable row */}
-      <div className="flex mt-16 lg:mt-0  scrollbar-hide overflow-x-auto gap-3 border border-[var(--border)]  rounded-lg">
+      <div className="flex mt-16 lg:mt-0 overflow-x-auto  scrollbar-hide  gap-3 border border-[var(--border)]  rounded-lg">
       <table className="min-w-[700px] w-full text-sm">
             <thead className="bg-[var(--hover)] text-left">
               <tr>
@@ -75,7 +80,7 @@ export default function JobsSuper() {
             </thead>
 
             <tbody>
-              {jobs.map((job) => (
+              {filteredJobs.map((job) => (
                 <tr
                   key={job.id}
                   className="border-t border-[var(--border)] hover:bg-[var(--hover)]"
