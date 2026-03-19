@@ -30,8 +30,8 @@ export default function JobsSuper() {
       jobFilter === "all" || job.status === jobFilter;
   
     const matchesSearch =
-      job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      job.staff.toLowerCase().includes(searchQuery.toLowerCase());
+      (job.title?.toLowerCase() || "").includes(searchQuery?.toLowerCase() || "") ||
+      (job.staff?.toLowerCase() || "").includes(searchQuery?.toLowerCase() || "");
   
     return matchesFilter && matchesSearch;
   });
