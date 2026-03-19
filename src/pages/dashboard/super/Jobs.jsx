@@ -63,7 +63,7 @@ export default function JobsSuper() {
       </div>
 
       {/* Table Wrapper */}
-      <div className="w-full min-w-0">
+      <div className="w-full max-w-full">
         <div className="w-full overflow-x-auto border border-[var(--border)] rounded-lg">
           
           <table className="min-w-[700px] w-full text-sm">
