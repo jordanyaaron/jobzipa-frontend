@@ -36,8 +36,7 @@ export default function JobsSuper() {
             block w-full h-[300px]  border border-[var(--border)]
         "
       >
-      </div>
-      <div
+        <div
         className="
           inline-block w-100  h-[200]  border border-[var(--border)]
         "
@@ -47,6 +46,8 @@ export default function JobsSuper() {
             inline-block w-100  h-[200]  border border-[var(--border)]
           "
         ></div>
+      </div>
+      
     </div>
   );
 }
