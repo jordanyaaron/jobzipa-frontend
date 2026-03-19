@@ -28,12 +28,12 @@ export default function JobsSuper() {
     <div className="p-4 w-full space-y-4 overflow-x-hidden">
       <div
         className="
-            block w-full h-[300] p-4 m-4 border border-[var(--boredr)]
+            block w-full h-[300] p-4 mx-4 border border-[var(--boredr)]
         "
       ></div>
       <div
         className="
-            block w-full h-[300] p-4 m-4 border border-[var(--boredr)]
+            block w-full h-[300] p-4 mx-4 border border-[var(--boredr)]
         "
       ></div>
     </div>
