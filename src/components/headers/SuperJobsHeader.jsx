@@ -29,7 +29,7 @@ const SuperJobsHeader = ({ setSidebarOpen }) => {
 
   return (
     <header
-      className="fixed md:hidden  top-0 left-0 w-full z-40 border-b  border-[var(--border)] bg-[var(--background)]"
+      className="fixed md:hidden  top-0 left-0 w-[calc(100vw)]  z-40 border-b  border-[var(--border)] bg-[var(--background)]"
     >
       <div 
             className={`flex items-center justify-between px-4 md:px-6 h-16 transition-all duration-200 ${
