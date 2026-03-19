@@ -75,7 +75,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
           "
         >
           
-          <Outlet context={{ jobFilter , setJobFilter }} />
+          <Outlet context={{ jobFilter , setJobFilter , searchQuery , searchQuery }} />
         </main>
 
       </div>
