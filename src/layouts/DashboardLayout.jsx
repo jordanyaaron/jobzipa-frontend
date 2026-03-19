@@ -67,6 +67,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
             flex-1 p-0 pt-0 
             md:p-0 md:pt-0 
             overflow-y-auto 
+            overflow-w-hidden
             bg-(--background) 
           "
         >
