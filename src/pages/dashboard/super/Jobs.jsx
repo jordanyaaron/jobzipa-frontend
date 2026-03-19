@@ -32,10 +32,68 @@ export default function JobsSuper() {
 
       {/* Scrollable row */}
       <div className="flex overflow-x-auto gap-3 h-[300px] border border-[var(--border)]">
-        <div className="flex-shrink-0 w-[200px] h-[200px] border border-[var(--border)]"></div>
-        <div className="flex-shrink-0 w-[200px] h-[200px] border border-[var(--border)]"></div>
-        <div className="flex-shrink-0 w-[200px] h-[200px] border border-[var(--border)]"></div>
-        <div className="flex-shrink-0 w-[200px] h-[200px] border border-[var(--border)]"></div>
+      <table className="min-w-[700px] w-full text-sm">
+            <thead className="bg-[var(--hover)] text-left">
+              <tr>
+                <th className="p-3">Title</th>
+                <th className="p-3">Staff</th>
+                <th className="p-3">Status</th>
+                <th className="p-3">Views</th>
+                <th className="p-3">Date</th>
+                <th className="p-3 text-right">Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {jobs.map((job) => (
+                <tr
+                  key={job.id}
+                  className="border-t border-[var(--border)] hover:bg-[var(--hover)]"
+                >
+                  <td className="p-3 whitespace-nowrap">{job.title}</td>
+                  <td className="p-3 whitespace-nowrap">{job.staff}</td>
+
+                  {/* Status */}
+                  <td className="p-3">
+                    <span
+                      className={`
+                        px-2 py-1 rounded-full text-xs whitespace-nowrap
+                        ${
+                          job.status === "active"
+                            ? "bg-green-100 text-green-600"
+                            : job.status === "pending"
+                            ? "bg-yellow-100 text-yellow-600"
+                            : "bg-red-100 text-red-600"
+                        }
+                      `}
+                    >
+                      {job.status}
+                    </span>
+                  </td>
+
+                  <td className="p-3 whitespace-nowrap">{job.views}</td>
+                  <td className="p-3 whitespace-nowrap">{job.date}</td>
+
+                  {/* Actions */}
+                  <td className="p-3">
+                    <div className="flex justify-end gap-2 whitespace-nowrap">
+                      <button className="p-2 hover:bg-[var(--hover)] rounded">
+                        <EyeIcon className="h-4 w-4" />
+                      </button>
+
+                      <button className="p-2 hover:bg-[var(--hover)] rounded">
+                        <PencilSquareIcon className="h-4 w-4" />
+                      </button>
+
+                      <button className="p-2 hover:bg-red-100 rounded">
+                        <TrashIcon className="h-4 w-4 text-red-500" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
       </div>
     </div>
   );
