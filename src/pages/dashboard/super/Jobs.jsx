@@ -33,17 +33,27 @@ export default function JobsSuper() {
       ></div>
       <div
         className="
-          flex overflow-x-auto    h-[300px]  border border-[var(--border)]
+          flex overflow-x-auto gap-3   h-[300px]  border border-[var(--border)]
         "
       >
         <div
-        className="
-          w-100  h-[200]  border border-[var(--border)]
-        "
-      ></div>
+          className="
+            w-100 flex-shrink-0 h-[200]  border border-[var(--border)]
+          "
+        ></div>
         <div
           className="
-            w-100  h-[200]  border border-[var(--border)]
+            w-100 flex-shrink-0 h-[200]  border border-[var(--border)]
+          "
+        ></div>
+        <div
+          className="
+            w-100 flex-shrink-0 h-[200]  border border-[var(--border)]
+          "
+        ></div>
+        <div
+          className="
+            w-100 flex-shrink-0 h-[200]  border border-[var(--border)]
           "
         ></div>
       </div>
