@@ -26,38 +26,17 @@ export default function JobsSuper() {
 
   return (
     <div className="p-4 w-full space-y-4 overflow-x-hidden">
-      <div
-        className="
-          block  w-full h-[300px]   border border-[var(--border)]
-        "
-      ></div>
-      <div
-        className="
-          flex overflow-x-auto gap-3   h-[300px]  border border-[var(--border)]
-        "
-      >
-        <div
-          className="
-            w-100 flex-shrink-0 h-[200]  border border-[var(--border)]
-          "
-        ></div>
-        <div
-          className="
-            w-100 flex-shrink-0 h-[200]  border border-[var(--border)]
-          "
-        ></div>
-        <div
-          className="
-            w-100 flex-shrink-0 h-[200]  border border-[var(--border)]
-          "
-        ></div>
-        <div
-          className="
-            w-100 flex-shrink-0 h-[200]  border border-[var(--border)]
-          "
-        ></div>
+  
+      {/* Example chart */}
+      <div className="block w-full h-[300px] border border-[var(--border)]"></div>
+
+      {/* Scrollable row */}
+      <div className="flex overflow-x-auto gap-3 h-[300px] border border-[var(--border)]">
+        <div className="flex-shrink-0 w-[200px] h-[200px] border border-[var(--border)]"></div>
+        <div className="flex-shrink-0 w-[200px] h-[200px] border border-[var(--border)]"></div>
+        <div className="flex-shrink-0 w-[200px] h-[200px] border border-[var(--border)]"></div>
+        <div className="flex-shrink-0 w-[200px] h-[200px] border border-[var(--border)]"></div>
       </div>
-      
     </div>
   );
 }
