@@ -703,7 +703,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         mx-0
                                         my-0
                                         mt-[15px] lg:mt-[20px]
-                                        pt-3 pb-3 md:pt-6 md:pb-6
+                                        pt-4 pb-4 md:pt-6 md:pb-6
                                         px-1.5 md:px-2.5
                                         text-sm md:text-lg  
                                         rounded-md
@@ -766,7 +766,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             <div 
                                 className="
                                     pt-0
-                                    mx-5
+                                    mx-2 lg:mx-5
                                     mb-5
                                     border-0
                                 " 
@@ -777,10 +777,10 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         w-full
                                         mx-0
                                         my-0
-                                        mt-[20px]
-                                        pt-6 pb-6
-                                        px-2.5
-                                        text-[18px]
+                                        mt-[15px] lg:mt-[20px]
+                                        pt-4 pb-4 md:pt-6 md:pb-6
+                                        px-1.5 md:px-2.5
+                                        text-sm md:text-lg  
                                         rounded-md
                                         border
                                         border-gray-300
@@ -821,7 +821,14 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                         </div>
                         <div className="m-[10px]" ref={positionRef}>
                             <h3 className='text-sm md:text-lg  lg:text-xl  mb-[15px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Positions</h3> 
-                            <div className="ml-[20px] mr-[20px]">
+                            <div 
+                                className="
+                                    pt-0
+                                    mx-2 lg:mx-5
+                                    mb-5
+                                    border-0
+                                "
+                            >
                                 <div className='display-block mb-[10px] relative'>
                                     <input 
                                         type="checkbox" 
@@ -832,7 +839,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     />
                                     <label 
                                         htmlFor=""
-                                        className='ml-[30px] text-gray-700 dark:text-gray-400'
+                                        className='text-xs md:text-sm  lg:text-lg  ml-[30px] text-gray-700 dark:text-gray-400'
                                     >Multiple Positions</label>
                                 </div>
                                 <div 
@@ -840,8 +847,8 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         relative
                                         mb-[20px]
                                         h-[60px]
-                                        w-[320px]
-                                        mt-[20px]
+                                        w-[calc(100vw-80px)] lg:w-[320px]
+                                        mt-[15px] lg:mt-[20px]
                                         width: calc(320px);
                                         border
                                         border-gray-300
