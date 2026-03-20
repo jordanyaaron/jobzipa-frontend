@@ -12,42 +12,41 @@
 
 
 @layer utilities {
-    .scrollbar-none {
-      -ms-overflow-style: none;  /* IE & Edge */
-      scrollbar-width: none;     /* Firefox */
-    }
-  
-    .scrollbar-none::-webkit-scrollbar {
-      display: none;             /* Chrome, Safari */
+  .scrollbar-none {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;     
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;             
+  }
+
+  /* DEFAULT (desktop) */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+  }
+
+  /* SMALL DEVICES */
+  @media (max-width: 768px) {
+    ::-webkit-scrollbar {
+      display: none;
     }
 
-    input[type="date"]::-webkit-calendar-picker-indicator {
-      filter: invert(40%);
-    }
-    
-    .dark input[type="date"]::-webkit-calendar-picker-indicator {
-      filter: invert(40%);
-    }
-
-    /* light mode  */
-    ::-webkit-scrollbar{
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track{
-      background: white;
-    }
-    ::-webkit-scrollbar-thumb{
-      background: grey;
-      break-before: 999px;
-    }
-
-    ::-webkit-scrollbar-track{
-      background: #0f172a ;
-    }
-    ::-webkit-scrollbar-thumb{
-      background: #1e293b;
+    * {
+      scrollbar-width: none; /* Firefox */
     }
   }
+}
+
+
 
   :root {
     --background: #ffffff;
