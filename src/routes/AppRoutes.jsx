@@ -21,6 +21,8 @@ import FaQ from '../pages/Faq';
 import NotFound from '../pages/NotFound';
 
 import PostAJob from '../pages/posting/PostAJob';
+import PostOnDashboard from '../pages/dashboard/PostOnDashboard';
+
 import Login from '../pages/auth/Login';
 import ForgotPassword from '../pages/auth/ForgotPassword';
 import StaffCompleteRegistration from '../pages/auth/StaffCompleteRegistration';
@@ -128,6 +130,15 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
                 </ProtectedRoute>
               } 
             />
+
+            <Route path="/super/settings" element={
+                <ProtectedRoute requireSuperuser={true}>
+                  <PostOnDashboard />
+                </ProtectedRoute>
+              } 
+            />
+
+
             
 
             <Route path="/admin" element={

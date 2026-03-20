@@ -4,11 +4,11 @@ import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import JobzipaLogo from '../assets/logos/jobzipa.png';
 import DeviceSize from "../components/DeviceSize";
 import "../css/DeviceSize.css";// Importing Components
-import Header from "../components/Header";
+
+// headers
 import DashboardHeader from "../components/DashboardHeader";
 import SuperJobsHeader from "../components/headers/SuperJobsHeader";
-
-import SideBar from "../components/SideBar";
+import PostOnDashboardHeader from "../components/headers/PostOnDashboardHeader";
 import SuperSideBar from "../components/SuperSidebar";
 // import "../css/Post.css";
 // import "../css/QuillEditor.css";
@@ -43,6 +43,10 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
   const renderHeader = () => {
     if (location.pathname.startsWith("/super/jobs")) {
       return <SuperJobsHeader setSidebarOpen={setSidebarOpen} onFilter={setJobFilter} onSearch={setSearchQuery}/>;
+    }
+
+    if (location.pathname.startsWith("/super/post")) {
+      return <PostOnDashboardHeader setSidebarOpen={setSidebarOpen} />;
     }
     // default
     return <DashboardHeader setSidebarOpen={setSidebarOpen} />;

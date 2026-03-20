@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router-dom";
+import { Link , useOutletContext } from "react-router-dom";
 import {
   EyeIcon,
   PencilSquareIcon,
@@ -42,6 +42,15 @@ export default function JobsSuper() {
         <h1 className="text-lg md:text-2xl font-bold">Jobs</h1>
 
         <div className="flex gap-2 w-full md:w-auto min-w-0">
+          {/* post */}
+          <Link
+            to="/super/post"
+            className="flex items-center gap-2 px-3 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
+          >
+            <PlusIcon className="h-5 w-5" />
+            <span className="hidden sm:block">Post</span>
+          </Link>
+
           {/* Search */}
           <input
             type="text"

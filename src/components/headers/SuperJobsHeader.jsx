@@ -7,7 +7,6 @@ import {
   Bars3Icon,
   PlusIcon
 } from "@heroicons/react/24/outline";
-
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
 const filterOptions = ["all", "active", "pending", "reported"];
