@@ -995,10 +995,10 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             <div 
                                 className="
                                     ml-2 lg:ml-5
-                                    w-[calc(100vw-60px)] md:w-[280px]
+                                    w-[calc(100vw-70px)] md:w-[280px]
                                     relative
                                     block
-                                    h-[60px]
+                                    h-[50px] h-[60px]
                                     p-0
                                     text-base
                                     rounded
@@ -1010,7 +1010,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     className="
                                         absolute
                                         right-[13px]
-                                        top-[25px]
+                                        top-[20px] lg:top-[25px]
                                         block
                                         h-[6px]
                                         w-[6px]
@@ -1028,7 +1028,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     className={`
                                         absolute
                                         w-full
-                                        h-[60px] lg:h-[80px]
+                                        h-[50px] lg:h-[60px]
                                         text-sm  lg:text-lg
                                         m-0
                                         p-5
@@ -1295,7 +1295,14 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                             ml-0 text-gray-700 dark:text-gray-400
                                         '
                                    >Type</label>
-                                    <div className="w-[100%]  bg-amber-50 mt-[10px]">
+                                    <div className="mr-0
+                                            ml-0
+                                            mt-[15px]
+                                            h-[0hpx]
+                                            w-full
+                                            relative
+                                        "
+                                    >
                                         <i 
                                             className="
                                             absolute
@@ -1358,12 +1365,11 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     >Mode</label>
                                     <div 
                                         className="
-                                            absolute
-                                            mr-[0px]
-                                            ml-[0px]
+                                            mr-0
+                                            ml-0
                                             mt-[15px]
                                             h-[0hpx]
-                                            w-[100%]
+                                            w-full
                                             relative
                                         "
                                     >
