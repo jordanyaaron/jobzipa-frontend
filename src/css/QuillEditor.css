@@ -149,14 +149,14 @@
 
   .ql-container.ql-snow {
     /* Alama ya ! inakaa mbele ya class name */
-    @apply !bg-white dark:!bg-gray-800;
+    @apply !bg-transparent;
     @apply !border-t-0;
     border: 0 !important;
     
   }
   
   .ql-editor {
-    @apply !bg-white dark:!bg-gray-800;
+    @apply !bg-transparent;
     @apply !border-t-0;
     
     @apply !border !border-gray-300 dark:!border-gray-700;
