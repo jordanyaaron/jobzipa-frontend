@@ -876,7 +876,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                                     mx-0
                                                     my-0
                                                     mt-[2px] lg:mt-[5px]
-                                                    pt-4 pb-4 md:pt-6 md:pb-6
+                                                    pt-4 pb-4 md:pt-5 md:pb-5
                                                     px-1.5 md:px-2.5
                                                     text-sm md:text-lg  
                                                     rounded-md
@@ -952,7 +952,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     ))}
                                 </ul>
                             )}
-                            <div className="m-[0px]"  >
+                            <div className="m-0"  >
                                 <div
                                     className="
                                         pt-0
@@ -1296,8 +1296,8 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                    >Type</label>
                                     <div className="mr-0
                                             ml-0
-                                            mt-[15px]
-                                            h-[0hpx]
+                                            mt-[10px]
+                                            h-[55px] lg:h-[60px]
                                             w-full
                                             relative
                                         "
@@ -1306,7 +1306,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                             className="
                                             absolute
                                             right-[13px]
-                                            top-[65px]
+                                            top-[25px]
                                             block
                                             h-[6px]
                                             w-[6px]
@@ -1325,7 +1325,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                                 text-xs md:text-sm
                                                 absolute
                                                 w-full
-                                                h-[60px]
+                                                h-[55px] lg:h-[60px]
                                                 mt-[5px]
                                                 p-5
                                                 bg-transparent
@@ -1367,7 +1367,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                             mr-0
                                             ml-0
                                             mt-[15px]
-                                            h-[5hpx] lg:h-[60hpx]
+                                            h-[55px] lg:h-[60px]
                                             w-full
                                             relative
                                         "
@@ -1395,7 +1395,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                                 absolute
                                                 text-xs md:text-sm
                                                 w-full
-                                                h-[60px]
+                                                h-[55px] lg:h-[60px]
                                                 m-0
                                                 p-5
                                                 bg-transparent
@@ -1419,7 +1419,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         </select>
                                     </div>
                                 </div>
-                                <div className="relative block w-[calc(100%)] mt-[80px]">
+                                <div className="relative block w-[calc(100%)] mt-[40px]">
                                     <label className='ml-0 mb-[10px] text-gray-700 dark:text-gray-400'>Tags</label>
                                     
                                     <ul 
@@ -1489,7 +1489,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                                 text-white
                                                 cursor-pointer
                                                 rounded-md
-                                                    flex items-center gap-2
+                                                flex items-center gap-2
                                                 bg-[#3E907D]
                                                 px-5
                                                 h-[50px]
@@ -1584,7 +1584,6 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
                         <div
                             className="
-                                datail-box
                                 m-[10px]
                                 ml-[35px]
                                 mr-[35px]
@@ -1592,7 +1591,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             "
                         >
                             {/* Actual Date */}
-                            <div className="col-span-1 flex flex-col">
+                            <div className="col-span-2 md:col-span-1 flex flex-col">
                                 <label 
                                     className="
                                         text-gray-700 dark:text-gray-400 mb-[10px]
@@ -1630,7 +1629,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
 
                             {/* Deadline Date */}
-                            <div className="col-span-1 flex flex-col">
+                            <div className="col-span-2 md:col-span-1  flex flex-col">
                                 <label className=' text-gray-700 dark:text-gray-400 mb-[10px]'>
                                     Deadline Date
                                 </label>
@@ -1716,11 +1715,10 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
                     <div className="
                             relative
-                            block
                             mt-[30px] lg:mt-[40px] mb-[30px] lg:mb-[40px]
                             mx-[10px]
                             h-[55px]
-                            text-left
+                            flex justify-left items-left
                         "
                     >
                         {/* Submit Button  */}
