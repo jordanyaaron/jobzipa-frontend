@@ -576,7 +576,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         ml-[17px] lg:ml-[27px]
                                         flex
                                         flex-col
-                                        justify-between
+                                        justify-center
                                         items-center
                                         text-center
                                         overflow-hidden
