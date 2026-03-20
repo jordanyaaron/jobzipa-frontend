@@ -539,9 +539,11 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
     return(
         <>
-            <div className='w-[100vw] overflow-x-hidden lg:w-full flex justify-center mt-[64px] lg:mt-0' >
+            <div className='w-[100vw] overflow-x-hidden scrollbar-hide
+                            m-0 lg:w-full flex justify-center  lg:mt-0' >
                 <div
                     className="
+                    mt-[64px]
                         w-[100vw] lg:w-[720px]
                     "
                 >
@@ -557,7 +559,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             dark:text-[#ebf3f2]
                                 font-black 
                                 mb-0 
-                                mt-[20px] text-2xl 
+                                mt-[20px] text-lg md:text-xl  lg:text-2xl 
                             "
                         >
                             Organisation Details
@@ -734,13 +736,13 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             dark:text-[#ebf3f2]
                                 font-black 
                                 mb-0 
-                                mt-[20px] text-2xl 
+                                mt-[20px] text-lg md:text-xl  lg:text-2xl 
                             "
                         >
                             Job Details
                         </h1>
                         <div className="m-[10px]" ref={titleRef}>
-                            <h3 className='text-[25px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job title</h3>
+                            <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Job title</h3>
                             <div 
                                 className="
                                     pt-0
@@ -779,7 +781,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             </div> 
                         </div>
                         <div className="m-[10px]" ref={descriptionsRef}>
-                            <h3 className='text-[25px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Descriptions</h3>
+                            <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Descriptions</h3>
                             {errors.description && (
                                 <p className='error-displayer for-quill'>{errors.description}</p>
                             )}
@@ -798,7 +800,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             </div>
                         </div>
                         <div className="m-[10px]" ref={positionRef}>
-                            <h3 className='text-[25px] mb-[15px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Positions</h3> 
+                            <h3 className='text-sm md:text-lg  lg:text-xl  mb-[15px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Positions</h3> 
                             <div className="ml-[20px] mr-[20px]">
                                 <div className='display-block mb-[10px] relative'>
                                     <input 
@@ -863,7 +865,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                         </div>
 
                         <div ref={locationRef} className="m-[10px]">
-                            <h3  className='text-[25px] mb-[15px] font-normal text-gray-800 dark:text-gray-200 h-auto'  >Job Locations:</h3>
+                            <h3  className='text-sm md:text-lg  lg:text-xl  mb-[15px] font-normal text-gray-800 dark:text-gray-200 h-auto'  >Job Locations:</h3>
                             {locations.length > 0 && (
                                 <ul 
                                     id="location-list" 
@@ -1212,7 +1214,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                 m-5
                                 mt-[10px]
                                 border-0
-                                text-[18px]
+                                text-sm md:text-lg  
                                 text-white
                                 cursor-pointer
                                 rounded-md
@@ -1241,7 +1243,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                         </div>
 
                         <div className="m-[10px]">
-                            <h3 className='text-[25px] mb-[10px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Categorisations</h3>
+                            <h3 className='text-sm md:text-lg  lg:text-xl  mb-[10px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Categorisations</h3>
                             <div className="ml-[20px] mr-[20px] ">
                                 <div className="inline-block relative w-[calc(50%_-_5px)]">
                                     <label className='ml-[0px] text-gray-700 dark:text-gray-400'>Type</label>
@@ -1295,7 +1297,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     </div>
                                 </div>
                                 <div className="inline-block ml-[20px] w-[calc(50%_-_20px)]">
-                                    <label className='ml-[0px] text-gray-700 dark:text-gray-400'>Mode</label>
+                                    <label className='ml-0 text-gray-700 dark:text-gray-400'>Mode</label>
                                     <div 
                                         className="
                                             absolute
@@ -1354,14 +1356,14 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     </div>
                                 </div>
                                 <div className="relative block w-[calc(100%)] mt-[80px]">
-                                    <label className='ml-[0px] mb-[10px] text-gray-700 dark:text-gray-400'>Tags</label>
+                                    <label className='ml-0 mb-[10px] text-gray-700 dark:text-gray-400'>Tags</label>
                                     
                                     <ul 
                                         id="category-list" 
                                         className='
                                             w-[calc(100% - 40px)]
                                             ml-[20px]
-                                            pl-[0px]
+                                            pl-0
                                         ' 
                                     >
                                         {tags.map((t, index) => (
@@ -1512,7 +1514,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             dark:text-[#ebf3f2]
                                 font-black 
                                 mb-0 
-                                mt-[20px] text-2xl 
+                                mt-[20px] text-lg md:text-xl  lg:text-2xl 
                             "
                         >
                             Date Infos
@@ -1606,13 +1608,13 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             dark:text-[#ebf3f2]
                                 font-black 
                                 mb-0 
-                                mt-[20px] text-2xl 
+                                mt-[20px] text-lg md:text-xl  lg:text-2xl 
                             "
                         >
                             Aplication Link
                         </h1>
                         <div className="m-[10px]">
-                            <h3 className='text-[25px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Spesify Application link</h3>
+                            <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Spesify Application link</h3>
                             <div 
                                 className="
                                     pt-0
