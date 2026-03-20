@@ -34,6 +34,14 @@
     background: #1e293b;
   }
 
+  .ql-toolbar {
+    @apply border border-gray-300 rounded-t-lg bg-gray-50;
+  }
+  
+  .ql-container {
+    @apply border border-gray-300 border-t-0 rounded-b-lg;
+  }
+
   /* SMALL DEVICES */
   @media (max-width: 768px) {
     ::-webkit-scrollbar {
