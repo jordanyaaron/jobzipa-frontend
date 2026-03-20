@@ -131,7 +131,7 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
               } 
             />
 
-            <Route path="/super/settings" element={
+            <Route path="/super/post" element={
                 <ProtectedRoute requireSuperuser={true}>
                   <PostOnDashboard />
                 </ProtectedRoute>
