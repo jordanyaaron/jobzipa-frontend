@@ -539,7 +539,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
     return(
         <>
-            <div className='w-full flex justify-center' >
+            <div className='w-full p-4 flex justify-center mt-[256px] lg:mt-0' >
             <div
                     className="
                         w-full lg:w-[720px]
@@ -548,7 +548,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                     <div 
                         className="
                             m-[2px] 
-                            mt-16 ld:mt-0
+                            
                         "
                     >
                         {/* Organisation */}

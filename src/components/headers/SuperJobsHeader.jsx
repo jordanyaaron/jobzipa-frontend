@@ -51,7 +51,7 @@ const SuperJobsHeader = ({ setSidebarOpen , onFilter , onSearch }) => {
 
           {/* Post */}
           <Link
-            to="/post"
+            to="/super/post"
             className="flex items-center gap-2 px-3 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
           >
             <PlusIcon className="h-5 w-5" />
