@@ -539,12 +539,16 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
     return(
         <>
-            {/* <main className="bg-white relative inline-block min-h-[calc(100vh-162px)] 
-                 mt-[3px] mb-[1px] p-[30px] pt-[13px] 
-                 overflow-y-auto text-left
-                 w-full sm:w-full md:w-[650px] lg:w-[650px]"> */}
+            <div
+                className="
+                    w-full lg:w-[720px]
+                "
+            >
                 <div 
-                    className="m-[2px] mt-16 ld:mt-0"
+                    className="
+                        m-[2px] 
+                        mt-16 ld:mt-0
+                    "
                 >
                     {/* Organisation */}
                     
@@ -1686,7 +1690,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                     </button>
 
                 </div>
-              
+            </div> 
             {/* </main> */}
             <button className='test-rest' onClick={resetJobForm}>Reset Form</button>
             {isLoading && (
