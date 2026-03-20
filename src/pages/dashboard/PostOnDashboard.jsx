@@ -876,13 +876,12 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                                     w-full
                                                     mx-0
                                                     my-0
-                                                    mt-[15px] lg:mt-[20px]
+                                                    mt-[5px] lg:mt-[10px]
                                                     pt-4 pb-4 md:pt-6 md:pb-6
                                                     px-1.5 md:px-2.5
                                                     text-sm md:text-lg  
                                                     rounded-md
                                                     relative
-                                                    p-[16px]
                                                 '
                                                 name="" id="" step="1" min="0"  
                                                 placeholder='Specify number of position here...'   
@@ -975,7 +974,6 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                             text-sm md:text-lg  
                                             rounded-md
                                             border
-                                            border
                                             border-gray-300
                                             bg-white
                                             text-gray-900
@@ -997,7 +995,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             <div 
                                 className="
                                     ml-2 lg:ml-5
-                                    w-[calc(100vw-40px)] md:w-[280px]
+                                    w-[calc(100vw-60px)] md:w-[280px]
                                     relative
                                     block
                                     h-[60px]
@@ -1030,7 +1028,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     className={`
                                         absolute
                                         w-full
-                                        h-[40px] lg:h-[60px]
+                                        h-[60px] lg:h-[80px]
                                         text-sm  lg:text-lg
                                         m-0
                                         p-5
