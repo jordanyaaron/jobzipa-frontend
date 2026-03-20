@@ -571,7 +571,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     className="
                                         h-[100px]  md:h-[125px] lg:h-[150px]
                                         w-[calc(100%-27px)] lg:w-[calc(100%-57px)]
-                                        m-[30px]
+                                        m-[20px] lg:m-[20px]
                                         mt-5
                                         ml-[7px] lg:ml-[27px]
                                         flex
@@ -602,8 +602,8 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         alt="img-icon" 
                                         className="
                                             h-[20px] lg:h-[30px] 
-                                            w-[20px] lg:w-[20px]
-                                            mt-[15px] mt-[10px] md:mt-[15px]  cursor-pointer self-center
+                                            w-[20px] lg:w-[30px]
+                                            mt-[15px] mb-[10px] md:mb-[15px]  cursor-pointer self-center
                                         " 
                                     />
                                     <p  
@@ -690,7 +690,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             <div 
                                 className="
                                     pt-0
-                                    mx-5
+                                    mx-2 lg:mx-5
                                     mb-5
                                     border-0
                                 " 
@@ -702,10 +702,10 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         w-full
                                         mx-0
                                         my-0
-                                        mt-[20px]
-                                        pt-6 pb-6
-                                        px-2.5
-                                        text-[18px]
+                                        mt-[15px] lg:mt-[20px]
+                                        pt-3 pb-3 md:pt-6 md:pb-6
+                                        px-1.5 md:px-2.5
+                                        text-sm md:text-lg  
                                         rounded-md
                                         border
                                         border-gray-300
