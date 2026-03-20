@@ -568,42 +568,42 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             {/* <h3>Organisation Logo</h3>*/}
                             {!imageSrc && !croppedImage ? (
                                 <button ref={logPickerRef}
-                                className="
-                                    h-[90px]
-                                    w-[calc(100%-37px)] lg:w-[calc(100%-57px)]
-                                    m-[30px]
-                                    mt-5
-                                    ml-[17px] lg:ml-[27px]
-                                    flex
-                                    flex-col
-                                    justify-between
-                                    items-center
-                                    text-center
-                                    overflow-hidden
-                                    rounded-[30px]
-                                    cursor-pointer
-                                    border-0
-                                    bg-gradient-to-r
-                                    from-[#3E907D]
-                                    to-[#061a1fbb]
-                                    hover:from-[#142a25]
-                                    hover:to-[#061a1fbb]
-                                    dark:from-[#b3baead6]
-                                    dark:to-[#3c6fae]
-                                    dark:hover:from-[#b3baea]
-                                    dark:hover:to-[#325e94]
-                                    transition-all
-                                    duration-300
-                                    
-                                "   
-                                onClick={handleButtonClick}>
+                                    className="
+                                        h-[100px]  md:h-[125px] lg:h-[150px]
+                                        w-[calc(100%-37px)] lg:w-[calc(100%-57px)]
+                                        m-[30px]
+                                        mt-5
+                                        ml-[17px] lg:ml-[27px]
+                                        flex
+                                        flex-col
+                                        justify-between
+                                        items-center
+                                        text-center
+                                        overflow-hidden
+                                        rounded-[30px]
+                                        cursor-pointer
+                                        border-0
+                                        bg-gradient-to-r
+                                        from-[#3E907D]
+                                        to-[#061a1fbb]
+                                        hover:from-[#142a25]
+                                        hover:to-[#061a1fbb]
+                                        dark:from-[#b3baead6]
+                                        dark:to-[#3c6fae]
+                                        dark:hover:from-[#b3baea]
+                                        dark:hover:to-[#325e94]
+                                        transition-all
+                                        duration-300
+                                        
+                                    "   
+                                    onClick={handleButtonClick}>
                                     <img 
                                         src={logoAddIcon} 
                                         alt="img-icon" 
                                         className="
                                             h-[20px] lg:h-[30px] 
                                             w-[20px] lg:w-[20px]
-                                            mt-[15px] mb-[15px] cursor-pointer self-center
+                                            mt-[15px]  cursor-pointer self-center
                                         " 
                                     />
                                     <p  
@@ -615,7 +615,13 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     </p>
                                 </button>
                                 ) : (
-                                    <div className="relative  inline-block w-[200px] ml-[20px] md:ml-[30px]">
+                                    <div 
+                                        className="
+                                            relative  inline-block 
+                                            w-[150px] md:w-[175px] lg:w-[200px] 
+                                            ml-[15px] md:ml-[30px]
+                                        "
+                                    >
 
                                         {/* Logo Image */}
                                         <img
@@ -635,22 +641,22 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         {/* Floating Buttons */}
                                         <div className="absolute top-1 right-1 flex flex-col gap-2">
                                             <button
-                                            onClick={handleRemoveLogo}
-                                            className="
-                                                flex items-center justify-center
-                                                w-6 h-6 md:w-6 md:h-6 
-                                                rounded-lg
-                                                cursor-pointer
-                                                hover:bg-red-900
-                                                hover:text-white
-                                                bg-gray-800 dark:bg-gray-200
-                                                text-white dark:text-gray-800
-                                                hover:bg-gray-700
-                                                dark:hover:bg-red-900
-                                                dark:hover:text-white
-                                                dark:hover:text-black
-                                                transition-colors duration-200
-                                            "
+                                                onClick={handleRemoveLogo}
+                                                className="
+                                                    flex items-center justify-center
+                                                    w-6 md:w-7  lg:w-8   h-6  md:h-7  lg:h-8
+                                                    rounded-lg
+                                                    cursor-pointer
+                                                    hover:bg-red-900
+                                                    hover:text-white
+                                                    bg-gray-800 dark:bg-gray-200
+                                                    text-white dark:text-gray-800
+                                                    hover:bg-gray-700
+                                                    dark:hover:bg-red-900
+                                                    dark:hover:text-white
+                                                    dark:hover:text-black
+                                                    transition-colors duration-200
+                                                "
                                             >
                                             <XMarkIcon className="w-4 h-4" />
                                             </button>
@@ -659,7 +665,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                             onClick={handleButtonClick}
                                             className="
                                                 flex items-center justify-center
-                                                w-8 h-8
+                                               w-6 md:w-7  lg:w-8   h-6  md:h-7  lg:h-8
                                                 rounded-lg
                                                 bg-gray-800 dark:bg-gray-200
                                                 text-white dark:text-gray-800
