@@ -539,7 +539,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
     return(
         <>
-            <div className='w-[100vw] overflow-x-hidden scrollbar-hide
+            <div className='w-full overflow-x-hidden scrollbar-hide
                             m-0 lg:w-full flex justify-center  lg:mt-0' >
                 <div
                     className="
@@ -569,14 +569,14 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             {!imageSrc && !croppedImage ? (
                                 <button ref={logPickerRef}
                                 className="
-                                    h-[130px]
-                                    w-[calc(100%-57px)]
+                                    h-[90px]
+                                    w-[calc(100%-37px)] lg:w-[calc(100%-57px)]
                                     m-[30px]
                                     mt-5
-                                    ml-[27px]
+                                    ml-[17px] lg:ml-[27px]
                                     flex
                                     flex-col
-                                    justify-center
+                                    justify-between
                                     items-center
                                     text-center
                                     overflow-hidden
@@ -597,24 +597,38 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     
                                 "   
                                 onClick={handleButtonClick}>
-                                    <img src={logoAddIcon} alt="img-icon" className="h-[30px] w-[30px] mt-[15px] mb-[15px] cursor-pointer self-center" />
-                                    <p  className="text-white font-thin text-[18px] cursor-pointer">Tap here to add company logo</p>
+                                    <img 
+                                        src={logoAddIcon} 
+                                        alt="img-icon" 
+                                        className="
+                                            h-[20px] lg:h-[30px] 
+                                            w-[20px] lg:w-[20px]
+                                            mt-[15px] mb-[15px] cursor-pointer self-center
+                                        " 
+                                    />
+                                    <p  
+                                        className="
+                                            text-white font-thin text-sm md:text-lg text-xcursor-pointer
+                                        "
+                                    >
+                                        Tap here to add company logo
+                                    </p>
                                 </button>
                                 ) : (
-                                    <div className="relative  inline-block w-[200px] ml-[30px]">
+                                    <div className="relative  inline-block w-[200px] ml-[20px] md:ml-[30px]">
 
                                         {/* Logo Image */}
                                         <img
                                             src={croppedImage || imageSrc}
                                             alt="Logo Preview"
                                             className="
-                                            w-[150px]
-                                            h-[150px]
-                                            object-cover
-                                            rounded-lg
-                                            border
-                                            border-gray-300
-                                            dark:border-slate-600
+                                                w-[100px] md:w-[125px] lg:w-[150px]
+                                                h-[100px]  md:h-[125px] lg:h-[150px]
+                                                object-cover
+                                                rounded-lg
+                                                border
+                                                border-gray-300
+                                                dark:border-slate-600
                                             "
                                         />
 
@@ -624,7 +638,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                             onClick={handleRemoveLogo}
                                             className="
                                                 flex items-center justify-center
-                                                w-8 h-8
+                                                w-6 h-6 md:w-6 md:h-6 
                                                 rounded-lg
                                                 cursor-pointer
                                                 hover:bg-red-900
@@ -666,7 +680,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             <input ref={fileInputRef} type="file" id="logoInput" className="hidden" accept="image/*"  onChange={handleFileChange}/>
                         </div>
                         <div className="m-[10px]">
-                            <h3 className='text-[25px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Company Name</h3> 
+                            <h3 className='text-sm md:text-lg  lg:text-xl   font-normal text-gray-800 dark:text-gray-200 h-auto'>Company Name</h3> 
                             <div 
                                 className="
                                     pt-0
@@ -709,7 +723,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                         </div>
 
                         <div className="m-[10px] relative" ref={biographyRef}>
-                            <h3 className='text-[25px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Company Biography</h3> 
+                            <h3 className='text-sm md:text-lg  lg:text-xl   font-normal text-gray-800 dark:text-gray-200 h-auto'>Company Biography</h3> 
                             {errors.biography && (
                                 <p className='error-displayer for-qiull'>{errors.biography}</p>
                             )}
