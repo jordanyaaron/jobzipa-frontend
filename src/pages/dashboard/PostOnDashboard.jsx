@@ -539,7 +539,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
     return(
         <>
-            <div className='w-[100vw] lg:w-full flex justify-center mt-[64px] lg:mt-0' >
+            <div className='w-[100vw] overflow-x-hidden lg:w-full flex justify-center mt-[64px] lg:mt-0' >
                 <div
                     className="
                         w-[100vw] lg:w-[720px]
