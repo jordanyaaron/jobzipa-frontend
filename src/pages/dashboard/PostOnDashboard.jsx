@@ -873,9 +873,16 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                                 type='number'
                                                 value={positionValue}
                                                 className='
+                                                    w-full
+                                                    mx-0
+                                                    my-0
+                                                    mt-[15px] lg:mt-[20px]
+                                                    pt-4 pb-4 md:pt-6 md:pb-6
+                                                    px-1.5 md:px-2.5
+                                                    text-sm md:text-lg  
+                                                    rounded-md
                                                     relative
                                                     p-[16px]
-                                                    w-[320px]
                                                 '
                                                 name="" id="" step="1" min="0"  
                                                 placeholder='Specify number of position here...'   
@@ -891,14 +898,14 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
                         </div>
 
-                        <div ref={locationRef} className="m-[10px]">
+                        <div ref={locationRef} className="m-[10px] mt-[15px] lg:mt[20px]">
                             <h3  className='text-sm md:text-lg  lg:text-xl  mb-[15px] font-normal text-gray-800 dark:text-gray-200 h-auto'  >Job Locations:</h3>
                             {locations.length > 0 && (
                                 <ul 
                                     id="location-list" 
                                     className='
                                         w-[calc(100% - 40px)]
-                                        ml-[20px]
+                                        ml-[10px] lg:ml-[20px]
                                         pl-[0px]
                                     ' 
                                     style={{ marginTop: "15px" }}>
@@ -951,7 +958,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                 <div
                                     className="
                                         pt-0
-                                        mx-5
+                                        mx-2 lg:mx-5
                                         mb-5
                                         border-0
                                     " 
@@ -962,11 +969,12 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                             w-full
                                             mx-0
                                             my-0
-                                            mt-[20px]
-                                            pt-6 pb-6
-                                            px-2.5
-                                            text-[18px]
+                                            mt-[15px] lg:mt-[20px]
+                                            pt-4 pb-4 md:pt-6 md:pb-6
+                                            px-1.5 md:px-2.5
+                                            text-sm md:text-lg  
                                             rounded-md
+                                            border
                                             border
                                             border-gray-300
                                             bg-white
@@ -988,8 +996,8 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             </div>
                             <div 
                                 className="
-                                    ml-5
-                                    w-[280px]
+                                    ml-2 lg:ml-5
+                                    w-[calc(100vw-40px)] md:w-[280px]
                                     relative
                                     block
                                     h-[60px]
@@ -1022,7 +1030,8 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     className={`
                                         absolute
                                         w-full
-                                        h-[60px]
+                                        h-[40px] lg:h-[60px]
+                                        text-sm  lg:text-lg
                                         m-0
                                         p-5
                                         bg-transparent
@@ -1238,14 +1247,14 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             <button 
                                 id="add-location-btn"
                                 className="
-                                m-5
+                                m-2 lg:m-5
                                 mt-[10px]
                                 border-0
                                 text-sm md:text-lg  
                                 text-white
                                 cursor-pointer
                                 rounded-md
-                                    flex items-center gap-2
+                                flex items-center gap-2
                                 bg-[#3E907D]
                                 px-5
                                 py-2.5
@@ -1269,11 +1278,25 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             onClick={handleAddLocation}><PlusIcon className="w-5 h-5" />add</button>
                         </div>
 
-                        <div className="m-[10px]">
+                        <div className="m-[10px] mt-[15px] lg:mt-[20px]">
                             <h3 className='text-sm md:text-lg  lg:text-xl  mb-[10px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Categorisations</h3>
-                            <div className="ml-[20px] mr-[20px] ">
-                                <div className="inline-block relative w-[calc(50%_-_5px)]">
-                                    <label className='ml-[0px] text-gray-700 dark:text-gray-400'>Type</label>
+                            <div className="
+                                    ml-[10px] mr-[10px] 
+                                    lg:ml-[20px] lg:mr-[20px]
+                                    grid grid-cols-2 gap-5
+                                "
+                            >
+                                <div 
+                                    className="
+                                        col-span-1
+                                    "
+                                >
+                                    <label 
+                                    className='
+                                            text-xs md:text-sm
+                                            ml-0 text-gray-700 dark:text-gray-400
+                                        '
+                                   >Type</label>
                                     <div className="w-[100%]  bg-amber-50 mt-[10px]">
                                         <i 
                                             className="
@@ -1295,6 +1318,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         <select 
                                             id="job-type" 
                                             className={`
+                                                text-xs md:text-sm
                                                 absolute
                                                 w-full
                                                 h-[60px]
@@ -1323,8 +1347,17 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         </select>
                                     </div>
                                 </div>
-                                <div className="inline-block ml-[20px] w-[calc(50%_-_20px)]">
-                                    <label className='ml-0 text-gray-700 dark:text-gray-400'>Mode</label>
+                                <div 
+                                    className="
+                                        col-span-1
+                                    "
+                                >
+                                    <label 
+                                        className='
+                                            text-xs md:text-sm
+                                            ml-0 text-gray-700 dark:text-gray-400
+                                        '
+                                    >Mode</label>
                                     <div 
                                         className="
                                             absolute
@@ -1357,6 +1390,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                             id="job-mode" 
                                             className={`
                                                 absolute
+                                                text-xs md:text-sm
                                                 w-full
                                                 h-[60px]
                                                 m-0
@@ -1388,7 +1422,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     <ul 
                                         id="category-list" 
                                         className='
-                                            w-[calc(100% - 40px)]
+                                            w-[calc(100% - 10px)]
                                             ml-[20px]
                                             pl-0
                                         ' 
@@ -1481,8 +1515,8 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                             className="
                                                 appearance-none
                                                 absolute
-                                                w-[140px]
-                                                h-[50px]
+                                                h-[40px] lg:h-[50px]
+                                                w-[120px] lg:w-[140px]
                                                 p-[5px]
                                                 border-0
                                                 bg-transparent
@@ -1490,11 +1524,9 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                                 cursor-pointer
                                                 focus:outline-none
                                                 focus:ring-0
-                                            "
-                                            
-                                        
-
-                                        name="job-category" onChange={handleSelectChange}  >
+                                            " 
+                                            name="job-category" 
+                                            onChange={handleSelectChange}  >
                                             <option value=""  disabled ></option>
                                             <option value="administration & Office Support">Administration & Office Support</option>
                                             <option value="advertising, Arts & Media">Advertising, Arts & Media</option>
@@ -1553,11 +1585,11 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                 m-[10px]
                                 ml-[35px]
                                 mr-[35px]
-                                grid grid-cols-1 md:grid-cols-2 gap-4
+                                grid grid-cols-2 gap-4
                             "
                         >
                             {/* Actual Date */}
-                            <div className="flex flex-col">
+                            <div className="col-span-1 flex flex-col">
                                 <label 
                                     className="
                                         text-gray-700 dark:text-gray-400 mb-[10px]
@@ -1575,8 +1607,8 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         border 
                                         rounded-lg 
                                         px-3 
-                                        py-2 
-                                        h-[60px]
+                                        py-1 lg:py-2 
+                                        h-[50px] lg:h-[60px]
                                         p-5
                                         bg-transparent
                                         appearance-none
@@ -1595,7 +1627,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
 
                             {/* Deadline Date */}
-                            <div className="flex flex-col">
+                            <div className="col-span-1 flex flex-col">
                                 <label className=' text-gray-700 dark:text-gray-400 mb-[10px]'>
                                     Deadline Date
                                 </label>
@@ -1609,8 +1641,8 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         border 
                                         rounded-lg 
                                         px-3 
-                                        py-2 
-                                        h-[60px]
+                                        py-1 lg:py-2 
+                                        h-[50px] lg:h-[60px]
                                         p-5
                                         bg-transparent
                                         appearance-none
@@ -1645,36 +1677,36 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             <div 
                                 className="
                                     pt-0
-                                    mx-5
+                                    mx-2 lg:mx-5
                                     mb-5
-                                    border-0
+                                    border-0    
                                 " 
-                            >
-                                    <input 
-                                        type="url" 
-                                        className="
-                                            w-full
-                                            mx-0
-                                            my-0
-                                            mt-[20px]
-                                            pt-6 pb-6
-                                            px-2.5
-                                            text-[18px]
-                                            rounded-md
-                                            border
-                                            border-gray-300
-                                            bg-white
-                                            text-gray-900
-                                            dark:border-gray-700
-                                            dark:bg-gray-800 dark:text-gray-100
-                                            focus:outline-none
-                                            focus:ring-2 focus:ring-green-500
-                                            transition-colors duration-300
-                                        " 
-                                        name="" 
-                                        id="" 
-                                        placeholder='Enter Job Application Link . . .'
-                                        value={applicationLink} onChange = {(e) => setApplicationsLink(e.target.value)}  />
+                    >
+                            <input 
+                                type="url" 
+                                className="
+                                    w-full
+                                    mx-0
+                                    my-0
+                                    mt-[15px] lg:mt-[20px]
+                                    pt-4 pb-4 md:pt-6 md:pb-6
+                                    px-1.5 md:px-2.5
+                                    text-sm md:text-lg  
+                                    rounded-md
+                                    border
+                                    border-gray-300
+                                    bg-white
+                                    text-gray-900
+                                    dark:border-gray-700
+                                    dark:bg-gray-800 dark:text-gray-100
+                                    focus:outline-none
+                                    focus:ring-2 focus:ring-green-500
+                                    transition-colors duration-300
+                                " 
+                                name="" 
+                                id="" 
+                                placeholder='Enter Job Application Link . . .'
+                                value={applicationLink} onChange = {(e) => setApplicationsLink(e.target.value)}  />
                             </div> 
                         </div>
                     </div>
@@ -1682,17 +1714,19 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                     <div className="
                             relative
                             block
-                            mt-[40px]
+                            mt-[30px] lg:mt-[40px] mb-[30px] lg:mb-[40px]
                             mx-[10px]
                             h-[55px]
-                        ">
+                            text-left
+                        "
+                    >
                         {/* Submit Button  */}
                         <button 
                             onClick={handleSubmit}
                             className="
                                 relative
                                 block
-                                w-[60%]
+                                w-[calc(100vw-20px)] md:w-[60%]
                                 ml-[20%]
                                 h-[55px]
                                 rounded-[10px]
