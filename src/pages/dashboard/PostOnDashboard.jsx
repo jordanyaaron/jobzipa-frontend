@@ -708,11 +708,9 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         text-sm md:text-lg  
                                         rounded-md
                                         border
-                                        border-gray-300
-                                        bg-white
-                                        text-gray-900
-                                        dark:border-gray-700
-                                        dark:bg-gray-800 dark:text-gray-100
+                                        border-[var(--border)]
+                                        bg-transparent
+                                        text-[var(--text)]
                                         focus:outline-none
                                         focus:ring-2 focus:ring-green-500
                                         transition-colors duration-300
@@ -784,10 +782,8 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         rounded-md
                                         border
                                         border-gray-300
-                                        bg-white
-                                        text-gray-900
-                                        dark:border-gray-700
-                                        dark:bg-gray-800 dark:text-gray-100
+                                        bg-transparent
+                                        text-[var(--text)]
                                         focus:outline-none
                                         focus:ring-2 focus:ring-green-500
                                         transition-colors duration-300
@@ -846,7 +842,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     className='
                                         relative
                                         mb-[20px]
-                                        h-[55px] lg:h-[60px]
+                                        h-[55px] lg:h-[70px]
                                         w-[calc(100vw-80px)] lg:w-[320px]
                                         mt-[15px] lg:mt-[20px]
                                         width: calc(320px);
@@ -876,11 +872,14 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                                     mx-0
                                                     my-0
                                                     mt-[2px] lg:mt-[5px]
-                                                    pt-4 pb-4 md:pt-5 md:pb-5
+                                                    pt-4 pb-4 md:pt-4 md:pb-4
                                                     px-1.5 md:px-2.5
                                                     text-sm md:text-lg  
                                                     rounded-md
                                                     relative
+                                                    focus:outline-none
+                                                    focus:ring-2 focus:ring-green-500
+                                                    transition-colors duration-300
                                                 '
                                                 name="" id="" step="1" min="0"  
                                                 placeholder='Specify number of position here...'   
@@ -973,11 +972,9 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                             text-sm md:text-lg  
                                             rounded-md
                                             border
-                                            border-gray-300
-                                            bg-white
-                                            text-gray-900
-                                            dark:border-gray-700
-                                            dark:bg-gray-800 dark:text-gray-100
+                                            border-[var(--border)]
+                                            bg-transparent
+                                            text-[var(--text)]
                                             focus:outline-none
                                             focus:ring-2 focus:ring-green-500
                                             transition-colors duration-300
@@ -1419,7 +1416,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         </select>
                                     </div>
                                 </div>
-                                <div className="relative block w-[calc(100%)] mt-[40px]">
+                                <div className="relative block w-[calc(100%)] mt-[20px]">
                                     <label className='ml-0 mb-[10px] text-gray-700 dark:text-gray-400'>Tags</label>
                                     
                                     <ul 
@@ -1572,8 +1569,8 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                         "
                     >
                         <h1 className="
-                            text-[#3E907D] 
-                            dark:text-[#ebf3f2]
+                                text-[#3E907D] 
+                                dark:text-[#ebf3f2]
                                 font-black 
                                 mb-0 
                                 mt-[20px] text-lg md:text-xl  lg:text-2xl 
@@ -1594,7 +1591,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             <div className="col-span-2 md:col-span-1 flex flex-col">
                                 <label 
                                     className="
-                                        text-gray-700 dark:text-gray-400 mb-[10px]
+                                        text-[var(--text)] mb-[10px]
                                     "
                                 >
                                     Actual Date
@@ -1612,17 +1609,14 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         py-1 lg:py-2 
                                         h-[50px] lg:h-[60px]
                                         p-5
-                                        bg-transparent
                                         appearance-none
                                         border
-                                        border-gray-300
-                                        dark:border-gray-600
-                                        text-gray-700
-                                        dark:text-gray-200
-                                        rounded
+                                        border-[var(--border)]
+                                        bg-transparent
+                                        text-[var(--text)]
                                         focus:outline-none
-                                        focus:ring-2
-                                        focus:ring-emerald-500
+                                        focus:ring-2 focus:ring-green-500
+                                        transition-colors duration-300
                                     "
                                 />
                             </div>
@@ -1630,7 +1624,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
                             {/* Deadline Date */}
                             <div className="col-span-2 md:col-span-1  flex flex-col">
-                                <label className=' text-gray-700 dark:text-gray-400 mb-[10px]'>
+                                <label className=' text-[var(--text)] mb-[10px]'>
                                     Deadline Date
                                 </label>
 
@@ -1649,14 +1643,12 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         bg-transparent
                                         appearance-none
                                         border
-                                        border-gray-300
-                                        dark:border-gray-600
-                                        text-gray-700
-                                        dark:text-gray-200
-                                        rounded
+                                        border-[var(--border)]
+                                        bg-transparent
+                                        text-[var(--text)]
                                         focus:outline-none
-                                        focus:ring-2
-                                        focus:ring-emerald-500
+                                        focus:ring-2 focus:ring-green-500
+                                        transition-colors duration-300
                                     "
                                 />
                             </div>
@@ -1683,32 +1675,31 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     mb-5
                                     border-0    
                                 " 
-                    >
-                            <input 
-                                type="url" 
-                                className="
-                                    w-full
-                                    mx-0
-                                    my-0
-                                    mt-[15px] lg:mt-[20px]
-                                    pt-4 pb-4 md:pt-6 md:pb-6
-                                    px-1.5 md:px-2.5
-                                    text-sm md:text-lg  
-                                    rounded-md
-                                    border
-                                    border-gray-300
-                                    bg-white
-                                    text-gray-900
-                                    dark:border-gray-700
-                                    dark:bg-gray-800 dark:text-gray-100
-                                    focus:outline-none
-                                    focus:ring-2 focus:ring-green-500
-                                    transition-colors duration-300
-                                " 
-                                name="" 
-                                id="" 
-                                placeholder='Enter Job Application Link . . .'
-                                value={applicationLink} onChange = {(e) => setApplicationsLink(e.target.value)}  />
+                            >
+                                <input 
+                                    type="url" 
+                                    className="
+                                        w-full
+                                        mx-0
+                                        my-0
+                                        mt-[15px] lg:mt-[20px]
+                                        pt-4 pb-4 md:pt-6 md:pb-6
+                                        px-1.5 md:px-2.5
+                                        text-sm md:text-lg  
+                                        rounded-md
+                                        border
+                                        border-[var(--border)]
+                                        bg-transparent
+                                        text-[var(--text)]
+                                        focus:outline-none
+                                        focus:ring-2 focus:ring-green-500
+                                        transition-colors duration-300
+                                    " 
+                                    name="" 
+                                    id="" 
+                                    placeholder='Enter Job Application Link . . .'
+                                    value={applicationLink} onChange = {(e) => setApplicationsLink(e.target.value)}  
+                                />
                             </div> 
                         </div>
                     </div>
@@ -1728,7 +1719,6 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                 relative
                                 block
                                 w-[calc(100vw-20px)] md:w-[60%]
-                                ml-[20%]
                                 h-[55px]
                                 rounded-[10px]
                                 border-0
