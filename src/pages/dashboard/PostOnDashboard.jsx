@@ -846,16 +846,15 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     className='
                                         relative
                                         mb-[20px]
-                                        h-[60px]
+                                        h-[55px] lg:h-[60px]
                                         w-[calc(100vw-80px)] lg:w-[320px]
                                         mt-[15px] lg:mt-[20px]
                                         width: calc(320px);
-                                        border
+                                        border border-[var(--border)]
                                         border-gray-300
-                                        bg-white
-                                        text-gray-900
-                                        dark:border-gray-700
-                                        dark:bg-gray-800 dark:text-gray-100
+                                        rounded-md
+                                        bg-transparent
+                                        text-[var(--text)]
                                         
                                     '
                                 >
@@ -876,7 +875,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                                     w-full
                                                     mx-0
                                                     my-0
-                                                    mt-[5px] lg:mt-[10px]
+                                                    mt-[2px] lg:mt-[5px]
                                                     pt-4 pb-4 md:pt-6 md:pb-6
                                                     px-1.5 md:px-2.5
                                                     text-sm md:text-lg  
@@ -995,7 +994,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             <div 
                                 className="
                                     ml-2 lg:ml-5
-                                    w-[calc(100vw-70px)] md:w-[280px]
+                                    w-[calc(100vw-100px)] md:w-[280px]
                                     relative
                                     block
                                     h-[50px] h-[60px]
@@ -1031,7 +1030,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         h-[50px] lg:h-[60px]
                                         text-sm  lg:text-lg
                                         m-0
-                                        p-5
+                                        pl-2 pr-2 pl-5 pr-6 
                                         bg-transparent
                                         appearance-none
                                         border
@@ -1368,7 +1367,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                             mr-0
                                             ml-0
                                             mt-[15px]
-                                            h-[0hpx]
+                                            h-[5hpx] lg:h-[60hpx]
                                             w-full
                                             relative
                                         "
