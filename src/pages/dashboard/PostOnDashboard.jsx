@@ -570,17 +570,17 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                 <button ref={logPickerRef}
                                     className="
                                         h-[100px]  md:h-[125px] lg:h-[150px]
-                                        w-[calc(100%-37px)] lg:w-[calc(100%-57px)]
+                                        w-[calc(100%-27px)] lg:w-[calc(100%-57px)]
                                         m-[30px]
                                         mt-5
-                                        ml-[17px] lg:ml-[27px]
+                                        ml-[7px] lg:ml-[27px]
                                         flex
                                         flex-col
                                         justify-center
                                         items-center
                                         text-center
                                         overflow-hidden
-                                        rounded-[30px]
+                                        rounded-[20px] md:rounded-[30px]
                                         cursor-pointer
                                         border-0
                                         bg-gradient-to-r
@@ -603,7 +603,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         className="
                                             h-[20px] lg:h-[30px] 
                                             w-[20px] lg:w-[20px]
-                                            mt-[15px]  cursor-pointer self-center
+                                            mt-[15px] mt-[10px] md:mt-[15px]  cursor-pointer self-center
                                         " 
                                     />
                                     <p  
