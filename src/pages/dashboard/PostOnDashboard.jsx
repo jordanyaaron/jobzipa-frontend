@@ -781,7 +781,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         text-sm md:text-lg  
                                         rounded-md
                                         border
-                                        border-gray-300
+                                        border-[var(--border)]
                                         bg-transparent
                                         text-[var(--text)]
                                         focus:outline-none
@@ -846,8 +846,6 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         w-[calc(100vw-80px)] lg:w-[320px]
                                         mt-[15px] lg:mt-[20px]
                                         width: calc(320px);
-                                        border border-[var(--border)]
-                                        border-gray-300
                                         rounded-md
                                         bg-transparent
                                         text-[var(--text)]
@@ -875,8 +873,12 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                                     pt-4 pb-4 md:pt-4 md:pb-4
                                                     px-1.5 md:px-2.5
                                                     text-sm md:text-lg  
-                                                    rounded-md
                                                     relative
+                                                    rounded-md
+                                                    border
+                                                    border-[var(--border)]
+                                                    bg-transparent
+                                                    text-[var(--text)]
                                                     focus:outline-none
                                                     focus:ring-2 focus:ring-green-500
                                                     transition-colors duration-300
@@ -994,7 +996,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     w-[calc(100vw-100px)] md:w-[280px]
                                     relative
                                     block
-                                    h-[50px] h-[60px]
+                                    h-[50px] lg:h-[60px]
                                     p-0
                                     text-base
                                     rounded
@@ -1011,8 +1013,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         h-[6px]
                                         w-[6px]
                                         border-2
-                                        border-gray-300
-                                        dark:border-gray-600
+                                        border-[var(--border)]
                                         border-t-0
                                         border-l-0
                                         rotate-45
@@ -1031,10 +1032,8 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                         bg-transparent
                                         appearance-none
                                         border
-                                        border-gray-300
-                                        dark:border-gray-600
-                                        text-gray-700
-                                        dark:text-gray-200
+                                        border-[var(--border)]
+                                        text-[(--text)]
                                         rounded
                                         focus:outline-none
                                         focus:ring-2
@@ -1301,20 +1300,19 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                     >
                                         <i 
                                             className="
-                                            absolute
-                                            right-[13px]
-                                            top-[25px]
-                                            block
-                                            h-[6px]
-                                            w-[6px]
-                                            border-2
-                                            border-gray-300
-                                            dark:border-gray-600
-                                            border-t-0
-                                            border-l-0
-                                            rotate-45
-                                            pointer-events-none
-                                        "
+                                                absolute
+                                                right-[13px]
+                                                top-[25px]
+                                                block
+                                                h-[6px]
+                                                w-[6px]
+                                                border-2
+                                                border-[var(--border)]
+                                                border-t-0
+                                                border-l-0
+                                                rotate-45
+                                                pointer-events-none
+                                            "
                                         ></i>
                                         <select 
                                             id="job-type" 
@@ -1328,10 +1326,8 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                                 bg-transparent
                                                 appearance-none
                                                 border
-                                                border-gray-300
-                                                dark:border-gray-600
-                                                text-gray-700
-                                                dark:text-gray-200
+                                                border-[var(--border)]
+                                                text-[var(--text)]
                                                 rounded
                                                 focus:outline-none
                                                 focus:ring-2
@@ -1378,8 +1374,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                                 h-[6px]
                                                 w-[6px]
                                                 border-2
-                                                border-gray-300
-                                                dark:border-gray-600
+                                                border-[var(--border)]
                                                 border-t-0
                                                 border-l-0
                                                 rotate-45
@@ -1398,10 +1393,8 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                                 bg-transparent
                                                 appearance-none
                                                 border
-                                                border-gray-300
-                                                dark:border-gray-600
-                                                text-gray-700
-                                                dark:text-gray-200
+                                                border-[var(--border)]
+                                                text-[var(--text)]
                                                 rounded
                                                 focus:outline-none
                                                 focus:ring-2
