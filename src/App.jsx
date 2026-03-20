@@ -4,6 +4,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import { Toaster } from 'react-hot-toast'
 import AppRoutes from './routes/AppRoutes'
+import './css/QuillEditor.css'
 // import './App.css'
 import "./index.css";
 
