@@ -544,7 +544,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                 <div
                     className="
                     mt-[64px]
-                        w-[100vw] lg:w-[720px]
+                        w-[calc(100vw-40px)] lg:w-[720px]
                     "
                 >
                     <div 
