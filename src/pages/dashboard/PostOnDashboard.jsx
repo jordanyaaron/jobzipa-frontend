@@ -540,8 +540,18 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
     return(
         <>
-            <button className="fixed bottom-5 right-5 bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-500 text-white p-4 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
-                <RectangleStackIcon className="h-6 w-6" />
+            <button 
+                className="
+                    fixed top-5 right-5 bg-gradient-to-tr from-pink-500 
+                    via-red-500 to-yellow-500 text-white px-4 py-2 
+                    rounded-full shadow-lg flex items-center space-x-2 
+                    hover:scale-110 transition-transform
+                "
+            >
+                <div className="relative">
+                    <PlusIcon className="h-3 w-3 absolute -top-1 -right-1 bg-white text-pink-500 rounded-full p-[1px]" />
+                </div>
+                <span className="font-medium">Post Job</span>
             </button>
             <div className='post-on-dashboard w-full overflow-x-hidden scrollbar-hide
                             m-0 lg:w-full flex justify-center  lg:mt-0' >
@@ -1505,7 +1515,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                         "
                     >
                         {/* Submit Button  */}
-                        <button 
+                        {/* <button 
                             onClick={handleSubmit}
                             className="
                                 relative
@@ -1516,7 +1526,6 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                                 border-0
                                 text-[22px]
                                 text-white
-
                                 bg-gradient-to-r
                                 from-[#3E907D]
                                 to-[#061a1fbb]
@@ -1533,7 +1542,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             "
                         >
                                 Submit a job
-                        </button>
+                        </button> */}
 
                     </div>
                 </div> 
