@@ -1,7 +1,7 @@
 import { Link , useNavigate , useOutletContext } from 'react-router-dom';
 import toast , { Toaster } from 'react-hot-toast';
 import { backendBaseUrl } from "../../utils/urls";
-import { XMarkIcon , PlusIcon , PencilIcon , RectangleStackIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon , PlusIcon , PencilIcon , RectangleStackIcon } from '@heroicons/react/24/outline';
 import { countries , categories } from "@/data/post-page";
 import api from '../../api/axios'
 import React, { useEffect, useRef, useState ,useCallback} from "react";
