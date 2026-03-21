@@ -543,7 +543,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
             <button 
                 className="
                     hidden lg:flex
-                    fixed top-5 right-5  items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700 shadow-lg flex items-center space-x-2 
+                    fixed top-5 right-5  items-center gap-1 px-4 py-3 rounded-[60px] text-white bg-green-600 hover:bg-green-700 shadow-lg flex items-center space-x-2 
                     hover:scale-110 transition-transform
 
                 "
