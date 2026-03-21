@@ -46,9 +46,6 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
       return <SuperJobsHeader setSidebarOpen={setSidebarOpen} onFilter={setJobFilter} onSearch={setSearchQuery}/>;
     }
 
-    if (location.pathname.startsWith("/super/post")) {
-      return <PostOnDashboardHeader setSidebarOpen={setSidebarOpen} setHandlePostJobFromHeader={setHandlePostJobFromHeader}/>;
-    }
     // default
     return <DashboardHeader setSidebarOpen={setSidebarOpen} />;
   };
@@ -80,7 +77,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
           "
         >
           
-          <Outlet context={{ jobFilter, setJobFilter, searchQuery, setSearchQuery, handlePostJobFromHeader, setHandlePostJobFromHeader }} />
+          <Outlet context={{ setSidebarOpen, jobFilter, setJobFilter, searchQuery, setSearchQuery, handlePostJobFromHeader, setHandlePostJobFromHeader }} />
         </main>
 
       </div>

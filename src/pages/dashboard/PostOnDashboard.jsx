@@ -15,7 +15,7 @@ import removeLogoIcon from '../../assets/icons/removeImg.png';
 
 
 export default function PostOnDashboard ({ darkMode , setDarkMode })  {
-    const { handlePostJobFromHeader , setHandlePostJobFromHeader  } = useOutletContext();
+    const { setSidebarOpen } = useOutletContext();
     const fileInputRef = useRef(null); // tunatumia ref ku-access input
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [biography, setBiography] = useState("");
@@ -550,7 +550,59 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
 
     return(
         <>
-            
+            <header className="fixed lg:hidden top-0 left-0 w-[100vw] z-40 border-b border-[var(--border)] bg-[var(--background)]">
+                <div className='flex gap-3 items-center justify-between px-4 h-16'>
+                    <div 
+                        className='
+                            flex-1 items-center 
+                            justify-start h-16
+                        '
+                    >
+                        <button
+                            onClick={() => setSidebarOpen(true)}
+                            className="p-2 rounded-lg hover:bg-[var(--hover)]"
+                        >
+                            <Bars3Icon className="h-6 w-6 text-[var(--text)]" />
+                        </button>
+
+                        {/* Logo */}
+                        <Link to="/" className="flex items-center">
+                            <img src={JobzipaLogo} alt="Jobzipa" className="h-9" />
+                        </Link>
+                    </div>
+                    <div 
+                        className='
+                            items-center 
+                            justify-between h-16 w-16
+                        '
+                    >
+                        <button
+                            onClick={handleSubmit}
+                            className="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
+                        >
+                            <PlusIcon className="h-5 w-5 text-white" />
+                            Post
+                        </button>
+                    </div>
+                </div>
+                {/* Top bar */}
+                <div className="flex items-center justify-between px-4 h-16">
+                    {/* Sidebar toggle */}
+                    
+
+                    {/* Right actions */}
+                    <div className="flex  items-center gap-3 relative">
+                        <button
+                            onClick={handleSubmit}
+                            className="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
+                        >
+                            <PlusIcon className="h-5 w-5 text-white" />
+                            Post
+                        </button>
+                    </div>
+                </div>
+                
+            </header>
             <div className='post-on-dashboard w-full overflow-x-hidden scrollbar-hide
                             m-0 lg:w-full flex justify-center  lg:mt-0' >
                 <div
