@@ -47,7 +47,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
     }
 
     if (location.pathname.startsWith("/super/post")) {
-      return <PostOnDashboardHeader setSidebarOpen={setSidebarOpen} setHandlePostJobFromHeader={handlePostJobFromHeader}/>;
+      return <PostOnDashboardHeader setSidebarOpen={setSidebarOpen} setHandlePostJobFromHeader={setHandlePostJobFromHeader}/>;
     }
     // default
     return <DashboardHeader setSidebarOpen={setSidebarOpen} />;
