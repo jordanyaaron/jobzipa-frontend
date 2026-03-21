@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import {
   Bars3Icon,
+  PlusIcon
 } from "@heroicons/react/24/outline";
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
