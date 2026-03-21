@@ -163,12 +163,16 @@
     @apply rounded-b-md;
     @apply !text-gray-800 dark:!text-gray-100;
   
-  /* Focus state kama input */
-  @apply focus:outline-none focus:ring-0 focus:ring-blue-500 dark:focus:ring-blue-400;
+    /* Focus state kama input */
+    @apply focus:outline-none focus:ring-0 focus:ring-blue-500 dark:focus:ring-blue-400;
     border-top: 0 !important;
     outline: none !important;
     font-style: normal;
     font-size: 16px;
+  }
+
+  .post-on-dashboard .ql-editor {
+    @apply border border-gray-200 dark:border-slate-700;
   }
 
   

@@ -539,7 +539,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
     return(
         <>
-            <div className='w-full overflow-x-hidden scrollbar-hide
+            <div className='post-on-dashboard w-full overflow-x-hidden scrollbar-hide
                             m-0 lg:w-full flex justify-center  lg:mt-0' >
                 <div
                     className="
