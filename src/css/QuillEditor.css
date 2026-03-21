@@ -172,8 +172,12 @@
   }
 
   .post-on-dashboard .ql-editor {
-    @apply border border-gray-200 dark:border-slate-700;
+     border:  #e5e5e5 !important;
   }
+
+  .dark .post-on-dashboard .ql-editor {
+    border:  #1e293b !important;
+ }
 
   
    
