@@ -1,7 +1,7 @@
 import { Link ,useNavigate} from 'react-router-dom';
 import toast , { Toaster } from 'react-hot-toast';
 import { backendBaseUrl } from "../../utils/urls";
-import { XMarkIcon , PlusIcon , PencilIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon , PlusIcon , PencilIcon , RectangleStackIcon } from '@heroicons/react/24/outline';
 import { countries , categories } from "@/data/post-page";
 import api from '../../api/axios'
 import React, { useEffect, useRef, useState ,useCallback} from "react";
@@ -540,8 +540,8 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
     return(
         <>
-            <button class="fixed bottom-5 right-5 bg-blue-600 text-white px-4 py-2 rounded shadow-lg hover:bg-blue-700">
-                Post Job
+            <button className="fixed bottom-5 right-5 bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-500 text-white p-4 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+                <RectangleStackIcon className="h-6 w-6" />
             </button>
             <div className='post-on-dashboard w-full overflow-x-hidden scrollbar-hide
                             m-0 lg:w-full flex justify-center  lg:mt-0' >

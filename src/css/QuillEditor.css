@@ -172,7 +172,7 @@
   }
 
   .post-on-dashboard .ql-editor {
-    @apply !border !border-gray-200 dark:!border-slate-700;
+    @apply !border !border-gray-200 dark:!border-slate-800;
   }
 
  
