@@ -540,19 +540,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
     return(
         <>
-            <button 
-                className="
-                    hidden lg:flex
-                    fixed top-5 right-5  items-center gap-1 px-4 py-3 rounded-[60px] text-white bg-green-600 hover:bg-green-700 shadow-lg flex items-center space-x-2 
-                    hover:scale-110 transition-transform
-
-                "
-            >
-                <div className="relative">
-                    <PlusIcon className="h-6 w-6 text-white" />
-                </div>
-                <span className="font-medium text-white">Post Job</span>
-            </button>
+            
             <div className='post-on-dashboard w-full overflow-x-hidden scrollbar-hide
                             m-0 lg:w-full flex justify-center  lg:mt-0' >
                 <div
@@ -1548,7 +1536,22 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                     </div>
                 </div> 
             </div>
-           
+            <button 
+                onClick={handleSubmit}
+                className="
+                    flex fixed 
+                    top-1 right-1  lg:top-5 lg:right-5  
+                    items-center 
+                    gap-1 px-4 py-3 rounded-[60px] text-white bg-green-600 hover:bg-green-700 shadow-lg flex items-center space-x-2 
+                    hover:scale-110 transition-transform
+
+                "
+            >
+                <div className="relative">
+                    <PlusIcon className="h-6 w-6 text-white" />
+                </div>
+                <span className="font-medium text-white">Post Job</span>
+            </button>
             {/* </main> */}
             <button className='test-rest' onClick={resetJobForm}>Reset Form</button>
             {isLoading && (
