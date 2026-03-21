@@ -700,7 +700,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                 text-sm md:text-lg  
                                 rounded-md
                                 border
-                                border-[var(--border)]
+                                border-[var(--post-border)]
                                 bg-transparent
                                 text-[var(--text)]
                                 focus:outline-none
@@ -773,7 +773,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                 text-sm md:text-lg  
                                 rounded-md
                                 border
-                                border-[var(--border)]
+                                border-[var(--post-border)]
                                 bg-transparent
                                 text-[var(--text)]
                                 focus:outline-none
@@ -868,7 +868,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                             relative
                                             rounded-md
                                             border
-                                            border-[var(--border)]
+                                            border-[var(--post-border)]
                                             bg-transparent
                                             text-[var(--text)]
                                             focus:outline-none
@@ -966,7 +966,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                     text-sm md:text-lg  
                                     rounded-md
                                     border
-                                    border-[var(--border)]
+                                    border-[var(--post-border)]
                                     bg-transparent
                                     text-[var(--text)]
                                     focus:outline-none
@@ -1005,7 +1005,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                 h-[6px]
                                 w-[6px]
                                 border-2
-                                border-[var(--border)]
+                                border-[var(--post-border)]
                                 border-t-0
                                 border-l-0
                                 rotate-45
@@ -1024,7 +1024,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                 bg-transparent
                                 appearance-none
                                 border
-                                border-[var(--border)]
+                                border-[var(--post-border)]
                                 text-[(--text)]
                                 rounded
                                 focus:outline-none
@@ -1299,7 +1299,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                         h-[6px]
                                         w-[6px]
                                         border-2
-                                        border-[var(--border)]
+                                        border-[var(--post-border)]
                                         border-t-0
                                         border-l-0
                                         rotate-45
@@ -1318,7 +1318,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                         bg-transparent
                                         appearance-none
                                         border
-                                        border-[var(--border)]
+                                        border-[var(--post-border)]
                                         text-[var(--text)]
                                         rounded
                                         focus:outline-none
@@ -1366,7 +1366,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                         h-[6px]
                                         w-[6px]
                                         border-2
-                                        border-[var(--border)]
+                                        border-[var(--post-border)]
                                         border-t-0
                                         border-l-0
                                         rotate-45
@@ -1385,7 +1385,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                         bg-transparent
                                         appearance-none
                                         border
-                                        border-[var(--border)]
+                                        border-[var(--post-border)]
                                         text-[var(--text)]
                                         rounded
                                         focus:outline-none
@@ -1596,7 +1596,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                 p-5
                                 appearance-none
                                 border
-                                border-[var(--border)]
+                                border-[var(--post-border)]
                                 bg-transparent
                                 text-[var(--text)]
                                 focus:outline-none
@@ -1628,7 +1628,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                 bg-transparent
                                 appearance-none
                                 border
-                                border-[var(--border)]
+                                border-[var(--post-border)]
                                 bg-transparent
                                 text-[var(--text)]
                                 focus:outline-none
@@ -1673,7 +1673,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                 text-sm md:text-lg  
                                 rounded-md
                                 border
-                                border-[var(--border)]
+                                border-[var(--post-border)]
                                 bg-transparent
                                 text-[var(--text)]
                                 focus:outline-none

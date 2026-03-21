@@ -54,6 +54,7 @@
     --background: #ffffff;
     --text: #111111;
     --border: #e5e5e5;
+    --post-border: #e5e5e5;
     --sidebar-bg: #fafafa;
     --header-bg:#ffffff;
     --main-bg: #fafafa;
@@ -67,6 +68,7 @@
     --background: #0f172a;
     --text: #f1f5f9;
     --border: #1e293b;
+    --post-border: #374151;
     --sidebar-bg: #020817;
     --main-bg: #020817;
     --header-bg: #020817;
