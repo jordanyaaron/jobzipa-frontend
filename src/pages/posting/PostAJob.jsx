@@ -1,7 +1,7 @@
 import { Link ,useNavigate} from 'react-router-dom';
 import toast , { Toaster } from 'react-hot-toast';
 import { backendBaseUrl } from "../../utils/urls";
-import { countries } from "@/data/countries";
+import { countries , categories } from "@/data/post-page";
 import { XMarkIcon , PlusIcon , PencilIcon } from '@heroicons/react/24/outline';
 import api from '../../api/axios'
 import React, { useEffect, useRef, useState ,useCallback} from "react";
@@ -1331,33 +1331,11 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                     name="job-category" 
                                     onChange={handleSelectChange}  >
                                     <option value=""  disabled ></option>
-                                    <option value="administration & Office Support">Administration & Office Support</option>
-                                    <option value="advertising, Arts & Media">Advertising, Arts & Media</option>
-                                    <option value="banking & Financial Services">Banking & Financial Services</option>
-                                    <option value="construction & Building">Construction & Building</option>
-                                    <option value="consulting & Strategy">Consulting & Strategy</option>
-                                    <option value="customer-service">Customer Service</option>
-                                    <option value="education & Training">Education & Training</option>
-                                    <option value="engineering">Engineering</option>
-                                    <option value="farming & Agriculture">Farming & Agriculture</option>
-                                    <option value="health & Medical">Healthcare & Medical</option>
-                                    <option value="hospitality & Tourism">Hospitality & Tourism</option>
-                                    <option value="hr">Human Resources & Recruitment</option>
-                                    <option value="it">Information & Communication Technology (ICT)</option>
-                                    <option value="insurance">Insurance & Superannuation</option>
-                                    <option value="legal">Legal</option>
-                                    <option value="manufacturing">Manufacturing, Transport & Logistics</option>
-                                    <option value="marketing">Marketing & Communications</option>
-                                    <option value="mining">Mining, Resources & Energy</option>
-                                    <option value="real-estate">Real Estate & Property</option>
-                                    <option value="retail">Retail & Consumer Products</option>
-                                    <option value="sales">Sales</option>
-                                    <option value="science">Science & Technology</option>
-                                    <option value="security">Security & Emergency Services</option>
-                                    <option value="sports">Sport & Recreation</option>
-                                    <option value="trades">Trades & Services</option>
-                                    <option value="volunteer">Voluntary & Charity Work</option>
-                                    <option value="other">Other</option>
+                                    {categories.map((cat) => (
+                                        <option key={cat.value} value={cat.value}>
+                                        {cat.label}
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
                         </div>
