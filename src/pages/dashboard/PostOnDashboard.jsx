@@ -547,31 +547,26 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
     return(
         <>
             <header className="fixed lg:hidden top-0 left-0 w-screen z-40 border-b border-[var(--border)] bg-[var(--background)]">
-                <div className='flex w-full gap-3 items-center justify-between px-4 h-16'>
-                    <div 
-                        className='
-                            flex-1 items-center 
-                            justify-start h-16
-                        '
-                    >
+                
+                <div
+                    className='flex items-center justify-between px-4 md:px-6 h-16 transition-all duration-200 '
+                >
+                {/* Left */}
+                    <div className="flex items-center gap-3">
                         <button
                             onClick={() => setSidebarOpen(true)}
-                            className="p-2 rounded-lg hover:bg-[var(--hover)]"
+                            className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
                         >
-                            <Bars3Icon className="h-6 w-6 text-[var(--text)]" />
+                            <Bars3Icon className="h-6 w-6  text-[var(--text)]" />
                         </button>
 
-                        {/* Logo */}
                         <Link to="/" className="flex items-center">
-                            <img src={JobzipaLogo} alt="Jobzipa" className="h-9" />
+                            <img src={JobzipaLogo} alt="Jobzipa" className="h-9 md:h-10" />
                         </Link>
                     </div>
-                    <div 
-                        className='
-                            items-center 
-                            justify-between h-16 w-16
-                        '
-                    >
+                    {/* Right */}
+                    <div className="flex items-center gap-3">
+                        {/* Dark mode toggle */}
                         <button
                             onClick={handleSubmit}
                             className="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
@@ -581,23 +576,6 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                         </button>
                     </div>
                 </div>
-                {/* Top bar */}
-                <div className="flex items-center justify-between px-4 h-16">
-                    {/* Sidebar toggle */}
-                    
-
-                    {/* Right actions */}
-                    <div className="flex  items-center gap-3 relative">
-                        <button
-                            onClick={handleSubmit}
-                            className="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
-                        >
-                            <PlusIcon className="h-5 w-5 text-white" />
-                            Post
-                        </button>
-                    </div>
-                </div>
-                
             </header>
             <div className='post-on-dashboard w-full overflow-x-hidden scrollbar-hide
                             m-0 lg:w-full flex justify-center  lg:mt-0' >
