@@ -542,16 +542,16 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
         <>
             <button 
                 className="
-                    fixed top-5 right-5 bg-gradient-to-tr from-pink-500 
-                    via-red-500 to-yellow-500 text-white px-4 py-2 
-                    rounded-full shadow-lg flex items-center space-x-2 
+                    hidden lg:flex
+                    fixed top-5 right-5  items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700 shadow-lg flex items-center space-x-2 
                     hover:scale-110 transition-transform
+
                 "
             >
                 <div className="relative">
-                    <PlusIcon className="h-3 w-3 absolute -top-1 -right-1 bg-white text-pink-500 rounded-full p-[1px]" />
+                    <PlusIcon className="h-6 w-6 text-white" />
                 </div>
-                <span className="font-medium">Post Job</span>
+                <span className="font-medium text-white">Post Job</span>
             </button>
             <div className='post-on-dashboard w-full overflow-x-hidden scrollbar-hide
                             m-0 lg:w-full flex justify-center  lg:mt-0' >
@@ -573,7 +573,8 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                             dark:text-[#ebf3f2]
                                 font-black 
                                 mb-0 
-                                mt-[20px] text-lg md:text-xl  lg:text-2xl 
+                                mt-[20px] text-lg md:text-xl  
+                                lg:text-2xl lg:mb-[30px]
                             "
                         >
                             Organisation Details
