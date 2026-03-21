@@ -25,6 +25,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
   const location = useLocation();
   const [jobFilter, setJobFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [handlePostJobFromHeader, setHandlePostJobFromHeader] = useState(false);
   useEffect(() => {
     const handleResize = () => {
 
@@ -46,7 +47,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
     }
 
     if (location.pathname.startsWith("/super/post")) {
-      return <PostOnDashboardHeader setSidebarOpen={setSidebarOpen} />;
+      return <PostOnDashboardHeader setSidebarOpen={setSidebarOpen} setHandlePostJobFromHeader={handlePostJobFromHeader}/>;
     }
     // default
     return <DashboardHeader setSidebarOpen={setSidebarOpen} />;
@@ -79,7 +80,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
           "
         >
           
-          <Outlet context={{ jobFilter, setJobFilter, searchQuery, setSearchQuery }} />
+          <Outlet context={{ jobFilter, setJobFilter, searchQuery, setSearchQuery, handlePostJobFromHeader, setHandlePostJobFromHeader }} />
         </main>
 
       </div>

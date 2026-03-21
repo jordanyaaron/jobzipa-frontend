@@ -5,14 +5,21 @@ import {
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
 
-const PostOnDashboardHeader = ({ setSidebarOpen  }) => {
+const PostOnDashboardHeader = ({ setSidebarOpen , setHandlePostJobFromHeader }) => {
 
   return (
     <header className="fixed md:hidden top-0 left-0 w-[100vw] z-40 border-b border-[var(--border)] bg-[var(--background)]">
 
       {/* Top bar */}
       <div className="flex items-center justify-between px-4 h-16">
-        
+        {/* Sidebar toggle */}
+        <button
+            onClick={() => setSidebarOpen(true)}
+            className="p-2 rounded-lg hover:bg-[var(--hover)]"
+          >
+            <Bars3Icon className="h-6 w-6 text-[var(--text)]" />
+          </button>
+
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img src={JobzipaLogo} alt="Jobzipa" className="h-9" />
@@ -20,13 +27,13 @@ const PostOnDashboardHeader = ({ setSidebarOpen  }) => {
 
         {/* Right actions */}
         <div className="flex items-center gap-3 relative">
-          {/* Sidebar toggle */}
-          <button
-            onClick={() => setSidebarOpen(true)}
-            className="p-2 rounded-lg hover:bg-[var(--hover)]"
-          >
-            <Bars3Icon className="h-6 w-6 text-[var(--text)]" />
-          </button>
+            <button
+                onClick={() => setHandlePostJobFromHeader(true)}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
+            >
+                <PlusIcon className="h-5 w-5 text-white" />
+                Post
+            </button>
         </div>
       </div>
     </header>

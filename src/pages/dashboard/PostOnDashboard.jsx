@@ -1,4 +1,4 @@
-import { Link ,useNavigate} from 'react-router-dom';
+import { Link , useNavigate , useOutletContext } from 'react-router-dom';
 import toast , { Toaster } from 'react-hot-toast';
 import { backendBaseUrl } from "../../utils/urls";
 import { XMarkIcon , PlusIcon , PencilIcon , RectangleStackIcon } from '@heroicons/react/24/outline';
@@ -14,7 +14,8 @@ import removeLogoIcon from '../../assets/icons/removeImg.png';
 // import plusIcon from '../../assets/icons/plus.png';
 
 
-export default function PostOnDashboard ({ darkMode, setDarkMode })  {
+export default function PostOnDashboard ({ darkMode , setDarkMode })  {
+    const { handlePostJobFromHeader , setHandlePostJobFromHeader  } = useOutletContext();
     const fileInputRef = useRef(null); // tunatumia ref ku-access input
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [biography, setBiography] = useState("");
@@ -49,6 +50,13 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
     const [errors, setErrors] = useState({});
     const [isPostCommand, setIsPostCommand] = useState(false);
     const isAuthenticated = useState(false);
+    const [postFromHeader, setPostFromHeader] = useState(handlePostJobFromHeader);
+
+  useEffect(() => {
+    if (postFromHeader) {
+        handleSubmit();
+    }
+  }, [postFromHeader]); 
     
     // const ac = useState(false);
 
@@ -181,6 +189,7 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                 return;
             }  
             handlePostJob(finalLocations);
+            setPostFromHeader(false)
         };
 
         // HELPER FUNCTION FOR handleSubmitFunction 
@@ -1541,10 +1550,10 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
                 className="
                     flex fixed 
                     top-1 right-1  lg:top-5 lg:right-5  
+                    gap-1 px-3 py-2  lg:px-4 lg:py-3 
                     items-center 
-                    gap-1 px-4 py-3 rounded-[60px] text-white bg-green-600 hover:bg-green-700 shadow-lg flex items-center space-x-2 
+                    rounded-[60px] text-white bg-green-600 hover:bg-green-700 shadow-lg flex items-center space-x-2 
                     hover:scale-110 transition-transform
-
                 "
             >
                 <div className="relative">
