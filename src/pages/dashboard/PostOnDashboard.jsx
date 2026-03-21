@@ -50,13 +50,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
     const [errors, setErrors] = useState({});
     const [isPostCommand, setIsPostCommand] = useState(false);
     const isAuthenticated = useState(false);
-    const [postFromHeader, setPostFromHeader] = useState(handlePostJobFromHeader);
 
-  useEffect(() => {
-    if (postFromHeader) {
-        handleSubmit();
-    }
-  }, [postFromHeader]); 
+  
     
     // const ac = useState(false);
 
