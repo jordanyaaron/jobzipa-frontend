@@ -11,6 +11,7 @@ import logoAddIcon from '../../assets/icons/gallery.png';
 import closeIcon from '../../assets/icons/close.png';
 import plusIcon from '../../assets/icons/plus.png';
 import removeLogoIcon from '../../assets/icons/removeImg.png';
+import JobzipaLogo from '../../assets/logos/jobzipa.png';
 // import plusIcon from '../../assets/icons/plus.png';
 
 
