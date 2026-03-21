@@ -108,6 +108,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
 
     //  SUBMITION HANDLER ( Form validation )
         const handleSubmit = async () => {
+            console.log('Handling Submit')
             let newErrors = {};
             if (!createCroppedImage){newErrors.logo = "Logo is equired!";} 
             if (!companyName.trim()){ newErrors.name = "Company name is required!";}  
@@ -189,7 +190,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                 return;
             }  
             handlePostJob(finalLocations);
-            setPostFromHeader(false)
+            setHandlePostJobFromHeader(false)
         };
 
         // HELPER FUNCTION FOR handleSubmitFunction 
