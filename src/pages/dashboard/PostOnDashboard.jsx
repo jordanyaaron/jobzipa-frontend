@@ -540,6 +540,9 @@ export default function PostOnDashboard ({ darkMode, setDarkMode })  {
 
     return(
         <>
+            <button class="fixed bottom-5 right-5 bg-blue-600 text-white px-4 py-2 rounded shadow-lg hover:bg-blue-700">
+                Post Job
+            </button>
             <div className='post-on-dashboard w-full overflow-x-hidden scrollbar-hide
                             m-0 lg:w-full flex justify-center  lg:mt-0' >
                 <div
