@@ -546,8 +546,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
 
     return(
         <>
-            <header className="fixed lg:hidden top-0 left-0 w-[100vw] z-40 border-b border-[var(--border)] bg-[var(--background)]">
-                <div className='flex gap-3 items-center justify-between px-4 h-16'>
+            <header className="fixed lg:hidden top-0 left-0 w-screen z-40 border-b border-[var(--border)] bg-[var(--background)]">
+                <div className='flex w-full gap-3 items-center justify-between px-4 h-16'>
                     <div 
                         className='
                             flex-1 items-center 
@@ -1597,7 +1597,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
             <button 
                 onClick={handleSubmit}
                 className="
-                    flex fixed 
+                    hidden lg:flex fixed 
                     top-1 right-1  lg:top-5 lg:right-5  
                     gap-1 px-3 py-2  lg:px-4 lg:py-3 
                     items-center 
