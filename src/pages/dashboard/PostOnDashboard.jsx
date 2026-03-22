@@ -1408,9 +1408,9 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
 
                             <div
                                 className="
-                                    w-full
+                                    w-[calc(100vw-40px)]
                                     mx-2 md:mx-2 lg:mx-5
-                                    grid grid-cols-1 mdgrid-cols-2 
+                                    grid grid-cols-1 md:grid-cols-2 
                                     gap-2
                                 "
                             >
