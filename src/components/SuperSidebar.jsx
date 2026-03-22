@@ -115,26 +115,26 @@ export default function SuperSideBar({ toggleDrawer , sidebarOpen, setSidebarOpe
                 const Icon = link.icon;
 
                 return (
-                <NavLink
-                    key={link.path}
-                    to={link.path}
-                    replace={link.replace}
-                    onClick={toggleDrawer}
-                    className={({ isActive }) =>
-                    `flex items-center gap-3 px-3 py-2 rounded-lg transition
-                    ${
-                        isActive
-                        ? "bg-[var(--hover)]  text-[var(--text)]"
-                        : "hover:bg-[var(--hover)]"
-                    }`
-                    }
-                >
+                  <NavLink
+                      key={link.path}
+                      to={link.path}
+                      replace={link.replace}
+                      onClick={toggleDrawer}
+                      className={({ isActive }) =>
+                      `flex items-center gap-3 px-3 py-2 rounded-lg transition
+                        ${
+                            isActive
+                            ? "bg-[var(--hover)]  text-[var(--text)]"
+                            : "hover:bg-[var(--hover)]"
+                        }`
+                      }
+                  >
 
-                    <Icon className="w-5 h-5" />
+                      <Icon className="w-5 h-5" />
 
-                    <span>{link.name}</span>
+                      <span>{link.name}</span>
 
-                </NavLink>
+                  </NavLink>
                 );
 
                 })}

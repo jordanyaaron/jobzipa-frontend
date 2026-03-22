@@ -1,7 +1,7 @@
 import { Link , useNavigate , useOutletContext } from 'react-router-dom';
 import toast , { Toaster } from 'react-hot-toast';
 import { backendBaseUrl } from "../../utils/urls";
-import { Bars3Icon, XMarkIcon , PlusIcon , PencilIcon , RectangleStackIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon , PlusIcon , PencilIcon , RectangleStackIcon , ArrowUpTrayIcon } from '@heroicons/react/24/outline';
 import { countries , categories } from "@/data/post-page";
 import api from '../../api/axios'
 import React, { useEffect, useRef, useState ,useCallback} from "react";
@@ -571,7 +571,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             onClick={handleSubmit}
                             className="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
                         >
-                            <PlusIcon className="h-5 w-5 text-white" />
+                            <ArrowUpTrayIcon className="h-5 w-5 text-white" />
                             Post
                         </button>
                     </div>
@@ -609,7 +609,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 <button ref={logPickerRef}
                                     className="
                                         h-[100px]  md:h-[140px] lg:h-[150px]
-                                        w-[calc(100vw-57px)] lg:w-full
+                                        w-[calc(100vw-57px)] lg:w-[650px]
                                         m-[10px] lg:m-[20px]
                                         my-5
                                         ml-[7px] lg:ml-[27px]
@@ -633,7 +633,6 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                         dark:hover:to-[#325e94]
                                         transition-all
                                         duration-300
-                                        
                                     "   
                                     onClick={handleButtonClick}>
                                     <img 
@@ -779,9 +778,9 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     
                                 />
                             </div> 
-                            <div className="relative sm:m-[15px]  mx-[30px] mt-[70px]">
+                            <div className="relative sm:m-[4px]  mx-[60px] mt-[70px]">
                                 <p className='font-semibold sm:mt-[30px] md:mt-[40px] text-gray-800 dark:text-gray-500'>Hints:</p>
-                                <p className=' text-xs text-gray-500 dark:text-gray-600 mx-5'>Company History(shortly), Mission, Vision, Products/Services, Future Goals, Values, Leadership, Culture, Achievements.</p>
+                                <p className=' text-xs text-gray-500 dark:text-gray-600 mx-1'>Company History(shortly), Mission, Vision, Products/Services, Future Goals, Values, Leadership, Culture, Achievements.</p>
                             </div>
                         </div>
                     </div>
@@ -809,7 +808,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 " 
                             >
                                 <input 
-                                    type="text" placeholder='Enter Job Title . . .'
+                                    type="text" 
+                                    placeholder='Enter Job Title . . .'
                                     className="
                                         w-full
                                         mx-0
@@ -849,9 +849,9 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     darkMode={darkMode}
                                 />
                             </div> 
-                            <div className=" sm:m-[15px]  mx-[30px] mt-[70px]">
-                                <p className='font-semibold sm:mt-[30px] md:mt-[40px] text-gray-800 dark:text-gray-500 '>Hints:</p>
-                                <p className='text-xs text-gray-500 dark:text-gray-600 mx-2 lg:mx-5'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
+                            <div className="relative sm:m-[4px]  mx-[60px] mt-[70px]">
+                                <p className='font-semibold sm:mt-[30px] md:mt-[40px] text-gray-800 dark:text-gray-500'>Hints:</p>
+                                <p className=' text-xs text-gray-500 dark:text-gray-600 mx-1'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
                             </div>
                         </div>
                         <div className="m-[10px]" ref={positionRef}>
@@ -1407,7 +1407,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
 
                             <div
                                 className="
-                                    mx-1 md:mx-2 lg:mx-5
+                                    mx-2 md:mx-2 lg:mx-5
                                     grid grid-cols-2 gap-4
                                 "
                             >
@@ -1415,7 +1415,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 <div className="col-span-1 flex flex-col">
                                     <label 
                                         className='
-                                            my-[15px]
+                                            my-[12px]
                                             text-xs md:text-sm
                                             ml-0 text-gray-700 dark:text-gray-400
                                         '
