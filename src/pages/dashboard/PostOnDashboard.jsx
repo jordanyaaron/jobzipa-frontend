@@ -571,7 +571,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             onClick={handleSubmit}
                             className="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
                         >
-                            <ArrowUpTrayIcon className="h-5 w-5 text-white" />
+                            <ArrowUpTrayIcon className="h-4 w-4 text-white" />
                             Post
                         </button>
                     </div>
@@ -1319,7 +1319,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     <div 
                                         className="
                                             relative
-                                            h-[45px] lg:h-[50px]
+                                            h-[42px] lg:h-[50px]
                                             w-[120px] lg:w-[140px]
                                             mt-[10px]
                                             overflow-hidden
@@ -1338,7 +1338,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                                 flex items-center gap-2
                                                 bg-[#3E907D]
                                                 px-5
-                                                h-[45px] lg:h-[50px]
+                                                h-[40px] lg:h-[50px]
                                                 w-[120px] lg:w-[140px]
                                                 hover:bg-[#357c6c]
                                                 border-0
@@ -1364,7 +1364,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                             className="
                                                 appearance-none
                                                 absolute
-                                                h-[45px] lg:h-[50px]
+                                                h-[42px] lg:h-[50px]
                                                 w-[120px] lg:w-[140px]
                                                 p-[5px]
                                                 border-0
@@ -1408,7 +1408,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             <div
                                 className="
                                     mx-2 md:mx-2 lg:mx-5
-                                    grid grid-cols-2 gap-4
+                                    grid grid-cols-2 gap-6
                                 "
                             >
                                 {/* Actual Date */}
@@ -1591,7 +1591,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                 "
             >
                 <div className="relative">
-                    <PlusIcon className="h-6 w-6 text-white" />
+                    <ArrowUpTrayIcon className="h-6 w-6 text-white" />
                 </div>
                 <span className="font-medium text-white">Post Job</span>
             </button>
