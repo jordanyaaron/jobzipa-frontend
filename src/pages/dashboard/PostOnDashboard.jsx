@@ -612,7 +612,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                         w-[calc(100vw-57px)] lg:w-[650px]
                                         m-[10px] lg:m-[20px]
                                         my-5
-                                        ml-[7px] lg:ml-[27px]
+                                        ml-[7px] lg:ml-[45px]
                                         flex
                                         flex-col
                                         justify-center
@@ -769,7 +769,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             {errors.biography && (
                                 <p className='error-displayer for-qiull'>{errors.biography}</p>
                             )}
-                            <div id='company-bio-wrapper'  className=' h-[calc(100vh-200px)] lg:h-[calc(100vh-100px)]  mx-0 md:2 lg:mx-5 pt-[20px] relative'>
+                            <div id='company-bio-wrapper'  className=' h-[calc(100vh-200px)] lg:h-[calc(100vh-100px)]  mx-0 md:2 lg:mx-5 pt-[20px] relative mb-[15px]'>
                                 <QuillEditor 
                                     ref={bioQuill}
                                     value={biography} 
@@ -778,7 +778,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     
                                 />
                             </div> 
-                            <div className="relative sm:m-[4px]  mx-[60px] mt-[70px]">
+                            <div className="relative sm:m-[4px]  mx-[5px]   lgmx-[260px] mt-[70px]">
                                 <p className='font-semibold sm:mt-[30px] md:mt-[40px] text-gray-800 dark:text-gray-500'>Hints:</p>
                                 <p className=' text-xs text-gray-500 dark:text-gray-600 mx-1'>Company History(shortly), Mission, Vision, Products/Services, Future Goals, Values, Leadership, Culture, Achievements.</p>
                             </div>
@@ -840,7 +840,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             {errors.description && (
                                 <p className='error-displayer for-quill'>{errors.description}</p>
                             )}
-                            <div id='company-bio-wrapper'   className="h-[calc(100vh-200px)] lg:h-[calc(100vh-100px)] mx-0 md:mx-2  lg:mx-5 pt-[20px]">
+                            <div id='company-bio-wrapper'   className="h-[calc(100vh-200px)] lg:h-[calc(100vh-100px)] mx-0 md:mx-2  lg:mx-5 pt-[20px] mb-[15px]">
                                 <QuillEditor 
                                     ref={descriptionQuill}
                                     value={jobDescriptions} 
@@ -849,7 +849,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     darkMode={darkMode}
                                 />
                             </div> 
-                            <div className="relative sm:m-[4px]  mx-[60px] mt-[70px]">
+                            <div className="relative sm:m-[4px]  mx-[5px]   lgmx-[260px] mt-[70px]">
                                 <p className='font-semibold sm:mt-[30px] md:mt-[40px] text-gray-800 dark:text-gray-500'>Hints:</p>
                                 <p className=' text-xs text-gray-500 dark:text-gray-600 mx-1'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
                             </div>
@@ -983,10 +983,10 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                             text-gray-700 dark:text-gray-500
                                             "
                                         >
-                                        {loc.locationCountry === '' 
-                                            ? loc.locationRigion 
-                                            : `${loc.locationRigion}, ${loc.locationCountry}`
-                                        }
+                                            {loc.locationCountry === '' 
+                                                ? loc.locationRigion 
+                                                : `${loc.locationRigion}, ${loc.locationCountry}`
+                                            }
                                         </span>
                                     </li>
                                     ))}
@@ -1291,7 +1291,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                             className="
                                                 ml-0
                                                 absolute
-                                                ml-[-15px]
+                                                ml-[15px]
                                                 mt-[3px]
                                                 mt-[0px] p-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors
                                             "
@@ -1452,7 +1452,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 <div className="col-span-1  flex flex-col">
                                     <label  
                                         className='
-                                            my-[15px]
+                                            my-[12px]
                                             text-xs md:text-sm
                                             ml-0 text-gray-700 dark:text-gray-400
                                         '
