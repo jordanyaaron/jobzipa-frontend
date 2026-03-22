@@ -1431,10 +1431,9 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                         className="
                                             border 
                                             rounded-lg 
-                                            px-3 
-                                            py-1 lg:py-2 
+                                            py-2 lg:py-2 
                                             h-[50px] lg:h-[60px]
-                                            p-5
+                                            px-1 md:px-3 
                                             appearance-none
                                             border
                                             border-[var(--border)]
@@ -1468,10 +1467,9 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                         className="
                                             border 
                                             rounded-lg 
-                                            px-3 
-                                            py-1 lg:py-2 
                                             h-[50px] lg:h-[60px]
-                                            p-5
+                                            py-1 lg:py-2 
+                                            px-1 md:px-3 
                                             bg-transparent
                                             appearance-none
                                             border
@@ -1584,7 +1582,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                 className="
                     hidden lg:flex fixed 
                     top-1 right-1  lg:top-5 lg:right-5  
-                    gap-1 px-3 py-2  lg:px-4 lg:py-3 
+                    gap-1 sm:px-1 md:px-3 py-2  lg:px-4 lg:py-3 
                     items-center 
                     rounded-[60px] text-white bg-green-600 hover:bg-green-700 shadow-lg flex items-center space-x-2 
                     hover:scale-110 transition-transform
