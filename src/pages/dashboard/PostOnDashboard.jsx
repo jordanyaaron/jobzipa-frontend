@@ -778,8 +778,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     
                                 />
                             </div> 
-                            <div className="relative sm:m-[4px]  mx-[5px]   lgmx-[260px] mt-[70px]">
-                                <p className='font-semibold sm:mt-[30px] md:mt-[40px] text-gray-800 dark:text-gray-500'>Hints:</p>
+                            <div className="relative sm:m-[4px]  mx-[5px]   lg:mx-[260px] mt-[70px]">
+                                <p className='font-semibold sm:mt-[50px] md:mt-[60px] text-gray-800 dark:text-gray-500'>Hints:</p>
                                 <p className=' text-xs text-gray-500 dark:text-gray-600 mx-1'>Company History(shortly), Mission, Vision, Products/Services, Future Goals, Values, Leadership, Culture, Achievements.</p>
                             </div>
                         </div>
@@ -849,8 +849,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     darkMode={darkMode}
                                 />
                             </div> 
-                            <div className="relative sm:m-[4px]  mx-[5px]   lgmx-[260px] mt-[70px]">
-                                <p className='font-semibold sm:mt-[30px] md:mt-[40px] text-gray-800 dark:text-gray-500'>Hints:</p>
+                            <div className="relative sm:m-[4px]  mx-[5px]   lg:mx-[260px] mt-[70px]">
+                                <p className='font-semibold sm:mt-[50px] md:mt-[60px] text-gray-800 dark:text-gray-500'>Hints:</p>
                                 <p className=' text-xs text-gray-500 dark:text-gray-600 mx-1'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
                             </div>
                         </div>
@@ -1407,6 +1407,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
 
                             <div
                                 className="
+                                    sm:w-[calc(100vw-40px)]
                                     mx-2 md:mx-2 lg:mx-5
                                     grid grid-cols-2 gap-6
                                 "
