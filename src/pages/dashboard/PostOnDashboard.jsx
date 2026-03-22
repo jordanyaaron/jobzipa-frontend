@@ -608,8 +608,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             {!imageSrc && !croppedImage ? (
                                 <button ref={logPickerRef}
                                     className="
-                                        h-[120px]  md:h-[140px] lg:h-[150px]
-                                        w-[calc(100vw-57px)] lg:w-[calc(100vw-200px)]
+                                        h-[100px]  md:h-[140px] lg:h-[150px]
+                                        w-[calc(100vw-57px)] lg:w-full
                                         m-[10px] lg:m-[20px]
                                         my-5
                                         ml-[7px] lg:ml-[27px]
@@ -780,7 +780,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 />
                             </div> 
                             <div className="relative sm:m-[15px]  mx-[30px] mt-[70px]">
-                                <p className='font-semibold sm:mt-[20px] text-gray-800 dark:text-gray-500'>Hints:</p>
+                                <p className='font-semibold sm:mt-[30px] md:mt-[40px] text-gray-800 dark:text-gray-500'>Hints:</p>
                                 <p className=' text-xs text-gray-500 dark:text-gray-600 mx-5'>Company History(shortly), Mission, Vision, Products/Services, Future Goals, Values, Leadership, Culture, Achievements.</p>
                             </div>
                         </div>
@@ -850,7 +850,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 />
                             </div> 
                             <div className=" sm:m-[15px]  mx-[30px] mt-[70px]">
-                                <p className='font-semibold sm:mt-[20px] text-gray-800 dark:text-gray-500 '>Hints:</p>
+                                <p className='font-semibold sm:mt-[30px] md:mt-[40px] text-gray-800 dark:text-gray-500 '>Hints:</p>
                                 <p className='text-xs text-gray-500 dark:text-gray-600 mx-2 lg:mx-5'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
                             </div>
                         </div>
@@ -959,16 +959,16 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                         >
                                         {/* Close icon */}
                                         <button 
-                                        onClick={() => handleRemoveLocation(index)} 
-                                        className="
-                                            ml-0
-                                            absolute
-                                            ml-[-15px]
-                                            mt-[3px]
-                                            mt-[0px] p-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors
-                                        "
+                                            onClick={() => handleRemoveLocation(index)} 
+                                            className="
+                                                ml-0
+                                                absolute
+                                                ml-[-15px]
+                                                mt-[3px]
+                                                mt-[0px] p-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors
+                                            "
                                         >
-                                        <XMarkIcon className="w-4 h-4 text-gray-700 dark:text-gray-500" />
+                                            <XMarkIcon className="w-4 h-4 text-gray-700 dark:text-gray-500" />
                                         </button>
                                     
                                         {/* Location text */}
@@ -1296,7 +1296,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                                 mt-[0px] p-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors
                                             "
                                         >
-                                        <XMarkIcon className="w-4 h-4 text-gray-700 dark:text-gray-500" />
+                                            <XMarkIcon className="w-4 h-4 text-gray-700 dark:text-gray-500" />
                                         </button>
                                     
                                         {/* Location text */}
@@ -1308,7 +1308,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                                 ml-[10px]
                                                 max-w-[265px]
                                                 overflow-hidden whitespace-nowrap text-ellipsis 
-                                            text-gray-700 dark:text-gray-500
+                                                text-gray-700 dark:text-gray-500
                                             "
                                         >
                                         {t}
@@ -1318,12 +1318,13 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 </ul>
                                     <div 
                                         className="
-                                                relative
-                                                h-[40px] lg:h-[50px]
-                                                w-[120px] lg:w-[140px]
-                                                mt-[10px]
-                                                overflow-hidden
-                                        ">
+                                            relative
+                                            h-[45px] lg:h-[50px]
+                                            w-[120px] lg:w-[140px]
+                                            mt-[10px]
+                                            overflow-hidden
+                                        "
+                                    >
                                         {/* <button><img src={plusIcon} alt="" /><span>Add Tags</span></button> */}
                                         <button 
                                             id="add-location-btn"
@@ -1337,7 +1338,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                                 flex items-center gap-2
                                                 bg-[#3E907D]
                                                 px-5
-                                                h-[40px] lg:h-[50px]
+                                                h-[45px] lg:h-[50px]
                                                 w-[120px] lg:w-[140px]
                                                 hover:bg-[#357c6c]
                                                 border-0
@@ -1363,7 +1364,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                             className="
                                                 appearance-none
                                                 absolute
-                                                h-[40px] lg:h-[50px]
+                                                h-[45px] lg:h-[50px]
                                                 w-[120px] lg:w-[140px]
                                                 p-[5px]
                                                 border-0
@@ -1398,7 +1399,6 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     text-[#3E907D] 
                                     dark:text-[#ebf3f2]
                                     font-black 
-                                    mb-0 
                                     mt-[20px] text-lg md:text-xl  lg:text-2xl 
                                 "
                             >
@@ -1407,7 +1407,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
 
                             <div
                                 className="
-                                    mx-0 md:mx-2 lg:mx-5
+                                    mx-1 md:mx-2 lg:mx-5
                                     grid grid-cols-2 gap-4
                                 "
                             >
@@ -1415,6 +1415,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 <div className="col-span-1 flex flex-col">
                                     <label 
                                         className='
+                                            my-[15px]
                                             text-xs md:text-sm
                                             ml-0 text-gray-700 dark:text-gray-400
                                         '
@@ -1451,6 +1452,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 <div className="col-span-1  flex flex-col">
                                     <label  
                                         className='
+                                            my-[15px]
                                             text-xs md:text-sm
                                             ml-0 text-gray-700 dark:text-gray-400
                                         '
