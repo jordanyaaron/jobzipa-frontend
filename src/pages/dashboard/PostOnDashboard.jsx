@@ -612,7 +612,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                         w-[calc(100vw-57px)] lg:w-[650px]
                                         m-[10px] lg:m-[20px]
                                         my-5
-                                        ml-[7px] lg:ml-[45px]
+                                        ml-[7px] lg:ml-[25px]
                                         flex
                                         flex-col
                                         justify-center
@@ -778,7 +778,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     
                                 />
                             </div> 
-                            <div className="relative sm:m-[4px]  mx-[5px]   lg:mx-[260px] mt-[70px]">
+                            <div className="relative sm:m-[4px]  mx-[5px]   lg:mx-[50px] mt-[70px]">
                                 <p className='font-semibold sm:mt-[50px] md:mt-[60px] text-gray-800 dark:text-gray-500'>Hints:</p>
                                 <p className=' text-xs text-gray-500 dark:text-gray-600 mx-1'>Company History(shortly), Mission, Vision, Products/Services, Future Goals, Values, Leadership, Culture, Achievements.</p>
                             </div>
@@ -849,7 +849,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     darkMode={darkMode}
                                 />
                             </div> 
-                            <div className="relative sm:m-[4px]  mx-[5px]   lg:mx-[260px] mt-[70px]">
+                            <div className="relative sm:m-[4px]  mx-[5px]   lg:mx-[60px] mt-[70px]">
                                 <p className='font-semibold sm:mt-[50px] md:mt-[60px] text-gray-800 dark:text-gray-500'>Hints:</p>
                                 <p className=' text-xs text-gray-500 dark:text-gray-600 mx-1'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
                             </div>
@@ -1602,7 +1602,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                     <p>Posting job...</p>
                 </div>
             )}
-            <Toaster position="bottom-center" reverseOrder={false} />
+            {/* <Toaster position="bottom-center" reverseOrder={false} /> */}
           
             {selectedImage && (
                 <div
