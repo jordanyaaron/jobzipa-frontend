@@ -569,7 +569,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                     <div className="w-full flex justify-center">
                         <main className="w-750px min-h-[calc(100vh-80px)]
                                 bg-white dark:bg-gray-800 relative scrollbar-none
-                                mb-[4px] mt-[3px] p-[30px] pt-[13px] 
+                                mb-[4px] mt-[3px] p-0 lg:p-[30px] pt-[13px] 
                                 overflow-y-auto text-left 
                                 w-full sm:w-full md:w-[720px] lg:w-[720px]
                             "
