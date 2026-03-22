@@ -1410,11 +1410,12 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 className="
                                     sm:w-[calc(100vw-40px)]
                                     mx-2 md:mx-2 lg:mx-5
-                                    grid grid-cols-2 sm:gap-2 gap-3 
+                                    grid grid-cols-1 mdgrid-cols-2 
+                                    gap-2
                                 "
                             >
                                 {/* Actual Date */}
-                                <div className="col-span-2 md:col-span-1 lg:col-span-1  flex flex-col">
+                                <div className="col-span-1  flex flex-col">
                                     <label 
                                         className='
                                             my-[12px]
@@ -1450,7 +1451,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
 
 
                                 {/* Deadline Date */}
-                                <div className="col-span-2 md:col-span-1 lg:col-span-1    flex flex-col">
+                                <div className="col-span-1    flex flex-col">
                                     <label  
                                         className='
                                             my-[12px]
