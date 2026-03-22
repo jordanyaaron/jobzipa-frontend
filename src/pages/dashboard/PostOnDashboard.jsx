@@ -609,7 +609,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 <button ref={logPickerRef}
                                     className="
                                         h-[100px]  md:h-[140px] lg:h-[150px]
-                                        w-[calc(100vw-10px)] lg:w-[calc(10vw-57px)]
+                                        w-[calc(100vw-27px)] lg:w-[calc(100vw-57px)]
                                         m-[10px] lg:m-[20px]
                                         mt-5
                                         ml-[7px] lg:ml-[27px]
@@ -729,7 +729,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             <div 
                                 className="
                                     pt-0
-                                    mx-2 lg:mx-5
+                                    mx-0 md:2 lg:mx-5
                                     mb-5
                                     border-0
                                 " 
@@ -770,7 +770,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             {errors.biography && (
                                 <p className='error-displayer for-qiull'>{errors.biography}</p>
                             )}
-                            <div id='company-bio-wrapper'  className=' h-[calc(100vh-100px)] mx-2 lg:mx-5 pt-[20px] relative'>
+                            <div id='company-bio-wrapper'  className=' h-[calc(100vh-200px)] lg:h-[calc(100vh-100px)]  mx-0 md:2 lg:mx-5 pt-[20px] relative'>
                                 <QuillEditor 
                                     ref={bioQuill}
                                     value={biography} 
@@ -779,8 +779,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     
                                 />
                             </div> 
-                            <div className="relative s m-[30px] mt-[70px]">
-                                <p className='font-semibold text-gray-800 dark:text-gray-400'>Hints:</p>
+                            <div className="relative m-[30px] mt-[70px]">
+                                <p className='font-semibold sm:mt[10px] text-gray-800 dark:text-gray-400'>Hints:</p>
                                 <p className=' text-xs text-gray-500 dark:text-gray-600 mx-5'>Company History(shortly), Mission, Vision, Products/Services, Future Goals, Values, Leadership, Culture, Achievements.</p>
                             </div>
                         </div>
@@ -803,7 +803,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             <div 
                                 className="
                                     pt-0
-                                    mx-2 lg:mx-5
+                                    mx-0 md:mx-2  lg:mx-5
                                     mb-5
                                     border-0
                                 " 
@@ -840,7 +840,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             {errors.description && (
                                 <p className='error-displayer for-quill'>{errors.description}</p>
                             )}
-                            <div id='company-bio-wrapper'   className="h-[calc(100vh-200px)] lg:h-[calc(100vh-100px)] mx-2 lg:not-[]:mx-5 pt-[20px]">
+                            <div id='company-bio-wrapper'   className="h-[calc(100vh-200px)] lg:h-[calc(100vh-100px)] mx-0 md:mx-2  lg:mx-5 pt-[20px]">
                                 <QuillEditor 
                                     ref={descriptionQuill}
                                     value={jobDescriptions} 
@@ -850,7 +850,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 />
                             </div> 
                             <div className=" m-[30px] mt-[70px]">
-                                <p className='font-semibold text-gray-800 dark:text-gray-200 '>Hints:</p>
+                                <p className='font-semibold sm:m-[10px] text-gray-800 dark:text-gray-200 '>Hints:</p>
                                 <p className='text-xs text-gray-500 dark:text-gray-400 mx-2 lg:mx-5'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
                             </div>
                         </div>
@@ -859,7 +859,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             <div 
                                 className="
                                     pt-0
-                                    mx-2 lg:mx-5
+                                    mx-0 md:mx-2 lg:mx-5
                                     mb-5
                                     border-0
                                 "
@@ -942,9 +942,9 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 <ul 
                                     id="location-list" 
                                     className='
-                                        w-[calc(100% - 40px)]
+                                        w-[calc(100vw-30px)] md:w-[calc(100vw-40px)]
                                         ml-[10px] lg:ml-[20px]
-                                        pl-[0px]
+                                        pl-0
                                     ' 
                                     style={{ marginTop: "15px" }}>
                                     {locations.map((loc, index) => (
@@ -996,7 +996,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 <div
                                     className="
                                         pt-0
-                                        mx-2 lg:mx-5
+                                        mx-0 md:mx-2 lg:mx-5
                                         mb-5
                                         border-0
                                     " 
@@ -1031,8 +1031,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             </div>
                             <div 
                                 className="
-                                    ml-2 lg:ml-5
-                                    w-[calc(100vw-100px)] md:w-[280px]
+                                    ml-0 md:ml-2 lg:ml-5
+                                    w-[calc(100vw-150px)] md:w-[200px] lg:w-[280px]
                                     relative
                                     block
                                     h-[50px] lg:h-[60px]
@@ -1096,8 +1096,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             <button 
                                 id="add-location-btn"
                                 className="
-                                m-2 lg:m-5
-                                mt-[10px]
+                                m-0 md:m-2 lg:m-5
+                                mt-[20px]
                                 border-0
                                 text-sm md:text-lg  
                                 text-white
@@ -1130,9 +1130,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                         <div className="m-[10px] mt-[15px] lg:mt-[20px]">
                             <h3 className='text-sm md:text-lg  lg:text-xl  mb-[10px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Categorisations</h3>
                             <div className="
-                                    ml-[10px] mr-[10px] 
-                                    lg:ml-[20px] lg:mr-[20px]
-                                    grid grid-cols-2 gap-5
+                                    mx-0 md:mx-2 lg:mx-5
+                                    grid grid-cols-2 gap-3
                                 "
                             >
                                 <div 
@@ -1265,14 +1264,14 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                         </select>
                                     </div>
                                 </div>
-                                <div className="relative block w-[calc(100%)] mt-[20px]">
+                                <div className="relative block w-[calc(100%)] mt-[10px]">
                                     <label className='ml-0 mb-[10px] text-gray-700 dark:text-gray-400'>Tags</label>
                                     
                                     <ul 
                                         id="category-list" 
                                         className='
                                             w-[calc(100% - 10px)]
-                                            ml-[20px]
+                                            ml-[10px]
                                             pl-0
                                         ' 
                                     >
@@ -1288,14 +1287,14 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                         >
                                         {/* Close icon */}
                                         <button 
-                                        onClick={() => handleRemoveTag(index)} 
-                                        className="
-                                            ml-0
-                                            absolute
-                                            ml-[-15px]
-                                            mt-[3px]
-                                            mt-[0px] p-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors
-                                        "
+                                            onClick={() => handleRemoveTag(index)} 
+                                            className="
+                                                ml-0
+                                                absolute
+                                                ml-[-15px]
+                                                mt-[3px]
+                                                mt-[0px] p-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors
+                                            "
                                         >
                                         <XMarkIcon className="w-4 h-4 text-gray-700 dark:text-gray-500" />
                                         </button>
@@ -1391,8 +1390,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                     <div ref={dateRef}
                         className="
                             datail-box
-                            mt-[40px]
-                            mb-[40px]
+                            my-[10px]
                         "
                     >
                         <h1 className="
@@ -1408,14 +1406,12 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
 
                         <div
                             className="
-                                m-[10px]
-                                ml-[35px]
-                                mr-[35px]
+                                mx-0 md:mx-2 lg:mx-5
                                 grid grid-cols-2 gap-4
                             "
                         >
                             {/* Actual Date */}
-                            <div className="col-span-2 md:col-span-1 flex flex-col">
+                            <div className="col-span-1 flex flex-col">
                                 <label 
                                     className="
                                         text-[var(--text)] mb-[10px]
@@ -1450,7 +1446,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
 
 
                             {/* Deadline Date */}
-                            <div className="col-span-2 md:col-span-1  flex flex-col">
+                            <div className="col-span-1  flex flex-col">
                                 <label className=' text-[var(--text)] mb-[10px]'>
                                     Deadline Date
                                 </label>
