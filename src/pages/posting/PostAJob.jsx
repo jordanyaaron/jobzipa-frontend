@@ -541,7 +541,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     return(
         <>
             <div className="min-h-screen  bg-gray-100 dark:bg-gray-900 transition-colors  transition-colors duration-300">
-                <header className="fixed top-0 left-0 w-screen z-40 border-b border-[var(--border)] bg-[var(--background)]">
+                <header className="fixed top-0 left-0 w-screen z-40 border-b border-[var(--border)] dark:bg-gray-800">
                     
                     <div
                         className='flex items-center justify-between px-4 md:px-6 h-16 transition-all duration-200 '
@@ -569,7 +569,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                     <div className="w-full flex justify-center">
                         <main className="w-750px min-h-[calc(100vh-80px)]
                                 bg-white dark:bg-gray-800 relative scrollbar-none
-                                mb-[4px] mt-[3px] p-0 lg:p-[30px] pt-[13px] 
+                                mb-[1px] mt-[1px] p-0 lg:p-[30px] pt-[13px] 
                                 overflow-y-auto text-left 
                                 w-full sm:w-full md:w-[720px] lg:w-[720px]
                             "
@@ -1410,7 +1410,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
 
                                             <div
                                                 className="
-                                                    w-[calc(100vw-40px)] lg:w-[660px]
+                                                    w-[calc(100vw-40px)] lg:w-[650px]
                                                     mx-2 lg:mx-6
                                                     grid grid-cols-1 md:grid-cols-2 
                                                     gap-2
@@ -1548,10 +1548,10 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                     {/* Footer */}
                     <footer className="
                         bg-white dark:bg-gray-800
-                        p-5 pt-4.5
-                        -mt-[2px]
-                        -mb-5
-                        h-[60px]
+                        p-5 py-6
+                        mt-0 lg:mt-[2px]
+                        mb-[-5px]
+                        min-h-[60px]
                         flex flex-col items-center justify-center
                         text-center
                     ">
@@ -1564,7 +1564,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                         </p>
 
                         <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">
-                        JobZipa Inc &copy; 2025. All Rights Reserved
+                            JobZipa Inc &copy; {new Date().getFullYear()}. All Rights Reserved
                         </p>
 
                     </footer>
