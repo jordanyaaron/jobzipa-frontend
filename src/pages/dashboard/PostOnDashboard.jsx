@@ -835,12 +835,12 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 )}
                             </div> 
                         </div>
-                        <div className="m-[10px]" ref={descriptionsRef}>
+                        <div className="m-[10px] mt-[20px]" ref={descriptionsRef}>
                             <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Descriptions</h3>
                             {errors.description && (
                                 <p className='error-displayer for-quill'>{errors.description}</p>
                             )}
-                            <div id='company-bio-wrapper'   className="h-[calc(100vh-200px)] lg:h-[calc(100vh-100px)] mx-0 md:mx-2  lg:mx-5 pt-[20px] mb-[15px]">
+                            <div id='company-bio-wrapper'   className="h-[calc(100vh-200px)] lg:h-[calc(100vh-100px)] mx-0 md:mx-2  lg:mx-5 pt-[20px] mb-[25px]">
                                 <QuillEditor 
                                     ref={descriptionQuill}
                                     value={jobDescriptions} 
@@ -854,7 +854,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 <p className=' text-xs text-gray-500 dark:text-gray-600 mx-1'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
                             </div>
                         </div>
-                        <div className="m-[10px]" ref={positionRef}>
+                        <div className="m-[10px] m-[25px]" ref={positionRef}>
                             <h3 className='text-sm md:text-lg  lg:text-xl  mb-[15px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Positions</h3> 
                             <div 
                                 className="
@@ -936,8 +936,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
 
                         </div>
 
-                        <div ref={locationRef} className="m-[10px] mt-[15px] lg:mt[20px]">
-                            <h3  className='text-sm md:text-lg  lg:text-xl  mb-[15px] font-normal text-gray-800 dark:text-gray-200 h-auto'  >Job Locations:</h3>
+                        <div ref={locationRef} className="m-[10px] mt-[25px] lg:mt[20px]">
+                            <h3  className='text-sm md:text-lg  lg:text-xl  mb-[10px] font-normal text-gray-800 dark:text-gray-200 h-auto'  >Job Locations:</h3>
                             {locations.length > 0 && (
                                 <ul 
                                     id="location-list" 
@@ -1127,7 +1127,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             onClick={handleAddLocation}><PlusIcon className="w-5 h-5" />add</button>
                         </div>
 
-                        <div className="m-[10px] mt-[15px] lg:mt-[20px]">
+                        <div className="m-[10px] mt-[20px] lg:mt-[20px]">
                             <h3 className='text-sm md:text-lg  lg:text-xl  mb-[10px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Categorisations</h3>
                             <div className="
                                     mx-0 md:mx-2 lg:mx-5
@@ -1399,7 +1399,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     text-[#3E907D] 
                                     dark:text-[#ebf3f2]
                                     font-black 
-                                    mt-[20px] text-lg md:text-xl  lg:text-2xl 
+                                    mt-[25px] text-lg md:text-xl  lg:text-2xl 
                                 "
                             >
                                 Date Infos
@@ -1409,7 +1409,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 className="
                                     sm:w-[calc(100vw-40px)]
                                     mx-2 md:mx-2 lg:mx-5
-                                    grid grid-cols-2 gap-6
+                                    grid grid-cols-2 gap-3
                                 "
                             >
                                 {/* Actual Date */}
@@ -1494,7 +1494,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             dark:text-[#ebf3f2]
                                 font-black 
                                 mb-0 
-                                mt-[20px] text-lg md:text-xl  lg:text-2xl 
+                                mt-[25px] text-lg md:text-xl  lg:text-2xl 
                             "
                         >
                             Aplication Link
