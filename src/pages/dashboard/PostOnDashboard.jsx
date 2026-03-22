@@ -1291,7 +1291,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                             onClick={() => handleRemoveTag(index)} 
                                             className="
                                                 absolute
-                                                left-0
+                                                left-[2px]
                                                 ml-[3px]
                                                 mt-[3px]
                                                 mt-[0px] p-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors

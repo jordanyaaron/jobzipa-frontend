@@ -1,7 +1,7 @@
 import { Link ,useNavigate} from 'react-router-dom';
 import toast , { Toaster } from 'react-hot-toast';
 import { backendBaseUrl } from "../../utils/urls";
-import { countries , categories } from "@/data/post-page";
+import { countries , categories , ArrowUpTrayIcon } from "@/data/post-page";
 import { XMarkIcon , PlusIcon , PencilIcon } from '@heroicons/react/24/outline';
 import api from '../../api/axios'
 import React, { useEffect, useRef, useState ,useCallback} from "react";
@@ -540,991 +540,1037 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
 
     return(
         <>
-            <div 
-                className="
-                    m-0
-                "
-            >
-                {/* Organisation */}
-                
-                <h1 className="
-                    text-[#3E907D] 
-                    dark:text-[#ebf3f2]
-                        font-black 
-                        mb-0 
-                        mt-[20px] text-lg md:text-xl  lg:text-2xl 
-                    "
-                >
-                    Organisation Details
-                </h1>
-                <div className=" mt-[20px] ">
-                    {/* <h3>Organisation Logo</h3>*/}
-                    {!imageSrc && !croppedImage ? (
-                        <button ref={logPickerRef}
-                            className="
-                                h-[100px]  md:h-[125px] lg:h-[150px]
-                                w-[calc(100%-27px)] lg:w-[calc(100%-57px)]
-                                m-[20px] lg:m-[20px]
-                                mt-5
-                                ml-[7px] lg:ml-[27px]
-                                flex
-                                flex-col
-                                justify-center
-                                items-center
-                                text-center
-                                overflow-hidden
-                                rounded-[20px] md:rounded-[30px]
-                                cursor-pointer
-                                border-0
-                                bg-gradient-to-r
-                                from-[#3E907D]
-                                to-[#061a1fbb]
-                                hover:from-[#142a25]
-                                hover:to-[#061a1fbb]
-                                dark:from-[#b3baead6]
-                                dark:to-[#3c6fae]
-                                dark:hover:from-[#b3baea]
-                                dark:hover:to-[#325e94]
-                                transition-all
-                                duration-300
-                                
-                            "   
-                            onClick={handleButtonClick}>
-                            <img 
-                                src={logoAddIcon} 
-                                alt="img-icon" 
-                                className="
-                                    h-[20px] lg:h-[30px] 
-                                    w-[20px] lg:w-[30px]
-                                    mt-[15px] mb-[10px] md:mb-[15px]  cursor-pointer self-center
-                                " 
-                            />
-                            <p  
-                                className="
-                                    text-white font-thin text-sm md:text-lg text-xcursor-pointer
-                                "
-                            >
-                                Tap here to add company logo
-                            </p>
-                        </button>
-                        ) : (
-                            <div 
-                                className="
-                                    relative  inline-block 
-                                    w-[150px] md:w-[175px] lg:w-[200px] 
-                                    ml-[15px] md:ml-[30px]
-                                "
-                            >
-
-                                {/* Logo Image */}
-                                <img
-                                    src={croppedImage || imageSrc}
-                                    alt="Logo Preview"
-                                    className="
-                                        w-[100px] md:w-[125px] lg:w-[150px]
-                                        h-[100px]  md:h-[125px] lg:h-[150px]
-                                        object-cover
-                                        rounded-lg
-                                        border
-                                        border-gray-300
-                                        dark:border-slate-600
-                                    "
-                                />
-
-                                {/* Floating Buttons */}
-                                <div className="absolute top-1 right-1 flex flex-col gap-2">
-                                    <button
-                                        onClick={handleRemoveLogo}
-                                        className="
-                                            flex items-center justify-center
-                                            w-6 md:w-7  lg:w-8   h-6  md:h-7  lg:h-8
-                                            rounded-lg
-                                            cursor-pointer
-                                            hover:bg-red-900
-                                            hover:text-white
-                                            bg-gray-800 dark:bg-gray-200
-                                            text-white dark:text-gray-800
-                                            hover:bg-gray-700
-                                            dark:hover:bg-red-900
-                                            dark:hover:text-white
-                                            dark:hover:text-black
-                                            transition-colors duration-200
-                                        "
-                                    >
-                                    <XMarkIcon className="w-4 h-4" />
-                                    </button>
-
-                                    <button
-                                    onClick={handleButtonClick}
-                                    className="
-                                        flex items-center justify-center
-                                        w-6 md:w-7  lg:w-8   h-6  md:h-7  lg:h-8
-                                        rounded-lg
-                                        bg-gray-800 dark:bg-gray-200
-                                        text-white dark:text-gray-800
-                                        hover:bg-gray-700 dark:hover:bg-gray-300
-                                        transition-colors duration-200
-                                    "
-                                    >
-                                    <PencilIcon className="w-4 h-4" />
-                                    </button>
-                                </div>
-                            </div>
-                        )
-                    }
+            <div className="min-h-screen  bg-gray-100 dark:bg-gray-900 transition-colors  transition-colors duration-300">
+                <header className="fixed lg:hidden top-0 left-0 w-screen z-40 border-b border-[var(--border)] bg-[var(--background)]">
                     
-                    {errors.logo && (
-                        <p className='error-displayer'>{errors.logo}</p>
-                    )}
-                    <input ref={fileInputRef} type="file" id="logoInput" className="hidden" accept="image/*"  onChange={handleFileChange}/>
-                </div>
-                <div className="m-[10px]">
-                    <h3 className='text-sm md:text-lg  lg:text-xl   font-normal text-gray-800 dark:text-gray-200 h-auto'>Company Name</h3> 
-                    <div 
-                        className="
-                            pt-0
-                            mx-2 lg:mx-5
-                            mb-5
-                            border-0
-                        " 
-                        ref={companyNameRef}
+                    <div
+                        className='flex items-center justify-between px-4 md:px-6 h-16 transition-all duration-200 '
                     >
-                        <input 
-                            type="text" 
-                            className="
-                                w-full
-                                mx-0
-                                my-0
-                                mt-[15px] lg:mt-[20px]
-                                pt-4 pb-4 md:pt-6 md:pb-6
-                                px-1.5 md:px-2.5
-                                text-sm md:text-lg  
-                                rounded-md
-                                border
-                                border-[var(--post-border)]
-                                bg-transparent
-                                text-[var(--text)]
-                                focus:outline-none
-                                focus:ring-2 focus:ring-green-500
-                                transition-colors duration-300
-                            "
-                            placeholder='Enter Company Name . . .' 
-                            value={companyName} 
-                            onChange={(e) => setCompanyName(e.target.value)}
-                        />
-                        {/* <p style={{ color: "red", margin: "5px 0 0 0" }}>please add a company logo img</p> */}
-                        {errors.name && (
-                            <p className='error-displayer'>{errors.name}</p>
-                        )}
-                    </div>
-                </div>
-
-                <div className="m-[10px] relative" ref={biographyRef}>
-                    <h3 className='text-sm md:text-lg  lg:text-xl   font-normal text-gray-800 dark:text-gray-200 h-auto'>Company Biography</h3> 
-                    {errors.biography && (
-                        <p className='error-displayer for-qiull'>{errors.biography}</p>
-                    )}
-                    <div id='company-bio-wrapper'  className=' h-[calc(100vh-100px)] mx-5 pt-[20px] relative'>
-                        <QuillEditor 
-                            ref={bioQuill}
-                            value={biography} 
-                            onChange={handleBioChange} 
-                            placeholder="Describe about the company..."
-                            
-                        />
-                    </div> 
-                    <div className=" m-[30px] mt-[70px]">
-                        <p className='font-semibold text-gray-800 dark:text-gray-200'>Hints:</p>
-                        <p className=' text-xs text-gray-500 dark:text-gray-400 mx-5'>Company History(shortly), Mission, Vision, Products/Services, Future Goals, Values, Leadership, Culture, Achievements.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div className="datail-box">
-                {/* Job */}
-                <h1 className="
-                    text-[#3E907D] 
-                    dark:text-[#ebf3f2]
-                        font-black 
-                        mb-0 
-                        mt-[20px] text-lg md:text-xl  lg:text-2xl 
-                    "
-                >
-                    Job Details
-                </h1>
-                <div className="m-[10px]" ref={titleRef}>
-                    <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Job title</h3>
-                    <div 
-                        className="
-                            pt-0
-                            mx-2 lg:mx-5
-                            mb-5
-                            border-0
-                        " 
-                    >
-                        <input 
-                            type="text" placeholder='Enter Job Title . . .'
-                            className="
-                                w-full
-                                mx-0
-                                my-0
-                                mt-[15px] lg:mt-[20px]
-                                pt-4 pb-4 md:pt-6 md:pb-6
-                                px-1.5 md:px-2.5
-                                text-sm md:text-lg  
-                                rounded-md
-                                border
-                                border-[var(--post-border)]
-                                bg-transparent
-                                text-[var(--text)]
-                                focus:outline-none
-                                focus:ring-2 focus:ring-green-500
-                                transition-colors duration-300
-                            " 
-                            value={title} 
-                            onChange = {(e) => setTitle(e.target.value)} 
-                        />
-                        {errors.title && (
-                            <p className='error-displayer'>{errors.title}</p>
-                        )}
-                    </div> 
-                </div>
-                <div className="m-[10px]" ref={descriptionsRef}>
-                    <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Descriptions</h3>
-                    {errors.description && (
-                        <p className='error-displayer for-quill'>{errors.description}</p>
-                    )}
-                    <div id='company-bio-wrapper'   className="h-[calc(100vh-100px)] mx-5 pt-[20px]">
-                        <QuillEditor 
-                            ref={descriptionQuill}
-                            value={jobDescriptions} 
-                            onChange={handleContentChange} 
-                            placeholder="Describe the role, responsibilities, and requirements..."
-                            darkMode={darkMode}
-                        />
-                    </div> 
-                    <div className=" m-[30px] mt-[70px]">
-                        <p className='font-semibold text-gray-800 dark:text-gray-200 '>Hints:</p>
-                        <p className='text-xs text-gray-500 dark:text-gray-400 mx-5'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
-                    </div>
-                </div>
-                <div className="m-[10px]" ref={positionRef}>
-                    <h3 className='text-sm md:text-lg  lg:text-xl  mb-[15px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Positions</h3> 
-                    <div 
-                        className="
-                            pt-0
-                            mx-2 lg:mx-5
-                            mb-5
-                            border-0
-                        "
-                    >
-                        <div className='display-block mb-[10px] relative'>
-                            <input 
-                                type="checkbox" 
-                                className='h-[20px] w-[20px] absolute t-[10px]'
-                                id="is_multiple_checkbox" 
-                                checked={isMultiple}
-                                onChange={handleCheckboxChange}
-                            />
-                            <label 
-                                htmlFor=""
-                                className='text-xs md:text-sm  lg:text-lg  ml-[30px] text-gray-700 dark:text-gray-400'
-                            >Multiple Positions</label>
+                    {/* Left */}
+                        <div className="flex items-center gap-3">
+                            <Link to="/" className="flex items-center">
+                                <img src={JobzipaLogo} alt="Jobzipa" className="h-9 md:h-10" />
+                            </Link>
                         </div>
-                        <div 
-                            className='
-                                relative
-                                mb-[20px]
-                                h-[55px] lg:h-[70px]
-                                w-[calc(100vw-80px)] lg:w-[320px]
-                                mt-[15px] lg:mt-[20px]
-                                width: calc(320px);
-                                rounded-md
-                                bg-transparent
-                                text-[var(--text)]
-                                
-                            '
-                        >
-                            {isMultiple ? (
-                                <span
-                                    className='
-                                        absolute
-                                        ml-[10px]
-                                        mt-[16px]
-                                    '
-                                >Multiple</span>
-                                ) : (
-                                    <input 
-                                        // className='number-input' 
-                                        type='number'
-                                        value={positionValue}
-                                        className='
-                                            w-full
-                                            mx-0
-                                            my-0
-                                            mt-[2px] lg:mt-[5px]
-                                            pt-4 pb-4 md:pt-4 md:pb-4
-                                            px-1.5 md:px-2.5
-                                            text-sm md:text-lg  
-                                            relative
-                                            rounded-md
-                                            border
-                                            border-[var(--post-border)]
-                                            bg-transparent
-                                            text-[var(--text)]
-                                            focus:outline-none
-                                            focus:ring-2 focus:ring-green-500
-                                            transition-colors duration-300
-                                        '
-                                        name="" id="" step="1" min="0"  
-                                        placeholder='Specify number of position here...'   
-                                        onChange = {(e) => setPositionValue(e.target.value)} 
-                                    />
-                                )
-                            }
-                        </div>
-                        {errors.position && (
-                            <p className='error-displayer'>{errors.position}</p>
-                        )}
-                    </div>
-
-                </div>
-
-                <div ref={locationRef} className="m-[10px] mt-[15px] lg:mt[20px]">
-                    <h3  className='text-sm md:text-lg  lg:text-xl  mb-[15px] font-normal text-gray-800 dark:text-gray-200 h-auto'  >Job Locations:</h3>
-                    {locations.length > 0 && (
-                        <ul 
-                            id="location-list" 
-                            className='
-                                w-[calc(100% - 40px)]
-                                ml-[10px] lg:ml-[20px]
-                                pl-[0px]
-                            ' 
-                            style={{ marginTop: "15px" }}>
-                            {locations.map((loc, index) => (
-                                <li 
-                                    key={index}
-                                    className='
-                                    text-gray-700 dark:text-gray-500
-                                    relative inline-block mr-1 mt-1 mb-1 h-[40px] max-w-[200px] 
-                                    px-[25px] pt-[5px]  pr-[15px] text-[14px] rounded-[30px] 
-                                    bg-[#3e907d38] dark:bg-[#3e907d38] flex items-start
-                                    '
-                                >
-                                {/* Close icon */}
-                                <button 
-                                onClick={() => handleRemoveLocation(index)} 
-                                className="
-                                    ml-0
-                                    absolute
-                                    ml-[-15px]
-                                    mt-[3px]
-                                    mt-[0px] p-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors
-                                "
-                                >
-                                <XMarkIcon className="w-4 h-4 text-gray-700 dark:text-gray-500" />
-                                </button>
-                            
-                                {/* Location text */}
-                                <span 
-                                    className="
-                                        inline-block
-                                        relative
-                                        mt-[3px]
-                                        ml-[10px]
-                                        max-w-[145px]
-                                        overflow-hidden whitespace-nowrap text-ellipsis 
-                                    text-gray-700 dark:text-gray-500
-                                    "
-                                >
-                                {loc.locationCountry === '' 
-                                    ? loc.locationRigion 
-                                    : `${loc.locationRigion}, ${loc.locationCountry}`
-                                }
-                                </span>
-                            </li>
-                            ))}
-                        </ul>
-                    )}
-                    <div className="m-0"  >
-                        <div
-                            className="
-                                pt-0
-                                mx-2 lg:mx-5
-                                mb-5
-                                border-0
-                            " 
-                        >
-                            <input 
-                                type="text"
-                                className="
-                                    w-full
-                                    mx-0
-                                    my-0
-                                    mt-[15px] lg:mt-[20px]
-                                    pt-4 pb-4 md:pt-6 md:pb-6
-                                    px-1.5 md:px-2.5
-                                    text-sm md:text-lg  
-                                    rounded-md
-                                    border
-                                    border-[var(--post-border)]
-                                    bg-transparent
-                                    text-[var(--text)]
-                                    focus:outline-none
-                                    focus:ring-2 focus:ring-green-500
-                                    transition-colors duration-300
-                                " 
-                                placeholder="Enter Region/City . . ." 
-                                onChange = {(e) => setLocationRegion(e.target.value)} 
-                                value={locationRigion}
-                            />
-                            {errors.locations && (
-                                <p className='error-displayer'>{errors.locations}</p>
-                            )}
-                        </div> 
-                    </div>
-                    <div 
-                        className="
-                            ml-2 lg:ml-5
-                            w-[calc(100vw-100px)] md:w-[280px]
-                            relative
-                            block
-                            h-[50px] lg:h-[60px]
-                            p-0
-                            text-base
-                            rounded
-                            box-border
-                            overflow-hidden
-                        "
-                    >
-                        <i
-                            className="
-                                absolute
-                                right-[13px]
-                                top-[20px] lg:top-[25px]
-                                block
-                                h-[6px]
-                                w-[6px]
-                                border-2
-                                border-[var(--post-border)]
-                                border-t-0
-                                border-l-0
-                                rotate-45
-                                pointer-events-none
-                            "
-                        ></i>
-                        <select 
-                            id="location-country" 
-                            className={`
-                                absolute
-                                w-full
-                                h-[50px] lg:h-[60px]
-                                text-sm  lg:text-lg
-                                m-0
-                                pl-2 pr-2 pl-5 pr-6 
-                                bg-transparent
-                                appearance-none
-                                border
-                                border-[var(--post-border)]
-                                text-[(--text)]
-                                rounded
-                                focus:outline-none
-                                focus:ring-2
-                                focus:ring-emerald-500
-                                focus:border-emerald-500${locationCountry === "" 
-                                    ? "text-gray-400 dark:text-gray-500" 
-                                    : "text-gray-700 dark:text-gray-200"
-                                }
-                            `}
-                            value={locationCountry}
-                            name="country" 
-                            onChange={(e) => setLocationCountry(e.target.value)} >
-                            <option value=""  disabled hidden>--Select Country(Optional)--</option>
-                            {countries.map((country) => (
-                                <option key={country.value} value={country.value}>
-                                {country.label}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                    <button 
-                        id="add-location-btn"
-                        className="
-                        m-2 lg:m-5
-                        mt-[10px]
-                        border-0
-                        text-sm md:text-lg  
-                        text-white
-                        cursor-pointer
-                        rounded-md
-                        flex items-center gap-2
-                        bg-[#3E907D]
-                        px-5
-                        py-2.5
-                        hover:bg-[#357c6c]
-                        border-0
-                        bg-gradient-to-r
-                        from-[#3E907D]
-                        to-[#061a1fbb]
-                        hover:from-[#142a25]
-                        hover:to-[#061a1fbb]
-                        dark:from-[#b3baead6]
-                        dark:to-[#3c6fae]
-                        dark:hover:from-[#b3baea]
-                        dark:hover:to-[#325e94]
-                        transition-all
-                        duration-300
-                        active:scale-95
-                        transition-all
-                        duration-200
-                    "  
-                    onClick={handleAddLocation}><PlusIcon className="w-5 h-5" />add</button>
-                </div>
-
-                <div className="m-[10px] mt-[15px] lg:mt-[20px]">
-                    <h3 className='text-sm md:text-lg  lg:text-xl  mb-[10px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Categorisations</h3>
-                    <div className="
-                            ml-[10px] mr-[10px] 
-                            lg:ml-[20px] lg:mr-[20px]
-                            grid grid-cols-2 gap-5
-                        "
-                    >
-                        <div 
-                            className="
-                                col-span-1
-                            "
-                        >
-                            <label 
-                            className='
-                                    text-xs md:text-sm
-                                    ml-0 text-gray-700 dark:text-gray-400
-                                '
-                            >Type</label>
-                            <div className="mr-0
-                                    ml-0
-                                    mt-[10px]
-                                    h-[55px] lg:h-[60px]
-                                    w-full
-                                    relative
-                                "
+                        {/* Right */}
+                        <div className="flex items-center gap-3">
+                            {/* Dark mode toggle */}
+                            <button
+                                onClick={handleSubmit}
+                                className="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
                             >
-                                <i 
-                                    className="
-                                        absolute
-                                        right-[13px]
-                                        top-[25px]
-                                        block
-                                        h-[6px]
-                                        w-[6px]
-                                        border-2
-                                        border-[var(--post-border)]
-                                        border-t-0
-                                        border-l-0
-                                        rotate-45
-                                        pointer-events-none
-                                    "
-                                ></i>
-                                <select 
-                                    id="job-type" 
-                                    className={`
-                                        text-xs md:text-sm
-                                        absolute
-                                        w-full
-                                        h-[55px] lg:h-[60px]
-                                        mt-[5px]
-                                        p-5
-                                        bg-transparent
-                                        appearance-none
-                                        border
-                                        border-[var(--post-border)]
-                                        text-[var(--text)]
-                                        rounded
-                                        focus:outline-none
-                                        focus:ring-2
-                                        focus:ring-emerald-500
-                                    `}
-                                    name="job-type" 
-                                    value={type} 
-                                    onChange={(e) => setType(e.target.value)} >
-                                    <option value="FT">Full-Time</option>
-                                    <option value="PT">Part-Time</option>
-                                    <option value="CT">Contract</option>
-                                    <option value="FL">Freelancing</option>
-                                    <option value="IN">Internship</option>
-                                </select>
-                            </div>
+                                <ArrowUpTrayIcon className="h-4 w-4 text-white" />
+                                Post
+                            </button>
                         </div>
-                        <div 
-                            className="
-                                col-span-1
+                    </div>
+                </header>
+                <div className="flex-1 pt-[64px] overflow-y-auto  scrollbar-none">
+                    <div className="w-full flex justify-center">
+                        <main className="w-750px min-h-[calc(100vh-80px)]
+                                bg-white dark:bg-gray-800 relative scrollbar-none
+                                mb-[4px] mt-[3px] p-[30px] pt-[13px] 
+                                overflow-y-auto text-left 
+                                w-full sm:w-full md:w-[720px] lg:w-[720px]
                             "
                         >
-                            <label 
-                                className='
-                                    text-xs md:text-sm
-                                    ml-0 text-gray-700 dark:text-gray-400
-                                '
-                            >Mode</label>
                             <div 
-                                className="
-                                    mr-0
-                                    ml-0
-                                    mt-[15px]
-                                    h-[55px] lg:h-[60px]
-                                    w-full
-                                    relative
-                                "
-                            >
-                                <i 
-                                    className="
-                                        absolute
-                                        right-[13px]
-                                        top-[25px]
-                                        block
-                                        h-[6px]
-                                        w-[6px]
-                                        border-2
-                                        border-[var(--post-border)]
-                                        border-t-0
-                                        border-l-0
-                                        rotate-45
-                                        pointer-events-none
-                                    "
-                                ></i>
-                                <select 
-                                    id="job-mode" 
-                                    className={`
-                                        absolute
-                                        text-xs md:text-sm
-                                        w-full
-                                        h-[55px] lg:h-[60px]
-                                        m-0
-                                        p-5
-                                        bg-transparent
-                                        appearance-none
-                                        border
-                                        border-[var(--post-border)]
-                                        text-[var(--text)]
-                                        rounded
-                                        focus:outline-none
-                                        focus:ring-2
-                                        focus:ring-emerald-500
-                                    `}
-                                    name="country" 
-                                    value={mode} 
-                                    onChange={(e) => setMode(e.target.value)} >
-                                    <option value="ON">Onsite</option>
-                                    <option value="RE">Remote</option>
-                                    <option value="HY">Hybrid</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className="relative block w-[calc(100%)] mt-[20px]">
-                            <label className='ml-0 mb-[10px] text-gray-700 dark:text-gray-400'>Tags</label>
-                            
-                            <ul 
-                                id="category-list" 
                                 className='
-                                    w-[calc(100% - 10px)]
-                                    ml-[20px]
-                                    pl-0
+                                    post-on-dashboard w-full 
+                                    overflow-x-hidden scrollbar-hide
+                                    m-0 lg:w-full flex justify-center  lg:mt-0
                                 ' 
                             >
-                                {tags.map((t, index) => (
-                                <li 
-                                    key={index}
-                                    className='
-                                    text-gray-700 dark:text-gray-500
-                                    relative inline-block mr-1 mt-1 mb-1 h-[40px] max-w-[300px] 
-                                    px-[25px] pt-[5px]  pr-[15px] text-[14px] rounded-[30px] 
-                                    bg-[#3e907d38] dark:bg-[#3e907d38] flex items-start
-                                    '
-                                >
-                                {/* Close icon */}
-                                <button 
-                                onClick={() => handleRemoveTag(index)} 
-                                className="
-                                    ml-0
-                                    absolute
-                                    ml-[-15px]
-                                    mt-[3px]
-                                    mt-[0px] p-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors
-                                "
-                                >
-                                <XMarkIcon className="w-4 h-4 text-gray-700 dark:text-gray-500" />
-                                </button>
-                            
-                                {/* Location text */}
-                                <span 
+                                <div
                                     className="
-                                        inline-block
-                                        relative
-                                        mt-[3px]
-                                        ml-[10px]
-                                        max-w-[265px]
-                                        overflow-hidden whitespace-nowrap text-ellipsis 
-                                    text-gray-700 dark:text-gray-500
+                                        mt-0 lg:mt-0
+                                        w-[calc(100vw-40px)] lg:w-[720px]
                                     "
                                 >
-                                {t}
-                                </span>
-                            </li>
-                            ))}
-                        </ul>
-                            <div 
-                                className="
-                                        relative
-                                        w-[140px]
-                                        h-[50px]
-                                        mt-[10px]
-                                        overflow-hidden
-                                ">
-                                {/* <button><img src={plusIcon} alt="" /><span>Add Tags</span></button> */}
-                                <button 
-                                    id="add-location-btn"
-                                    className="
-                                        absolute
-                                        border-0
-                                        text-[18px]
-                                        text-white
-                                        cursor-pointer
-                                        rounded-md
-                                        flex items-center gap-2
-                                        bg-[#3E907D]
-                                        px-5
-                                        h-[50px]
-                                        w-[140px]
-                                        hover:bg-[#357c6c]
-                                        border-0
-                                        bg-gradient-to-r
-                                        from-[#3E907D]
-                                        to-[#061a1fbb]
-                                        hover:from-[#142a25]
-                                        hover:to-[#061a1fbb]
-                                        dark:from-[#b3baead6]
-                                        dark:to-[#3c6fae]
-                                        dark:hover:from-[#b3baea]
-                                        dark:hover:to-[#325e94]
-                                        transition-all
-                                        duration-300
-                                        active:scale-95
-                                        transition-all
-                                        duration-200
-                                    "  
-                                    ><PlusIcon className="w-5 h-5" />add tag
-                                </button>
-                                <select 
-                                    id="job-category" 
-                                    className="
-                                        appearance-none
-                                        absolute
-                                        h-[40px] lg:h-[50px]
-                                        w-[120px] lg:w-[140px]
-                                        p-[5px]
-                                        border-0
-                                        bg-transparent
-                                        text-transparent
-                                        cursor-pointer
-                                        focus:outline-none
-                                        focus:ring-0
-                                    " 
-                                    name="job-category" 
-                                    onChange={handleSelectChange}  >
-                                    <option value=""  disabled ></option>
-                                    {categories.map((cat) => (
-                                        <option key={cat.value} value={cat.value}>
-                                        {cat.label}
-                                        </option>
-                                    ))}
-                                </select>
+                                    <div 
+                                        className="
+                                            m-0
+                                        "
+                                    >
+                                        {/* Organisation */}
+                                        
+                                        <h1 className="
+                                                text-[#3E907D] 
+                                                dark:text-[#ebf3f2]
+                                                font-black 
+                                                mb-0 
+                                                mt-[20px] text-lg md:text-xl  
+                                                lg:text-2xl lg:mb-[30px]
+                                            "
+                                        >
+                                            Organisation Details
+                                        </h1>
+                                        <div className=" mt-[20px] ">
+                                            {/* <h3>Organisation Logo</h3>*/}
+                                            {!imageSrc && !croppedImage ? (
+                                                <button ref={logPickerRef}
+                                                    className="
+                                                        h-[100px]  md:h-[140px] lg:h-[150px]
+                                                        w-[calc(100vw-57px)] lg:w-[650px]
+                                                        m-[10px] lg:m-[20px]
+                                                        my-5
+                                                        ml-[10px] lg:ml-[37px]
+                                                        flex
+                                                        flex-col
+                                                        justify-center
+                                                        items-center
+                                                        text-center
+                                                        overflow-hidden
+                                                        rounded-[20px] md:rounded-[30px]
+                                                        cursor-pointer
+                                                        border-0
+                                                        bg-gradient-to-r
+                                                        from-[#3E907D]
+                                                        to-[#061a1fbb]
+                                                        hover:from-[#142a25]
+                                                        hover:to-[#061a1fbb]
+                                                        dark:from-[#b3baead6]
+                                                        dark:to-[#3c6fae]
+                                                        dark:hover:from-[#b3baea]
+                                                        dark:hover:to-[#325e94]
+                                                        transition-all
+                                                        duration-300
+                                                    "   
+                                                    onClick={handleButtonClick}>
+                                                    <img 
+                                                        src={logoAddIcon} 
+                                                        alt="img-icon" 
+                                                        className="
+                                                            h-[20px] lg:h-[30px] 
+                                                            w-[20px] lg:w-[30px]
+                                                            mt-[15px] mb-[10px] md:mb-[15px]  cursor-pointer self-center
+                                                        " 
+                                                    />
+                                                    <p  
+                                                        className="
+                                                            text-white font-thin text-sm md:text-lg text-xcursor-pointer
+                                                        "
+                                                    >
+                                                        Tap here to add company logo
+                                                    </p>
+                                                </button>
+                                                ) : (
+                                                    <div 
+                                                        className="
+                                                            relative  inline-block 
+                                                            w-[150px] md:w-[175px] lg:w-[200px] 
+                                                            ml-[15px] md:ml-[30px]
+                                                        "
+                                                    >
+
+                                                        {/* Logo Image */}
+                                                        <img
+                                                            src={croppedImage || imageSrc}
+                                                            alt="Logo Preview"
+                                                            className="
+                                                                w-[100px] md:w-[125px] lg:w-[150px]
+                                                                h-[100px]  md:h-[125px] lg:h-[150px]
+                                                                object-cover
+                                                                rounded-lg
+                                                                border
+                                                                border-gray-300
+                                                                dark:border-slate-600
+                                                            "
+                                                        />
+
+                                                        {/* Floating Buttons */}
+                                                        <div className="absolute top-1 right-1 flex flex-col gap-2">
+                                                            <button
+                                                                onClick={handleRemoveLogo}
+                                                                className="
+                                                                    flex items-center justify-center
+                                                                    w-6 md:w-7  lg:w-8   h-6  md:h-7  lg:h-8
+                                                                    rounded-lg
+                                                                    cursor-pointer
+                                                                    hover:bg-red-900
+                                                                    hover:text-white
+                                                                    bg-gray-800 dark:bg-gray-200
+                                                                    text-white dark:text-gray-800
+                                                                    hover:bg-gray-700
+                                                                    dark:hover:bg-red-900
+                                                                    dark:hover:text-white
+                                                                    dark:hover:text-black
+                                                                    transition-colors duration-200
+                                                                "
+                                                            >
+                                                                <XMarkIcon className="w-4 h-4" />
+                                                            </button>
+
+                                                            <button
+                                                                onClick={handleButtonClick}
+                                                                className="
+                                                                    flex items-center justify-center
+                                                                    w-6 md:w-7  lg:w-8   h-6  md:h-7  lg:h-8
+                                                                    rounded-lg
+                                                                    bg-gray-800 dark:bg-gray-200
+                                                                    text-white dark:text-gray-800
+                                                                    hover:bg-gray-700 dark:hover:bg-gray-300
+                                                                    transition-colors duration-200
+                                                                "
+                                                            >
+                                                            <PencilIcon className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            }
+                                            
+                                            {errors.logo && (
+                                                <p className='error-displayer'>{errors.logo}</p>
+                                            )}
+                                            <input ref={fileInputRef} type="file" id="logoInput" className="hidden" accept="image/*"  onChange={handleFileChange}/>
+                                        </div>
+                                        <div className="m-[10px]">
+                                            <h3 className='text-sm md:text-lg  lg:text-xl   font-normal text-gray-800 dark:text-gray-200 h-auto'>Company Name</h3> 
+                                            <div 
+                                                className="
+                                                    pt-0
+                                                    mx-0 md:2 lg:mx-5
+                                                    mb-5
+                                                    border-0
+                                                " 
+                                                ref={companyNameRef}
+                                            >
+                                                <input 
+                                                    type="text" 
+                                                    className="
+                                                        w-full
+                                                        mx-0
+                                                        my-0
+                                                        mt-[15px] lg:mt-[20px]
+                                                        pt-4 pb-4 md:pt-6 md:pb-6
+                                                        px-1.5 md:px-2.5
+                                                        text-sm md:text-lg  
+                                                        rounded-md
+                                                        border
+                                                        border-[var(--post-border)]
+                                                        bg-transparent
+                                                        text-[var(--text)]
+                                                        focus:outline-none
+                                                        focus:ring-2 focus:ring-green-500
+                                                        transition-colors duration-300
+                                                    "
+                                                    placeholder='Enter Company Name . . .' 
+                                                    value={companyName} 
+                                                    onChange={(e) => setCompanyName(e.target.value)}
+                                                />
+                                                {/* <p style={{ color: "red", margin: "5px 0 0 0" }}>please add a company logo img</p> */}
+                                                {errors.name && (
+                                                    <p className='error-displayer'>{errors.name}</p>
+                                                )}
+                                            </div>
+                                        </div>
+
+                                        <div className="m-[10px] relative" ref={biographyRef}>
+                                            <h3 className='text-sm md:text-lg  lg:text-xl   font-normal text-gray-800 dark:text-gray-200 h-auto'>Company Biography</h3> 
+                                            {errors.biography && (
+                                                <p className='error-displayer for-qiull'>{errors.biography}</p>
+                                            )}
+                                            <div id='company-bio-wrapper'  className=' h-[calc(100vh-200px)] lg:h-[calc(100vh-100px)]  mx-0 md:2 lg:mx-5 pt-[20px] relative mb-[15px]'>
+                                                <QuillEditor 
+                                                    ref={bioQuill}
+                                                    value={biography} 
+                                                    onChange={handleBioChange} 
+                                                    placeholder="Describe about the company..."
+                                                    
+                                                />
+                                            </div> 
+                                            <div className="relative sm:m-[4px]  mx-[5px]   lg:mx-[50px] mt-[70px]">
+                                                <p className='font-semibold sm:mt-[50px] md:mt-[60px] text-gray-800 dark:text-gray-500'>Hints:</p>
+                                                <p className=' text-xs text-gray-500 dark:text-gray-600 mx-1'>Company History(shortly), Mission, Vision, Products/Services, Future Goals, Values, Leadership, Culture, Achievements.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="datail-box">
+                                        {/* Job */}
+                                        <h1 className="
+                                                text-[#3E907D] 
+                                                dark:text-[#ebf3f2]
+                                                font-black 
+                                                mb-0 
+                                                mt-[20px] text-lg md:text-xl  lg:text-2xl 
+                                            "
+                                        >
+                                            Job Details
+                                        </h1>
+                                        <div className="m-[10px]" ref={titleRef}>
+                                            <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Job title</h3>
+                                            <div 
+                                                className="
+                                                    pt-0
+                                                    mx-0 md:mx-2  lg:mx-5
+                                                    mb-5
+                                                    border-0
+                                                " 
+                                            >
+                                                <input 
+                                                    type="text" 
+                                                    placeholder='Enter Job Title . . .'
+                                                    className="
+                                                        w-full
+                                                        mx-0
+                                                        my-0
+                                                        mt-[15px] lg:mt-[20px]
+                                                        pt-4 pb-4 md:pt-6 md:pb-6
+                                                        px-1.5 md:px-2.5
+                                                        text-sm md:text-lg  
+                                                        rounded-md
+                                                        border
+                                                        border-[var(--post-border)]
+                                                        bg-transparent
+                                                        text-[var(--text)]
+                                                        focus:outline-none
+                                                        focus:ring-2 focus:ring-green-500
+                                                        transition-colors duration-300
+                                                    " 
+                                                    value={title} 
+                                                    onChange = {(e) => setTitle(e.target.value)} 
+                                                />
+                                                {errors.title && (
+                                                    <p className='error-displayer'>{errors.title}</p>
+                                                )}
+                                            </div> 
+                                        </div>
+                                        <div className="m-[10px] mt-[20px]" ref={descriptionsRef}>
+                                            <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Descriptions</h3>
+                                            {errors.description && (
+                                                <p className='error-displayer for-quill'>{errors.description}</p>
+                                            )}
+                                            <div id='company-bio-wrapper'   className="h-[calc(100vh-200px)] lg:h-[calc(100vh-100px)] mx-0 md:mx-2  lg:mx-5 pt-[20px] mb-[25px]">
+                                                <QuillEditor 
+                                                    ref={descriptionQuill}
+                                                    value={jobDescriptions} 
+                                                    onChange={handleContentChange} 
+                                                    placeholder="Describe the role, responsibilities, and requirements..."
+                                                    darkMode={darkMode}
+                                                />
+                                            </div> 
+                                            <div className="relative sm:m-[4px]  mx-[5px]   lg:mx-[60px] mt-[70px]">
+                                                <p className='font-semibold sm:mt-[50px] md:mt-[60px] text-gray-800 dark:text-gray-500'>Hints:</p>
+                                                <p className=' text-xs text-gray-500 dark:text-gray-600 mx-1'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
+                                            </div>
+                                        </div>
+                                        <div className="m-[10px] mt-[25px]" ref={positionRef}>
+                                            <h3 className='text-sm md:text-lg  lg:text-xl  mb-[15px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Positions</h3> 
+                                            <div 
+                                                className="
+                                                    pt-0
+                                                    mx-0 md:mx-2 lg:mx-5
+                                                    mb-5
+                                                    border-0
+                                                "
+                                            >
+                                                <div className='display-block mb-[10px] relative'>
+                                                    <input 
+                                                        type="checkbox" 
+                                                        className='h-[20px] w-[20px] absolute t-[10px]'
+                                                        id="is_multiple_checkbox" 
+                                                        checked={isMultiple}
+                                                        onChange={handleCheckboxChange}
+                                                    />
+                                                    <label 
+                                                        htmlFor=""
+                                                        className='text-xs md:text-sm  lg:text-lg  ml-[30px] text-gray-700 dark:text-gray-400'
+                                                    >Multiple Positions</label>
+                                                </div>
+                                                <div 
+                                                    className='
+                                                        relative
+                                                        mb-[20px]
+                                                        h-[55px] lg:h-[70px]
+                                                        w-[calc(100vw-80px)] lg:w-[320px]
+                                                        mt-[15px] lg:mt-[20px]
+                                                        width: calc(320px);
+                                                        rounded-md
+                                                        bg-transparent
+                                                        text-[var(--text)]
+                                                        
+                                                    '
+                                                >
+                                                    {isMultiple ? (
+                                                        <span
+                                                            className='
+                                                                absolute
+                                                                ml-[10px]
+                                                                mt-[16px]
+                                                            '
+                                                        >Multiple</span>
+                                                        ) : (
+                                                            <input 
+                                                                // className='number-input' 
+                                                                type='number'
+                                                                value={positionValue}
+                                                                className='
+                                                                    w-full
+                                                                    mx-0
+                                                                    my-0
+                                                                    mt-[2px] lg:mt-[5px]
+                                                                    pt-4 pb-4 md:pt-4 md:pb-4
+                                                                    px-1.5 md:px-2.5
+                                                                    text-sm md:text-lg  
+                                                                    relative
+                                                                    rounded-md
+                                                                    border
+                                                                    border-[var(--post-border)]
+                                                                    bg-transparent
+                                                                    text-[var(--text)]
+                                                                    focus:outline-none
+                                                                    focus:ring-2 focus:ring-green-500
+                                                                    transition-colors duration-300
+                                                                '
+                                                                name="" id="" step="1" min="0"  
+                                                                placeholder='Specify number of position here...'   
+                                                                onChange = {(e) => setPositionValue(e.target.value)} 
+                                                            />
+                                                        )
+                                                    }
+                                                </div>
+                                                {errors.position && (
+                                                    <p className='error-displayer'>{errors.position}</p>
+                                                )}
+                                            </div>
+
+                                        </div>
+
+                                        <div ref={locationRef} className="m-[10px] mt-[25px] lg:mt[20px]">
+                                            <h3  className='text-sm md:text-lg  lg:text-xl  mb-[5px] md:mb-[5px] font-normal text-gray-800 dark:text-gray-200 h-auto'  >Job Locations:</h3>
+                                            {locations.length > 0 && (
+                                                <ul 
+                                                    id="location-list" 
+                                                    className='
+                                                        w-[calc(100vw-30px)] md:w-[calc(100vw-40px)]
+                                                        ml-[10px] lg:ml-[20px]
+                                                        pl-0
+                                                    ' 
+                                                    style={{ marginTop: "15px" }}>
+                                                    {locations.map((loc, index) => (
+                                                        <li 
+                                                            key={index}
+                                                            className='
+                                                            text-gray-700 dark:text-gray-500
+                                                            relative inline-block mr-1 mt-1 mb-1 h-[40px] max-w-[200px] 
+                                                            px-[25px] pt-[5px]  pr-[15px] text-[14px] rounded-[30px] 
+                                                            bg-[#3e907d38] dark:bg-[#3e907d38] flex items-start
+                                                            '
+                                                        >
+                                                        {/* Close icon */}
+                                                        <button 
+                                                            onClick={() => handleRemoveLocation(index)} 
+                                                            className="
+                                                                ml-0
+                                                                absolute
+                                                                ml-[-15px]
+                                                                mt-[3px]
+                                                                mt-[0px] p-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors
+                                                            "
+                                                        >
+                                                            <XMarkIcon className="w-4 h-4 text-gray-700 dark:text-gray-500" />
+                                                        </button>
+                                                    
+                                                        {/* Location text */}
+                                                        <span 
+                                                            className="
+                                                                inline-block
+                                                                relative
+                                                                mt-[3px]
+                                                                ml-[10px]
+                                                                max-w-[145px]
+                                                                overflow-hidden whitespace-nowrap text-ellipsis 
+                                                                text-gray-700 dark:text-gray-500
+                                                            "
+                                                        >
+                                                            {loc.locationCountry === '' 
+                                                                ? loc.locationRigion 
+                                                                : `${loc.locationRigion}, ${loc.locationCountry}`
+                                                            }
+                                                        </span>
+                                                    </li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                            <div className="m-0"  >
+                                                <div
+                                                    className="
+                                                        pt-0
+                                                        mx-0 md:mx-2 lg:mx-5
+                                                        mb-5
+                                                        border-0
+                                                    " 
+                                                >
+                                                    <input 
+                                                        type="text"
+                                                        className="
+                                                            w-full
+                                                            mx-0
+                                                            my-0
+                                                            mt-[15px] lg:mt-[20px]
+                                                            pt-4 pb-4 md:pt-6 md:pb-6
+                                                            px-1.5 md:px-2.5
+                                                            text-sm md:text-lg  
+                                                            rounded-md
+                                                            border
+                                                            border-[var(--post-border)]
+                                                            bg-transparent
+                                                            text-[var(--text)]
+                                                            focus:outline-none
+                                                            focus:ring-2 focus:ring-green-500
+                                                            transition-colors duration-300
+                                                        " 
+                                                        placeholder="Enter Region/City . . ." 
+                                                        onChange = {(e) => setLocationRegion(e.target.value)} 
+                                                        value={locationRigion}
+                                                    />
+                                                    {errors.locations && (
+                                                        <p className='error-displayer'>{errors.locations}</p>
+                                                    )}
+                                                </div> 
+                                            </div>
+                                            <div 
+                                                className="
+                                                    ml-0 md:ml-2 lg:ml-5
+                                                    w-[calc(100vw-140px)] md:w-[200px] lg:w-[280px]
+                                                    relative
+                                                    block
+                                                    h-[50px] lg:h-[60px]
+                                                    p-0
+                                                    text-base
+                                                    rounded
+                                                    box-border
+                                                    overflow-hidden
+                                                "
+                                            >
+                                                <i
+                                                    className="
+                                                        absolute
+                                                        right-[13px]
+                                                        top-[20px] lg:top-[25px]
+                                                        block
+                                                        h-[6px]
+                                                        w-[6px]
+                                                        border-2
+                                                        border-[var(--post-border)]
+                                                        border-t-0
+                                                        border-l-0
+                                                        rotate-45
+                                                        pointer-events-none
+                                                    "
+                                                ></i>
+                                                <select 
+                                                    id="location-country" 
+                                                    className={`
+                                                        text-left
+                                                        absolute
+                                                        w-full
+                                                        h-[50px] lg:h-[60px]
+                                                        text-sm  lg:text-lg
+                                                        m-0
+                                                        pl-2 pr-2 pl-5 pr-6 
+                                                        bg-transparent
+                                                        appearance-none
+                                                        border
+                                                        border-[var(--post-border)]
+                                                        text-[(--text)]
+                                                        rounded
+                                                        focus:outline-none
+                                                        focus:ring-2
+                                                        focus:ring-emerald-500
+                                                        focus:border-emerald-500${locationCountry === "" 
+                                                            ? "text-gray-400 dark:text-gray-500" 
+                                                            : "text-gray-700 dark:text-gray-200"
+                                                        }
+                                                    `}
+                                                    value={locationCountry}
+                                                    name="country" 
+                                                    onChange={(e) => setLocationCountry(e.target.value)} >
+                                                    <option value=""  disabled hidden>--Select Country(Optional)--</option>
+                                                    {countries.map((country) => (
+                                                        <option key={country.value} value={country.value}>
+                                                        {country.label}
+                                                        </option>
+                                                    ))}
+                                                </select>
+                                            </div>
+                                            <button 
+                                                id="add-location-btn"
+                                                className="
+                                                m-0 md:m-2 lg:m-5
+                                                mt-[20px]
+                                                border-0
+                                                text-sm md:text-lg  
+                                                text-white
+                                                cursor-pointer
+                                                rounded-md
+                                                flex items-center gap-2
+                                                bg-[#3E907D]
+                                                px-5
+                                                py-2.5
+                                                hover:bg-[#357c6c]
+                                                border-0
+                                                bg-gradient-to-r
+                                                from-[#3E907D]
+                                                to-[#061a1fbb]
+                                                hover:from-[#142a25]
+                                                hover:to-[#061a1fbb]
+                                                dark:from-[#b3baead6]
+                                                dark:to-[#3c6fae]
+                                                dark:hover:from-[#b3baea]
+                                                dark:hover:to-[#325e94]
+                                                transition-all
+                                                duration-300
+                                                active:scale-95
+                                                transition-all
+                                                duration-200
+                                            "  
+                                            onClick={handleAddLocation}><PlusIcon className="w-5 h-5" />add</button>
+                                        </div>
+
+                                        <div className="m-[10px] mt-[20px] lg:mt-[20px]">
+                                            <h3 className='text-sm md:text-lg  lg:text-xl  mb-[10px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Categorisations</h3>
+                                            <div className="
+                                                    mx-0 md:mx-2 lg:mx-5
+                                                    grid grid-cols-2 gap-3
+                                                "
+                                            >
+                                                <div 
+                                                    className="
+                                                        col-span-1
+                                                    "
+                                                >
+                                                    <label 
+                                                    className='
+                                                            text-xs md:text-sm
+                                                            ml-0 text-gray-700 dark:text-gray-400
+                                                        '
+                                                >Type</label>
+                                                    <div className="mr-0
+                                                            ml-0
+                                                            mt-[10px]
+                                                            h-[55px] lg:h-[60px]
+                                                            w-full
+                                                            relative
+                                                        "
+                                                    >
+                                                        <i 
+                                                            className="
+                                                                absolute
+                                                                right-[13px]
+                                                                top-[25px]
+                                                                block
+                                                                h-[6px]
+                                                                w-[6px]
+                                                                border-2
+                                                                border-[var(--post-border)]
+                                                                border-t-0
+                                                                border-l-0
+                                                                rotate-45
+                                                                pointer-events-none
+                                                            "
+                                                        ></i>
+                                                        <select 
+                                                            id="job-type" 
+                                                            className={`
+                                                                text-xs md:text-sm
+                                                                absolute
+                                                                w-full
+                                                                h-[55px] lg:h-[60px]
+                                                                mt-[5px]
+                                                                p-5
+                                                                bg-transparent
+                                                                appearance-none
+                                                                border
+                                                                border-[var(--post-border)]
+                                                                text-[var(--text)]
+                                                                rounded
+                                                                focus:outline-none
+                                                                focus:ring-2
+                                                                focus:ring-emerald-500
+                                                            `}
+                                                            name="job-type" 
+                                                            value={type} 
+                                                            onChange={(e) => setType(e.target.value)} >
+                                                            <option value="FT">Full-Time</option>
+                                                            <option value="PT">Part-Time</option>
+                                                            <option value="CT">Contract</option>
+                                                            <option value="FL">Freelancing</option>
+                                                            <option value="IN">Internship</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div 
+                                                    className="
+                                                        col-span-1
+                                                    "
+                                                >
+                                                    <label 
+                                                        className='
+                                                            text-xs md:text-sm
+                                                            ml-0 text-gray-700 dark:text-gray-400
+                                                        '
+                                                    >Mode</label>
+                                                    <div 
+                                                        className="
+                                                            mr-0
+                                                            ml-0
+                                                            mt-[15px]
+                                                            h-[55px] lg:h-[60px]
+                                                            w-full
+                                                            relative
+                                                        "
+                                                    >
+                                                        <i 
+                                                            className="
+                                                                absolute
+                                                                right-[13px]
+                                                                top-[25px]
+                                                                block
+                                                                h-[6px]
+                                                                w-[6px]
+                                                                border-2
+                                                                border-[var(--post-border)]
+                                                                border-t-0
+                                                                border-l-0
+                                                                rotate-45
+                                                                pointer-events-none
+                                                            "
+                                                        ></i>
+                                                        <select 
+                                                            id="job-mode" 
+                                                            className={`
+                                                                absolute
+                                                                text-xs md:text-sm
+                                                                w-full
+                                                                h-[55px] lg:h-[60px]
+                                                                m-0
+                                                                p-5
+                                                                bg-transparent
+                                                                appearance-none
+                                                                border
+                                                                border-[var(--post-border)]
+                                                                text-[var(--text)]
+                                                                rounded
+                                                                focus:outline-none
+                                                                focus:ring-2
+                                                                focus:ring-emerald-500
+                                                            `}
+                                                            name="country" 
+                                                            value={mode} 
+                                                            onChange={(e) => setMode(e.target.value)} >
+                                                            <option value="ON">Onsite</option>
+                                                            <option value="RE">Remote</option>
+                                                            <option value="HY">Hybrid</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div className="relative block w-[calc(100%)] mt-[10px]">
+                                                    <label className='ml-0 mb-[10px] text-gray-700 dark:text-gray-400'>Tags</label>
+                                                    
+                                                    <ul 
+                                                        id="category-list" 
+                                                        className='
+                                                            w-[calc(100% - 10px)]
+                                                            ml-[10px]
+                                                            pl-0
+                                                        ' 
+                                                    >
+                                                        {tags.map((t, index) => (
+                                                        <li 
+                                                            key={index}
+                                                            className='
+                                                                text-gray-700 dark:text-gray-500
+                                                                relative inline-block mr-1 mt-1 mb-1 h-[40px] max-w-[300px] 
+                                                                px-[25px] pt-[5px]  pr-[15px] text-[14px] rounded-[30px] 
+                                                                bg-[#3e907d38] dark:bg-[#3e907d38] flex items-start
+                                                            '
+                                                        >
+                                                        {/* Close icon */}
+                                                        <button 
+                                                            onClick={() => handleRemoveTag(index)} 
+                                                            className="
+                                                                absolute
+                                                                left-[2px]
+                                                                ml-[3px]
+                                                                mt-[3px]
+                                                                mt-[0px] p-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors
+                                                            "
+                                                        >
+                                                            <XMarkIcon className="w-4 h-4 text-gray-700 dark:text-gray-500" />
+                                                        </button>
+                                                    
+                                                        {/* Location text */}
+                                                        <span 
+                                                            className="
+                                                                inline-block
+                                                                relative
+                                                                mt-[3px]
+                                                                ml-[10px]
+                                                                max-w-[265px]
+                                                                overflow-hidden whitespace-nowrap text-ellipsis 
+                                                                text-gray-700 dark:text-gray-500
+                                                            "
+                                                        >
+                                                        {t}
+                                                        </span>
+                                                    </li>
+                                                    ))}
+                                                </ul>
+                                                    <div 
+                                                        className="
+                                                            relative
+                                                            h-[42px] lg:h-[50px]
+                                                            w-[120px] lg:w-[140px]
+                                                            mt-[10px]
+                                                            overflow-hidden
+                                                        "
+                                                    >
+                                                        {/* <button><img src={plusIcon} alt="" /><span>Add Tags</span></button> */}
+                                                        <button 
+                                                            id="add-location-btn"
+                                                            className="
+                                                                absolute
+                                                                border-0
+                                                                text-sm
+                                                                text-white
+                                                                cursor-pointer
+                                                                rounded-lg
+                                                                flex items-center gap-2
+                                                                bg-[#3E907D]
+                                                                px-5
+                                                                h-[40px] lg:h-[50px]
+                                                                w-[120px] lg:w-[140px]
+                                                                hover:bg-[#357c6c]
+                                                                border-0
+                                                                bg-gradient-to-r
+                                                                from-[#3E907D]
+                                                                to-[#061a1fbb]
+                                                                hover:from-[#142a25]
+                                                                hover:to-[#061a1fbb]
+                                                                dark:from-[#b3baead6]
+                                                                dark:to-[#3c6fae]
+                                                                dark:hover:from-[#b3baea]
+                                                                dark:hover:to-[#325e94]
+                                                                transition-all
+                                                                duration-300
+                                                                active:scale-95
+                                                                transition-all
+                                                                duration-200
+                                                            "  
+                                                            ><PlusIcon className="w-5 h-5" />add tag
+                                                        </button>
+                                                        <select 
+                                                            id="job-category" 
+                                                            className="
+                                                                appearance-none
+                                                                absolute
+                                                                h-[42px] lg:h-[50px]
+                                                                w-[120px] lg:w-[140px]
+                                                                p-[5px]
+                                                                border-0
+                                                                bg-transparent
+                                                                text-transparent
+                                                                cursor-pointer
+                                                                focus:outline-none
+                                                                focus:ring-0
+                                                            " 
+                                                            name="job-category" 
+                                                            onChange={handleSelectChange}  >
+                                                            <option value=""  disabled ></option>
+                                                            {categories.map((cat) => (
+                                                                <option key={cat.value} value={cat.value}>
+                                                                {cat.label}
+                                                                </option>
+                                                            ))}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='detail-box w-full'>
+                                        <div ref={dateRef}
+                                            className="
+                                                datail-box
+                                                my-[10px]
+                                            "
+                                        >
+                                            <h1 className="
+                                                    text-[#3E907D] 
+                                                    dark:text-[#ebf3f2]
+                                                    font-black 
+                                                    mt-[25px] text-lg md:text-xl  lg:text-2xl 
+                                                "
+                                            >
+                                                Date Infos
+                                            </h1>
+
+                                            <div
+                                                className="
+                                                    w-[calc(100vw-40px)] lg:w-[660px]
+                                                    mx-2 lg:mx-6
+                                                    grid grid-cols-1 md:grid-cols-2 
+                                                    gap-2
+                                                "
+                                            >
+                                                {/* Actual Date */}
+                                                <div className="col-span-1  flex flex-col">
+                                                    <label 
+                                                        className='
+                                                            my-[12px]
+                                                            text-xs md:text-sm
+                                                            ml-0 text-gray-700 dark:text-gray-400
+                                                        '
+                                                    >
+                                                        Actual Date
+                                                    </label>
+
+                                                    <input
+                                                        type="date"
+                                                        name="actual_date"
+                                                        value={dateData.actual_date}
+                                                        onChange={handleChange}
+                                                        className="
+                                                            border 
+                                                            rounded-lg 
+                                                            py-2 lg:py-2 
+                                                            h-[50px] lg:h-[60px]
+                                                            px-1 md:px-3 
+                                                            appearance-none
+                                                            border
+                                                            border-[var(--post-border)]
+                                                            bg-transparent
+                                                            text-[var(--text)]
+                                                            focus:outline-none
+                                                            focus:ring-2 focus:ring-green-500
+                                                            transition-colors duration-300
+                                                        "
+                                                    />
+                                                </div>
+
+
+                                                {/* Deadline Date */}
+                                                <div className="col-span-1    flex flex-col">
+                                                    <label  
+                                                        className='
+                                                            my-[12px]
+                                                            text-xs md:text-sm
+                                                            ml-0 text-gray-700 dark:text-gray-400
+                                                        '
+                                                    >
+                                                        Deadline Date
+                                                    </label>
+
+                                                    <input
+                                                        type="date"
+                                                        name="deadline_date"
+                                                        value={dateData.deadline_date}
+                                                        onChange={handleChange}
+                                                        className="
+                                                            border 
+                                                            rounded-lg 
+                                                            h-[50px] lg:h-[60px]
+                                                            py-1 lg:py-2 
+                                                            px-1 md:px-3 
+                                                            bg-transparent
+                                                            appearance-none
+                                                            border
+                                                            border-[var(--post-border)]
+                                                            bg-transparent
+                                                            text-[var(--text)]
+                                                            focus:outline-none
+                                                            focus:ring-2 focus:ring-green-500
+                                                            transition-colors duration-300
+                                                        "
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="datail-box">
+                                        {/* Link  */}
+                                        <h1 className="
+                                            text-[#3E907D] 
+                                            dark:text-[#ebf3f2]
+                                                font-black 
+                                                mb-0 
+                                                mt-[25px] text-lg md:text-xl  lg:text-2xl 
+                                            "
+                                        >
+                                            Aplication Link
+                                        </h1>
+                                        <div className="m-[10px]">
+                                            <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Spesify Application link</h3>
+                                            <div 
+                                                className="
+                                                    pt-0
+                                                    mx-0 md:mx-2 lg:mx-5
+                                                    mb-5
+                                                    border-0    
+                                                " 
+                                            >
+                                                <input 
+                                                    type="url" 
+                                                    className="
+                                                        w-full
+                                                        mx-0
+                                                        my-0
+                                                        mt-[15px] lg:mt-[20px]
+                                                        pt-4 pb-4 md:pt-6 md:pb-6
+                                                        px-1.5 md:px-2.5
+                                                        text-sm md:text-lg  
+                                                        rounded-md
+                                                        border
+                                                        border-[var(--post-border)]
+                                                        bg-transparent
+                                                        text-[var(--text)]
+                                                        focus:outline-none
+                                                        focus:ring-2 focus:ring-green-500
+                                                        transition-colors duration-300
+                                                    " 
+                                                    name="" 
+                                                    id="" 
+                                                    placeholder='Enter Job Application Link . . .'
+                                                    value={applicationLink} onChange = {(e) => setApplicationsLink(e.target.value)}  
+                                                />
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div> 
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div ref={dateRef}
-                className="
-                    datail-box
-                    mt-[40px]
-                    mb-[40px]
-                "
-            >
-                <h1 className="
-                        text-[#3E907D] 
-                        dark:text-[#ebf3f2]
-                        font-black 
-                        mb-0 
-                        mt-[20px] text-lg md:text-xl  lg:text-2xl 
-                    "
-                >
-                    Date Infos
-                </h1>
-
-                <div
-                    className="
-                        m-[10px]
-                        ml-[35px]
-                        mr-[35px]
-                        grid grid-cols-2 gap-4
-                    "
-                >
-                    {/* Actual Date */}
-                    <div className="col-span-2 md:col-span-1 flex flex-col">
-                        <label 
-                            className="
-                                text-[var(--text)] mb-[10px]
-                            "
-                        >
-                            Actual Date
-                        </label>
-
-                        <input
-                            type="date"
-                            name="actual_date"
-                            value={dateData.actual_date}
-                            onChange={handleChange}
-                            className="
-                                border 
-                                rounded-lg 
-                                px-3 
-                                py-1 lg:py-2 
-                                h-[50px] lg:h-[60px]
-                                p-5
-                                appearance-none
-                                border
-                                border-[var(--post-border)]
-                                bg-transparent
-                                text-[var(--text)]
-                                focus:outline-none
-                                focus:ring-2 focus:ring-green-500
-                                transition-colors duration-300
-                            "
-                        />
+                        </main>
                     </div>
 
+                    {/* Footer */}
+                    <footer className="
+                        bg-white dark:bg-gray-800
+                        p-5 pt-4.5
+                        -mt-[2px]
+                        -mb-5
+                        h-[60px]
+                        flex flex-col items-center justify-center
+                        text-center
+                    ">
 
-                    {/* Deadline Date */}
-                    <div className="col-span-2 md:col-span-1  flex flex-col">
-                        <label className=' text-[var(--text)] mb-[10px]'>
-                            Deadline Date
-                        </label>
+                        <p className="text-gray-500 dark:text-gray-400 text-xs">
+                        <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">About Us</a> |
+                        <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Contact Us</a> |
+                        <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Terms & Conditions</a> |
+                        <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Privacy & Cookies Policies</a>
+                        </p>
 
-                        <input
-                            type="date"
-                            name="deadline_date"
-                            value={dateData.deadline_date}
-                            onChange={handleChange}
-                            className="
-                                border 
-                                rounded-lg 
-                                px-3 
-                                py-1 lg:py-2 
-                                h-[50px] lg:h-[60px]
-                                p-5
-                                bg-transparent
-                                appearance-none
-                                border
-                                border-[var(--post-border)]
-                                bg-transparent
-                                text-[var(--text)]
-                                focus:outline-none
-                                focus:ring-2 focus:ring-green-500
-                                transition-colors duration-300
-                            "
-                        />
-                    </div>
+                        <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">
+                        JobZipa Inc &copy; 2025. All Rights Reserved
+                        </p>
+
+                    </footer>
                 </div>
             </div>
-            <div className="datail-box">
-                {/* Link  */}
-                <h1 className="
-                    text-[#3E907D] 
-                    dark:text-[#ebf3f2]
-                        font-black 
-                        mb-0 
-                        mt-[20px] text-lg md:text-xl  lg:text-2xl 
-                    "
-                >
-                    Aplication Link
-                </h1>
-                <div className="m-[10px]">
-                    <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Spesify Application link</h3>
-                    <div 
-                        className="
-                            pt-0
-                            mx-2 lg:mx-5
-                            mb-5
-                            border-0    
-                        " 
-                    >
-                        <input 
-                            type="url" 
-                            className="
-                                w-full
-                                mx-0
-                                my-0
-                                mt-[15px] lg:mt-[20px]
-                                pt-4 pb-4 md:pt-6 md:pb-6
-                                px-1.5 md:px-2.5
-                                text-sm md:text-lg  
-                                rounded-md
-                                border
-                                border-[var(--post-border)]
-                                bg-transparent
-                                text-[var(--text)]
-                                focus:outline-none
-                                focus:ring-2 focus:ring-green-500
-                                transition-colors duration-300
-                            " 
-                            name="" 
-                            id="" 
-                            placeholder='Enter Job Application Link . . .'
-                            value={applicationLink} onChange = {(e) => setApplicationsLink(e.target.value)}  
-                        />
-                    </div> 
-                </div>
-            </div>
-
-            <div className="
-                    relative
-                    mt-[30px] lg:mt-[40px] mb-[30px] lg:mb-[40px]
-                    mx-[10px]
-                    h-[55px]
-                    flex justify-left items-left
-                "
-            >
-                {/* Submit Button  */}
-                <button 
-                    onClick={handleSubmit}
-                    className="
-                        relative
-                        block
-                        w-[calc(100vw-20px)] md:w-[60%]
-                        h-[55px]
-                        rounded-[10px]
-                        border-0
-                        text-[22px]
-                        text-white
-
-                        bg-gradient-to-r
-                        from-[#3E907D]
-                        to-[#061a1fbb]
-                        hover:from-[#142a25]
-                        hover:to-[#061a1fbb]
-                        dark:from-[#b3baead6]
-                        dark:to-[#3c6fae]
-                        dark:hover:from-[#b3baea]
-                        dark:hover:to-[#325e94]
-
-                        transition-all
-                        duration-300
-                        active:scale-95
-                    "
-                >
-                        Submit a job
-                </button>
-
-            </div>
+           
         
               
             {/* </main> */}
@@ -1535,8 +1581,6 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                     <p>Posting job...</p>
                 </div>
             )}
-            <Toaster position="bottom-center" reverseOrder={false} />
-          
             {selectedImage && (
                 <div
                     className='fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm'
@@ -1622,7 +1666,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                     </div>
                     </div>
                 </div>
-                ) }
+            ) }
         </>
     );
 }
