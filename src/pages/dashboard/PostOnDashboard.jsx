@@ -1280,19 +1280,18 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                         <li 
                                             key={index}
                                             className='
-                                            text-gray-700 dark:text-gray-500
-                                            relative inline-block mr-1 mt-1 mb-1 h-[40px] max-w-[300px] 
-                                            px-[25px] pt-[5px]  pr-[15px] text-[14px] rounded-[30px] 
-                                            bg-[#3e907d38] dark:bg-[#3e907d38] flex items-start
+                                                text-gray-700 dark:text-gray-500
+                                                relative inline-block mr-1 mt-1 mb-1 h-[40px] max-w-[300px] 
+                                                px-[25px] pt-[5px]  pr-[15px] text-[14px] rounded-[30px] 
+                                                bg-[#3e907d38] dark:bg-[#3e907d38] flex items-start
                                             '
                                         >
                                         {/* Close icon */}
                                         <button 
                                             onClick={() => handleRemoveTag(index)} 
                                             className="
-                                                ml-0
                                                 absolute
-                                                ml-[15px]
+                                                ml-[3px]
                                                 mt-[3px]
                                                 mt-[0px] p-1 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors
                                             "
@@ -1408,7 +1407,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
 
                             <div
                                 className="
-                                    w-[calc(100vw-40px)] lg:w-[650px]
+                                    w-[calc(100vw-40px)] lg:w-[660px]
                                     mx-2 lg:mx-6
                                     grid grid-cols-1 md:grid-cols-2 
                                     gap-2
