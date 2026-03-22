@@ -567,24 +567,22 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                 </header>
                 <div className="flex-1 pt-[64px] overflow-y-auto  scrollbar-none">
                     <div className="w-full flex justify-center">
-                        <main className="w-750px min-h-[calc(100vh-80px)]
+                        <main className=" w-750px min-h-[calc(100vh-80px)]
                                 bg-white dark:bg-gray-800 relative scrollbar-none
                                 mb-[1px] mt-[1px] lg:mt-[3] p-0 pt-[13px] 
-                                overflow-y-auto text-left 
-                                w-full sm:w-full md:w-[720px] lg:w-[720px]
+                                overflow-y-auto flex justify-center 
+                                w-full lg:w-[720px]
                             "
                         >
                             <div 
                                 className='
-                                    post-on-dashboard w-full 
                                     overflow-x-hidden scrollbar-hide
-                                    lg:mx-20 lg:w-full flex justify-center  lg:mt-0
+                                    lg:mx-20 lw-[calc(100vw-40px)] lg:w-[720px] flex justify-center  lg:mt-0
                                 ' 
                             >
                                 <div
                                     className="
                                         mt-0 lg:mt-0
-                                        w-[calc(100vw-40px)] lg:w-[720px]
                                     "
                                 >
                                     <div 
