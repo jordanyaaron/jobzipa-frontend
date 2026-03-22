@@ -593,8 +593,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                         {/* Organisation */}
                         
                         <h1 className="
-                            text-[#3E907D] 
-                            dark:text-[#ebf3f2]
+                                text-[#3E907D] 
+                                dark:text-[#ebf3f2]
                                 font-black 
                                 mb-0 
                                 mt-[20px] text-lg md:text-xl  
@@ -612,7 +612,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                         w-[calc(100vw-57px)] lg:w-[650px]
                                         m-[10px] lg:m-[20px]
                                         my-5
-                                        ml-[7px] lg:ml-[25px]
+                                        ml-[10px] lg:ml-[37px]
                                         flex
                                         flex-col
                                         justify-center
@@ -854,7 +854,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 <p className=' text-xs text-gray-500 dark:text-gray-600 mx-1'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
                             </div>
                         </div>
-                        <div className="m-[10px] m-[25px]" ref={positionRef}>
+                        <div className="m-[10px] mt-[25px]" ref={positionRef}>
                             <h3 className='text-sm md:text-lg  lg:text-xl  mb-[15px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Positions</h3> 
                             <div 
                                 className="
@@ -937,7 +937,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                         </div>
 
                         <div ref={locationRef} className="m-[10px] mt-[25px] lg:mt[20px]">
-                            <h3  className='text-sm md:text-lg  lg:text-xl  mb-[10px] font-normal text-gray-800 dark:text-gray-200 h-auto'  >Job Locations:</h3>
+                            <h3  className='text-sm md:text-lg  lg:text-xl  mb-[5px] md:mb-[5px] font-normal text-gray-800 dark:text-gray-200 h-auto'  >Job Locations:</h3>
                             {locations.length > 0 && (
                                 <ul 
                                     id="location-list" 
@@ -1032,7 +1032,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             <div 
                                 className="
                                     ml-0 md:ml-2 lg:ml-5
-                                    w-[calc(100vw-150px)] md:w-[200px] lg:w-[280px]
+                                    w-[calc(100vw-140px)] md:w-[200px] lg:w-[280px]
                                     relative
                                     block
                                     h-[50px] lg:h-[60px]
@@ -1062,6 +1062,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 <select 
                                     id="location-country" 
                                     className={`
+                                        text-left
                                         absolute
                                         w-full
                                         h-[50px] lg:h-[60px]
@@ -1409,11 +1410,11 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 className="
                                     sm:w-[calc(100vw-40px)]
                                     mx-2 md:mx-2 lg:mx-5
-                                    grid grid-cols-2 gap-3
+                                    grid grid-cols-2 sm:gap-2 gap-3 
                                 "
                             >
                                 {/* Actual Date */}
-                                <div className="col-span-2 md:col-span-1  flex flex-col">
+                                <div className="col-span-2 md:col-span-1 lg:col-span-1  flex flex-col">
                                     <label 
                                         className='
                                             my-[12px]
@@ -1449,7 +1450,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
 
 
                                 {/* Deadline Date */}
-                                <div className="col-span-2 md:col-span-1  flex flex-col">
+                                <div className="col-span-2 md:col-span-1 lg:col-span-1    flex flex-col">
                                     <label  
                                         className='
                                             my-[12px]
