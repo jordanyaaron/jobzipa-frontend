@@ -1413,7 +1413,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                 "
                             >
                                 {/* Actual Date */}
-                                <div className="col-span-1 flex flex-col">
+                                <div className="col-span-2 md:col-span-1  flex flex-col">
                                     <label 
                                         className='
                                             my-[12px]
@@ -1449,7 +1449,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
 
 
                                 {/* Deadline Date */}
-                                <div className="col-span-1  flex flex-col">
+                                <div className="col-span-2 md:col-span-1  flex flex-col">
                                     <label  
                                         className='
                                             my-[12px]
