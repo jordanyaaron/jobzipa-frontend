@@ -1408,7 +1408,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
 
                             <div
                                 className="
-                                    w-[calc(100vw-40px)] lg:w-full
+                                    w-[calc(100vw-40px)] lg:w-[650px]
                                     mx-2 lg:mx-6
                                     grid grid-cols-1 md:grid-cols-2 
                                     gap-2
@@ -1538,46 +1538,6 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             </div> 
                         </div>
                     </div>
-
-                    <div className="
-                            relative
-                            mt-[30px] lg:mt-[40px] mb-[30px] lg:mb-[40px]
-                            mx-[10px]
-                            h-[55px]
-                            flex justify-left items-left
-                        "
-                    >
-                        {/* Submit Button  */}
-                        {/* <button 
-                            onClick={handleSubmit}
-                            className="
-                                relative
-                                block
-                                w-[calc(100vw-20px)] md:w-[60%]
-                                h-[55px]
-                                rounded-[10px]
-                                border-0
-                                text-[22px]
-                                text-white
-                                bg-gradient-to-r
-                                from-[#3E907D]
-                                to-[#061a1fbb]
-                                hover:from-[#142a25]
-                                hover:to-[#061a1fbb]
-                                dark:from-[#b3baead6]
-                                dark:to-[#3c6fae]
-                                dark:hover:from-[#b3baea]
-                                dark:hover:to-[#325e94]
-
-                                transition-all
-                                duration-300
-                                active:scale-95
-                            "
-                        >
-                                Submit a job
-                        </button> */}
-
-                    </div>
                 </div> 
             </div>
             <button 
@@ -1691,7 +1651,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                     </div>
                     </div>
                 </div>
-                ) }
+                )
+            }
         </>
     );
 }
