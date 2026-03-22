@@ -569,7 +569,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                     <div className="w-full flex justify-center">
                         <main className="w-750px min-h-[calc(100vh-80px)]
                                 bg-white dark:bg-gray-800 relative scrollbar-none
-                                mb-[1px] mt-[3px] p-0 pt-[13px] 
+                                mb-[1px] mt-[1px] lg:mt-[3] p-0 pt-[13px] 
                                 overflow-y-auto text-left 
                                 w-full sm:w-full md:w-[720px] lg:w-[720px]
                             "
@@ -578,7 +578,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                 className='
                                     post-on-dashboard w-full 
                                     overflow-x-hidden scrollbar-hide
-                                    m-0 lg:w-full flex justify-center  lg:mt-0
+                                    lg:mx-20 lg:w-full flex justify-center  lg:mt-0
                                 ' 
                             >
                                 <div
@@ -611,7 +611,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                 <button ref={logPickerRef}
                                                     className="
                                                         h-[100px]  md:h-[140px] lg:h-[150px]
-                                                        w-[calc(100vw-57px)] lg:w-[650px]
+                                                        w-[calc(100vw-57px)] lg:w-[610px]
                                                         m-[10px] lg:m-[20px]
                                                         my-5
                                                         ml-[10px] lg:ml-[37px]
