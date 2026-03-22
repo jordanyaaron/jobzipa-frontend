@@ -581,7 +581,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             m-0 lg:w-full flex justify-center  lg:mt-0' >
                 <div
                     className="
-                        mt-[64px] lg:mt-0
+                        mt-0 lg:mt-0
                         w-[calc(100vw-40px)] lg:w-[720px]
                     "
                 >
@@ -608,9 +608,9 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             {!imageSrc && !croppedImage ? (
                                 <button ref={logPickerRef}
                                     className="
-                                        h-[100px]  md:h-[125px] lg:h-[150px]
-                                        w-[calc(100%-27px)] lg:w-[calc(100%-57px)]
-                                        m-[20px] lg:m-[20px]
+                                        h-[100px]  md:h-[140px] lg:h-[150px]
+                                        w-[calc(100vw-10px)] lg:w-[calc(10vw-57px)]
+                                        m-[10px] lg:m-[20px]
                                         mt-5
                                         ml-[7px] lg:ml-[27px]
                                         flex
@@ -770,7 +770,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             {errors.biography && (
                                 <p className='error-displayer for-qiull'>{errors.biography}</p>
                             )}
-                            <div id='company-bio-wrapper'  className=' h-[calc(100vh-100px)] mx-5 pt-[20px] relative'>
+                            <div id='company-bio-wrapper'  className=' h-[calc(100vh-100px)] mx-2 lg:mx-5 pt-[20px] relative'>
                                 <QuillEditor 
                                     ref={bioQuill}
                                     value={biography} 
@@ -779,9 +779,9 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     
                                 />
                             </div> 
-                            <div className=" m-[30px] mt-[70px]">
-                                <p className='font-semibold text-gray-800 dark:text-gray-200'>Hints:</p>
-                                <p className=' text-xs text-gray-500 dark:text-gray-400 mx-5'>Company History(shortly), Mission, Vision, Products/Services, Future Goals, Values, Leadership, Culture, Achievements.</p>
+                            <div className="relative s m-[30px] mt-[70px]">
+                                <p className='font-semibold text-gray-800 dark:text-gray-400'>Hints:</p>
+                                <p className=' text-xs text-gray-500 dark:text-gray-600 mx-5'>Company History(shortly), Mission, Vision, Products/Services, Future Goals, Values, Leadership, Culture, Achievements.</p>
                             </div>
                         </div>
                     </div>
@@ -789,8 +789,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                     <div className="datail-box">
                         {/* Job */}
                         <h1 className="
-                            text-[#3E907D] 
-                            dark:text-[#ebf3f2]
+                                text-[#3E907D] 
+                                dark:text-[#ebf3f2]
                                 font-black 
                                 mb-0 
                                 mt-[20px] text-lg md:text-xl  lg:text-2xl 
@@ -840,7 +840,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             {errors.description && (
                                 <p className='error-displayer for-quill'>{errors.description}</p>
                             )}
-                            <div id='company-bio-wrapper'   className="h-[calc(100vh-100px)] mx-5 pt-[20px]">
+                            <div id='company-bio-wrapper'   className="h-[calc(100vh-200px)] lg:h-[calc(100vh-100px)] mx-2 lg:not-[]:mx-5 pt-[20px]">
                                 <QuillEditor 
                                     ref={descriptionQuill}
                                     value={jobDescriptions} 
@@ -851,7 +851,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             </div> 
                             <div className=" m-[30px] mt-[70px]">
                                 <p className='font-semibold text-gray-800 dark:text-gray-200 '>Hints:</p>
-                                <p className='text-xs text-gray-500 dark:text-gray-400 mx-5'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
+                                <p className='text-xs text-gray-500 dark:text-gray-400 mx-2 lg:mx-5'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
                             </div>
                         </div>
                         <div className="m-[10px]" ref={positionRef}>
