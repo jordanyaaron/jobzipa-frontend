@@ -1,8 +1,8 @@
 import { Link ,useNavigate} from 'react-router-dom';
 import toast , { Toaster } from 'react-hot-toast';
 import { backendBaseUrl } from "../../utils/urls";
-import { countries , categories , ArrowUpTrayIcon } from "@/data/post-page";
-import { XMarkIcon , PlusIcon , PencilIcon } from '@heroicons/react/24/outline';
+import { countries , categories  } from "@/data/post-page";
+import { XMarkIcon , PlusIcon , PencilIcon , ArrowUpTrayIcon } from '@heroicons/react/24/outline';
 import api from '../../api/axios'
 import React, { useEffect, useRef, useState ,useCallback} from "react";
 import Cropper from "react-easy-crop";
