@@ -608,10 +608,10 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             {!imageSrc && !croppedImage ? (
                                 <button ref={logPickerRef}
                                     className="
-                                        h-[100px]  md:h-[140px] lg:h-[150px]
-                                        w-[calc(100vw-27px)] lg:w-[calc(100vw-57px)]
+                                        h-[120px]  md:h-[140px] lg:h-[150px]
+                                        w-[calc(100vw-57px)] lg:w-[calc(100vw-200px)]
                                         m-[10px] lg:m-[20px]
-                                        mt-5
+                                        my-5
                                         ml-[7px] lg:ml-[27px]
                                         flex
                                         flex-col
@@ -779,8 +779,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     
                                 />
                             </div> 
-                            <div className="relative m-[30px] mt-[70px]">
-                                <p className='font-semibold sm:mt[10px] text-gray-800 dark:text-gray-400'>Hints:</p>
+                            <div className="relative sm:m-[15px]  mx-[30px] mt-[70px]">
+                                <p className='font-semibold sm:mt-[20px] text-gray-800 dark:text-gray-500'>Hints:</p>
                                 <p className=' text-xs text-gray-500 dark:text-gray-600 mx-5'>Company History(shortly), Mission, Vision, Products/Services, Future Goals, Values, Leadership, Culture, Achievements.</p>
                             </div>
                         </div>
@@ -849,9 +849,9 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     darkMode={darkMode}
                                 />
                             </div> 
-                            <div className=" m-[30px] mt-[70px]">
-                                <p className='font-semibold sm:m-[10px] text-gray-800 dark:text-gray-200 '>Hints:</p>
-                                <p className='text-xs text-gray-500 dark:text-gray-400 mx-2 lg:mx-5'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
+                            <div className=" sm:m-[15px]  mx-[30px] mt-[70px]">
+                                <p className='font-semibold sm:mt-[20px] text-gray-800 dark:text-gray-500 '>Hints:</p>
+                                <p className='text-xs text-gray-500 dark:text-gray-600 mx-2 lg:mx-5'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
                             </div>
                         </div>
                         <div className="m-[10px]" ref={positionRef}>
@@ -1319,8 +1319,8 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                     <div 
                                         className="
                                                 relative
-                                                w-[140px]
-                                                h-[50px]
+                                                h-[40px] lg:h-[50px]
+                                                w-[120px] lg:w-[140px]
                                                 mt-[10px]
                                                 overflow-hidden
                                         ">
@@ -1330,15 +1330,15 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                                             className="
                                                 absolute
                                                 border-0
-                                                text-[18px]
+                                                text-sm
                                                 text-white
                                                 cursor-pointer
-                                                rounded-md
+                                                rounded-lg
                                                 flex items-center gap-2
                                                 bg-[#3E907D]
                                                 px-5
-                                                h-[50px]
-                                                w-[140px]
+                                                h-[40px] lg:h-[50px]
+                                                w-[120px] lg:w-[140px]
                                                 hover:bg-[#357c6c]
                                                 border-0
                                                 bg-gradient-to-r
@@ -1387,96 +1387,105 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             </div>
                         </div>
                     </div>
-                    <div ref={dateRef}
-                        className="
-                            datail-box
-                            my-[10px]
-                        "
-                    >
-                        <h1 className="
-                                text-[#3E907D] 
-                                dark:text-[#ebf3f2]
-                                font-black 
-                                mb-0 
-                                mt-[20px] text-lg md:text-xl  lg:text-2xl 
-                            "
-                        >
-                            Date Infos
-                        </h1>
-
-                        <div
+                    <div className='detail-box'>
+                        <div ref={dateRef}
                             className="
-                                mx-0 md:mx-2 lg:mx-5
-                                grid grid-cols-2 gap-4
+                                datail-box
+                                my-[10px]
                             "
                         >
-                            {/* Actual Date */}
-                            <div className="col-span-1 flex flex-col">
-                                <label 
-                                    className="
-                                        text-[var(--text)] mb-[10px]
-                                    "
-                                >
-                                    Actual Date
-                                </label>
+                            <h1 className="
+                                    text-[#3E907D] 
+                                    dark:text-[#ebf3f2]
+                                    font-black 
+                                    mb-0 
+                                    mt-[20px] text-lg md:text-xl  lg:text-2xl 
+                                "
+                            >
+                                Date Infos
+                            </h1>
 
-                                <input
-                                    type="date"
-                                    name="actual_date"
-                                    value={dateData.actual_date}
-                                    onChange={handleChange}
-                                    className="
-                                        border 
-                                        rounded-lg 
-                                        px-3 
-                                        py-1 lg:py-2 
-                                        h-[50px] lg:h-[60px]
-                                        p-5
-                                        appearance-none
-                                        border
-                                        border-[var(--border)]
-                                        bg-transparent
-                                        text-[var(--text)]
-                                        focus:outline-none
-                                        focus:ring-2 focus:ring-green-500
-                                        transition-colors duration-300
-                                    "
-                                />
-                            </div>
+                            <div
+                                className="
+                                    mx-0 md:mx-2 lg:mx-5
+                                    grid grid-cols-2 gap-4
+                                "
+                            >
+                                {/* Actual Date */}
+                                <div className="col-span-1 flex flex-col">
+                                    <label 
+                                        className='
+                                            text-xs md:text-sm
+                                            ml-0 text-gray-700 dark:text-gray-400
+                                        '
+                                    >
+                                        Actual Date
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        name="actual_date"
+                                        value={dateData.actual_date}
+                                        onChange={handleChange}
+                                        className="
+                                            border 
+                                            rounded-lg 
+                                            px-3 
+                                            py-1 lg:py-2 
+                                            h-[50px] lg:h-[60px]
+                                            p-5
+                                            appearance-none
+                                            border
+                                            border-[var(--border)]
+                                            bg-transparent
+                                            text-[var(--text)]
+                                            focus:outline-none
+                                            focus:ring-2 focus:ring-green-500
+                                            transition-colors duration-300
+                                        "
+                                    />
+                                </div>
 
 
-                            {/* Deadline Date */}
-                            <div className="col-span-1  flex flex-col">
-                                <label className=' text-[var(--text)] mb-[10px]'>
-                                    Deadline Date
-                                </label>
+                                {/* Deadline Date */}
+                                <div className="col-span-1  flex flex-col">
+                                    <label  
+                                        className='
+                                            text-xs md:text-sm
+                                            ml-0 text-gray-700 dark:text-gray-400
+                                        '
+                                    >
+                                        Deadline Date
+                                    </label>
 
-                                <input
-                                    type="date"
-                                    name="deadline_date"
-                                    value={dateData.deadline_date}
-                                    onChange={handleChange}
-                                    className="
-                                        border 
-                                        rounded-lg 
-                                        px-3 
-                                        py-1 lg:py-2 
-                                        h-[50px] lg:h-[60px]
-                                        p-5
-                                        bg-transparent
-                                        appearance-none
-                                        border
-                                        border-[var(--border)]
-                                        bg-transparent
-                                        text-[var(--text)]
-                                        focus:outline-none
-                                        focus:ring-2 focus:ring-green-500
-                                        transition-colors duration-300
-                                    "
-                                />
+                                    <input
+                                        type="date"
+                                        name="deadline_date"
+                                        value={dateData.deadline_date}
+                                        onChange={handleChange}
+                                        className="
+                                            border 
+                                            rounded-lg 
+                                            px-3 
+                                            py-1 lg:py-2 
+                                            h-[50px] lg:h-[60px]
+                                            p-5
+                                            bg-transparent
+                                            appearance-none
+                                            border
+                                            border-[var(--border)]
+                                            bg-transparent
+                                            text-[var(--text)]
+                                            focus:outline-none
+                                            focus:ring-2 focus:ring-green-500
+                                            transition-colors duration-300
+                                        "
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
+                    
                     <div className="datail-box">
                         {/* Link  */}
                         <h1 className="
@@ -1494,7 +1503,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             <div 
                                 className="
                                     pt-0
-                                    mx-2 lg:mx-5
+                                    mx-0 md:mx-2 lg:mx-5
                                     mb-5
                                     border-0    
                                 " 
