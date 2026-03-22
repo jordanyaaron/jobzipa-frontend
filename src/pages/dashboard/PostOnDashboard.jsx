@@ -1542,27 +1542,27 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
             </div>
             {/* Footer */}
             <footer className="
-                        bg-white dark:bg-gray-800
-                        p-5 py-6
-                        mt-0 lg:mt-[2px]
-                        mb-[-5px]
-                        min-h-[60px]
-                        flex flex-col items-center justify-center
-                        text-center
-                    ">
+                    bg-(--background) 
+                    p-5 py-6
+                    mt-0 lg:mt-[2px]
+                    mb-[-5px]
+                    min-h-[60px]
+                    flex flex-col items-center justify-center
+                    text-center
+                "
+            >
+                <p className="text-gray-500 dark:text-gray-400 text-xs">
+                <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">About Us</a> |
+                <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Contact Us</a> |
+                <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Terms & Conditions</a> |
+                <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Privacy & Cookies Policies</a>
+                </p>
 
-                        <p className="text-gray-500 dark:text-gray-400 text-xs">
-                        <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">About Us</a> |
-                        <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Contact Us</a> |
-                        <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Terms & Conditions</a> |
-                        <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Privacy & Cookies Policies</a>
-                        </p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">
+                    JobZipa Inc &copy; {new Date().getFullYear()}. All Rights Reserved
+                </p>
 
-                        <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">
-                            JobZipa Inc &copy; {new Date().getFullYear()}. All Rights Reserved
-                        </p>
-
-                    </footer>
+            </footer>
             <button 
                 onClick={handleSubmit}
                 className="

@@ -541,7 +541,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     return(
         <>
             <div className="min-h-screen  bg-gray-100 dark:bg-gray-900 transition-colors  transition-colors duration-300">
-                <header className="fixed top-0 left-0 w-screen z-40 border-b border-[var(--border)] dark:bg-gray-800">
+                <header className="fixed top-0 left-0 w-screen z-40 border-b border-[var(--border)] bg-white dark:bg-gray-800">
                     
                     <div
                         className='flex items-center justify-between px-4 md:px-6 h-16 transition-all duration-200 '
@@ -569,7 +569,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                     <div className="w-full flex justify-center">
                         <main className="w-750px min-h-[calc(100vh-80px)]
                                 bg-white dark:bg-gray-800 relative scrollbar-none
-                                mb-[1px] mt-[1px] p-0 lg:p-[30px] pt-[13px] 
+                                mb-[1px] mt-[3px] p-0 pt-[13px] 
                                 overflow-y-auto text-left 
                                 w-full sm:w-full md:w-[720px] lg:w-[720px]
                             "
