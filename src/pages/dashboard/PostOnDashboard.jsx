@@ -1389,7 +1389,7 @@ export default function PostOnDashboard ({ darkMode , setDarkMode })  {
                             </div>
                         </div>
                     </div>
-                    <div className='detail-box'>
+                    <div className='detail-box w-full'>
                         <div ref={dateRef}
                             className="
                                 datail-box
