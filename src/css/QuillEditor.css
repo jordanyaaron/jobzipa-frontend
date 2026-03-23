@@ -29,10 +29,12 @@
 
   @reference "../index.css";
 
+  /* Toolbar Style */
+  /* Stand alone post */
   .ql-toolbar {
     @apply flex flex-wrap items-center gap-2;
-    background-color: #ffffff; /* gray-100 light */
-    border: 0px solid #d1d5db; /* gray-300 light */
+    background-color: #ffffff; 
+    border: 0px solid #d1d5db; 
   }
   
   .dark .ql-toolbar {
@@ -48,7 +50,7 @@
 /* Ondoa margin za default za Quill */
 .ql-toolbar .ql-formats {
   margin-right: 0 !important;
-  @apply !bg-gray-100 dark:!bg-gray-800;
+  @apply !bg-transparent;
 }
 
   /* ===== BUTTONS BASE STYLE ===== */
