@@ -567,17 +567,17 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                 </header>
                 <div className="flex-1 pt-[64px] overflow-y-auto  scrollbar-none">
                     <div className="w-full flex justify-center">
-                        <main className=" w-750px min-h-[calc(100vh-80px)]
+                        <main className="min-h-[calc(100vh-80px)]
                                 bg-white dark:bg-gray-800 relative scrollbar-none
                                 mb-[1px] mt-[2px] lg:mt-[3] p-0 pt-[13px] 
                                 overflow-y-auto flex justify-center 
                                 w-full lg:w-[720px]
+                                mx-2 lg:mx-5
                             "
                         >
                             <div 
                                 className='
                                     overflow-x-hidden scrollbar-hide
-                                    lg:mx-0 w-[calc(100vw-40px)] lg:w-[660px] flex justify-center  lg:mt-0
                                 ' 
                             >
                                 <div
@@ -596,7 +596,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                 text-[#3E907D] 
                                                 dark:text-[#ebf3f2]
                                                 font-black 
-                                                mb-0 ml-2
+                                                mb-0 
                                                 mt-[20px] text-lg md:text-xl  
                                                 lg:text-2xl lg:mb-[30px]
 
@@ -1496,7 +1496,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                             text-[#3E907D] 
                                             dark:text-[#ebf3f2]
                                                 font-black 
-                                                mb-0 ml-2
+                                                mb-0 
                                                 mt-[25px] text-lg md:text-xl  lg:text-2xl 
                                             "
                                         >
