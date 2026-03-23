@@ -74,9 +74,15 @@
   @apply !bg-gray-100 dark:!bg-gray-700;
 }
 
+.ql-toolbar .ql-header {
+  @apply rounded-md p-0;
+  @apply !text-gray-400 dark:!text-gray-500;
+  @apply transition-colors duration-200;
+  @apply !bg-gray-100 dark:!bg-gray-700;
+}
 
 .ql-toolbar .ql-align {
-  @apply rounded-md p-2;
+  @apply rounded-md p-0;
   @apply !text-gray-400 dark:!text-gray-500;
   @apply transition-colors duration-200;
   @apply !bg-gray-100 dark:!bg-gray-700;
