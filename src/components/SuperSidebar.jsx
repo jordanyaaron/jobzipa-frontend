@@ -90,7 +90,7 @@ export default function SuperSideBar({ toggleDrawer , sidebarOpen, setSidebarOpe
             {sidebarOpen && (
                 <button
                 onClick={toggleDrawer}
-                    className="p-2 rounded-lg bg-[var(--hover)]  hover:bg-[var(--hover)]"
+                    className="p-2 lg:hidden rounded-lg bg-[var(--hover)]  hover:bg-[var(--hover)]"
                 >
                 <XMarkIcon 
                     className="
