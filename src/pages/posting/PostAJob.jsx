@@ -541,7 +541,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     return(
         <>
             <div className="min-h-screen  bg-gray-100 dark:bg-gray-900 transition-colors  transition-colors duration-300">
-                <header className="fixed top-0 left-0 w-screen z-40 border-b border-[var(--post-border)] bg-white dark:bg-gray-800">
+                <header className="fixed top-0 left-0 w-screen z-40  bg-white dark:bg-gray-800">
                     
                     <div
                         className='flex items-center justify-between px-4 md:px-6 h-16 transition-all duration-200 '
@@ -597,10 +597,9 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                 text-[#3E907D] 
                                                 dark:text-[#ebf3f2]
                                                 font-black 
-                                                mb-0 
+                                                mb-0 ml-2
                                                 mt-[20px] text-lg md:text-xl  
                                                 lg:text-2xl lg:mb-[30px]
-
                                             "
                                         >
                                             Organisation Details
@@ -1497,7 +1496,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                             text-[#3E907D] 
                                             dark:text-[#ebf3f2]
                                                 font-black 
-                                                mb-0 
+                                                mb-0 ml-2
                                                 mt-[25px] text-lg md:text-xl  lg:text-2xl 
                                             "
                                         >
@@ -1549,7 +1548,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                     <footer className="
                         bg-white dark:bg-gray-800
                         p-5 py-6
-                        mt-0 lg:mt-[2px]
+                        mt-0 
                         mb-[-5px]
                         min-h-[60px]
                         flex flex-col items-center justify-center
