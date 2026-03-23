@@ -577,7 +577,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                             <div 
                                 className='
                                     overflow-x-hidden scrollbar-hide
-                                    lg:mx-0 w-[calc(100vw-40px)] lg:w-[680px] flex justify-center  lg:mt-0
+                                    lg:mx-0 w-[calc(100vw-40px)] lg:w-[660px] flex justify-center  lg:mt-0
                                 ' 
                             >
                                 <div
