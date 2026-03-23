@@ -55,7 +55,7 @@
 
 .ql-toolbar .ql-formats:first-child {
   @apply !bg-gray-100 dark:!bg-gray-700;
-  @apply rounded-md
+  @apply rounded-md;
   @apply !text-gray-400 dark:!text-gray-500;
 }
 
