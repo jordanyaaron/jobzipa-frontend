@@ -569,7 +569,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                     <div className="w-full flex justify-center">
                         <main className=" w-750px min-h-[calc(100vh-80px)]
                                 bg-white dark:bg-gray-800 relative scrollbar-none
-                                mb-[1px] mt-[1px] lg:mt-[3] p-0 pt-[13px] 
+                                mb-[1px] mt-[2px] lg:mt-[3] p-0 pt-[13px] 
                                 overflow-y-auto flex justify-center 
                                 w-full lg:w-[720px]
                             "
@@ -587,7 +587,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                 >
                                     <div 
                                         className="
-                                            m-0
+                                            ml-1 md:ml-2 lg:ml-5
                                         "
                                     >
                                         {/* Organisation */}
@@ -599,6 +599,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                 mb-0 
                                                 mt-[20px] text-lg md:text-xl  
                                                 lg:text-2xl lg:mb-[30px]
+
                                             "
                                         >
                                             Organisation Details
@@ -609,7 +610,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                 <button ref={logPickerRef}
                                                     className="
                                                         h-[100px]  md:h-[140px] lg:h-[150px]
-                                                        w-[calc(100vw-57px)] lg:w-[610px]
+                                                        w-[calc(100vw-37px)] lg:w-[610px]
                                                         m-[10px] lg:m-[20px]
                                                         my-5
                                                         ml-[10px] lg:ml-[37px]
@@ -785,7 +786,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                         </div>
                                     </div>
 
-                                    <div className="datail-box">
+                                    <div className="ml-1 md:ml-2 lg:ml-5">
                                         {/* Job */}
                                         <h1 className="
                                                 text-[#3E907D] 
@@ -1389,107 +1390,107 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='detail-box w-full'>
-                                        <div ref={dateRef}
-                                            className="
-                                                datail-box
-                                                my-[10px]
+                                    <div ref={dateRef}
+                                        className="
+                                            datail-box
+                                            my-[10px]
+                                            ml-1 md:ml-2 lg:ml-5
+                                        "
+                                    >
+                                        <h1 className="
+                                                text-[#3E907D] 
+                                                dark:text-[#ebf3f2]
+                                                font-black 
+                                                mt-[25px] text-lg md:text-xl  lg:text-2xl 
                                             "
                                         >
-                                            <h1 className="
-                                                    text-[#3E907D] 
-                                                    dark:text-[#ebf3f2]
-                                                    font-black 
-                                                    mt-[25px] text-lg md:text-xl  lg:text-2xl 
-                                                "
-                                            >
-                                                Date Infos
-                                            </h1>
+                                            Date Infos
+                                        </h1>
 
-                                            <div
-                                                className="
-                                                    w-[calc(100vw-40px)] lg:w-[650px]
-                                                    mx-2 lg:mx-6
-                                                    grid grid-cols-1 md:grid-cols-2 
-                                                    gap-2
-                                                "
-                                            >
-                                                {/* Actual Date */}
-                                                <div className="col-span-1  flex flex-col">
-                                                    <label 
-                                                        className='
-                                                            my-[12px]
-                                                            text-xs md:text-sm
-                                                            ml-0 text-gray-700 dark:text-gray-400
-                                                        '
-                                                    >
-                                                        Actual Date
-                                                    </label>
+                                        <div
+                                            className="
+                                                w-[calc(100vw-40px)] lg:w-[650px]
+                                                mx-2 lg:mx-6
+                                                grid grid-cols-1 md:grid-cols-2 
+                                                gap-2
+                                            "
+                                        >
+                                            {/* Actual Date */}
+                                            <div className="col-span-1  flex flex-col">
+                                                <label 
+                                                    className='
+                                                        my-[12px]
+                                                        text-xs md:text-sm
+                                                        ml-0 text-gray-700 dark:text-gray-400
+                                                    '
+                                                >
+                                                    Actual Date
+                                                </label>
 
-                                                    <input
-                                                        type="date"
-                                                        name="actual_date"
-                                                        value={dateData.actual_date}
-                                                        onChange={handleChange}
-                                                        className="
-                                                            border 
-                                                            rounded-lg 
-                                                            py-2 lg:py-2 
-                                                            h-[50px] lg:h-[60px]
-                                                            px-1 md:px-3 
-                                                            appearance-none
-                                                            border
-                                                            border-[var(--post-border)]
-                                                            bg-transparent
-                                                            text-[var(--text)]
-                                                            focus:outline-none
-                                                            focus:ring-2 focus:ring-green-500
-                                                            transition-colors duration-300
-                                                        "
-                                                    />
-                                                </div>
+                                                <input
+                                                    type="date"
+                                                    name="actual_date"
+                                                    value={dateData.actual_date}
+                                                    onChange={handleChange}
+                                                    className="
+                                                        border 
+                                                        rounded-lg 
+                                                        py-2 lg:py-2 
+                                                        h-[50px] lg:h-[60px]
+                                                        px-1 md:px-3 
+                                                        appearance-none
+                                                        border
+                                                        border-[var(--post-border)]
+                                                        bg-transparent
+                                                        text-[var(--text)]
+                                                        focus:outline-none
+                                                        focus:ring-2 focus:ring-green-500
+                                                        transition-colors duration-300
+                                                    "
+                                                />
+                                            </div>
 
 
-                                                {/* Deadline Date */}
-                                                <div className="col-span-1    flex flex-col">
-                                                    <label  
-                                                        className='
-                                                            my-[12px]
-                                                            text-xs md:text-sm
-                                                            ml-0 text-gray-700 dark:text-gray-400
-                                                        '
-                                                    >
-                                                        Deadline Date
-                                                    </label>
+                                            {/* Deadline Date */}
+                                            <div className="col-span-1    flex flex-col">
+                                                <label  
+                                                    className='
+                                                        my-[12px]
+                                                        text-xs md:text-sm
+                                                        ml-0 text-gray-700 dark:text-gray-400
+                                                    '
+                                                >
+                                                    Deadline Date
+                                                </label>
 
-                                                    <input
-                                                        type="date"
-                                                        name="deadline_date"
-                                                        value={dateData.deadline_date}
-                                                        onChange={handleChange}
-                                                        className="
-                                                            border 
-                                                            rounded-lg 
-                                                            h-[50px] lg:h-[60px]
-                                                            py-1 lg:py-2 
-                                                            px-1 md:px-3 
-                                                            bg-transparent
-                                                            appearance-none
-                                                            border
-                                                            border-[var(--post-border)]
-                                                            bg-transparent
-                                                            text-[var(--text)]
-                                                            focus:outline-none
-                                                            focus:ring-2 focus:ring-green-500
-                                                            transition-colors duration-300
-                                                        "
-                                                    />
-                                                </div>
+                                                <input
+                                                    type="date"
+                                                    name="deadline_date"
+                                                    value={dateData.deadline_date}
+                                                    onChange={handleChange}
+                                                    className="
+                                                        border 
+                                                        rounded-lg 
+                                                        h-[50px] lg:h-[60px]
+                                                        py-1 lg:py-2 
+                                                        px-1 md:px-3 
+                                                        bg-transparent
+                                                        appearance-none
+                                                        border
+                                                        border-[var(--post-border)]
+                                                        bg-transparent
+                                                        text-[var(--text)]
+                                                        focus:outline-none
+                                                        focus:ring-2 focus:ring-green-500
+                                                        transition-colors duration-300
+                                                    "
+                                                />
                                             </div>
                                         </div>
                                     </div>
                                     
-                                    <div className="datail-box">
+                                    
+                                    <div className="ml-1 md:ml-2 lg:ml-5">
                                         {/* Link  */}
                                         <h1 className="
                                             text-[#3E907D] 
