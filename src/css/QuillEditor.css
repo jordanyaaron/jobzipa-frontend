@@ -38,7 +38,7 @@
   }
   
   .dark .ql-toolbar {
-    background-color: #1f2937 ; /* gray-800 dark */
+    @apply !bg-transparent; ; /* gray-800 dark */
     border-color: #374151; /* gray-700 dark */
   }
 
@@ -52,6 +52,12 @@
   margin-right: 0 !important;
   @apply !bg-transparent;
 }
+
+.ql-toolbar .ql-formats:first-child {
+  margin-right: 0 !important;
+  @apply !bg-transparent;
+}
+
 
   /* ===== BUTTONS BASE STYLE ===== */
 
