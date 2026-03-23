@@ -572,7 +572,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                 mb-[1px] mt-[2px] lg:mt-[3] p-0 pt-[13px] 
                                 overflow-y-auto flex justify-center 
                                 w-full lg:w-[720px]
-                                mx-2 lg:mx-5
+                                px-2 lg:px-5
                             "
                         >
                             <div 
