@@ -38,7 +38,7 @@
   }
   
   .dark .ql-toolbar {
-    @apply !bg-transparent; ; /* gray-800 dark */
+    @apply !bg-transparent;  /* gray-800 dark */
     border-color: #374151; /* gray-700 dark */
   }
 
@@ -101,7 +101,7 @@
   /* ===== ACTIVE STATE ===== */
 
   .ql-toolbar button.ql-active {
-    @apply !bg-green dark:!bg-white;
+    @apply !bg-[#3E907D] dark:!bg-white;
   }
 
   .ql-toolbar button.ql-active .ql-stroke {
