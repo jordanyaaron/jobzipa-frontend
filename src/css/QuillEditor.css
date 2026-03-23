@@ -54,8 +54,8 @@
 }
 
 .ql-toolbar .ql-formats:first-child {
-  margin-right: 0 !important;
-  @apply !bg-transparent;
+  @apply !bg-gray-100 dark:!bg-gray-700;
+  @apply rounded-md
 }
 
 
@@ -140,7 +140,6 @@
     margin-left: 0px !important;
     margin-right: 20px !important;
     padding-left: 0px !important;
-    background-color: transparent;
   }
   
   /* Pia toa padding kwenye dropdown ya headings */
