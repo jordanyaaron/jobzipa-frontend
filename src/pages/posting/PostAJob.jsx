@@ -587,7 +587,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                 >
                                     <div 
                                         className="
-                                            ml-1 md:ml-2 lg:ml-5
+                                            
                                         "
                                     >
                                         {/* Organisation */}
@@ -596,7 +596,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                 text-[#3E907D] 
                                                 dark:text-[#ebf3f2]
                                                 font-black 
-                                                mb-0 
+                                                mb-0 ml-2
                                                 mt-[20px] text-lg md:text-xl  
                                                 lg:text-2xl lg:mb-[30px]
 
@@ -786,13 +786,13 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                         </div>
                                     </div>
 
-                                    <div className="ml-1 md:ml-2 lg:ml-5">
+                                    <div className="">
                                         {/* Job */}
                                         <h1 className="
                                                 text-[#3E907D] 
                                                 dark:text-[#ebf3f2]
                                                 font-black 
-                                                mb-0 
+                                                mb-0 ml-2
                                                 mt-[20px] text-lg md:text-xl  lg:text-2xl 
                                             "
                                         >
@@ -1490,13 +1490,13 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                     </div>
                                     
                                     
-                                    <div className="ml-1 md:ml-2 lg:ml-5">
+                                    <div className="">
                                         {/* Link  */}
                                         <h1 className="
                                             text-[#3E907D] 
                                             dark:text-[#ebf3f2]
                                                 font-black 
-                                                mb-0 
+                                                mb-0 ml-2
                                                 mt-[25px] text-lg md:text-xl  lg:text-2xl 
                                             "
                                         >
