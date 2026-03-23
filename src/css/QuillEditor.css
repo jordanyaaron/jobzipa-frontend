@@ -56,6 +56,7 @@
 .ql-toolbar .ql-formats:first-child {
   @apply !bg-gray-100 dark:!bg-gray-700;
   @apply rounded-md
+  @apply !text-gray-400 dark:!text-gray-500;
 }
 
 
@@ -63,7 +64,7 @@
 
   .ql-toolbar button {
     @apply rounded-md p-2;
-    @apply !text-gray-600 dark:!text-gray-300;
+    @apply !text-gray-400 dark:!text-gray-500;
     @apply transition-colors duration-200;
     @apply !bg-gray-100 dark:!bg-gray-700;
   }
@@ -100,15 +101,15 @@
   /* ===== ACTIVE STATE ===== */
 
   .ql-toolbar button.ql-active {
-    @apply !bg-blue-100 dark:!bg-blue-900;
+    @apply !bg-green dark:!bg-white;
   }
 
   .ql-toolbar button.ql-active .ql-stroke {
-    stroke: #b0eb25 !important; /* blue-600 */
+    stroke: white !important; 
   }
 
   .dark .ql-toolbar button.ql-active .ql-stroke {
-    stroke: #60A5FA; /* blue-400 */
+    stroke: #12171d !important;
   }
 
   .ql-toolbar button.ql-active .ql-fill {
