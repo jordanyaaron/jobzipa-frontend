@@ -60,15 +60,24 @@
 }
 
 
+.ql-toolbar .ql-header.active{
+  @apply !bg-[#3E907D] dark:!bg-white;
+}
+
+
   /* ===== BUTTONS BASE STYLE ===== */
 
-  .ql-toolbar button {
-    @apply rounded-md p-2;
-    @apply !text-gray-400 dark:!text-gray-500;
-    @apply transition-colors duration-200;
-    @apply !bg-gray-100 dark:!bg-gray-700;
-  }
+.ql-toolbar button {
+  @apply rounded-md p-2;
+  @apply !text-gray-400 dark:!text-gray-500;
+  @apply transition-colors duration-200;
+  @apply !bg-gray-100 dark:!bg-gray-700;
+}
 
+
+.ql-toolbar .ql-align {
+  @apply !bg-gray-100 dark:!bg-gray-700;
+}
 
   /* ===== ICON COLOR (important sana) ===== */
 
@@ -81,11 +90,11 @@
   }
 
   .ql-toolbar button .ql-fill {
-    fill: #61634b;
+    fill: #9CA3AF;
   }
 
   .dark .ql-toolbar button .ql-fill {
-    fill: #d1d5db76;
+    fill: #6B7280;
   }
 
 
@@ -111,6 +120,8 @@
   .dark .ql-toolbar button.ql-active .ql-stroke {
     stroke: #12171d !important;
   }
+
+ 
 
   .ql-toolbar button.ql-active .ql-fill {
     fill: #2563EB;
