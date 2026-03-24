@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link ,useLocation } from "react-router-dom";
 import {
   FunnelIcon,
   MagnifyingGlassIcon,
@@ -12,6 +12,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
 const filterOptions = ["all", "Super", "Admin", "Official", "Unofficial"];
 
 const StaffListHeader = ({ setSidebarOpen , onFilterStaff , onSearchStaff }) => {
+  const path = useLocation();
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef();
@@ -26,6 +27,8 @@ const StaffListHeader = ({ setSidebarOpen , onFilterStaff , onSearchStaff }) => 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const showButtons = location.pathname ==='/super/staff'
 
   return (
     <header className="fixed md:hidden top-0 left-0 w-[100vw] z-40 border-b border-[var(--border)] bg-[var(--background)]">
@@ -42,48 +45,55 @@ const StaffListHeader = ({ setSidebarOpen , onFilterStaff , onSearchStaff }) => 
         <div className="flex items-center gap-3 relative">
 
           {/* Search */}
-          <button
-            onClick={() => setMobileSearchOpen(true)}
-            className="p-2 rounded-lg hover:bg-[var(--hover)]"
-          >
-            <MagnifyingGlassIcon className="h-6 w-6 text-[var(--text)]" />
-          </button>
+          {
+            showButtons && (
+                <>
+                    <button
+                        onClick={() => setMobileSearchOpen(true)}
+                        className="p-2 rounded-lg hover:bg-[var(--hover)]"
+                    >
+                        <MagnifyingGlassIcon className="h-6 w-6 text-[var(--text)]" />
+                    </button>
 
-          {/* Post */}
-          <Link
-            to="/super/post"
-            className="flex items-center gap-2 px-3 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
-          >
-            <UserPlusIcon className="h-5 w-5" />
-            <span className="hidden sm:block">Invite</span>
-          </Link>
+                
+                    <Link
+                        to="/super/invite"
+                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
+                    >
+                        <UserPlusIcon className="h-5 w-5" />
+                        <span className="hidden sm:block">Invite</span>
+                    </Link>
 
-          {/* Filter */}
-          <div className="relative" ref={dropdownRef}>
-            <button
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="p-2 rounded-lg hover:bg-[var(--hover)]"
-            >
-              <FunnelIcon className="h-6 w-6 text-[var(--text)]" />
-            </button>
+                    
+                    <div className="relative" ref={dropdownRef}>
+                        <button
+                        onClick={() => setDropdownOpen(!dropdownOpen)}
+                        className="p-2 rounded-lg hover:bg-[var(--hover)]"
+                        >
+                        <FunnelIcon className="h-6 w-6 text-[var(--text)]" />
+                        </button>
 
-            {dropdownOpen && (
-              <div className="absolute right-0 mt-2 w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
-                {filterOptions.map((option) => (
-                  <button
-                    key={option}
-                    onClick={() => {
-                        onFilterStaff(option); // 👈 important
-                      setDropdownOpen(false);
-                    }}
-                    className="block w-full text-left px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+                        {dropdownOpen && (
+                        <div className="absolute right-0 mt-2 w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
+                            {filterOptions.map((option) => (
+                            <button
+                                key={option}
+                                onClick={() => {
+                                    onFilterStaff(option); // 👈 important
+                                setDropdownOpen(false);
+                                }}
+                                className="block w-full text-left px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
+                            >
+                                {option}
+                            </button>
+                            ))}
+                        </div>
+                        )}
+                    </div>
+                </>
+                
+            ) }  
+          
 
           {/* Sidebar toggle */}
           <button

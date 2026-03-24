@@ -49,6 +49,9 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
     if (location.pathname.startsWith("/super/staff")) {
       return <StaffListHeader setSidebarOpen={setSidebarOpen} onFilterStaff={setStaffFilter} onSearchStaff={setSearchQuery}/>;
     }
+    if (location.pathname.startsWith("/super/invite")) {
+      return <StaffListHeader setSidebarOpen={setSidebarOpen} onFilter={setJobFilter} onSearch={setSearchQuery}/>;
+    }
     
     // default
     return <DashboardHeader setSidebarOpen={setSidebarOpen} />;

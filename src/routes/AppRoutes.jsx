@@ -44,6 +44,7 @@ import ReportSuper from '../pages/dashboard/super/Reports'
 import RevenueAndFinace from '../pages/dashboard/super/RevenueAndFinace'
 import WinningTeam from '../pages/dashboard/super/WinningTeam'
 import SettingsSuper from '../pages/dashboard/super/Settings'
+import InviteMember from '../pages/dashboard/super/InviteStaff'
 
 const AppRoutes = ({ darkMode, setDarkMode }) => {
     return (
@@ -137,6 +138,14 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
                 </ProtectedRoute>
               } 
             />
+
+            <Route path="/super/invite" element={
+                <ProtectedRoute requireSuperuser={true}>
+                  <InviteMember />
+                </ProtectedRoute>
+              } 
+            />
+
 
 
             
