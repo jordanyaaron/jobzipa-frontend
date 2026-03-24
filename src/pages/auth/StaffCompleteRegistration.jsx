@@ -9,7 +9,7 @@ const StaffCompleteRegistration = () => {
   const navigate = useNavigate();
   const uid = searchParams.get('uid')
   const token = searchParams.get('token')
-
+  
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
@@ -61,9 +61,9 @@ const StaffCompleteRegistration = () => {
     setLoading(true);
 
     try {
-
+      const payload = { ...formData, uid, token };
       const response = await api.post("auth/staff/register/", 
-        formData , { skipAuth: true }
+        payload , { skipAuth: true }
       );
 
       toast.success("Registration completed successfully");
