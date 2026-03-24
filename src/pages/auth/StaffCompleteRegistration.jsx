@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { Link , useNavigate , useSearchParams } from 'react-router-dom';
-import axios from "axios";
+import api from '../../api/axios'
 
 
 const StaffCompleteRegistration = () => {
@@ -62,12 +62,9 @@ const StaffCompleteRegistration = () => {
 
     try {
 
-      await axios.post(
-        "http://127.0.0.1:8000/api/v1/auth/staff/register/", {
-        ...formData,
-        uid,
-        token
-      });
+      const response = await api.post("auth/staff/register/", 
+        formData , { skipAuth: true }
+      );
 
       toast.success("Registration completed successfully");
 
