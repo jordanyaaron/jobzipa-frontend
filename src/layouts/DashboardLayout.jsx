@@ -8,7 +8,7 @@ import "../css/DeviceSize.css";// Importing Components
 // headers
 import DashboardHeader from "../components/DashboardHeader";
 import SuperJobsHeader from "../components/headers/SuperJobsHeader";
-import PostOnDashboardHeader from "../components/headers/PostOnDashboardHeader";
+import StaffListHeader from "../components/headers/StaffList";
 import SuperSideBar from "../components/SuperSidebar";
 // import "../css/Post.css";
 // import "../css/QuillEditor.css";
@@ -24,6 +24,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
   const toggleDrawer = () => setSidebarOpen(!sidebarOpen);
   const location = useLocation();
   const [jobFilter, setJobFilter] = useState("all");
+  const [staffFilter, setStaffFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [handlePostJobFromHeader, setHandlePostJobFromHeader] = useState(false);
   useEffect(() => {
@@ -45,7 +46,10 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
     if (location.pathname.startsWith("/super/jobs")) {
       return <SuperJobsHeader setSidebarOpen={setSidebarOpen} onFilter={setJobFilter} onSearch={setSearchQuery}/>;
     }
-
+    if (location.pathname.startsWith("/super/staff")) {
+      return <StaffListHeader setSidebarOpen={setSidebarOpen} onFilterStaff={setStaffFilter} onSearchStaff={setSearchQuery}/>;
+    }
+    
     // default
     return <DashboardHeader setSidebarOpen={setSidebarOpen} />;
   };
@@ -77,7 +81,13 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
           "
         >
           
-          <Outlet context={{ setSidebarOpen, jobFilter, setJobFilter, searchQuery, setSearchQuery, handlePostJobFromHeader, setHandlePostJobFromHeader }} />
+          <Outlet context={{ 
+            setSidebarOpen, 
+            jobFilter, setJobFilter, 
+            staffFilter , setStaffFilter,
+            searchQuery, setSearchQuery, 
+            handlePostJobFromHeader, setHandlePostJobFromHeader 
+          }} />
         </main>
 
       </div>
