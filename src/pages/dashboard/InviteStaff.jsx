@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import toast , { Toaster } from 'react-hot-toast';
-import axios from "axios";
+import api from '../../api/axios'
 
 
 
@@ -26,20 +26,11 @@ const InviteMember = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/v1/auth/staff/invite/",
-        {
-          email: email,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
+      const response = await api.post("auth/staff/invite/", {
+            email: email,
           },
-        }
       );
-
-
+      
       toast.success("Succesfully sent!");
       setEmail("");
       setTimeout(() => {
