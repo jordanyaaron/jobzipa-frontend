@@ -51,7 +51,7 @@ const InviteMember = () => {
   };
 
   return (
-    <main className="min-h-[calc(100vh-172px)] mt-[20px] mb-[20px] flex items-center justify-center bg-gray-100 dark:bg-gray-900 px-4">
+    <main className="min-h-[calc(100vh-64px)]  lg:min-h-screen lg:mt-0  flex items-center justify-center bg-gray-100 dark:bg-gray-900 px-4">
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 space-y-5"
