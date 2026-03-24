@@ -44,7 +44,7 @@ import ReportSuper from '../pages/dashboard/super/Reports'
 import RevenueAndFinace from '../pages/dashboard/super/RevenueAndFinace'
 import WinningTeam from '../pages/dashboard/super/WinningTeam'
 import SettingsSuper from '../pages/dashboard/super/Settings'
-import InviteMember from '../pages/dashboard/super/InviteStaff'
+import InviteMember from '../pages/dashboard/InviteStaff'
 
 const AppRoutes = ({ darkMode, setDarkMode }) => {
     return (
