@@ -68,7 +68,7 @@ const DashbHeader = ({ setSidebarOpen , onFilterPayout , onSearchPayout }) => {
                         }}
                         className="block w-full text-left px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
                     >
-                        {option.charAt(0).toUpperCase + option.slice(1)}
+                        {option.charAt(0).toUpperCase() + option.slice(1)}
                     </button>
                     ))}
                 </div>
