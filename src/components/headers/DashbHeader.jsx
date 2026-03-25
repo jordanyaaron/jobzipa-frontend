@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link ,useLocation } from "react-router-dom";
+import { Link  } from "react-router-dom";
 import {
   FunnelIcon,
   MagnifyingGlassIcon,
@@ -26,7 +26,6 @@ const DashbHeader = ({ setSidebarOpen , onFilterPayout , onSearchPayout }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const showButtons = location.pathname ==='/super/staff'
 
   return (
     <header className="fixed md:hidden top-0 left-0 w-[100vw] z-40 border-b border-[var(--border)] bg-[var(--background)]">
