@@ -10,7 +10,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
 const DashbHeader = ({ setSidebarOpen , onFilterPayout , onSearchPayout }) => {
 
-  const filterOptions = ["All", "Pending", "Paid", "Approved", "Rejected"];
+  const filterOptions = ["all", "pending", "paid", "approved", "rejected"];
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef();
@@ -68,7 +68,7 @@ const DashbHeader = ({ setSidebarOpen , onFilterPayout , onSearchPayout }) => {
                         }}
                         className="block w-full text-left px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
                     >
-                        {option}
+                        {option.charAt(0).toUpperCase + option.slice(1)}
                     </button>
                     ))}
                 </div>

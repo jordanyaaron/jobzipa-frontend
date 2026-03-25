@@ -112,7 +112,7 @@ export default function SuperPayouts() {
                   key={item.id}
                   className="border-t border-[var(--border)] hover:bg-[var(--hover)]"
                 >
-                  <td className="p-3 whitespace-nowrap">{item.full_name}</td>
+                  <td className="p-3 whitespace-nowrap">{item.name}</td>
                   <td className="p-3 whitespace-nowrap">{item.username}</td>
 
                   {/* Status */}
