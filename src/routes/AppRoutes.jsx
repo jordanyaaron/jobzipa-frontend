@@ -44,6 +44,7 @@ import ReportSuper from '../pages/dashboard/super/Reports'
 import RevenueAndFinace from '../pages/dashboard/super/RevenueAndFinace'
 import WinningTeam from '../pages/dashboard/super/WinningTeam'
 import SettingsSuper from '../pages/dashboard/super/Settings'
+import SuperPayouts from '../pages/dashboard/super/Payouts'
 import InviteMember from '../pages/dashboard/InviteStaff'
 
 const AppRoutes = ({ darkMode, setDarkMode }) => {
@@ -135,6 +136,13 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
             <Route path="/super/post" element={
                 <ProtectedRoute requireSuperuser={true}>
                   <PostOnDashboard />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route path="/super/payouts" element={
+                <ProtectedRoute requireSuperuser={true}>
+                  <SuperPayouts />
                 </ProtectedRoute>
               } 
             />

@@ -9,6 +9,7 @@ import "../css/DeviceSize.css";// Importing Components
 import DashboardHeader from "../components/DashboardHeader";
 import SuperJobsHeader from "../components/headers/SuperJobsHeader";
 import StaffListHeader from "../components/headers/StaffList";
+import DashbHeader from "../components/headers/DashbHeader";
 import SuperSideBar from "../components/SuperSidebar";
 // import "../css/Post.css";
 // import "../css/QuillEditor.css";
@@ -24,6 +25,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
   const toggleDrawer = () => setSidebarOpen(!sidebarOpen);
   const location = useLocation();
   const [jobFilter, setJobFilter] = useState("all");
+  const [payoutFilter, setPayoutFilter] = useState("all");
   const [staffFilter, setStaffFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [handlePostJobFromHeader, setHandlePostJobFromHeader] = useState(false);
@@ -52,6 +54,11 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
     if (location.pathname.startsWith("/super/invite")) {
       return <StaffListHeader setSidebarOpen={setSidebarOpen} onFilter={setJobFilter} onSearch={setSearchQuery}/>;
     }
+    
+    if (location.pathname.startsWith("/super/payouts")) {
+      return <DashbHeader setSidebarOpen={setSidebarOpen} onFilter={setPayoutFilter} onSearch={setSearchQuery}/>;
+    }
+  
     
     // default
     return <DashboardHeader setSidebarOpen={setSidebarOpen} />;
@@ -88,6 +95,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
             setSidebarOpen, 
             jobFilter, setJobFilter, 
             staffFilter , setStaffFilter,
+            payoutFilter , setPayoutFilter,
             searchQuery, setSearchQuery, 
             handlePostJobFromHeader, setHandlePostJobFromHeader 
           }} />

@@ -8,6 +8,7 @@ import {
     CurrencyDollarIcon,
     BellIcon,
     Cog6ToothIcon,
+    BanknotesIcon,
     XMarkIcon ,
     ExclamationTriangleIcon
   } from "@heroicons/react/24/outline";
@@ -41,6 +42,12 @@ export default function SuperSideBar({ toggleDrawer , sidebarOpen, setSidebarOpe
           name: "Revenue",
           path: "/super/revenue",
           icon: CurrencyDollarIcon,
+          replace : true
+        },
+        {
+          name: "Payouts",
+          path: "/super/Payouts",
+          icon: BanknotesIcon,
           replace : true
         },
         {
