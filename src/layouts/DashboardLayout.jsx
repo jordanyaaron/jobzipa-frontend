@@ -55,8 +55,8 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
       return <StaffListHeader setSidebarOpen={setSidebarOpen} onFilter={setJobFilter} onSearch={setSearchQuery}/>;
     }
     
-    if (location.pathname.startsWith("/super/payouts")) {
-      return <DashbHeader setSidebarOpen={setSidebarOpen} onFilter={setPayoutFilter} onSearch={setSearchQuery}/>;
+    if (location.pathname.startsWith("/super/Payouts")) {
+      return <DashbHeader setSidebarOpen={setSidebarOpen} onFilterPayout={setPayoutFilter} onSearchPayout={setSearchQuery}/>;
     }
   
     
