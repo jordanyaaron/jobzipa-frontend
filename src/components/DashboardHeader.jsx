@@ -71,7 +71,7 @@ export default function DashboardHeader({
 
                     {dateFilterOpen && (
                       <div className="absolute right-0 mt-2 p-3 w-50 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
-                        <div className="flex flex-row gap-2">
+                        <div className="flex flex-col gap-2">
                           <b className="w-15 text-[var(--text)]">From :</b>
                           <input 
                             type="date"
@@ -80,7 +80,7 @@ export default function DashboardHeader({
                             className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
                           />
                         </div>
-                        <div className="flex flex-row gap-2">
+                        <div className="flex flex-col gap-2">
                           <b className="w-15 text-[var(--text)]">To :</b>
                           <input 
                             type="date"
@@ -106,8 +106,7 @@ export default function DashboardHeader({
                   <div className="relative" ref={dropdownRef}>
                     <button
                       onClick={() => {
-                        setPlacementFilter(option); 
-                        setDropdownOpen(false);
+                        setDropdownOpen(!dropdownOpen);
                       }}
                       className="p-2 rounded-lg hover:bg-[var(--hover)]"
                     >
@@ -120,8 +119,8 @@ export default function DashboardHeader({
                           <button
                             key={option}
                             onClick={() => {
-                              onFilter(option); // 👈 important
-                              setDropdownOpen(false);
+                              setPlacementFilter(option); 
+                              setDropdownOpen(!dropdownOpen);
                             }}
                             className="block w-full text-left px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
                           >
