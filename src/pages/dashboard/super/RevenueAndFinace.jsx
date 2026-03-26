@@ -51,7 +51,7 @@ const RevenueAndFinace = () => {
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               className="
-                w-full md:w-[250px]
+                w-full md:w-[180px]
                 px-3 py-2 rounded-lg border
                 border-[var(--border)]
                 bg-[var(--background)]

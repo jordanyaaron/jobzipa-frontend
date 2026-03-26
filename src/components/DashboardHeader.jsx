@@ -7,6 +7,7 @@ export default function DashboardHeader({ setSidebarOpen }) {
   const location = useLocation()
   const [dateFilterOpen, setDateFilterOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dateFilterRef = useRef();
   const dropdownRef = useRef();
   const filterOptions = ["all", "job_list", "job_detail", "sidebar", "banner"];
   // Close dropdown when clicking outside
@@ -14,6 +15,16 @@ export default function DashboardHeader({ setSidebarOpen }) {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dateFilterRef.current && !dateFilterRef.current.contains(e.target)) {
+        setDateFilterOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -38,8 +49,8 @@ export default function DashboardHeader({ setSidebarOpen }) {
             location.pathname === "/super/revenue" && (
               <>
                   
-                  {/* placement filter */}
-                  <div className="relative" ref={dropdownRef}>
+                  {/* date filter */}
+                  <div className="relative" ref={dateFilterRef}>
                     <button
                       onClick={() => setDateFilterOpen(!dateFilterOpen)}
                       className="p-2 rounded-lg hover:bg-[var(--hover)]"
@@ -49,7 +60,30 @@ export default function DashboardHeader({ setSidebarOpen }) {
 
                     {dateFilterOpen && (
                       <div className="absolute right-0 mt-2 w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
-                        
+                        <div className="flex flex-row">
+                          <b>From</b>
+                          <input 
+                            type="date" name="" id="" 
+                            className="
+                              px-3 py-2 rounded-lg border
+                              border-[var(--border)]
+                              bg-[var(--background)]
+                              text-sm
+                            "
+                          />
+                        </div>
+                        <div className="flex flex-row">
+                          <b>From</b>
+                          <input 
+                            type="date" name="" id="" 
+                            className="
+                              px-3 py-2 rounded-lg border
+                              border-[var(--border)]
+                              bg-[var(--background)]
+                              text-sm
+                            "
+                          />
+                        </div>
                       </div>
                     )}
                   </div> 
@@ -74,7 +108,11 @@ export default function DashboardHeader({ setSidebarOpen }) {
                             }}
                             className="block w-full text-left px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
                           >
-                            {option}
+                            {option
+                              .split("_")               
+                              .map(word => word.charAt(0).toUpperCase() + word.slice(1)) 
+                              .join(" ")                 
+                            }
                           </button>
                         ))}
                       </div>
