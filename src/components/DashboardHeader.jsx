@@ -1,8 +1,8 @@
 import JobzipaLogo from "../assets/logos/jobzipa.png";
-import { Bars3Icon , CalendarIcon , FunnelIcon} from "@heroicons/react/24/outline";
+import { Bars3Icon ,  FunnelIcon , MagnifyingGlassIcon ,} from "@heroicons/react/24/outline";
 import React , { useState , useRef , useEffect } from 'react'
 import { Link ,useLocation } from "react-router-dom";
-
+ 
 export default function DashboardHeader({ 
   setSidebarOpen ,
   startDate = "",
