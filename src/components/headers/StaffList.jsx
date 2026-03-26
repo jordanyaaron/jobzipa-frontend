@@ -5,7 +5,7 @@ import {
   MagnifyingGlassIcon,
   ArrowLeftIcon,
   Bars3Icon,
-  UserPlusIcon
+  UserPlusIcon,ArrowLeftIcon
 } from "@heroicons/react/24/outline";
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
 

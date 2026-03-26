@@ -104,15 +104,15 @@ export default function NotificationSuper() {
             className="
               flex mt-16 lg:mt-0 
               overflow-x-hihden
-              text-center  
+              text-left items-center  justify-center
               scrollbar-hide  gap-3 
-              lg:**:border border-[var(--border)]  rounded-lg
+              lg:border border-[var(--border)]  rounded-lg
             "
          >
           
           <ul className="mx-5 w-full lg:w-[700px] w-full text-sm" >
             {filteredNotificationData.length === 0 ? (
-              <li className="px-4 py-3 text-sm text-gray-500">No notifications</li>
+              <li className="px-4  py-3 text-sm text-gray-500">No notifications</li>
             ) : (
               notifications.map((n) => (
                 <li
@@ -122,7 +122,7 @@ export default function NotificationSuper() {
                   }`}
                 >
                   <div className="flex justify-between items-center">
-                    <span>{n.message}</span>
+                    <span className="justify-start">{n.message}</span>
                     <span className="text-xs text-gray-400">{n.date}</span>
                   </div>
                 </li>
