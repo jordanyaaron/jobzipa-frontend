@@ -90,7 +90,7 @@ const RevenueAndFinace = () => {
       {/* Table */}
       <div 
         className="
-          flex mt-16 lg:mt-0 
+          flex mt-0 
           overflow-x-auto  
           scrollbar-hide  gap-3 
           border border-[var(--border)]  rounded-lg
