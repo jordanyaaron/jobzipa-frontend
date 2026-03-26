@@ -6,9 +6,9 @@ import { v4 as uuidv4 } from "uuid";
 
 const RevenueAndFinace = () => {
   const {
-    startDate,
-    endDate,
-    placementFilter
+    startDate, setStartDate,
+    endDate, setEndDate,
+    placementFilter, setPlacementFilter,
   } = useOutletContext();
   
   // Filter logic
@@ -76,7 +76,7 @@ const RevenueAndFinace = () => {
           </select>
           <button
             onClick={() => {
-              setStartDate("");
+              startDate("");
               setEndDate("");
               setPlacementFilter("all");
             }}
@@ -117,7 +117,13 @@ const RevenueAndFinace = () => {
               filteredData.map((item) => (
                 <tr key={item.id} className="border-t border-[var(--border)] hover:bg-[var(--hover)]">
                   <td className="p-3 whitespace-nowrap">{item.id}</td>
-                  <td className="p-3 whitespace-nowrap">{item.placement}</td>
+                  <td className="p-3 whitespace-nowrap">
+                    {item.placement
+                      .split("_")
+                      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                      .join(" ")
+                    }
+                  </td>
                   <td className="p-3 whitespace-nowrap">${item.amount}</td>
                   <td className="p-3 whitespace-nowrap">{item.date}</td>
                 </tr>
