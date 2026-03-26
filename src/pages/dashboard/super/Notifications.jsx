@@ -121,7 +121,7 @@ export default function NotificationSuper() {
                     !n.read ? "font-semibold" : ""
                   }`}
                 >
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-start items-center">
                     <span className="justify-start">{n.message}</span>
                     <span className="text-xs text-gray-400">{n.date}</span>
                   </div>
