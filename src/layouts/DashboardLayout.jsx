@@ -78,7 +78,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
       startDate={startDate}
       endDate={endDate} 
       placementFilter={placementFilter}
-      onSetNotificationFilter={setSetNotificationCategoryFilter} onSearchNotification={setSearchQuery}
+      onSetNotificationFilter={setNotificationFilter} onSearchNotification={setSearchQuery}
       setStartDate={setStartDate}
       setEndDate={setEndDate}
       setPlacementFilter={setPlacementFilter}
@@ -119,7 +119,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
             staffFilter , setStaffFilter,
             payoutFilter , setPayoutFilter,
             placementFilter, setPlacementFilter,
-            setSetNotificationCategoryFilter, notificationCategoryFilter,
+            setNotificationFilter, notificationCategoryFilter,
             searchQuery, setSearchQuery, 
             startDate, setStartDate,
             endDate, setEndDate,

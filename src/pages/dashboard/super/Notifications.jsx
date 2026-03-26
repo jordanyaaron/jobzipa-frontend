@@ -38,7 +38,7 @@ const notifications = [
 export default function NotificationSuper() {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef();
-  const {  setSetNotificationFilter, notificationCategoryFilter , searchQuery, setSearchQuery } = useOutletContext();
+  const {  setNotificationFilter, notificationCategoryFilter , searchQuery, setSearchQuery } = useOutletContext();
   // const {  } = useOutletContext();
 
 
@@ -55,8 +55,18 @@ export default function NotificationSuper() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const filteredNotificationData = notifications.filter((item) => {
+    const matchesFilter =
+    notificationCategoryFilter === "all" || item.type === notificationCategoryFilter;
+  
+    const matchesSearch =
+      (item.message?.toLowerCase() || "").includes(searchQuery?.toLowerCase() || "");
+  
+    return matchesFilter && matchesSearch;
+  });
+
   return (
-    <div className="p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
+    <div className=" p-0 lg:p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
       <div className="hidden lg:flex lg:flex-row md:items-center md:justify-between gap-3 min-w-0">
         <h1 className="text-lg md:text-2xl font-bold">Notifications</h1>
 
@@ -79,7 +89,7 @@ export default function NotificationSuper() {
           {/* Filter */}
           <select
             value={notificationCategoryFilter}
-            onChange={(e) => setSetNotificationCategoryFilter(e.target.value)}
+            onChange={(e) => setNotificationFilter(e.target.value)}
             className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
           >
             <option value="all">All</option>
@@ -93,14 +103,15 @@ export default function NotificationSuper() {
         <div 
             className="
               flex mt-16 lg:mt-0 
-              overflow-x-hihden  
+              overflow-x-hihden
+              text-center  
               scrollbar-hide  gap-3 
-              border border-[var(--border)]  rounded-lg
+              lg:**:border border-[var(--border)]  rounded-lg
             "
          >
           
           <ul className="mx-5 w-full lg:w-[700px] w-full text-sm" >
-            {notifications.length === 0 ? (
+            {filteredNotificationData.length === 0 ? (
               <li className="px-4 py-3 text-sm text-gray-500">No notifications</li>
             ) : (
               notifications.map((n) => (
