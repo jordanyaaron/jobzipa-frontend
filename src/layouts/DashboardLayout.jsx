@@ -32,6 +32,9 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [placementFilter, setPlacementFilter] = useState("all");
+  const [notificationCategoryFilter , setSetNotificationCategoryFilter  ] = useState("all");
+  
+
 
   const handleReset = () => {
     setStartDate("");
@@ -73,8 +76,9 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
     return <DashboardHeader
       setSidebarOpen={setSidebarOpen}
       startDate={startDate}
-      endDate={endDate}
+      endDate={endDate} 
       placementFilter={placementFilter}
+      onSetNotificationFilter={setSetNotificationCategoryFilter} onSearchNotification={setSearchQuery}
       setStartDate={setStartDate}
       setEndDate={setEndDate}
       setPlacementFilter={setPlacementFilter}
@@ -114,10 +118,11 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
             jobFilter, setJobFilter, 
             staffFilter , setStaffFilter,
             payoutFilter , setPayoutFilter,
+            placementFilter, setPlacementFilter,
+            setSetNotificationCategoryFilter, notificationCategoryFilter,
             searchQuery, setSearchQuery, 
             startDate, setStartDate,
             endDate, setEndDate,
-            placementFilter, setPlacementFilter,
             handlePostJobFromHeader, setHandlePostJobFromHeader 
           }} />
         </main>

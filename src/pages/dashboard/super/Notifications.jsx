@@ -36,6 +36,9 @@ const notifications = [
 export default function NotificationSuper() {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef();
+  const {  setSetNotificationFilter, notificationCategoryFilter , searchQuery, setSearchQuery } = useOutletContext();
+  // const {  } = useOutletContext();
+
 
   const unreadCount = notifications.filter((n) => !n.read).length;
 
@@ -51,35 +54,58 @@ export default function NotificationSuper() {
   }, []);
 
   return (
-    <div className="relative" ref={dropdownRef}>
-      {/* Bell button */}
-      <button
-        onClick={() => setOpen(!open)}
-        className="relative p-2 rounded-lg hover:bg-gray-200"
-      >
-        <BellIcon className="h-6 w-6 text-gray-700" />
-        {unreadCount > 0 && (
-          <span className="absolute top-0 right-0 inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-500 rounded-full">
-            {unreadCount}
-          </span>
-        )}
-      </button>
+    <div className="p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
+      <div className="hidden lg:flex lg:flex-row md:items-center md:justify-between gap-3 min-w-0">
+        <h1 className="text-lg md:text-2xl font-bold">Notifications</h1>
 
+        <div className="flex gap-2 w-full md:w-auto min-w-0">
+          {/* Search */}
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search jobs..."
+            className="
+              w-full md:w-[250px]
+              px-3 py-2 rounded-lg border
+              border-[var(--border)]
+              bg-[var(--background)]
+              text-sm
+            "
+          />
+
+          {/* Filter */}
+          <select
+            value={notificationCategoryFilter}
+            onChange={(e) => setSetNotificationCategoryFilter(e.target.value)}
+            className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
+          >
+            <option value="all">All</option>
+            <option value="staff">Staff</option>
+            <option value="payout">Payout</option>
+            <option value="post">Post</option>
+          </select>
+        </div>
+      </div>
       {/* Dropdown */}
-      {open && (
-        <div className="absolute right-0 mt-2 w-80 max-h-96 overflow-y-auto bg-white border border-gray-300 rounded-lg shadow-lg z-50">
-          <h3 className="px-4 py-2 font-semibold border-b border-gray-200">
-            Notifications
-          </h3>
-          <ul>
+        <div 
+            className="
+              flex mt-16 lg:mt-0 
+              overflow-x-hihden  
+              scrollbar-hide  gap-3 
+              border border-[var(--border)]  rounded-lg
+            "
+         >
+          
+          <ul className="mx-5 w-full lg:w-[700px] w-full text-sm" >
             {notifications.length === 0 ? (
               <li className="px-4 py-3 text-sm text-gray-500">No notifications</li>
             ) : (
               notifications.map((n) => (
                 <li
                   key={n.id}
-                  className={`px-4 py-3 text-sm border-b border-gray-200 hover:bg-gray-100 cursor-pointer ${
-                    !n.read ? "font-semibold bg-gray-50" : ""
+                  className={`px-4 py-3 text-sm text-[var(--text)]  border-b border-[var(--border)] hover:bg-[var(--hover)] cursor-pointer ${
+                    !n.read ? "font-semibold" : ""
                   }`}
                 >
                   <div className="flex justify-between items-center">
@@ -90,14 +116,7 @@ export default function NotificationSuper() {
               ))
             )}
           </ul>
-          <button
-            className="w-full px-4 py-2 text-center text-sm text-blue-600 hover:bg-gray-100"
-            onClick={() => alert("Mark all as read")}
-          >
-            Mark all as read
-          </button>
         </div>
-      )}
     </div>
   );
 }
