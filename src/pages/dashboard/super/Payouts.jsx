@@ -93,7 +93,14 @@ export default function SuperPayouts() {
         </div>
       </div>
       {/* Scrollable row */}
-      <div className="flex mt-16 lg:mt-0 overflow-x-auto  scrollbar-hide  gap-3 border border-[var(--border)]  rounded-lg">
+      <div 
+        className="
+            flex mt-16 lg:mt-0 
+            overflow-x-auto  
+            scrollbar-hide  gap-3 
+            border border-[var(--border)]  rounded-lg
+        "
+      >
       <table className="min-w-[700px] w-full text-sm">
             <thead className="bg-[var(--hover)] text-left">
               <tr>
