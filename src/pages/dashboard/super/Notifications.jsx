@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { BellIcon } from "@heroicons/react/24/outline";
+import { Link , useOutletContext } from "react-router-dom";
+
 
 // Dummy notifications
 const notifications = [
