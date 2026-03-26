@@ -114,7 +114,7 @@ const RevenueAndFinace = () => {
               </tr>
             ) : (
               filteredData.map((item) => (
-                <tr key={item.id} className="odd:bg-white even:bg-gray-50">
+                <tr key={item.id} className="border-t border-[var(--border)] hover:bg-[var(--hover)]">
                   <td className="p-3 whitespace-nowrap">{item.id}</td>
                   <td className="p-3 whitespace-nowrap">{item.placement}</td>
                   <td className="p-3 whitespace-nowrap">${item.amount}</td>
