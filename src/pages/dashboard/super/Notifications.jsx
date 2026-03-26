@@ -1,3 +1,38 @@
+import React, { useState, useRef, useEffect } from "react";
+import { BellIcon } from "@heroicons/react/24/outline";
+
+// Dummy notifications
+const notifications = [
+  {
+    id: 1,
+    type: "staff",
+    message: "You have been invited to join the team",
+    read: false,
+    date: "2026-03-25",
+  },
+  {
+    id: 2,
+    type: "staff",
+    message: "Registration completed successfully",
+    read: false,
+    date: "2026-03-24",
+  },
+  {
+    id: 3,
+    type: "payout",
+    message: "Your payout request has been approved",
+    read: true,
+    date: "2026-03-23",
+  },
+  {
+    id: 4,
+    type: "post",
+    message: "New post published",
+    read: false,
+    date: "2026-03-22",
+  },
+];
+
 export default function NotificationSuper() {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef();
