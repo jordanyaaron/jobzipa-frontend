@@ -32,7 +32,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [placementFilter, setPlacementFilter] = useState("all");
-  const [notificationCategoryFilter , setSetNotificationCategoryFilter  ] = useState("all");
+  const [notificationCategoryFilter , setNotificationFilter  ] = useState("all");
   
 
 
