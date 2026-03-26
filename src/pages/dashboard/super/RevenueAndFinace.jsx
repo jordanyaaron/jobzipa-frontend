@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { revenueData } from "@/data/revenue";
+import { revenueData } from "@/data/revenue";import { useOutletContext } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 
 
 const RevenueAndFinace = () => {
-  // Filters
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [placementFilter, setPlacementFilter] = useState("all");
-
+  const {
+    startDate,
+    endDate,
+    placementFilter
+  } = useOutletContext();
+  
   // Filter logic
   const filteredData = revenueData.filter((item) => {
     const itemDate = new Date(item.date);

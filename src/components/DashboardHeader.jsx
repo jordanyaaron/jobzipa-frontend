@@ -3,7 +3,18 @@ import { Bars3Icon , CalendarIcon , FunnelIcon} from "@heroicons/react/24/outlin
 import React , { useState , useRef , useEffect } from 'react'
 import { Link ,useLocation } from "react-router-dom";
 
-export default function DashboardHeader({ setSidebarOpen }) {
+export default function DashboardHeader({ 
+  setSidebarOpen ,
+  startDate = "",
+  endDate = "",
+  placementFilter = "all",
+
+  setStartDate = () => {},
+  setEndDate = () => {},
+  setPlacementFilter = () => {},
+
+  onReset = () => {},
+}) {
   const location = useLocation()
   const [dateFilterOpen, setDateFilterOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -59,31 +70,34 @@ export default function DashboardHeader({ setSidebarOpen }) {
                     </button>
 
                     {dateFilterOpen && (
-                      <div className="absolute right-0 mt-2 w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
-                        <div className="flex flex-row">
-                          <b>From</b>
+                      <div className="absolute right-0 mt-2 p-3 w-50 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
+                        <div className="flex flex-row gap-2">
+                          <b className="w-15 text-[var(--text)]">From :</b>
                           <input 
-                            type="date" name="" id="" 
-                            className="
-                              px-3 py-2 rounded-lg border
-                              border-[var(--border)]
-                              bg-[var(--background)]
-                              text-sm
-                            "
+                            type="date"
+                            value={startDate}
+                            onChange={(e) => setStartDate(e.target.value)}
+                            className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
                           />
                         </div>
-                        <div className="flex flex-row">
-                          <b>From</b>
+                        <div className="flex flex-row gap-2">
+                          <b className="w-15 text-[var(--text)]">To :</b>
                           <input 
-                            type="date" name="" id="" 
-                            className="
-                              px-3 py-2 rounded-lg border
-                              border-[var(--border)]
-                              bg-[var(--background)]
-                              text-sm
-                            "
+                            type="date"
+                            value={endDate}
+                            onChange={(e) => setEndDate(e.target.value)}
+                            className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
                           />
                         </div>
+                        <button
+                          onClick={() => {
+                            onReset();       // reset filters
+                            setDateFilterOpen(false);
+                          }}
+                          className="mt-2 text-sm px-3 text-white py-1 bg-red-700 rounded"
+                        >
+                          Reset
+                        </button>
                       </div>
                     )}
                   </div> 
@@ -91,7 +105,10 @@ export default function DashboardHeader({ setSidebarOpen }) {
                   {/* placement filter */}
                   <div className="relative" ref={dropdownRef}>
                     <button
-                      onClick={() => setDropdownOpen(!dropdownOpen)}
+                      onClick={() => {
+                        setPlacementFilter(option); 
+                        setDropdownOpen(false);
+                      }}
                       className="p-2 rounded-lg hover:bg-[var(--hover)]"
                     >
                       <FunnelIcon className="h-6 w-6 text-[var(--text)]" />
