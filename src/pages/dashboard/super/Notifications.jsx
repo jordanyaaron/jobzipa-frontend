@@ -4,8 +4,6 @@ import {
   PencilSquareIcon , ArrowUpIcon ,
   ClockIcon , CheckCircleIcon ,
   XCircleIcon , UserIcon,
-  CheckBadgeIcon
-
 } from "@heroicons/react/24/outline";
 import { notificationsData } from "@/data/notification";
 import { formatNotificationTime } from "@/utils/time";
