@@ -25,7 +25,7 @@ export default function ReportSuper() {
   };
 
   return (
-    <div className="p-4 w-full lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
+    <div className="p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
         <h1 className="text-lg lg:text-2xl font-bold">Job Reports</h1>
 
