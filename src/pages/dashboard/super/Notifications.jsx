@@ -110,7 +110,7 @@ export default function NotificationSuper() {
             "
          >
           
-          <ul className="mx-5 w-full lg:w-[700px] w-full text-sm" >
+          <ul className="mx-0 w-full lg:w-[700px] w-full text-sm" >
             {filteredNotificationData.length === 0 ? (
               <li className="px-4  py-3 text-sm text-gray-500">No notifications</li>
             ) : (
@@ -121,7 +121,7 @@ export default function NotificationSuper() {
                     !n.read ? "font-semibold" : ""
                   }`}
                 >
-                  <div className="flex justify-start items-center">
+                  <div className="flex justify-center items-center">
                     <span className="justify-start">{n.message}</span>
                     <span className="text-xs text-gray-400">{n.date}</span>
                   </div>
