@@ -1,39 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { BellIcon } from "@heroicons/react/24/outline";
+import { notificationsData } from "@/data/notification";
+import { formatNotificationTime } from "@/utils/time";
 import { Link , useOutletContext } from "react-router-dom";
 
-
-// Dummy notifications
-const notifications = [
-  {
-    id: 1,
-    type: "staff",
-    message: "You have been invited to join the team",
-    read: false,
-    date: "2026-03-25",
-  },
-  {
-    id: 2,
-    type: "staff",
-    message: "Registration completed successfully",
-    read: false,
-    date: "2026-03-24",
-  },
-  {
-    id: 3,
-    type: "payout",
-    message: "Your payout request has been approved",
-    read: true,
-    date: "2026-03-23",
-  },
-  {
-    id: 4,
-    type: "post",
-    message: "New post published",
-    read: false,
-    date: "2026-03-22",
-  },
-];
 
 export default function NotificationSuper() {
   const [open, setOpen] = useState(false);
@@ -42,7 +12,7 @@ export default function NotificationSuper() {
   // const {  } = useOutletContext();
 
 
-  const unreadCount = notifications.filter((n) => !n.read).length;
+  const unreadCount = notificationsData.filter((n) => !n.read).length;
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -55,9 +25,9 @@ export default function NotificationSuper() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const filteredNotificationData = notifications.filter((item) => {
+  const filteredNotificationData = notificationsData.filter((item) => {
     const matchesFilter =
-    notificationCategoryFilter === "all" || item.type === notificationCategoryFilter;
+    notificationCategoryFilter === "all" || item.category === notificationCategoryFilter;
   
     const matchesSearch =
       (item.message?.toLowerCase() || "").includes(searchQuery?.toLowerCase() || "");
@@ -123,7 +93,7 @@ export default function NotificationSuper() {
                 > 
                   <div className="flex justify-start items-center gap-2">
                     <span className="justify-start flex-1">{n.message}</span>
-                    <span className="text-xs text-gray-400 w-[100px]">{n.date}</span>
+                    <span className="text-xs text-gray-400 w-[100px]">{formatNotificationTime(n.date)}</span>
                   </div>
                 </li>
               ))
