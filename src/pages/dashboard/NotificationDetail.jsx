@@ -10,7 +10,7 @@ export default function NotificationDetail() {
 
   // Pata notification kulingana na id na type
   const notification = notificationsData.find(
-    (n) => n.id === parseInt(id) && n.category === category
+    (n) => n.id === id && n.category === category
   );
 
   if (!notification) {
