@@ -25,6 +25,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
   const toggleDrawer = () => setSidebarOpen(!sidebarOpen);
   const location = useLocation();
   const [jobFilter, setJobFilter] = useState("all");
+  const [reportsFilter, setReportsFilter] = useState("all");
   const [payoutFilter, setPayoutFilter] = useState("all");
   const [staffFilter, setStaffFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -83,6 +84,8 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
       setEndDate={setEndDate}
       setPlacementFilter={setPlacementFilter}
       onReset={handleReset}
+      onReportsFilter={setReportsFilter}
+      onSearchReport={setSearchQuery}
     />;
   };
 
@@ -119,6 +122,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
             staffFilter , setStaffFilter,
             payoutFilter , setPayoutFilter,
             placementFilter, setPlacementFilter,
+            reportsFilter , setReportsFilter ,
             setNotificationFilter, notificationCategoryFilter,
             searchQuery, setSearchQuery, 
             startDate, setStartDate,

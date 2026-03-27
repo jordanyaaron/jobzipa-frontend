@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { jobReportsData } from "@/data/roports"; // hii ndio data ya job reports
-import { useNavigate } from "react-router-dom";
+import { useNavigate , useOutletContext } from "react-router-dom";
 
 export default function ReportSuper() {
+  const { reportsFilter, setReportsFilter, searchQuery , setSearchQuery } = useOutletContext();
   const [statusFilter, setStatusFilter] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
   // Filter and search logic
   const filteredReports = jobReportsData.filter((report) => {
-    const matchesStatus = statusFilter === "all" || report.status === statusFilter;
+    const matchesStatus = reportsFilter === "all" || report.status === reportsFilter;
     const matchesSearch =
       report.jobTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
       report.reporter.toLowerCase().includes(searchQuery.toLowerCase());
@@ -26,7 +26,7 @@ export default function ReportSuper() {
 
   return (
     <div className="p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
-      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+      <div className="hidden lg:flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
         <h1 className="text-lg lg:text-2xl font-bold">Job Reports</h1>
 
         <div className="flex gap-2 w-full lg:w-auto">
@@ -42,7 +42,7 @@ export default function ReportSuper() {
           {/* Status filter */}
           <select
             value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value)}
+            onChange={(e) => setReportsFilter(e.target.value)}
             className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
           >
             <option value="all">All Statuses</option>
