@@ -83,8 +83,10 @@ export default function ReportSuper() {
                   <td className="p-3">{report.jobTitle}</td>
                   <td className="p-3">{report.reporter}</td>
                   <td className="p-3">{report.message}</td>
-                  <td className={`px-3 py-1 rounded-lg ${statusColors[report.status]}`}>
-                    {report.status.replace("_", " ")}
+                  <td className="p-3" >
+                    <span className={`p-1 px-2 rounded-lg ${statusColors[report.status]}`}>
+                      {report.status.replace("_", " ")}
+                    </span>
                   </td>
                   <td className="p-3">{new Date(report.date).toLocaleString()}</td>
                   <td className="p-3">
