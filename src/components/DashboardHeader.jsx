@@ -60,7 +60,7 @@ export default function DashboardHeader({
         {
           location.pathname === "/super/notifications" 
             ? <h1 className="text-lg  md:text-lg font-bold">Notifications</h1>
-            : location.pathname === "/super/reports"  
+            : location.pathname === "/super/report"  
             ? <h1 className="text-lg  md:text-lg font-bold">Reports</h1>
             : <Link to="/" className="flex items-center">
                 <img src={JobzipaLogo} alt="Jobzipa" className="h-9" />
@@ -160,7 +160,7 @@ export default function DashboardHeader({
                         onClick={() => setMobileSearchOpen(true)}
                         className="p-2 rounded-lg hover:bg-[var(--hover)]"
                       >
-                        <CalendarIcon className="h-6 w-6 text-[var(--text)]" />
+                        <MagnifyingGlassIcon className="h-6 w-6 text-[var(--text)]" />
                       </button>
                     </div> 
 
@@ -172,7 +172,7 @@ export default function DashboardHeader({
                         }}
                         className="p-2 rounded-lg hover:bg-[var(--hover)]"
                       >
-                        <MagnifyingGlassIcon className="h-6 w-6 text-[var(--text)]" />
+                        <FunnelIcon className="h-6 w-6 text-[var(--text)]" />
                       </button>
 
                       {dropdownOpen && (
