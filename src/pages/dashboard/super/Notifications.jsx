@@ -98,7 +98,7 @@ export default function NotificationSuper() {
                 > 
                   <div className="flex justify-start items-center gap-2">
                     <div
-                      className="flex justify-start items-center gap-2"
+                      className="flex-1 flex  justify-start items-center gap-2"
                     >
                       {
                         n.type === 'request'
