@@ -46,6 +46,7 @@ import WinningTeam from '../pages/dashboard/super/WinningTeam'
 import SettingsSuper from '../pages/dashboard/super/Settings'
 import SuperPayouts from '../pages/dashboard/super/Payouts'
 import InviteMember from '../pages/dashboard/InviteStaff'
+import NotificationDetail from '@/pages/dashboard/NotificationDetail';
 
 const AppRoutes = ({ darkMode, setDarkMode }) => {
     return (
@@ -94,6 +95,13 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
             <Route path="/super/notifications" element={
                 <ProtectedRoute requireSuperuser={true}>
                   <NotificationSuper />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route path="/super/notifications/:category/:id" element={
+                <ProtectedRoute requireSuperuser={true}>
+                  <NotificationDetail />
                 </ProtectedRoute>
               } 
             />

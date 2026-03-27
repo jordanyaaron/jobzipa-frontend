@@ -7,10 +7,11 @@ import {
 } from "@heroicons/react/24/outline";
 import { notificationsData } from "@/data/notification";
 import { formatNotificationTime } from "@/utils/time";
-import { Link , useOutletContext } from "react-router-dom";
+import { Link , useOutletContext , useNavigate } from "react-router-dom";
 
 
 export default function NotificationSuper() {
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef();
   const {  setNotificationFilter, notificationCategoryFilter , searchQuery, setSearchQuery } = useOutletContext();
@@ -18,7 +19,9 @@ export default function NotificationSuper() {
 
 
   const unreadCount = notificationsData.filter((n) => !n.read).length;
-
+  const handleClick = (n) => {
+    navigate(`/super/notifications/${n.category}/${n.id}`);
+  };
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -92,6 +95,7 @@ export default function NotificationSuper() {
               filteredNotificationData.map((n) => (
                 <li
                   key={n.id}
+                  onClick={()=>handleClick(n)}
                   className={`px-4 py-3 text-sm text-[var(--text)]  border-b border-[var(--border)] hover:bg-[var(--hover)] cursor-pointer ${
                     !n.read ? "font-bold" : ""
                   }`}
