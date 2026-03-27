@@ -118,12 +118,12 @@ export default function NotificationSuper() {
                 <li
                   key={n.id}
                   className={`px-4 py-3 text-sm text-[var(--text)]  border-b border-[var(--border)] hover:bg-[var(--hover)] cursor-pointer ${
-                    !n.read ? "font-semibold" : ""
+                    !n.read ? "font-bold" : ""
                   }`}
-                >
-                  <div className="flex justify-center items-center">
-                    <span className="justify-start">{n.message}</span>
-                    <span className="text-xs text-gray-400">{n.date}</span>
+                > 
+                  <div className="flex justify-start items-center gap-2">
+                    <span className="justify-start flex-1">{n.message}</span>
+                    <span className="text-xs text-gray-400 w-[100px]">{n.date}</span>
                   </div>
                 </li>
               ))
