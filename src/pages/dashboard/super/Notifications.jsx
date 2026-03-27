@@ -1,5 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import { BellIcon } from "@heroicons/react/24/outline";
+import { 
+  CheckBadgeIcon , PlusCircleIcon ,
+  PencilSquareIcon , ArrowUpIcon ,
+  ClockIcon , CheckCircleIcon ,
+  XCircleIcon , UserIcon,
+  CheckBadgeIcon
+
+} from "@heroicons/react/24/outline";
 import { notificationsData } from "@/data/notification";
 import { formatNotificationTime } from "@/utils/time";
 import { Link , useOutletContext } from "react-router-dom";
@@ -84,7 +91,7 @@ export default function NotificationSuper() {
             {filteredNotificationData.length === 0 ? (
               <li className="px-4  py-3 text-sm text-gray-500">No notifications</li>
             ) : (
-              notifications.map((n) => (
+              filteredNotificationData.map((n) => (
                 <li
                   key={n.id}
                   className={`px-4 py-3 text-sm text-[var(--text)]  border-b border-[var(--border)] hover:bg-[var(--hover)] cursor-pointer ${
@@ -92,8 +99,84 @@ export default function NotificationSuper() {
                   }`}
                 > 
                   <div className="flex justify-start items-center gap-2">
-                    <span className="justify-start flex-1">{n.message}</span>
-                    <span className="text-xs text-gray-400 w-[100px]">{formatNotificationTime(n.date)}</span>
+                    <div
+                      className="flex justify-start items-center gap-2"
+                    >
+                      {
+                        n.type === 'request'
+                        ? <span 
+                            className="
+                              flex  rounded-full justify-center p-3 bg-purple-200 text-purple-800
+                            "
+                          >
+                              <ArrowUpIcon className="h-6 w-6" />
+                          </span>
+                        : n.type === 'pre_approval' 
+                        ? <span 
+                            className="
+                              flex  rounded-full justify-center p-3 bg-green-200 text-green-900
+                            "
+                          >
+                            <ClockIcon className="h-6 w-6" />
+                          </span>
+                        : n.type === 'final_approval' 
+                        ? <span 
+                            className="
+                              flex  rounded-full justify-center p-3 bg-green-900 text-white
+                            "
+                          >
+                            <CheckCircleIcon className="h-6 w-6" />
+                          </span> 
+                        : n.type === 'rejected' 
+                        ? <span 
+                            className="
+                              flex  rounded-full justify-center p-3 bg-red-200 text-red-900
+                            "
+                          >
+                            <XCircleIcon className="h-6 w-6" />
+                          </span> 
+                        : n.type === 'created' 
+                        ? <span 
+                            className="
+                              flex  rounded-full justify-center p-3 bg-green-100 text-green-800
+                            "
+                          >
+                            <PlusCircleIcon className="h-6 w-6" />
+                          </span> 
+                        : n.type === 'updated' 
+                        ? <span 
+                            className="
+                              flex  rounded-full justify-center p-3 bg-blue-100 text-blue-800
+                            "
+                          >
+                            <PencilSquareIcon className="h-6 w-6" />
+                          </span> 
+                        : n.type === 'completed' 
+                        ? <span 
+                            className="
+                              flex  rounded-full justify-center p-3 bg-green-900 text-white
+                            "
+                          >
+                            <CheckBadgeIcon className="h-6 w-6" />
+                          </span> 
+                        : <span 
+                            className="
+                              flex rounded-full justify-center items-center  p-3 bg-[var(--hover)] text-[var(--text)]
+                            "
+                          >
+                            <UserIcon className="h-6 w-6" />
+                          </span> 
+                      }
+                      <p 
+                        className="
+                          grid grid-cols-1 flex-1
+                        "
+                      >
+                        <span className="justify-start col-span-1">{n.category}</span>
+                        <span className="justify-start col-span-1">{n.message}</span>
+                      </p>
+                    </div>
+                    <span className="text-xs text-gray-400 w-[90px]">{formatNotificationTime(n.date)}</span>
                   </div>
                 </li>
               ))
