@@ -127,7 +127,7 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
               } 
             />
 
-            <Route path="/super/report" element={
+            <Route path="/super/reports" element={
                 <ProtectedRoute requireSuperuser={true}>
                   <ReportSuper />
                 </ProtectedRoute>
