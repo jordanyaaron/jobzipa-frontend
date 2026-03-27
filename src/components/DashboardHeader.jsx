@@ -152,7 +152,7 @@ export default function DashboardHeader({
                       )}
                     </div>  
                 </> 
-              : location.pathname === "/super/reports" 
+              : location.pathname === "/super/report" 
               ? <>
                     {/* date filter */}
                     <div className="relative" >
@@ -258,7 +258,7 @@ export default function DashboardHeader({
             <ArrowLeftIcon className="h-6 w-6 text-[var(--text)]" />
           </button>
           {
-            location.pathname === "/super/reports" 
+            location.pathname === "/super/report" 
             ?  <input
                   type="text"
                   onChange={(e) => onSearchReport(e.target.value)}
