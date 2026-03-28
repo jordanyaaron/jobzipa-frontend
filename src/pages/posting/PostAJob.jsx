@@ -1,6 +1,5 @@
 import { Link ,useNavigate} from 'react-router-dom';
 import toast , { Toaster } from 'react-hot-toast';
-import { backendBaseUrl } from "../../utils/urls";
 import { countries , categories  } from "@/data/post-page";
 import { XMarkIcon , PlusIcon , PencilIcon , ArrowUpTrayIcon } from '@heroicons/react/24/outline';
 import api from '../../api/axios'
@@ -306,18 +305,16 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                 setCrop({ x: 0, y: 0 }); // reset crop state
                 setZoom(1);
             }
-            
-            // reader.readAsDataURL(file);
             setCropperDisplay("block");
         };
 
-    //  Crop complete
+        //  Crop complete
         const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
             setCroppedAreaPixels(croppedAreaPixels);
         }, []);
 
-    //  Helper function to generate cropped image
-    //  CROPING LOGO IMAGE
+        //  Helper function to generate cropped image
+        //  CROPING LOGO IMAGE
         const createCroppedImage = async () => {
             try {
             const image = await createImage(selectedImage);
@@ -1556,10 +1553,10 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                     ">
 
                         <p className="text-gray-500 dark:text-gray-400 text-xs">
-                        <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">About Us</a> |
-                        <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Contact Us</a> |
-                        <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Terms & Conditions</a> |
-                        <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Privacy & Cookies Policies</a>
+                            <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">About Us</a> |
+                            <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Contact Us</a> |
+                            <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Terms & Conditions</a> |
+                            <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Privacy & Cookies Policies</a>
                         </p>
 
                         <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">
@@ -1606,33 +1603,33 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                     {/* Cropper Area */}
                     <div className="relative flex-1 overflow-hidden rounded-lg">
                         <Cropper
-                        image={selectedImage}
-                        crop={crop}
-                        zoom={zoom}
-                        aspect={4 / 4}
-                        onCropChange={setCrop}
-                        onZoomChange={setZoom}
-                        onCropComplete={onCropComplete}
+                            image={selectedImage}
+                            crop={crop}
+                            zoom={zoom}
+                            aspect={4 / 4}
+                            onCropChange={setCrop}
+                            onZoomChange={setZoom}
+                            onCropComplete={onCropComplete}
                         />
                     </div>
 
                     {/* Buttons */}
                     <div className="flex justify-between gap-3 mt-4">
                         <button
-                        onClick={handleCancelCropping}
-                        className="
-                            flex-1
-                            h-[45px]
-                            rounded-lg
-                            border
-                            border-gray-300
-                            dark:border-slate-600
-                            text-gray-700
-                            dark:text-gray-300
-                            hover:bg-gray-100
-                            dark:hover:bg-slate-800
-                            transition
-                        "
+                            onClick={handleCancelCropping}
+                            className="
+                                flex-1
+                                h-[45px]
+                                rounded-lg
+                                border
+                                border-gray-300
+                                dark:border-slate-600
+                                text-gray-700
+                                dark:text-gray-300
+                                hover:bg-gray-100
+                                dark:hover:bg-slate-800
+                                transition
+                            "
                         >
                         Cancel
                         </button>
