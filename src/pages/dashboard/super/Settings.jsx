@@ -45,23 +45,94 @@ export default function SettingsSuper() {
   );
 }
 
-function ProfileSettings() {
-  return (
-    <div className="space-y-3">
-      <h2 className="font-semibold">Profile Info</h2>
 
+function ProfileSettings() {
+  const [form, setForm] = useState({
+    username: "",
+    firstName: "",
+    lastName: "",
+    gender: "",
+    profileImage: null,
+  });
+
+  const [preview, setPreview] = useState(null);
+
+  // handle input change
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  // handle image upload
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setForm({ ...form, profileImage: file });
+      setPreview(URL.createObjectURL(file));
+    }
+  };
+
+  return (
+    <div className="space-y-4">
+      <h2 className="font-semibold text-lg">Profile Info</h2>
+
+      {/* Profile Picture */}
+      <div className="flex items-center gap-4">
+        <div className="w-16 h-16 rounded-full bg-gray-200 overflow-hidden">
+          {preview ? (
+            <img src={preview} alt="profile" className="w-full h-full object-cover" />
+          ) : (
+            <div className="flex items-center justify-center h-full text-sm text-gray-500">
+              No Image
+            </div>
+          )}
+        </div>
+
+        <input type="file" accept="image/*" onChange={handleImageChange} />
+      </div>
+
+      {/* Username */}
       <input
         type="text"
-        placeholder="Full Name"
+        name="username"
+        placeholder="Username"
+        value={form.username}
+        onChange={handleChange}
         className="w-full px-3 py-2 border rounded-lg"
       />
 
+      {/* First Name */}
       <input
-        type="email"
-        placeholder="Email"
+        type="text"
+        name="firstName"
+        placeholder="First Name"
+        value={form.firstName}
+        onChange={handleChange}
         className="w-full px-3 py-2 border rounded-lg"
       />
 
+      {/* Last Name */}
+      <input
+        type="text"
+        name="lastName"
+        placeholder="Last Name"
+        value={form.lastName}
+        onChange={handleChange}
+        className="w-full px-3 py-2 border rounded-lg"
+      />
+
+      {/* Gender */}
+      <select
+        name="gender"
+        value={form.gender}
+        onChange={handleChange}
+        className="w-full px-3 py-2 border rounded-lg"
+      >
+        <option value="">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      {/* Save */}
       <button className="px-4 py-2 bg-blue-600 text-white rounded-lg">
         Save Changes
       </button>
