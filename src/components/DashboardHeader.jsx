@@ -62,6 +62,8 @@ export default function DashboardHeader({
             ? <h1 className="text-lg  md:text-lg font-bold">Notifications</h1>
             : location.pathname === "/super/report"  
             ? <h1 className="text-lg  md:text-lg font-bold">Reports</h1>
+            : location.pathname === "/super/settings" 
+            ? <h1 className="text-lg  md:text-lg font-bold">Settings</h1>
             : <Link to="/" className="flex items-center">
                 <img src={JobzipaLogo} alt="Jobzipa" className="h-9" />
               </Link>

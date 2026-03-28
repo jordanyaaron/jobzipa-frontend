@@ -11,9 +11,9 @@ export default function SettingsSuper() {
   ];
 
   return (
-    <div className="p-4 lg:p-6 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4">
+    <div className="mt-[64px] lg:m-0 p-4 lg:p-6 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4">
 
-      <h1 className="text-xl md:text-2xl font-bold">Settings</h1>
+      <h1 className="hidden lg:block text-2xl font-bold">Settings</h1>
 
       {/* Tabs */}
       <div className="flex gap-2 overflow-x-auto">
