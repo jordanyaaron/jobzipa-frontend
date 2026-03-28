@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { jobReportsData } from "@/data/roports"; // hii ndio data ya job reports
 import { useNavigate , useOutletContext } from "react-router-dom";
+import { EyeIcon, ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
 export default function ReportSuper() {
   const { reportsFilter, setReportsFilter, searchQuery , setSearchQuery } = useOutletContext();
