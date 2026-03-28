@@ -167,22 +167,22 @@ function ProfileSettings() {
           <h2 className="font-semibold text-lg">Profile Info</h2>
 
           {/* Profile Picture */}
-          <div className="relative w-16">
-            <div className="w-16 h-16 rounded-full items-center gap-4 bg-gray-200 overflow-hidden">
+          <div className="relative w-18">
+            <div className="w-18 h-18 rounded-full items-center gap-4 bg-gray-200 overflow-hidden">
                 <img src={imageSrc} alt="profile" className="w-full h-full object-cover" />
             </div>
             <button onClick={handleSelectProfileImage} 
               className="
                 bg-[var(--main-bg)]
                 text-[var(--text)]
-                absolute top-11 right-2
+                absolute top-11 right-0
                 border-2 border-[var(--text)]
                 rounded-full
-                p-1
+                p-2
                 cursor-pointer
               "
             >
-              <PlusIcon className="h-3 w-3" />
+              <PlusIcon className="h-4 w-4" />
             </button>
             <input 
               ref={profilePictureRef}
