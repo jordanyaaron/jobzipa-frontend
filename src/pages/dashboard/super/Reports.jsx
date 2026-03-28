@@ -89,16 +89,16 @@ export default function ReportSuper() {
                     </span>
                   </td>
                   <td className="p-3">{new Date(report.date).toLocaleString()}</td>
-                  <td className="p-3">
+                  <td className="p-3 gap-2">
                     <button
-                      onClick={() => navigate(`/jobs/${report.jobId}`)}
-                      className="px-1.5 py-3 bg-red-600 text-white rounded-lg text-sm"
+                      onClick={() => navigate(`/super/report/${report.jobId}`)}
+                      className="px-3 py-1.3 bg-red-600 text-white rounded-lg text-sm"
                     >
                       view
                     </button>
                     <button
-                      onClick={() => navigate(`/report/${report.jobId}`)}
-                      className="px-1.5 py-3 bg-green-600 text-white rounded-lg text-sm"
+                      onClick={() => navigate(`/super/jobs/${report.jobId}`)}
+                      className="px-3 py-1.3 bg-green-600 text-white rounded-lg text-sm"
                     >
                       Go to Job
                     </button>
