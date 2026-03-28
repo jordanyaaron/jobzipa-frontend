@@ -173,11 +173,13 @@ function ProfileSettings() {
             </div>
             <button onClick={handleSelectProfileImage} 
               className="
-                text-[var(--main-bg)]
-                bg-[var(--text)]
-                absolute top-11 right-5
+                bg-[var(--main-bg)]
+                text-[var(--text)]
+                absolute top-11 right-2
+                border-2 border-[var(--text)]
                 rounded-full
                 p-1
+                cursor-pointer
               "
             >
               <PlusIcon className="h-3 w-3" />
