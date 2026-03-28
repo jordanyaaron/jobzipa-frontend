@@ -89,19 +89,33 @@ export default function ReportSuper() {
                     </span>
                   </td>
                   <td className="p-3">{new Date(report.date).toLocaleString()}</td>
-                  <td className="p-3 gap-2">
-                    <button
-                      onClick={() => navigate(`/super/report/${report.jobId}`)}
-                      className="px-3 py-1.3 bg-red-600 text-white rounded-lg text-sm"
-                    >
-                      view
-                    </button>
-                    <button
-                      onClick={() => navigate(`/super/jobs/${report.jobId}`)}
-                      className="px-3 py-1.3 bg-green-600 text-white rounded-lg text-sm"
-                    >
-                      Go to Job
-                    </button>
+                  <td className="p-3 whitespace-nowrap">
+                    <div className="flex items-center gap-3">
+                      {/* Go to Job */}
+                      <button
+                        onClick={() => navigate(`/jobs/${report.jobId}`)}
+                        className="
+                          p-2 rounded-lg 
+                          hover:bg-blue-100 
+                          text-blue-600
+                        "
+                        title="Go to job"
+                      >
+                        <ArrowTopRightOnSquareIcon className="h-5 w-5" />
+                      </button>
+                      {/* View Report */}
+                      <button
+                        onClick={() => navigate(`/super/report/${report.id}`)}
+                        className="
+                          p-2 rounded-lg 
+                          hover:bg-gray-200 
+                          text-gray-700
+                        "
+                        title="View report"
+                      >
+                        <EyeIcon className="h-5 w-5" />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))
