@@ -41,6 +41,7 @@ import AnalyticsSuper from '../pages/dashboard/super/Analytics'
 import JobsSuper from '../pages/dashboard/super/Jobs'
 import NotificationSuper from '../pages/dashboard/super/Notifications'
 import ReportSuper from '../pages/dashboard/super/Reports'
+import ReportDetail from '@/pages/dashboard/ReportDetail';
 import RevenueAndFinace from '../pages/dashboard/super/RevenueAndFinace'
 import WinningTeam from '../pages/dashboard/super/WinningTeam'
 import SettingsSuper from '../pages/dashboard/super/Settings'
@@ -130,6 +131,13 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
             <Route path="/super/report" element={
                 <ProtectedRoute requireSuperuser={true}>
                   <ReportSuper />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route path="/super/report/:id" element={
+                <ProtectedRoute requireSuperuser={true}>
+                  <ReportDetail />
                 </ProtectedRoute>
               } 
             />
