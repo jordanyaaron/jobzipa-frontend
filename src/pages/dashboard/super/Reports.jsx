@@ -82,7 +82,7 @@ export default function ReportSuper() {
                 >
                   <td className="p-3">{report.jobTitle}</td>
                   <td className="p-3">{report.reporter}</td>
-                  <td className="p-3">{report.message}</td>
+                  <td className="p-3 max-w-[250px] truncate ">{report.message}</td>
                   <td className="p-3" >
                     <span className={`py-1 px-3 rounded-lg ${statusColors[report.status]}`}>
                       {report.status.replace("_", " ")}
@@ -92,7 +92,13 @@ export default function ReportSuper() {
                   <td className="p-3">
                     <button
                       onClick={() => navigate(`/jobs/${report.jobId}`)}
-                      className="px-3 py-1 bg-blue-600 text-white rounded-lg text-sm"
+                      className="px-1.5 py-3 bg-red-600 text-white rounded-lg text-sm"
+                    >
+                      view
+                    </button>
+                    <button
+                      onClick={() => navigate(`/report/${report.jobId}`)}
+                      className="px-1.5 py-3 bg-green-600 text-white rounded-lg text-sm"
                     >
                       Go to Job
                     </button>
