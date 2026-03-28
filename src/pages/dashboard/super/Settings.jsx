@@ -50,7 +50,7 @@ const [activeTab, setActiveTab] = useState("profile");
 
 
 function ProfileSettings() {
-  const profilePictureInput = useRef(null)
+  const profilePictureRef = useRef(null)
   const [imageSrc, setImageSrc] = useState("https://jobzipa-profile-images.s3.eu-north-1.amazonaws.com/detault.jpg");
   const [selectedImage, setSelectedImage] = useState(null);
   const [zoom, setZoom] = useState(1);
@@ -89,7 +89,7 @@ function ProfileSettings() {
   };
 
   const handleSelectProfileImage = (e) => {
-    profilePictureInput.current.click();
+    profilePictureRef.current.click();
   };
 
   const  handleCancelCropping = () => {
@@ -167,7 +167,7 @@ function ProfileSettings() {
           <h2 className="font-semibold text-lg">Profile Info</h2>
 
           {/* Profile Picture */}
-          <div className="relative">
+          <div className="relative w-16">
             <div className="w-16 h-16 rounded-full items-center gap-4 bg-gray-200 overflow-hidden">
                 <img src={imageSrc} alt="profile" className="w-full h-full object-cover" />
             </div>
@@ -175,14 +175,15 @@ function ProfileSettings() {
               className="
                 text-[var(--main-bg)]
                 bg-[var(--text)]
-                absolute top-13 right-3
+                absolute top-11 right-5
                 rounded-full
-                p-2
+                p-1
               "
             >
-              <PlusIcon className="h-4 w-4" />
+              <PlusIcon className="h-3 w-3" />
             </button>
             <input 
+              ref={profilePictureRef}
               className="hidden" 
               id="logoInput" 
               type="file" accept="image/*" onChange={handleImageChange} />
