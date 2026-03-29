@@ -210,7 +210,11 @@ function ProfileSettings() {
               placeholder="Username"
               value={form.firstName}
               onChange={handleChange}
-              className="flex-1 px-3 py-2 border border-[var(--border)] rounded-lg"
+              className="
+                w-[calc(100vw/2-80px)] px-3 py-2 
+                border border-[var(--border)] 
+                rounded-lg
+              "
             />
 
             <input
@@ -219,7 +223,11 @@ function ProfileSettings() {
               placeholder="First Name"
               value={form.lastName}
               onChange={handleChange}
-              className="flex-1 px-3 py-2 border border-[var(--border)] rounded-lg"
+              className="
+                w-[calc(100vw/2-80px)] px-3 py-2 
+                border border-[var(--border)] 
+                rounded-lg
+              "
             />
           </div>
 
