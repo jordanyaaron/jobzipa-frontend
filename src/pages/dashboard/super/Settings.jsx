@@ -504,13 +504,14 @@ function SecuritySettings() {
           <input
             type={showOldPassword ? "text" : "password"}
             name="old"
+            value={form.oldPassword}
             placeholder="Enter Old Password"
             onChange={handleChange}
             className="w-full h-11 px-4 pr-12 rounded-xl bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-black/40 transition"
           />
           <button
             type="button"
-            onClick={()=>setShowOldPassword(!oldPassword)}
+            onClick={()=>setShowOldPassword(!showOldPassword)}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500"
           >
             {
@@ -523,7 +524,8 @@ function SecuritySettings() {
 
       <div className="relative">
         <input
-          type={showOldPassword ? "text" : "password"}
+          type={showNewPassword ? "text" : "password"}
+          value={form.oldPassword}
           name="oldPassword"
           placeholder="Enter Old Password"
           onChange={handleChange}
@@ -531,7 +533,7 @@ function SecuritySettings() {
         />
         <button
           type="button"
-          onClick={()=>setShowNewPassword(!newPassword)}
+          onClick={()=>setShowNewPassword(!showNewPassword)}
           className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500"
         >
           {
