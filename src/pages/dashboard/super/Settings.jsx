@@ -211,7 +211,7 @@ function ProfileSettings() {
               value={form.firstName}
               onChange={handleChange}
               className="
-                w-[calc(100vw/2-40px)] px-3 py-2 
+                w-[calc(100vw/2-37.5px)] px-3 py-2 
                 border border-[var(--border)] 
                 rounded-lg
               "
@@ -224,7 +224,7 @@ function ProfileSettings() {
               value={form.lastName}
               onChange={handleChange}
               className="
-                w-[calc(100vw/2-40px)] px-3 py-2 
+                w-[calc(100vw/2-37.5px)] px-3 py-2 
                 border border-[var(--border)] 
                 rounded-lg
               "
@@ -247,20 +247,50 @@ function ProfileSettings() {
               "
             >
               <p className="flex gape-2 justify-start mb-[15px] items-center">
-                <button onClick={()=>setGender(null)} className={`mr-2 rounded-full p-[3px]  border-[2px] ${ !gender ? "border-blue-500" : "border-[var(--border)]" } `}>
-                  <span className={`block rounded-full h-2 w-2 ${!gender ? "bg-blue-500" : "bg-[var(--border)]" }`}></span>
+                <button onClick={()=>setGender(null)} className={`
+                  mr-2 rounded-full p-[3px]  border-[2px] 
+                  transition-all duration-200
+                  hover:scale-105 active:scale-90
+                  ${ !gender ? "border-blue-500" : "border-[var(--border)]" }`}
+              >
+                  <span className={`
+                    block rounded-full h-2 w-2 
+                    transition-all duration-200
+                    hover:scale-105 active:scale-90
+                    ${!gender ? "bg-blue-500" : "bg-[var(--border)]" }`}
+                  ></span>
                 </button>
                 <span className="text-[var(--text)]">Not Prefer To Say</span>
               </p>
               <p className="flex gape-2 justify-start mb-[15px]  items-center">
-                <button onClick={()=>setGender('Fe')} className={`mr-2 rounded-full p-[3px] border-[2px] ${ gender === 'Fe' ? "border-blue-500" : "border-[var(--border)]" } `}>
-                  <span className={`block rounded-full h-2 w-2 ${gender === 'Fe' ? "bg-blue-500" : "bg-[var(--border)]" }`}></span>
+                <button onClick={()=>setGender('Fe')} 
+                className={`
+                    mr-2 rounded-full transition-all duration-200
+                    hover:scale-105 active:scale-90 p-[3px] border-[2px] 
+                    ${ gender === 'Fe' ? "border-blue-500" : "border-[var(--border)]" } `}
+                >
+                  <span className={`
+                    block rounded-full h-2 w-2 
+                    transition-all duration-200
+                    hover:scale-105 active:scale-90
+                    ${gender === 'Fe' ? "bg-blue-500" : "bg-[var(--border)]" }`}
+                  ></span>
                 </button>
                 <span className="text-[var(--text)]">Female</span>
               </p>
               <p className="flex gape-2 justify-start mb-[15px]  items-center">
-                <button onClick={()=>setGender('Ma')} className={`mr-2 rounded-full p-[3px] border-[2px] ${ gender === 'Ma' ? "border-blue-500" : "border-[var(--border)]" } `}>
-                <span className={`block rounded-full h-2 w-2 ${gender === 'Ma' ? "bg-blue-500" : "bg-[var(--border)]" }`}></span>
+                <button onClick={()=>setGender('Ma')} className={`
+                    mr-2 rounded-full transition-all duration-200
+                    hover:scale-105 active:scale-90 p-[3px] border-[2px] 
+                    ${ gender === 'Ma' ? "border-blue-500" : "border-[var(--border)]" } 
+                  `}
+                >
+                <span className={`
+                    block  rounded-full h-2 w-2
+                    transition-all duration-200
+                    hover:scale-105 active:scale-90
+                   ${gender === 'Ma' ? "bg-blue-500" : "bg-[var(--border)]" }`}
+                ></span>
                 </button>
                 <span className="text-[var(--text)]">Male</span>
               </p>
