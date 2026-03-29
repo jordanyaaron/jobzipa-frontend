@@ -60,12 +60,13 @@ function ProfileSettings() {
 
   // field to send
   const [profileImage, setProfileImage] = useState(null);
+  const [ gender , setGender] = useState(null)
 
   const [form, setForm] = useState({
     username: "adminjoe",
     firstName: "Jordan",
     lastName: "Daniel",
-    gender: "Male",
+    gender: gender,
     profileImage: profileImage,
   });
 
@@ -171,6 +172,7 @@ function ProfileSettings() {
             <div className="w-18 h-18 rounded-full items-center gap-4 bg-gray-200 overflow-hidden">
                 <img src={imageSrc} alt="profile" className="w-full h-full object-cover" />
             </div>
+            
             <button onClick={handleSelectProfileImage} 
               className="
                 bg-[var(--main-bg)]
@@ -190,49 +192,72 @@ function ProfileSettings() {
               id="logoInput" 
               type="file" accept="image/*" onChange={handleImageChange} />
           </div>
+          <div className="relative w-1/2">
+              {/* Last Name */}
+              <input
+                type="text"
+                name="username"
+                placeholder="username"
+                value={form.lastName}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
+              />
+          </div>
+          <div
+              className="
+                flex flex-col gape-2
+              "
+          >
+            {/* Username */}
+              <input
+                  type="text"
+                  name="firstName"
+                  placeholder="Username"
+                  value={form.firstName}
+                  onChange={handleChange}
+                  className="flex-1 px-3 py-2 border border-[var(--border)] rounded-lg"
+                />
 
-          {/* Username */}
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={form.username}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg"
-          />
-
-          {/* First Name */}
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            value={form.firstName}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg"
-          />
-
-          {/* Last Name */}
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            value={form.lastName}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg"
-          />
+                {/* First Name */}
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="First Name"
+                  value={form.lastName}
+                  onChange={handleChange}
+                  className="flex-1 px-3 py-2 border border-[var(--border)] rounded-[lg]"
+                />
+          </div>
 
           {/* Gender */}
-          <select
-            name="gender"
-            value={form.gender}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg"
-          >
-            <option value="">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
-
+          <div>
+            <div 
+              className="
+                flex justify-start items-center flex-col
+              "
+            >
+              <b>Gender</b>
+              <span>{'(Optional)'}</span>
+            </div>
+            <div 
+              className="
+                px-3 pt-1
+              "
+            >
+              <p className="flex flex-col gape-2 justify-start items-center">
+                <button onClick={()=>setGender(null)} className={`p-1 border-[2px] ${ !gender ? "border-blue-500" : "border-[var(--border)]" } `}></button>
+                <span className={` block h-2 w-2 ${!gender ? "bg-blue-500" : "bg-[var(--border)]" }`}>Not Prefer to Say</span>
+              </p>
+              <p className="flex flex-col gape-2 justify-start items-center">
+                <button onClick={()=>setGender('Fe')} className={`p-1 border-[2px] ${ gender === 'Fe' ? "border-blue-500" : "border-[var(--border)]" } `}></button>
+                <span className={` block h-2 w-2 ${gender === 'Fe' ? "bg-blue-500" : "bg-[var(--border)]" }`}>Female</span>
+              </p>
+              <p className="flex flex-col gape-2 justify-start items-center">
+                <button onClick={()=>setGender('Ma')} className={`p-1 border-[2px] ${ gender === 'Ma' ? "border-blue-500" : "border-[var(--border)]" } `}></button>
+                <span className={` block h-2 w-2 ${gender === 'Ma' ? "bg-blue-500" : "bg-[var(--border)]" }`}>Male</span>
+              </p>
+            </div>
+          </div>
           {/* Save */}
           <button className="px-4 py-2 bg-blue-600 text-white rounded-lg">
             Save Changes
@@ -291,14 +316,14 @@ function ProfileSettings() {
                       hover:bg-gray-100
                       dark:hover:bg-slate-800
                       transition
-                  "
+                    "
                   >
                   Cancel
                   </button>
 
                   <button
                   onClick={handleCropProfilePicture}
-                  className="
+                    className="
                       flex-1
                       h-[45px]
                       rounded-lg
@@ -319,7 +344,7 @@ function ProfileSettings() {
                       duration-200
                   "
                   >
-                  Crop Logo
+                    Crop Logo
                   </button>
               </div>
               </div>
