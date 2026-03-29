@@ -178,14 +178,14 @@ function ProfileSettings() {
               className="
                 bg-[var(--main-bg)]
                 text-[var(--text)]
-                absolute top-9 right-0
+                absolute top-9.5 right-[-6px]
                 border-[3px] border-[var(--text)]
                 rounded-full
-                p-[3px]
+                p-[5px]
                 cursor-pointer
               "
             >
-              <PlusIcon className="h-3 w-3" />
+              <PlusIcon className="h-3.5 w-3.5" />
             </button>
             <input 
               ref={profilePictureRef}
@@ -244,13 +244,14 @@ function ProfileSettings() {
             </div>
             <div 
               className="
-                px-3 pt-1
+                relative
               "
             >
               <p 
                 onClick={()=>setGender(null)} 
                 className="
-                  flex gape-2 justify-start mb-[15px] items-center
+                  rounded-lg py-2 px-3
+                  flex gape-2 justify-start  items-center
                   cursor-pointer hover:bg-[var(--hover)]
                 "
               >
@@ -272,7 +273,8 @@ function ProfileSettings() {
               <p 
                 onClick={()=>setGender('Fe')} 
                 className="
-                  flex gape-2 justify-start mb-[15px] items-center
+                  rounded-lg py-2 px-3
+                  flex gape-2 justify-start items-center
                   cursor-pointer hover:bg-[var(--hover)]
                 "
               >
@@ -294,7 +296,8 @@ function ProfileSettings() {
               <p 
                 onClick={()=>setGender('Ma')} 
                 className="
-                  flex gape-2 justify-start mb-[15px] items-center
+                  rounded-lg py-2 px-3
+                  flex gape-2 justify-start items-center
                   cursor-pointer hover:bg-[var(--hover)]
                 "
               >
