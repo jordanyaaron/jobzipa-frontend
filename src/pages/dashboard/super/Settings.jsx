@@ -541,27 +541,6 @@ function SecuritySettings() {
           }
         </button>
       </div>
-      <div className="relative w-[50%-10px]">
-          {/* Last Name */}
-          <input
-            type={ showOldPassword ? 'password' : 'text' }
-            name="newPassword"
-            placeholder="Enter Old Password"
-            value={form.oldPassword}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
-          />
-          <button
-            onClick={()=>showOldPassword(oldPassword)}
-            className="absolute text-[var(--text)] right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500"
-        >
-          {
-            showOldPassword 
-            ? <EyeSlashIcon/>
-            : <EyeIcon/>  
-          }
-        </button>
-      </div>
       
       <div className="text-sm text-gray-700">
         password must contain at least&nbsp;
