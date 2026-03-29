@@ -516,8 +516,8 @@ function SecuritySettings() {
           >
             {
               showOldPassword 
-              ? <EyeSlashIcon/>
-              : <EyeIcon/>  
+              ? <EyeSlashIcon className="w-5 h-5" />
+              : <EyeIcon className="w-5 h-5" />  
             }
           </button>
       </div>
@@ -525,7 +525,7 @@ function SecuritySettings() {
       <div className="relative">
         <input
           type={showNewPassword ? "text" : "password"}
-          value={form.oldPassword}
+          value={form.newPassword}
           name="oldPassword"
           placeholder="Enter Old Password"
           onChange={handleChange}
@@ -534,12 +534,12 @@ function SecuritySettings() {
         <button
           type="button"
           onClick={()=>setShowNewPassword(!showNewPassword)}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500"
+          className="absolute p-1 right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500"
         >
           {
             showNewPassword 
-            ? <EyeSlashIcon/>
-            : <EyeIcon/>  
+            ? <EyeSlashIcon className="w-5 h-5" />
+            : <EyeIcon className="w-5 h-5" />  
           }
         </button>
       </div>
