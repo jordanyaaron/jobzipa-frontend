@@ -500,12 +500,52 @@ function SecuritySettings() {
   return (
     <div className="space-y-3">
       <h2 className="font-semibold">Security</h2>
+      <div className="relative">
+          <input
+            type={showOldPassword ? "text" : "password"}
+            name="old"
+            placeholder="Enter Old Password"
+            onChange={handleChange}
+            className="w-full h-11 px-4 pr-12 rounded-xl bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-black/40 transition"
+          />
+          <button
+            type="button"
+            onClick={()=>setShowOldPassword(!oldPassword)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500"
+          >
+            {
+              showOldPassword 
+              ? <EyeSlashIcon/>
+              : <EyeIcon/>  
+            }
+          </button>
+      </div>
 
+      <div className="relative">
+        <input
+          type={showOldPassword ? "text" : "password"}
+          name="oldPassword"
+          placeholder="Enter Old Password"
+          onChange={handleChange}
+          className="w-full h-11 px-4 pr-12 rounded-xl bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-black/40 transition"
+        />
+        <button
+          type="button"
+          onClick={()=>setShowNewPassword(!newPassword)}
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500"
+        >
+          {
+            showNewPassword 
+            ? <EyeSlashIcon/>
+            : <EyeIcon/>  
+          }
+        </button>
+      </div>
       <div className="relative w-[50%-10px]">
           {/* Last Name */}
           <input
             type={ showOldPassword ? 'password' : 'text' }
-            name="oldPassword"
+            name="newPassword"
             placeholder="Enter Old Password"
             value={form.oldPassword}
             onChange={handleChange}
@@ -522,32 +562,7 @@ function SecuritySettings() {
           }
         </button>
       </div>
-      <div className="relative gap-2 w-[calc(100vw-40px)]  lg:w-full">
-        
-        <input
-          type={ showNewPassword ? 'password' : 'text' }
-          name="newPassword"
-          placeholder="New Password"
-          value={form.newPassword}
-          onChange={handleChange}
-          className="
-            w-[calc(100vw/2-37.5px)] px-3 py-2 
-            border border-[var(--border)] 
-            rounded-lg
-          "
-        />
-        <button
-          onClick={()=>showNewPassword(newPassword)}
-          className="absolute text-[var(--text)] right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500"
-        >
-          {
-            showNewPassword 
-            ? <EyeSlashIcon/>
-            : <EyeIcon/> 
-          }
-        </button>
-      </div>
-      <div className="classname">
+      
       <div className="text-sm text-gray-700">
         password must contain at least&nbsp;
         <i className="align-middle">{passwordRules.length ? <CheckIcon className="w-4 h-4 inline" /> : <XMarkIcon className="w-4 h-4 inline" />}</i>&nbsp;Minimum of 8 Character,&nbsp;
@@ -557,7 +572,6 @@ function SecuritySettings() {
         <i className="align-middle">{passwordRules.number ? <CheckIcon className="w-4 h-4 inline" /> : <XMarkIcon className="w-4 h-4 inline" />}</i>&nbsp;1 Number,&nbsp;
 
         <i className="align-middle">{passwordRules.special ? <CheckIcon className="w-4 h-4 inline" /> : <XMarkIcon className="w-4 h-4 inline" />}</i>&nbsp;1 Symbol
-      </div>
       </div>
     </div>
   );
