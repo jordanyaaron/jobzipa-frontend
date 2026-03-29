@@ -512,7 +512,7 @@ function SecuritySettings() {
           <button
             type="button"
             onClick={()=>setShowOldPassword(!showOldPassword)}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500"
+            className="absolute text-[var(--text)] right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500"
           >
             {
               showOldPassword 
@@ -534,7 +534,7 @@ function SecuritySettings() {
         <button
           type="button"
           onClick={()=>setShowNewPassword(!showNewPassword)}
-          className="absolute p-1 right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500"
+          className="absolute p-1  text-[var(--text)]  right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500"
         >
           {
             showNewPassword 
@@ -546,13 +546,13 @@ function SecuritySettings() {
       
       <div className="text-sm text-gray-700">
         password must contain at least&nbsp;
-        <i className="align-middle">{passwordRules.length ? <CheckIcon className="w-4 h-4 inline" /> : <XMarkIcon className="w-4 h-4 inline" />}</i>&nbsp;Minimum of 8 Character,&nbsp;
+        <i className="align-middle">{passwordRules.length ? <CheckIcon className="w-4 h-4 inline text-green-600" /> : <XMarkIcon className="w-4 h-4 inline  text-red-600" />}</i>&nbsp;Minimum of 8 Character,&nbsp;
 
-        <i className="align-middle">{passwordRules.uppercase && passwordRules.lowercase ? <CheckIcon className="w-4 h-4 inline" /> : <XMarkIcon className="w-4 h-4 inline" />}</i>&nbsp;1 UPPER or lower case,&nbsp;
+        <i className="align-middle">{passwordRules.uppercase && passwordRules.lowercase ? <CheckIcon className="w-4 h-4 inline text-green-600" /> : <XMarkIcon className="w-4 h-4 inline  text-red-600" />}</i>&nbsp;1 UPPER or lower case,&nbsp;
 
-        <i className="align-middle">{passwordRules.number ? <CheckIcon className="w-4 h-4 inline" /> : <XMarkIcon className="w-4 h-4 inline" />}</i>&nbsp;1 Number,&nbsp;
+        <i className="align-middle">{passwordRules.number ? <CheckIcon className="w-4 h-4 inline  text-green-600" /> : <XMarkIcon className="w-4 h-4 inline  text-red-600" />}</i>&nbsp;1 Number,&nbsp;
 
-        <i className="align-middle">{passwordRules.special ? <CheckIcon className="w-4 h-4 inline" /> : <XMarkIcon className="w-4 h-4 inline" />}</i>&nbsp;1 Symbol
+        <i className="align-middle">{passwordRules.special ? <CheckIcon className="w-4 h-4 inline text-green-600" /> : <XMarkIcon className="w-4 h-4 inline  text-red-600" />}</i>&nbsp;1 Symbol
       </div>
     </div>
   );
