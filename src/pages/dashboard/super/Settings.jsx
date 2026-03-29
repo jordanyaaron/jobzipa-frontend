@@ -203,7 +203,7 @@ function ProfileSettings() {
                 className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
               />
           </div>
-          <div className="flex gap-2 w-[calc(100vw-40px)]  lg:w-full">
+          <div className="flex gap-2 w-[calc(100vw-10px)]  lg:w-full">
             <input
               type="text"
               name="firstName"
@@ -211,7 +211,7 @@ function ProfileSettings() {
               value={form.firstName}
               onChange={handleChange}
               className="
-                w-[calc(100vw/2-80px)] px-3 py-2 
+                w-[calc(100vw/2-10px)] px-3 py-2 
                 border border-[var(--border)] 
                 rounded-lg
               "
@@ -224,7 +224,7 @@ function ProfileSettings() {
               value={form.lastName}
               onChange={handleChange}
               className="
-                w-[calc(100vw/2-80px)] px-3 py-2 
+                w-[calc(100vw/2-10px)] px-3 py-2 
                 border border-[var(--border)] 
                 rounded-lg
               "
