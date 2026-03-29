@@ -117,6 +117,8 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
         >
           
           <Outlet context={{ 
+            // theme mode 
+            darkMode , setDarkMode ,
             setSidebarOpen, 
             jobFilter, setJobFilter, 
             staffFilter , setStaffFilter,

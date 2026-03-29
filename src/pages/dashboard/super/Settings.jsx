@@ -1,4 +1,5 @@
 import React, { useState , useRef , useCallback } from "react";
+import { Link , useOutletContext } from "react-router-dom";
 import Cropper from "react-easy-crop";
 import {
   PlusIcon,
@@ -395,7 +396,7 @@ function ProfileSettings() {
 }
 
 function PreferenceSettings() {
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode , setDarkMode } = useOutletContext()
 
   return (
     <div className="space-y-3">
