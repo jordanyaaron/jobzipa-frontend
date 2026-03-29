@@ -503,7 +503,7 @@ function SecuritySettings() {
       <div className="relative">
           <input
             type={showOldPassword ? "text" : "password"}
-            name="old"
+            name="oldPassword"
             value={form.oldPassword}
             placeholder="Enter Old Password"
             onChange={handleChange}
@@ -526,8 +526,8 @@ function SecuritySettings() {
         <input
           type={showNewPassword ? "text" : "password"}
           value={form.newPassword}
-          name="oldPassword"
-          placeholder="Enter Old Password"
+          name="newPassword"
+          placeholder="Enter New Password"
           onChange={handleChange}
           className="w-full h-11 px-4 pr-12 rounded-xl bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-black/40 transition"
         />
