@@ -15,7 +15,7 @@ const StaffCompleteRegistration = () => {
   const [showConfirm, setShowConfirm] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const [formData, setFormData] = useState({
+  const [ formData , setFormData ] = useState({
     first_name: "",
     last_name: "", 
     password: "",
@@ -115,16 +115,6 @@ const StaffCompleteRegistration = () => {
           onChange={handleChange}
           className="w-full h-11 px-4 rounded-xl bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-black/40 transition"
         />
-
-        {/* Email */}
-        {/* <input
-          type="email"
-          name="email"
-          value={formData.email}
-          readOnly
-          placeholder="Email"
-          className="w-full h-11 px-4 rounded-xl bg-gray-200 dark:bg-gray-600 text-gray-500 cursor-not-allowed"
-        /> */}
 
         {/* Password */}
         <div className="relative">

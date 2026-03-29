@@ -2,7 +2,9 @@ import React, { useState , useRef , useCallback } from "react";
 import { Link , useOutletContext } from "react-router-dom";
 import Cropper from "react-easy-crop";
 import {
-  PlusIcon,
+  PlusIcon , EyeIcon , 
+  CheckIcon , XMarkIcon ,
+  EyeSlashIcon
 } from "@heroicons/react/24/outline";
 export default function SettingsSuper() {
 const [activeTab, setActiveTab] = useState("profile");
@@ -185,7 +187,7 @@ function ProfileSettings() {
                 cursor-pointer
               "
             >
-              <PlusIcon className="h-3.5 w-3.5" />
+              <PlusIcon className="h-3.5 w-3.5 stroke-2.5" />
             </button>
             <input 
               ref={profilePictureRef}
@@ -466,19 +468,116 @@ function NotificationSettings() {
 }
 
 function SecuritySettings() {
+  const [showOldPassword , setShowOldPassword] = useState(false)
+  const [showNewPassword , setShowNewPassword] = useState(false)
+
+  
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const [form, setForm] = useState({
+    oldPassword: "",
+    newPassword: "",
+  });
+
+  const passwordRules = {
+    length: form.newPassword.length >= 8,
+    uppercase: /[A-Z]/.test(form.newPassword),
+    lowercase: /[a-z]/.test(form.newPassword),
+    number: /[0-9]/.test(form.newPassword),
+    special: /[!@#$%^&*(),.?":{}|<>]/.test(form.newPassword),
+  };
+
+  const isPasswordStrong =
+    passwordRules.length &&
+    passwordRules.uppercase &&
+    passwordRules.lowercase &&
+    passwordRules.number &&
+    passwordRules.special;
+
+
   return (
     <div className="space-y-3">
       <h2 className="font-semibold">Security</h2>
 
-      <input
-        type="password"
-        placeholder="New Password"
-        className="w-full px-3 py-2 border rounded-lg"
-      />
-
-      <button className="px-4 py-2 bg-red-600 text-white rounded-lg">
-        Change Password
-      </button>
+      <div className="relative w-[50%-10px]">
+          {/* Last Name */}
+          <input
+            type={``}
+            name="oldName"
+            placeholder="username"
+            value={form.oldPassword}
+            onChange={handleChange}
+            className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
+          />
+          <button
+            onClick={()=>showOldPassword(oldPassword)}
+            className="absolute text-[var(--text)] right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500"
+        >
+          {
+            showOldPassword 
+            ? <EyeSlashIcon/>
+            : <EyeIcon/>  
+          }
+        </button>
+      </div>
+      <div className="flex gap-2 w-[calc(100vw-40px)]  lg:w-full">
+        <input
+          type="password"
+          name="firstName"
+          placeholder="Username"
+          value={form.newPassword}
+          onChange={handleChange}
+          className="
+            w-[calc(100vw/2-37.5px)] px-3 py-2 
+            border border-[var(--border)] 
+            rounded-lg
+          "
+        />
+        <button
+          onClick={()=>showOldPassword(oldPassword)}
+          className="absolute text-[var(--text)] right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500"
+        >
+          {
+            showNewPassword 
+            ? <EyeSlashIcon/>
+            : <EyeIcon/> 
+          }
+        </button>
+      </div>
+      <div className="classname">
+        password must contain atleast 
+        <span >
+          <i>{
+              passwordRules.length 
+              ? <CheckIcon className="w-2 h-2"/>
+              : <XMarkIcon className="w-2 h-2"/>
+            }
+        </i>Minimum of 8 Character, 
+        </span>
+        <span >
+        <i>{
+              passwordRules.uppercase && passwordRules.lowercase 
+              ? <CheckIcon className="w-2 h-2"/>
+              : <XMarkIcon className="w-2 h-2"/>
+            }
+        </i>1 UPPER or lower case</span>
+        <span >
+        <i>{
+              passwordRules.number 
+              ? <CheckIcon className="w-2 h-2"/>
+              : <XMarkIcon className="w-2 h-2"/>
+            }
+          </i>1 Number</span> and
+        <span >
+          <i>{
+              passwordRules.special 
+              ? <CheckIcon className="w-2 h-2"/>
+              : <XMarkIcon className="w-2 h-2"/>
+            }
+          </i>1 Symbols</span>
+      </div>
     </div>
   );
 }
