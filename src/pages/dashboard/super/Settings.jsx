@@ -504,9 +504,9 @@ function SecuritySettings() {
       <div className="relative w-[50%-10px]">
           {/* Last Name */}
           <input
-            type={``}
-            name="oldName"
-            placeholder="username"
+            type={ showOldPassword ? 'password' : 'text' }
+            name="oldPassword"
+            placeholder="Enter Old Password"
             value={form.oldPassword}
             onChange={handleChange}
             className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
@@ -522,11 +522,12 @@ function SecuritySettings() {
           }
         </button>
       </div>
-      <div className="flex gap-2 w-[calc(100vw-40px)]  lg:w-full">
+      <div className="relative gap-2 w-[calc(100vw-40px)]  lg:w-full">
+        
         <input
-          type="password"
-          name="firstName"
-          placeholder="Username"
+          type={ showNewPassword ? 'password' : 'text' }
+          name="newPassword"
+          placeholder="New Password"
           value={form.newPassword}
           onChange={handleChange}
           className="
@@ -536,7 +537,7 @@ function SecuritySettings() {
           "
         />
         <button
-          onClick={()=>showOldPassword(oldPassword)}
+          onClick={()=>showNewPassword(newPassword)}
           className="absolute text-[var(--text)] right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500"
         >
           {
@@ -547,36 +548,16 @@ function SecuritySettings() {
         </button>
       </div>
       <div className="classname">
-        password must contain atleast 
-        <span >
-          <i>{
-              passwordRules.length 
-              ? <CheckIcon className="w-2 h-2"/>
-              : <XMarkIcon className="w-2 h-2"/>
-            }
-        </i>Minimum of 8 Character, 
-        </span>
-        <span >
-        <i>{
-              passwordRules.uppercase && passwordRules.lowercase 
-              ? <CheckIcon className="w-2 h-2"/>
-              : <XMarkIcon className="w-2 h-2"/>
-            }
-        </i>1 UPPER or lower case</span>
-        <span >
-        <i>{
-              passwordRules.number 
-              ? <CheckIcon className="w-2 h-2"/>
-              : <XMarkIcon className="w-2 h-2"/>
-            }
-          </i>1 Number</span> and
-        <span >
-          <i>{
-              passwordRules.special 
-              ? <CheckIcon className="w-2 h-2"/>
-              : <XMarkIcon className="w-2 h-2"/>
-            }
-          </i>1 Symbols</span>
+      <div className="text-sm text-gray-700">
+        password must contain at least&nbsp;
+        <i className="align-middle">{passwordRules.length ? <CheckIcon className="w-4 h-4 inline" /> : <XMarkIcon className="w-4 h-4 inline" />}</i>&nbsp;Minimum of 8 Character,&nbsp;
+
+        <i className="align-middle">{passwordRules.uppercase && passwordRules.lowercase ? <CheckIcon className="w-4 h-4 inline" /> : <XMarkIcon className="w-4 h-4 inline" />}</i>&nbsp;1 UPPER or lower case,&nbsp;
+
+        <i className="align-middle">{passwordRules.number ? <CheckIcon className="w-4 h-4 inline" /> : <XMarkIcon className="w-4 h-4 inline" />}</i>&nbsp;1 Number,&nbsp;
+
+        <i className="align-middle">{passwordRules.special ? <CheckIcon className="w-4 h-4 inline" /> : <XMarkIcon className="w-4 h-4 inline" />}</i>&nbsp;1 Symbol
+      </div>
       </div>
     </div>
   );
