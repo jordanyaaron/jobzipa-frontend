@@ -211,7 +211,7 @@ function ProfileSettings() {
               value={form.firstName}
               onChange={handleChange}
               className="
-                w-[calc(100vw/2-10px)] px-3 py-2 
+                w-[calc(100vw/2-40px)] px-3 py-2 
                 border border-[var(--border)] 
                 rounded-lg
               "
@@ -224,7 +224,7 @@ function ProfileSettings() {
               value={form.lastName}
               onChange={handleChange}
               className="
-                w-[calc(100vw/2-10px)] px-3 py-2 
+                w-[calc(100vw/2-40px)] px-3 py-2 
                 border border-[var(--border)] 
                 rounded-lg
               "
@@ -235,7 +235,7 @@ function ProfileSettings() {
           <div>
             <div 
               className="
-                flex justify-start items-center 
+                flex justify-start items-center mt-3 mb-2 
               "
             >
               <b className="mr-2">Gender</b>
