@@ -178,14 +178,14 @@ function ProfileSettings() {
               className="
                 bg-[var(--main-bg)]
                 text-[var(--text)]
-                absolute top-11 right-0
-                border-2 border-[var(--text)]
+                absolute top-9 right-0
+                border-[3px] border-[var(--text)]
                 rounded-full
-                p-2
+                p-[3px]
                 cursor-pointer
               "
             >
-              <PlusIcon className="h-4 w-4" />
+              <PlusIcon className="h-3 w-3" />
             </button>
             <input 
               ref={profilePictureRef}
@@ -247,8 +247,14 @@ function ProfileSettings() {
                 px-3 pt-1
               "
             >
-              <p className="flex gape-2 justify-start mb-[15px] items-center">
-                <button onClick={()=>setGender(null)} className={`
+              <p 
+                onClick={()=>setGender(null)} 
+                className="
+                  flex gape-2 justify-start mb-[15px] items-center
+                  cursor-pointer hover:bg-[var(--hover)]
+                "
+              >
+                <button className={`
                   mr-2 rounded-full p-[3px]  border-[2px] 
                   transition-all duration-200
                   hover:scale-105 active:scale-90
@@ -263,8 +269,14 @@ function ProfileSettings() {
                 </button>
                 <span className="text-[var(--text)]">Not Prefer To Say</span>
               </p>
-              <p className="flex gape-2 justify-start mb-[15px]  items-center">
-                <button onClick={()=>setGender('Fe')} 
+              <p 
+                onClick={()=>setGender('Fe')} 
+                className="
+                  flex gape-2 justify-start mb-[15px] items-center
+                  cursor-pointer hover:bg-[var(--hover)]
+                "
+              >
+                <button 
                 className={`
                     mr-2 rounded-full transition-all duration-200
                     hover:scale-105 active:scale-90 p-[3px] border-[2px] 
@@ -279,8 +291,14 @@ function ProfileSettings() {
                 </button>
                 <span className="text-[var(--text)]">Female</span>
               </p>
-              <p className="flex gape-2 justify-start mb-[15px]  items-center">
-                <button onClick={()=>setGender('Ma')} className={`
+              <p 
+                onClick={()=>setGender('Ma')} 
+                className="
+                  flex gape-2 justify-start mb-[15px] items-center
+                  cursor-pointer hover:bg-[var(--hover)]
+                "
+              >
+                <button  className={`
                     mr-2 rounded-full transition-all duration-200
                     hover:scale-105 active:scale-90 p-[3px] border-[2px] 
                     ${ gender === 'Ma' ? "border-blue-500" : "border-[var(--border)]" } 
@@ -416,7 +434,7 @@ function PreferenceSettings() {
 
 
 function NotificationSettings() {
-  const [settings, setSettings] = useState({
+  const [ settings, setSettings ] = useState({
     staff: true,
     payout: true,
     post: true,
