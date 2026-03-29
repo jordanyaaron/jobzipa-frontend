@@ -203,7 +203,7 @@ function ProfileSettings() {
                 className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
               />
           </div>
-          <div className="flex gap-2 w-full">
+          <div className="flex gap-2 w-[calc(100vw-40px)]  lg:w-full">
             <input
               type="text"
               name="firstName"
@@ -227,30 +227,30 @@ function ProfileSettings() {
           <div>
             <div 
               className="
-                flex justify-start items-start 
+                flex justify-center items-start 
               "
             >
-              <b >Gender</b>
-              <span className="text-xs text-[var(--placeholder)]">{'(Optional)'}</span>
+              <b className="ml-2">Gender</b>
+              <span className="text-[var(--placeholder)]">{'(Optional)'}</span>
             </div>
             <div 
               className="
                 px-3 pt-1
               "
             >
-              <p className="flex gape-2 justify-start mb-[10px] items-start">
-                <button onClick={()=>setGender(null)} className={` rounded-full p-1 border-[2px] ${ !gender ? "border-blue-500" : "border-[var(--border)]" } `}>
+              <p className="flex gape-2 justify-start mb-[15px] items-start">
+                <button onClick={()=>setGender(null)} className={` rounded-full p-[2px]  border-[2px] ${ !gender ? "border-blue-500" : "border-[var(--border)]" } `}>
                   <span className={`block rounded-full h-2 w-2 ${!gender ? "bg-blue-500" : "bg-[var(--border)]" }`}></span>
                 </button>
                 <span className="text-[var(--text)]">Not Prefer To Say</span>
               </p>
-              <p className="flex gape-2 justify-center mb-[10px]  items-start">
+              <p className="flex gape-2 justify-center mb-[15px]  items-start">
                 <button onClick={()=>setGender('Fe')} className={` rounded-full p-1 border-[2px] ${ gender === 'Fe' ? "border-blue-500" : "border-[var(--border)]" } `}>
                   <span className={`block rounded-full h-2 w-2 ${gender === 'Fe' ? "bg-blue-500" : "bg-[var(--border)]" }`}></span>
                 </button>
                 <span className="text-[var(--text)]">Female</span>
               </p>
-              <p className="flex gape-2 justify-center mb-[10px]  items-start">
+              <p className="flex gape-2 justify-center mb-[15px]  items-start">
                 <button onClick={()=>setGender('Ma')} className={` rounded-full p-1 border-[2px] ${ gender === 'Ma' ? "border-blue-500" : "border-[var(--border)]" } `}>
                 <span className={`block rounded-full h-2 w-2 ${gender === 'Ma' ? "bg-blue-500" : "bg-[var(--border)]" }`}></span>
                 </button>
@@ -258,7 +258,7 @@ function ProfileSettings() {
               </p>
             </div>
           </div>
-          
+
           {/* Save */}
           <button className="px-4 py-2 bg-blue-600 text-white rounded-lg">
             Save Changes
