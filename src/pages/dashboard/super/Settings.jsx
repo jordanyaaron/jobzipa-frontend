@@ -227,31 +227,31 @@ function ProfileSettings() {
           <div>
             <div 
               className="
-                flex justify-center items-start 
+                flex justify-start items-center 
               "
             >
-              <b className="ml-2">Gender</b>
-              <span className="text-[var(--placeholder)]">{'(Optional)'}</span>
+              <b className="mr-2">Gender</b>
+              <span className="mr-2 text-[var(--placeholder)]">{'(Optional)'}</span>
             </div>
             <div 
               className="
                 px-3 pt-1
               "
             >
-              <p className="flex gape-2 justify-start mb-[15px] items-start">
-                <button onClick={()=>setGender(null)} className={` rounded-full p-[2px]  border-[2px] ${ !gender ? "border-blue-500" : "border-[var(--border)]" } `}>
+              <p className="flex gape-2 justify-start mb-[15px] items-center">
+                <button onClick={()=>setGender(null)} className={`mr-2 rounded-full p-[2px]  border-[2px] ${ !gender ? "border-blue-500" : "border-[var(--border)]" } `}>
                   <span className={`block rounded-full h-2 w-2 ${!gender ? "bg-blue-500" : "bg-[var(--border)]" }`}></span>
                 </button>
                 <span className="text-[var(--text)]">Not Prefer To Say</span>
               </p>
-              <p className="flex gape-2 justify-center mb-[15px]  items-start">
-                <button onClick={()=>setGender('Fe')} className={` rounded-full p-1 border-[2px] ${ gender === 'Fe' ? "border-blue-500" : "border-[var(--border)]" } `}>
+              <p className="flex gape-2 justify-start mb-[15px]  items-center">
+                <button onClick={()=>setGender('Fe')} className={`mr-2 rounded-full p-1 border-[2px] ${ gender === 'Fe' ? "border-blue-500" : "border-[var(--border)]" } `}>
                   <span className={`block rounded-full h-2 w-2 ${gender === 'Fe' ? "bg-blue-500" : "bg-[var(--border)]" }`}></span>
                 </button>
                 <span className="text-[var(--text)]">Female</span>
               </p>
-              <p className="flex gape-2 justify-center mb-[15px]  items-start">
-                <button onClick={()=>setGender('Ma')} className={` rounded-full p-1 border-[2px] ${ gender === 'Ma' ? "border-blue-500" : "border-[var(--border)]" } `}>
+              <p className="flex gape-2 justify-start mb-[15px]  items-center">
+                <button onClick={()=>setGender('Ma')} className={`mr-2 rounded-full p-1 border-[2px] ${ gender === 'Ma' ? "border-blue-500" : "border-[var(--border)]" } `}>
                 <span className={`block rounded-full h-2 w-2 ${gender === 'Ma' ? "bg-blue-500" : "bg-[var(--border)]" }`}></span>
                 </button>
                 <span className="text-[var(--text)]">Male</span>
