@@ -138,8 +138,9 @@ function Visitors () {
     if(range === "month") setStartDate(addMonths(startDate, 1));
     if(range === "year") setStartDate(addYears(startDate, 1));
   }
-
-  const visitorsData = generateRandomVisitors({ startDate: start, endDate: end, interval });
+  const {start}  =  getRangeDates(range, startDate);
+  const {end}  =  getRangeDates(range, startDate);
+  const visitorsData = generateRandomVisitors({ startDate: start, endDate: end, range });
 
   
 
