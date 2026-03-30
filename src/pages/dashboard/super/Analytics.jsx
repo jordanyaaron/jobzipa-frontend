@@ -1,7 +1,6 @@
 import React, { useState , useRef , useCallback } from "react";
 import { Link , useOutletContext } from "react-router-dom";
 import { UserGroupIcon } from "@heroicons/react/24/outline";
-import { UserGroupIcon } from "@heroicons/react/24/outline";
 import Cropper from "react-easy-crop";
 import { LineChart, Line, ResponsiveContainer } from "recharts";
 
