@@ -1,7 +1,20 @@
 import React, { useState , useRef , useCallback } from "react";
 import { Link , useOutletContext } from "react-router-dom";
 import { UserGroupIcon } from "@heroicons/react/24/outline";
+import { UserGroupIcon } from "@heroicons/react/24/outline";
 import Cropper from "react-easy-crop";
+import { LineChart, Line, ResponsiveContainer } from "recharts";
+
+const data = [
+  { day: "Mon", visitors: 200 },
+  { day: "Tue", visitors: 400 },
+  { day: "Wed", visitors: 300 },
+  { day: "Thu", visitors: 500 },
+  { day: "Fri", visitors: 450 },
+  { day: "Sat", visitors: 600 },
+  { day: "Sun", visitors: 700 },
+];
+
 import {
   PlusIcon , EyeIcon , 
   CheckIcon , XMarkIcon ,
@@ -94,8 +107,19 @@ function Reveniew () {
 function Visitors () {
   return (
     <>
-       <div className="p-4 rounded-2xl bg-[var(--background)] border border-[var(--border)]">
+      const visitors = 1245;
+      const todayVisitors = 320;
+      const growth = 12;
+
+      <div className="
+        p-4 rounded-2xl
+        bg-[var(--background)]
+        border border-[var(--border)]
+        transition-all duration-300
+        hover:shadow-lg hover:scale-[1.02]
+      ">
         
+        {/* Top */}
         <div className="flex justify-between items-center">
           <p className="text-sm text-gray-400">Visitors</p>
 
@@ -104,16 +128,18 @@ function Visitors () {
           </span>
         </div>
 
-        <div className="mt-3">
-          <h2 className="text-2xl font-bold">1,245</h2>
-
-          <p className="text-xs text-gray-400 mt-1">
-            320 today
-          </p>
+        {/* Number */}
+        <div className="mt-2">
+          <h2 className="text-2xl font-bold">{visitors}</h2>
+          <p className="text-xs text-gray-400">{todayVisitors} today</p>
         </div>
 
-        <div className="mt-2 text-sm text-green-500">
-          ↑ 12% this week
+        {/* Mini Chart */}
+        <MiniChart data={data} />
+
+        {/* Growth */}
+        <div className={`mt-2 text-sm ${growth >= 0 ? "text-green-500" : "text-red-500"}`}>
+          {growth >= 0 ? "↑" : "↓"} {Math.abs(growth)}% this week
         </div>
 
       </div>
@@ -127,6 +153,26 @@ function Jobs () {
       <h1>Jobs</h1>
     </>
   )
+}
+
+
+
+function MiniChart({ data }) {
+  return (
+    <div className="w-full h-[60px] mt-2">
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart data={data}>
+          <Line
+            type="monotone"
+            dataKey="visitors"
+            stroke="#3b82f6"
+            strokeWidth={2}
+            dot={false}
+          />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  );
 }
 
 
