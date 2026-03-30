@@ -127,13 +127,15 @@ function Visitors () {
   const todayVisitors = 320;
   const growth = 12;
 
-  function prevRange() {
+  function prevRange(adata) {
+    console.log(adata)
     if(range === "week") setStartDate(subWeeks(startDate, 1));
     if(range === "month") setStartDate(subMonths(startDate, 1));
     if(range === "year") setStartDate(subYears(startDate, 1));
   }
   
-  function nextRange() {
+  function nextRange(adata) {
+    console.log(adata)
     if(range === "week") setStartDate(addWeeks(startDate, 1));
     if(range === "month") setStartDate(addMonths(startDate, 1));
     if(range === "year") setStartDate(addYears(startDate, 1));
@@ -214,13 +216,13 @@ function Visitors () {
       <div className="p-4 mt-[20px] rounded-2xl border border-[var(--border)] bg-[var(--background)]">
       
         <div className="flex items-center gap-3 mb-4">
-          <button onClick={prevRange} className="px-3 py-1 bg-[var(--hover)] rounded-lg">&lt;</button>
+          <button onClick={()=>prevRange(visitorsData)} className="px-3 py-1 bg-[var(--hover)] rounded-lg">&lt;</button>
 
           <span className="font-semibold">
             {formatRangeLabel(range, getRangeDates(range, startDate).start, getRangeDates(range, startDate).end)}
           </span>
 
-          <button onClick={nextRange} className="px-3 py-1 bg-[var(--hover)] rounded-lg">&gt;</button>
+          <button onClick={()=>nextRange(visitorsData)} className="px-3 py-1 bg-[var(--hover)] rounded-lg">&gt;</button>
 
           <div className="relative">
             <button onClick={() => setDropdownOpen(!dropdownOpen)}>
