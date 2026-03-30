@@ -1,6 +1,13 @@
 import React, { useState , useRef , useCallback } from "react";
 import { Link , useOutletContext } from "react-router-dom";
-import { UserGroupIcon } from "@heroicons/react/24/outline";
+import { UserGroupIcon , EllipsisVerticalIcon } from "@heroicons/react/24/outline";
+import { format, startOfWeek, startOfMonth, 
+  startOfYear, addWeeks, 
+  addMonths, addYears, 
+  subWeeks, subMonths, 
+  subYears, endOfWeek, 
+  endOfMonth, endOfYear 
+} from "date-fns";
 import Cropper from "react-easy-crop";
 import { 
   LineChart, 
@@ -111,9 +118,59 @@ function Reveniew () {
 }
 
 function Visitors () {
+  const [ dateRange , setDateRange ] = useState('week')
+  const [ startDate , setStartDate ] = useState(new Date())
+  const [ dropDown , setDropDowm ] = useState(false)
+
   const visitors = 1245;
   const todayVisitors = 320;
   const growth = 12;
+
+  function prevRange() {
+    if(range === "week") setStartDate(subWeeks(startDate, 1));
+    if(range === "month") setStartDate(subMonths(startDate, 1));
+    if(range === "year") setStartDate(subYears(startDate, 1));
+  }
+  
+  function nextRange() {
+    if(range === "week") setStartDate(addWeeks(startDate, 1));
+    if(range === "month") setStartDate(addMonths(startDate, 1));
+    if(range === "year") setStartDate(addYears(startDate, 1));
+  }
+
+  function getRangeDates(range, baseDate) {
+    let start, end;
+    if(range === "week") {
+      start = startOfWeek(baseDate, { weekStartsOn: 1 }); // Monday
+      end = endOfWeek(baseDate, { weekStartsOn: 1 });
+    } else if(range === "month") {
+      start = startOfMonth(baseDate);
+      end = endOfMonth(baseDate);
+    } else if(range === "year") {
+      start = startOfYear(baseDate);
+      end = endOfYear(baseDate);
+    }
+    return { start, end };
+  }
+  
+  function formatRangeLabel(range, start, end) {
+    if(range === "week") {
+      const today = new Date();
+      const lastWeekStart = subWeeks(today, 1);
+      const thisWeekStart = startOfWeek(today, { weekStartsOn: 1 });
+  
+      if(start.getTime() === thisWeekStart.getTime()) return "This Week";
+      if(start.getTime() === lastWeekStart.getTime()) return "Last Week";
+      return `${format(start, "dd MMM")} - ${format(end, "dd MMM yy")}`;
+    } else if(range === "month") {
+      const thisMonth = new Date();
+      if(start.getMonth() === thisMonth.getMonth() && start.getFullYear() === thisMonth.getFullYear()) return "This Month";
+      return format(start, "MMM yyyy");
+    } else if(range === "year") {
+      return format(start, "yyyy");
+    }
+  }
+
   return (
     <>
       <div className="
@@ -150,29 +207,57 @@ function Visitors () {
       </div>
       <div className="p-4 mt-[20px] rounded-2xl border border-[var(--border)] bg-[var(--background)]">
       
-      <h2 className="text-lg font-semibold mb-4">
-        Visitors Overview
-      </h2>
+        <div className="flex items-center gap-3 mb-4">
+          <button onClick={prevRange} className="px-3 py-1 bg-[var(--hover)] rounded-lg">&lt;</button>
 
-      <div className="w-full h-[300px]">
-        <ResponsiveContainer>
-          <LineChart data={data}>
-            <XAxis dataKey="day" />
-            <YAxis />
-            <Tooltip />
-            <Line
-              type="monotone"
-              dataKey="visitors"
-              stroke="#3b82f6"
-              strokeWidth={3}
-            />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
+          <span className="font-semibold">
+            {formatRangeLabel(range, getRangeDates(range, startDate).start, getRangeDates(range, startDate).end)}
+          </span>
+
+          <button onClick={nextRange} className="px-3 py-1 bg-[var(--hover)] rounded-lg">&gt;</button>
+
+          <div className="relative">
+            <button onClick={() => setDropdownOpen(!dropdownOpen)}>
+              <EllipsisVerticalIcon className="h-6 w-6 text-[var(--text)]" />
+            </button>
+
+            {dropdownOpen && (
+              <div className="absolute right-0 mt-2 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
+                {["week", "month", "year"].map((r) => (
+                  <button
+                    key={r}
+                    onClick={() => { setRange(r); setDropdownOpen(false); }}
+                    className="block px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
+                  >
+                    {r}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="w-full h-[300px]">
+          <ResponsiveContainer>
+            <LineChart data={data}>
+              <XAxis dataKey="day" />
+              <YAxis />
+              <Tooltip />
+              <Line
+                type="monotone"
+                dataKey="visitors"
+                stroke="#3b82f6"
+                strokeWidth={3}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
     </div>
     </>
   )
 }
+
+
 
 function Jobs () {
   return (
