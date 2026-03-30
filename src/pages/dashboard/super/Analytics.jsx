@@ -148,6 +148,12 @@ function Visitors () {
         </div>
 
       </div>
+      <div className="p-4 rounded-2xl border border-[var(--border)] bg-[var(--background)]">
+      
+      <h2 className="text-lg font-semibold mb-4">
+        Visitors Overview
+      </h2>
+
       <div className="w-full h-[300px]">
         <ResponsiveContainer>
           <LineChart data={data}>
@@ -163,6 +169,7 @@ function Visitors () {
           </LineChart>
         </ResponsiveContainer>
       </div>
+    </div>
     </>
   )
 }
