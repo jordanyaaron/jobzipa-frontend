@@ -2,7 +2,14 @@ import React, { useState , useRef , useCallback } from "react";
 import { Link , useOutletContext } from "react-router-dom";
 import { UserGroupIcon } from "@heroicons/react/24/outline";
 import Cropper from "react-easy-crop";
-import { LineChart, Line, ResponsiveContainer } from "recharts";
+import { 
+  LineChart, Line, ResponsiveContainer ,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 const data = [
   { day: "Mon", visitors: 200 },
@@ -109,8 +116,6 @@ function Visitors () {
   const growth = 12;
   return (
     <>
-      
-
       <div className="
         p-4 rounded-2xl
         bg-[var(--background)]
@@ -142,6 +147,21 @@ function Visitors () {
           {growth >= 0 ? "↑" : "↓"} {Math.abs(growth)}% this week
         </div>
 
+      </div>
+      <div className="w-full h-[300px]">
+        <ResponsiveContainer>
+          <LineChart data={data}>
+            <XAxis dataKey="day" />
+            <YAxis />
+            <Tooltip />
+            <Line
+              type="monotone"
+              dataKey="visitors"
+              stroke="#3b82f6"
+              strokeWidth={3}
+            />
+          </LineChart>
+        </ResponsiveContainer>
       </div>
     </>
   )
