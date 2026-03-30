@@ -9,6 +9,8 @@ export default function DashboardHeader({
   endDate = "",
   placementFilter = "all",
 
+  onAnalyticsFilter ,
+
   onSetNotificationFilter, 
   
   onReportsFilter,
@@ -29,6 +31,7 @@ export default function DashboardHeader({
   const dateFilterRef = useRef();
   const dropdownRef = useRef();
   const filterOptions = ["all", "staff", "post", "payout"];
+  const analyticsFilterOptions = ["revenue", "visitors"];
   const reportfilterOptions = ["all", "pending", "in_progress", "resolved", "rejected"];
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -64,6 +67,8 @@ export default function DashboardHeader({
             ? <h1 className="text-lg  md:text-lg font-bold">Reports</h1>
             : location.pathname === "/super/settings" 
             ? <h1 className="text-lg  md:text-lg font-bold">Settings</h1>
+            : location.pathname === "/super/analytics" 
+            ? <h1 className="text-lg  md:text-lg font-bold">Analytics</h1>
             : <Link to="/" className="flex items-center">
                 <img src={JobzipaLogo} alt="Jobzipa" className="h-9" />
               </Link>
@@ -199,8 +204,86 @@ export default function DashboardHeader({
                       )}
                     </div>  
                 </>
+              : location.pathname === "/super/analytics" 
+              ? 
+                <>   
+                    {/* date filter */}
+                  <div className="relative" ref={dateFilterRef}>
+                    <button
+                      onClick={() => setDateFilterOpen(!dateFilterOpen)}
+                      className="p-2 rounded-lg hover:bg-[var(--hover)]"
+                    >
+                      <CalendarIcon className="h-6 w-6 text-[var(--text)]" />
+                    </button>
+
+                    {dateFilterOpen && (
+                      <div className="absolute right-0 mt-2 p-3 w-50 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
+                        <div className="flex flex-col gap-2">
+                          <b className="w-15 text-[var(--text)]">From :</b>
+                          <input 
+                            type="date"
+                            value={startDate}
+                            onChange={(e) => setStartDate(e.target.value)}
+                            className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
+                          />
+                        </div>
+                        <div className="flex flex-col gap-2">
+                          <b className="w-15 text-[var(--text)]">To :</b>
+                          <input 
+                            type="date"
+                            value={endDate}
+                            onChange={(e) => setEndDate(e.target.value)}
+                            className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
+                          />
+                        </div>
+                        <button
+                          onClick={() => {
+                            onReset();       // reset filters
+                            setDateFilterOpen(false);
+                          }}
+                          className="mt-2 text-sm px-3 text-white py-1 bg-red-700 rounded"
+                        >
+                          Reset
+                        </button>
+                      </div>
+                    )}
+                  </div> 
+
+                    {/* placement filter */}
+                  <div className="relative" ref={dropdownRef}>
+                    <button
+                      onClick={() => {
+                        setDropdownOpen(!dropdownOpen);
+                      }}
+                      className="p-2 rounded-lg hover:bg-[var(--hover)]"
+                    >
+                      <FunnelIcon className="h-6 w-6 text-[var(--text)]" />
+                    </button>
+
+                    {dropdownOpen && (
+                      <div className="absolute right-0 mt-2 w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
+                        {analyticsFilterOptions.map((option) => (
+                          <button
+                            key={option}
+                            onClick={() => {
+                              onAnalyticsFilter(option); 
+                              setDropdownOpen(!dropdownOpen);
+                            }}
+                            className="block w-full text-left px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
+                          >
+                            {option
+                              .split("_")               
+                              .map(word => word.charAt(0).toUpperCase() + word.slice(1)) 
+                              .join(" ")                 
+                            }
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>  
+                </>
               : ""
-              }
+            }
           {
             location.pathname === "/super/notifications" && (
               <>

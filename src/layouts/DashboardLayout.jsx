@@ -28,6 +28,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
   const [reportsFilter, setReportsFilter] = useState("all");
   const [payoutFilter, setPayoutFilter] = useState("all");
   const [staffFilter, setStaffFilter] = useState("all");
+  const [analyticsFilter, setAnalyticsFilter] = useState("visitors");
   const [searchQuery, setSearchQuery] = useState("");
   const [handlePostJobFromHeader, setHandlePostJobFromHeader] = useState(false);
   const [startDate, setStartDate] = useState("");
@@ -42,6 +43,9 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
     setEndDate("");
     setPlacementFilter("all");
   };
+
+  
+
   useEffect(() => {
     const handleResize = () => {
 
@@ -84,6 +88,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
       setEndDate={setEndDate}
       setPlacementFilter={setPlacementFilter}
       onReset={handleReset}
+      onAnalyticsFilter={setAnalyticsFilter}
       onReportsFilter={setReportsFilter}
       onSearchReport={setSearchQuery}
     />;
@@ -126,6 +131,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
             placementFilter, setPlacementFilter,
             reportsFilter , setReportsFilter ,
             setNotificationFilter, notificationCategoryFilter,
+            analyticsFilter, setAnalyticsFilter,
             searchQuery, setSearchQuery, 
             startDate, setStartDate,
             endDate, setEndDate,

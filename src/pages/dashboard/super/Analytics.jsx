@@ -7,19 +7,24 @@ import {
   EyeSlashIcon
 } from "@heroicons/react/24/outline";
 export default function AnalyticsSuper() {
-const [activeTab, setActiveTab] = useState("profile");
+  const {
+    startDate, setStartDate,
+    endDate, setEndDate,
+    analyticsFilter, setAnalyticsFilter,
+  } = useOutletContext();
+const [activeTab, setActiveTab] = useState(analyticsFilter);
 
   const tabs = [
     { id: "reveniew", label: "Reveniew" },
     { id: "visitor", label: "visitor" },
-    { id: "jobs", label: "Jobs" },
-    { id: "staffs", label: "Staffs" },
+    // { id: "jobs", label: "Jobs" },
+    // { id: "staffs", label: "Staffs" },
   ];
 
   return (
     <div className="mt-[64px] lg:m-0 p-4 lg:p-6 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4">
 
-      <h1 className="hidden lg:block text-2xl font-bold">Settings</h1>
+      <h1 className="hidden lg:block text-2xl font-bold">Analytics</h1>
 
       {/* Tabs */}
       <div className="flex gap-2 overflow-x-auto">
@@ -43,7 +48,7 @@ const [activeTab, setActiveTab] = useState("profile");
       <div className="border border-[var(--border)] rounded-lg p-4 bg-[var(--background)]">
         {activeTab === "reveniew" && <Reveniew />}
         {activeTab === "visitor" && <Visitors />}
-        {activeTab === "Jobs" && <Jobs />}
+        {activeTab === "jobs" && <Jobs />}
         {activeTab === "staffs" && <Staffs />}
       </div>
 
