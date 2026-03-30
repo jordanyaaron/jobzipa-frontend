@@ -554,6 +554,9 @@ function SecuritySettings() {
 
         <i className="align-middle">{passwordRules.special ? <CheckIcon className="w-4 h-4 inline text-green-600" /> : <XMarkIcon className="w-4 h-4 inline  text-red-600" />}</i>&nbsp;1 Symbol
       </div>
+      <button type="submit">
+        Save the changes
+      </button>
     </div>
   );
 }
