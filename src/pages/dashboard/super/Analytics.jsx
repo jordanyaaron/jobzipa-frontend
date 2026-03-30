@@ -148,7 +148,7 @@ function Visitors () {
         </div>
 
       </div>
-      <div className="p-4 rounded-2xl border border-[var(--border)] bg-[var(--background)]">
+      <div className="p-4 mt-[20px] rounded-2xl border border-[var(--border)] bg-[var(--background)]">
       
       <h2 className="text-lg font-semibold mb-4">
         Visitors Overview
