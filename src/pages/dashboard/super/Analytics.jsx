@@ -118,9 +118,9 @@ function Reveniew () {
 }
 
 function Visitors () {
-  const [ dateRange , setDateRange ] = useState('week')
+  const [ range , setRange ] = useState('week')
   const [ startDate , setStartDate ] = useState(new Date())
-  const [ dropDown , setDropDowm ] = useState(false)
+  const [ dropdownOpen , setDropdownOpen ] = useState(false)
 
   const visitors = 1245;
   const todayVisitors = 320;
