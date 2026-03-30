@@ -246,7 +246,7 @@ function Visitors () {
         <div className="w-full h-[300px]">
           <ResponsiveContainer>
             <LineChart data={visitorsData}>
-              <XAxis dataKey="day" />
+              <XAxis dataKey="name" />
               <YAxis />
               <Tooltip />
               <Line
