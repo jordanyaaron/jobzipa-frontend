@@ -15,7 +15,7 @@ export default function AnalyticsSuper() {
   } = useOutletContext();
 
   return (
-    <div className="mt-[64px] lg:m-0 p-4 lg:p-6 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4">
+    <div className="mt-[64px] lg:m-0 p-2 lg:p-6 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4">
 
       <div className="hidden lg:flex lg:flex-row md:items-center md:justify-between gap-3 min-w-0">
         <h1 className="text-lg md:text-2xl font-bold">Analytics</h1>
@@ -72,7 +72,7 @@ export default function AnalyticsSuper() {
         </div>
       </div>
       {/* Content */}
-      <div className="p-4 bg-[var(--background)]">
+      <div className="pt-4 px-0 bg-[var(--background)]">
         {analyticsFilter === "revenue" && <Reveniew />}
         {analyticsFilter === "visitor" && <Visitors />}
         {analyticsFilter === "jobs" && <Jobs />}
@@ -94,7 +94,7 @@ function Reveniew () {
 function Visitors () {
   return (
     <>
-       <div className="pt-4 px-0 rounded-2xl bg-[var(--background)] border border-[var(--border)]">
+       <div className="p-4 rounded-2xl bg-[var(--background)] border border-[var(--border)]">
         
         <div className="flex justify-between items-center">
           <p className="text-sm text-gray-400">Visitors</p>
