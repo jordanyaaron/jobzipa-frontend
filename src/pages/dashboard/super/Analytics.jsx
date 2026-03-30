@@ -1,4 +1,4 @@
-import React, { useState , useRef , useCallback } from "react";
+import React, { useState , useEffect , useRef , useCallback } from "react";
 import { Link , useOutletContext } from "react-router-dom";
 import { UserGroupIcon , EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import {generateVisitors} from "@/data/visitors"
@@ -124,6 +124,7 @@ function Visitors () {
   const [ range , setRange ] = useState('week')
   const [ startDate , setStartDate ] = useState(new Date())
   const [ dropdownOpen , setDropdownOpen ] = useState(false)
+  const dropdownRef = useRef()
 
   const today = new Date();
 
@@ -162,6 +163,17 @@ function Visitors () {
       if(next <= currentYearStart) setStartDate(next);
     }
   }
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const {start}  =  getRangeDates(range, startDate);
   const {end}  =  getRangeDates(range, startDate);
@@ -238,31 +250,37 @@ function Visitors () {
       </div>
       <div className="p-4 mt-[20px] rounded-2xl border border-[var(--border)] bg-[var(--background)]">
       
-        <div className="flex items-center gap-3 mb-4">
-          <button 
-            onClick={()=>prevRange(visitorsData)}
-            disabled={
-              (range === "week" && subWeeks(startDate, 1) < minStartDate) ||
-              (range === "month" && subMonths(startDate, 1) < minStartDate) ||
-              (range === "year" && subYears(startDate, 1) < minStartDate)
-            }
-            className="px-3 py-1 bg-[var(--hover)] rounded-lg">&lt;</button>
+        <div className="relative w-full ">
+          <div
+            className="
+              flex ml-10 items-center gap-3 mb-4
+            "
+          >
+                <button 
+                onClick={()=>prevRange(visitorsData)}
+                disabled={
+                  (range === "week" && subWeeks(startDate, 1) < minStartDate) ||
+                  (range === "month" && subMonths(startDate, 1) < minStartDate) ||
+                  (range === "year" && subYears(startDate, 1) < minStartDate)
+                }
+                className="px-3 py-1 bg-[var(--hover)] rounded-lg">&lt;</button>
 
-          <span className="font-semibold">
-            {formatRangeLabel(range, getRangeDates(range, startDate).start, getRangeDates(range, startDate).end)}
-          </span>
+              <span className="font-semibold">
+                {formatRangeLabel(range, getRangeDates(range, startDate).start, getRangeDates(range, startDate).end)}
+              </span>
 
-          <button 
-            onClick={()=>nextRange(visitorsData)} 
-            disabled={
-              (range === "week" && addWeeks(startDate, 1) > currentWeekStart) ||
-              (range === "month" && addMonths(startDate, 1) > currentMonthStart) ||
-              (range === "year" && addYears(startDate, 1) > currentYearStart)
-            }
-            className="px-3 py-1 bg-[var(--hover)] rounded-lg"
-          >&gt;</button>
-
-          <div className="relative">
+              <button 
+                onClick={()=>nextRange(visitorsData)} 
+                disabled={
+                  (range === "week" && addWeeks(startDate, 1) > currentWeekStart) ||
+                  (range === "month" && addMonths(startDate, 1) > currentMonthStart) ||
+                  (range === "year" && addYears(startDate, 1) > currentYearStart)
+                }
+                className="px-3 py-1 bg-[var(--hover)] rounded-lg"
+              >&gt;</button>
+          </div>
+          
+          <div className="relative" ref={dropdownRef}>
             <button onClick={() => setDropdownOpen(!dropdownOpen)}>
               <EllipsisVerticalIcon className="h-6 w-6 text-[var(--text)]" />
             </button>
