@@ -28,7 +28,7 @@ export default function AdminDashboardLayout({  darkMode, setDarkMode  }) {
   const [reportsFilter, setReportsFilter] = useState("all");
   const [payoutFilter, setPayoutFilter] = useState("all");
   const [staffFilter, setStaffFilter] = useState("all");
-  const [analyticsFilter, setAnalyticsFilter] = useState("visitors");
+  const [analyticsFilter, setAnalyticsFilter] = useState("visitor");
   const [searchQuery, setSearchQuery] = useState("");
   const [handlePostJobFromHeader, setHandlePostJobFromHeader] = useState(false);
   const [startDate, setStartDate] = useState("");

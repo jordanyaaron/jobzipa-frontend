@@ -31,7 +31,7 @@ export default function DashboardHeader({
   const dateFilterRef = useRef();
   const dropdownRef = useRef();
   const filterOptions = ["all", "staff", "post", "payout"];
-  const analyticsFilterOptions = ["revenue", "visitors"];
+  const analyticsFilterOptions = [ "visitor" , "revenue" ];
   const reportfilterOptions = ["all", "pending", "in_progress", "resolved", "rejected"];
   // Close dropdown when clicking outside
   useEffect(() => {
