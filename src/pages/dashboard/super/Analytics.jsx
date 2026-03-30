@@ -2,7 +2,9 @@ import React, { useState , useRef , useCallback } from "react";
 import { Link , useOutletContext } from "react-router-dom";
 import { UserGroupIcon , EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import {generateVisitors} from "@/data/visitors"
-import { format, startOfWeek, startOfMonth, 
+import { 
+  format, startOfWeek, 
+  startOfMonth, 
   startOfYear, addWeeks, 
   addMonths, addYears, 
   subWeeks, subMonths, 
@@ -123,23 +125,44 @@ function Visitors () {
   const [ startDate , setStartDate ] = useState(new Date())
   const [ dropdownOpen , setDropdownOpen ] = useState(false)
 
+  const today = new Date();
+
+  const currentWeekStart = startOfWeek(today, { weekStartsOn: 1 });
+  const currentMonthStart = startOfMonth(today);
+  const currentYearStart = startOfYear(today);
+
+  const minStartDate = new Date(2026, 0, 1); // Jan 1, 2026
+
   const visitors = 1245;
   const todayVisitors = 320;
   const growth = 12;
 
-  function prevRange(adata) {
-    console.log(adata)
-    if(range === "week") setStartDate(subWeeks(startDate, 1));
-    if(range === "month") setStartDate(subMonths(startDate, 1));
-    if(range === "year") setStartDate(subYears(startDate, 1));
+  function prevRange() {
+    if(range === "week") {
+      const prev = subWeeks(startDate, 1);
+      if(prev >= minStartDate) setStartDate(prev);
+    } else if(range === "month") {
+      const prev = subMonths(startDate, 1);
+      if(prev >= minStartDate) setStartDate(prev);
+    } else if(range === "year") {
+      const prev = subYears(startDate, 1);
+      if(prev >= minStartDate) setStartDate(prev);
+    }
   }
   
-  function nextRange(adata) {
-    console.log(adata)
-    if(range === "week") setStartDate(addWeeks(startDate, 1));
-    if(range === "month") setStartDate(addMonths(startDate, 1));
-    if(range === "year") setStartDate(addYears(startDate, 1));
+  function nextRange() {
+    if(range === "week") {
+      const next = addWeeks(startDate, 1);
+      if(next <= currentWeekStart) setStartDate(next);
+    } else if(range === "month") {
+      const next = addMonths(startDate, 1);
+      if(next <= currentMonthStart) setStartDate(next);
+    } else if(range === "year") {
+      const next = addYears(startDate, 1);
+      if(next <= currentYearStart) setStartDate(next);
+    }
   }
+
   const {start}  =  getRangeDates(range, startDate);
   const {end}  =  getRangeDates(range, startDate);
   const visitorsData = generateVisitors(  range , start );
@@ -216,13 +239,28 @@ function Visitors () {
       <div className="p-4 mt-[20px] rounded-2xl border border-[var(--border)] bg-[var(--background)]">
       
         <div className="flex items-center gap-3 mb-4">
-          <button onClick={()=>prevRange(visitorsData)} className="px-3 py-1 bg-[var(--hover)] rounded-lg">&lt;</button>
+          <button 
+            onClick={()=>prevRange(visitorsData)}
+            disabled={
+              (range === "week" && subWeeks(startDate, 1) < minStartDate) ||
+              (range === "month" && subMonths(startDate, 1) < minStartDate) ||
+              (range === "year" && subYears(startDate, 1) < minStartDate)
+            }
+            className="px-3 py-1 bg-[var(--hover)] rounded-lg">&lt;</button>
 
           <span className="font-semibold">
             {formatRangeLabel(range, getRangeDates(range, startDate).start, getRangeDates(range, startDate).end)}
           </span>
 
-          <button onClick={()=>nextRange(visitorsData)} className="px-3 py-1 bg-[var(--hover)] rounded-lg">&gt;</button>
+          <button 
+            onClick={()=>nextRange(visitorsData)} 
+            disabled={
+              (range === "week" && addWeeks(startDate, 1) > currentWeekStart) ||
+              (range === "month" && addMonths(startDate, 1) > currentMonthStart) ||
+              (range === "year" && addYears(startDate, 1) > currentYearStart)
+            }
+            className="px-3 py-1 bg-[var(--hover)] rounded-lg"
+          >&gt;</button>
 
           <div className="relative">
             <button onClick={() => setDropdownOpen(!dropdownOpen)}>
