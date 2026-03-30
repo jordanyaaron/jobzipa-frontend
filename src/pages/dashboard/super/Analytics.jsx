@@ -11,7 +11,7 @@ const [activeTab, setActiveTab] = useState("profile");
 
   const tabs = [
     { id: "reveniew", label: "Reveniew" },
-    { id: "reveniew", label: "Reveniew" },
+    { id: "visitor", label: "visitor" },
     { id: "jobs", label: "Jobs" },
     { id: "staffs", label: "Staffs" },
   ];
