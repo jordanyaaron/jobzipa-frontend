@@ -1,5 +1,6 @@
 import React, { useState , useRef , useCallback } from "react";
 import { Link , useOutletContext } from "react-router-dom";
+import { UserGroupIcon } from "@heroicons/react/24/outline";
 import Cropper from "react-easy-crop";
 import {
   PlusIcon , EyeIcon , 
@@ -86,6 +87,30 @@ function Reveniew () {
   return (
     <>
       <h1>Reveniew</h1>
+
+      <div className="p-4 rounded-2xl bg-[var(--background)] border border-[var(--border)]">
+        
+        <div className="flex justify-between items-center">
+          <p className="text-sm text-gray-400">Visitors</p>
+
+          <span className="p-2 rounded-lg bg-blue-100 text-blue-600">
+            <UserGroupIcon className="h-5 w-5" />
+          </span>
+        </div>
+
+        <div className="mt-3">
+          <h2 className="text-2xl font-bold">1,245</h2>
+
+          <p className="text-xs text-gray-400 mt-1">
+            320 today
+          </p>
+        </div>
+
+        <div className="mt-2 text-sm text-green-500">
+          ↑ 12% this week
+        </div>
+
+      </div>
     </>
   )
 }
