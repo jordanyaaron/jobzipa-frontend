@@ -1,7 +1,7 @@
 import React, { useState , useRef , useCallback } from "react";
 import { Link , useOutletContext } from "react-router-dom";
 import { UserGroupIcon , EllipsisVerticalIcon } from "@heroicons/react/24/outline";
-import {generateRandomVisitors} from "@/data/visitors"
+import {generateVisitors} from "@/data/visitors"
 import { format, startOfWeek, startOfMonth, 
   startOfYear, addWeeks, 
   addMonths, addYears, 
@@ -142,7 +142,7 @@ function Visitors () {
   }
   const {start}  =  getRangeDates(range, startDate);
   const {end}  =  getRangeDates(range, startDate);
-  const visitorsData = generateRandomVisitors({  range , start });
+  const visitorsData = generateVisitors({  range , start });
 
   
 
