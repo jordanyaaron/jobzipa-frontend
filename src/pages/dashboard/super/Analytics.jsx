@@ -72,7 +72,7 @@ export default function AnalyticsSuper() {
         </div>
       </div>
       {/* Content */}
-      <div className="border border-[var(--border)] rounded-lg p-4 bg-[var(--background)]">
+      <div className="p-4 bg-[var(--background)]">
         {analyticsFilter === "revenue" && <Reveniew />}
         {analyticsFilter === "visitor" && <Visitors />}
         {analyticsFilter === "jobs" && <Jobs />}
@@ -87,8 +87,14 @@ function Reveniew () {
   return (
     <>
       <h1>Reveniew</h1>
+    </>
+  )
+}
 
-      <div className="p-4 rounded-2xl bg-[var(--background)] border border-[var(--border)]">
+function Visitors () {
+  return (
+    <>
+       <div className="pt-4 px-0 rounded-2xl bg-[var(--background)] border border-[var(--border)]">
         
         <div className="flex justify-between items-center">
           <p className="text-sm text-gray-400">Visitors</p>
@@ -111,14 +117,6 @@ function Reveniew () {
         </div>
 
       </div>
-    </>
-  )
-}
-
-function Visitors () {
-  return (
-    <>
-      <h1>Visitors</h1>
     </>
   )
 }
