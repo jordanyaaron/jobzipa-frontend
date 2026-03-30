@@ -142,7 +142,7 @@ function Visitors () {
   }
   const {start}  =  getRangeDates(range, startDate);
   const {end}  =  getRangeDates(range, startDate);
-  const visitorsData = generateRandomVisitors({ startDate: start, endDate: end, range });
+  const visitorsData = generateRandomVisitors({  range , start });
 
   
 
