@@ -104,11 +104,12 @@ function Reveniew () {
 }
 
 function Visitors () {
+  const visitors = 1245;
+  const todayVisitors = 320;
+  const growth = 12;
   return (
     <>
-      const visitors = 1245;
-      const todayVisitors = 320;
-      const growth = 12;
+      
 
       <div className="
         p-4 rounded-2xl
