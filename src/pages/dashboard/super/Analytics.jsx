@@ -12,14 +12,6 @@ export default function AnalyticsSuper() {
     endDate, setEndDate,
     analyticsFilter, setAnalyticsFilter,
   } = useOutletContext();
-const [activeTab, setActiveTab] = useState(analyticsFilter);
-
-  const tabs = [
-    { id: "reveniew", label: "Reveniew" },
-    { id: "visitor", label: "visitor" },
-    // { id: "jobs", label: "Jobs" },
-    // { id: "staffs", label: "Staffs" },
-  ];
 
   return (
     <div className="mt-[64px] lg:m-0 p-4 lg:p-6 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4">
@@ -46,10 +38,10 @@ const [activeTab, setActiveTab] = useState(analyticsFilter);
 
       {/* Content */}
       <div className="border border-[var(--border)] rounded-lg p-4 bg-[var(--background)]">
-        {activeTab === "reveniew" && <Reveniew />}
-        {activeTab === "visitor" && <Visitors />}
-        {activeTab === "jobs" && <Jobs />}
-        {activeTab === "staffs" && <Staffs />}
+        {analyticsFilter === "revenue" && <Reveniew />}
+        {analyticsFilter === "visitor" && <Visitors />}
+        {analyticsFilter === "jobs" && <Jobs />}
+        {analyticsFilter === "staffs" && <Staffs />}
       </div>
 
     </div>
