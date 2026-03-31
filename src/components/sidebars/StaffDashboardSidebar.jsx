@@ -1,5 +1,5 @@
 import {NavLink , useLocation} from 'react-router-dom' 
-import JobzipaLogo from "../assets/logos/jobzipa.png";
+import JobzipaLogo from "@/assets/logos/jobzipa.png"
 import {
     HomeIcon,
     BriefcaseIcon,
