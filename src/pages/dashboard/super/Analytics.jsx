@@ -1,6 +1,6 @@
 import React, { useState , useEffect , useRef , useCallback } from "react";
 import { Link , useOutletContext } from "react-router-dom";
-import { UserGroupIcon , EllipsisVerticalIcon , EllipsisHorizontalCircleIcon} from "@heroicons/react/24/outline";
+import { UserGroupIcon , EllipsisVerticalIcon , EllipsisHorizontalIcon} from "@heroicons/react/24/outline";
 import {generateVisitors} from "@/data/visitors"
 import { 
   format, startOfWeek, 
@@ -261,7 +261,7 @@ function Visitors () {
           >
             <div
               className="
-                flex ml-10 items-center gap-3 mb-4
+                flex  items-center gap-3 mb-4
               "
             >
                   <button 
@@ -289,7 +289,7 @@ function Visitors () {
             </div>
             <div className="relative" ref={dropdownRef}>
               <button onClick={() => setDropdownOpen(!dropdownOpen)}>
-                <EllipsisHorizontalCircleIcon className="h-6 w-6 text-[var(--text)]" />
+                <EllipsisHorizontalIcon className="h-6 w-6 text-[var(--text)]" />
               </button>
 
               {dropdownOpen && (
@@ -329,6 +329,7 @@ function Visitors () {
                 }}
                 labelStyle={{ color: "var(--text)" }}
                 itemStyle={{ color: "#3b82f6" }}
+                cursor={false}
               />
               <Line
                 type="monotone"
