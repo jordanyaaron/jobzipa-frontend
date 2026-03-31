@@ -13,15 +13,52 @@ import {
   ArrowRightStartOnRectangleIcon,
   ArrowLeftStartOnRectangleIcon,
 } from "@heroicons/react/24/outline";
+import { getUser, isAuthenticated } from "@/utils/auth";
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
 const StaffSidebar = ({ toggleDrawer }) => {
-
+  const user = getUser();
   const navigate = useNavigate();
+  const dashboardUrl = useDashboardUrl();
+
+  function useDashboardUrl() {
+      let url = null;
+
+      if (
+        user.is_staff &&
+        !user.is_official &&
+        !user.is_admin &&
+        !user.is_superuser
+      ) {
+          url = "/staff";
+      } else if (
+        user.is_staff &&
+        user.is_official &&
+        !user.is_admin &&
+        !user.is_superuser
+      ) {
+          url = "/official";
+      } else if (
+        user.is_staff &&
+        user.is_official &&
+        user.is_admin &&
+        !user.is_superuser
+      ) {
+          url = "/admin";
+      }else if (
+        user.is_staff &&
+        user.is_official &&
+        user.is_admin &&
+        user.is_superuser
+      ){
+          url = "/super";
+      }
+      return url;
+  }
 
   const navLinks = [
     { name: "Home", icon: HomeIcon, to: "/", replace: true },
-    { name: "Dashboard", icon: Squares2X2Icon, to: "/super", replace: false },
+    { name: "Dashboard", icon: Squares2X2Icon, to: dashboardUrl, replace: false },
     { name: "Notifications", icon: BellIcon, to: "/notifications", replace: true },
     { name: "Bookmarked", icon: BookmarkIcon, to: "/bookmarked", replace: true },
     { name: "Settings", icon: Cog6ToothIcon, to: "/settings", replace: true },
