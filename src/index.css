@@ -77,3 +77,13 @@
     --hover: #1e293b;
     --placeholder: #94a3b8;
   }
+
+
+  /* Grobal styling of rechart */
+  .recharts-wrapper:focus {
+    outline: none;
+  }
+  
+  .recharts-surface:focus {
+    outline: none;
+  }
