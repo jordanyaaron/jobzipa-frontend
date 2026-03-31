@@ -1,8 +1,9 @@
 import { useLocation } from "react-router-dom"
 export default function Overviews(){
-    const location = useLocation();
+    
     const title = useTitle()
     function useTitle() {
+        const location = useLocation();
         const path = location.pathname;
 
         let myTitle = null;
