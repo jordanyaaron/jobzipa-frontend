@@ -14,8 +14,7 @@ import {
     Squares2X2Icon
   } from "@heroicons/react/24/outline";
 
-export default function StaffDashboardSidebar({ toggleDrawer , sidebarOpen, setSidebarOpen }) {
-    const links = useNavLinks();
+  function useNavLinks() {
     const navAdminLinks = [
         {
           name: "Overview",
@@ -186,20 +185,21 @@ export default function StaffDashboardSidebar({ toggleDrawer , sidebarOpen, setS
           replace : true
         }
     ];
-    
-    function useNavLinks() {
-        const location = useLocation();
-        const path = location.pathname;
-        if (path.startsWith("/admin")) {
-            return navAdminLinks;
-        } else if (path.startsWith("/official")) {
-            return navOfficialLinks;
-        } else if(path.startsWith("/staff")) {
-            return navNonOfficialLinks;
-        }
-
+    const location = useLocation();
+    const path = location.pathname;
+    if (path.startsWith("/admin")) {
+        return navAdminLinks;
+    } else if (path.startsWith("/official")) {
+        return navOfficialLinks;
+    } else if(path.startsWith("/staff")) {
+        return navNonOfficialLinks;
     }
 
+}
+
+export default function StaffDashboardSidebar({ toggleDrawer , sidebarOpen, setSidebarOpen }) {
+    const links = useNavLinks();
+    
     return (
       <>
         {/* Overlay (mobile) */}
