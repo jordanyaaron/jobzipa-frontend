@@ -251,57 +251,61 @@ function Visitors () {
       <div className="p-4 mt-[20px] rounded-2xl border border-[var(--border)] bg-[var(--background)]">
         <div
           className="
-            relative w-full h-9 border border-[var(--border)]
+            relative w-full min-h-9 border border-[var(--border)]
           "
-        ></div>
-        <div className="relative w-full ">
-          <div
+        >
+          <div 
             className="
-              flex ml-10 items-center gap-3 mb-4
+              flex items-center justify-between px-4 h-16
             "
           >
+            <div
+              className="
+                flex ml-10 items-center gap-3 mb-4
+              "
+            >
+                  <button 
+                  onClick={()=>prevRange(visitorsData)}
+                  disabled={
+                    (range === "week" && subWeeks(startDate, 1) < minStartDate) ||
+                    (range === "month" && subMonths(startDate, 1) < minStartDate) ||
+                    (range === "year" && subYears(startDate, 1) < minStartDate)
+                  }
+                  className="px-3 py-1 bg-[var(--hover)] rounded-lg">&lt;</button>
+
+                <span className="font-semibold">
+                  {formatRangeLabel(range, getRangeDates(range, startDate).start, getRangeDates(range, startDate).end)}
+                </span>
+
                 <button 
-                onClick={()=>prevRange(visitorsData)}
-                disabled={
-                  (range === "week" && subWeeks(startDate, 1) < minStartDate) ||
-                  (range === "month" && subMonths(startDate, 1) < minStartDate) ||
-                  (range === "year" && subYears(startDate, 1) < minStartDate)
-                }
-                className="px-3 py-1 bg-[var(--hover)] rounded-lg">&lt;</button>
+                  onClick={()=>nextRange(visitorsData)} 
+                  disabled={
+                    (range === "week" && addWeeks(startDate, 1) > currentWeekStart) ||
+                    (range === "month" && addMonths(startDate, 1) > currentMonthStart) ||
+                    (range === "year" && addYears(startDate, 1) > currentYearStart)
+                  }
+                  className="px-3 py-1 bg-[var(--hover)] rounded-lg"
+                >&gt;</button>
+            </div>
+            <div className="relative" ref={dropdownRef}>
+              <button onClick={() => setDropdownOpen(!dropdownOpen)}>
+                <EllipsisVerticalIcon className="h-6 w-6 text-[var(--text)]" />
+              </button>
 
-              <span className="font-semibold">
-                {formatRangeLabel(range, getRangeDates(range, startDate).start, getRangeDates(range, startDate).end)}
-              </span>
-
-              <button 
-                onClick={()=>nextRange(visitorsData)} 
-                disabled={
-                  (range === "week" && addWeeks(startDate, 1) > currentWeekStart) ||
-                  (range === "month" && addMonths(startDate, 1) > currentMonthStart) ||
-                  (range === "year" && addYears(startDate, 1) > currentYearStart)
-                }
-                className="px-3 py-1 bg-[var(--hover)] rounded-lg"
-              >&gt;</button>
-          </div>
-          
-          <div className="relative" ref={dropdownRef}>
-            <button onClick={() => setDropdownOpen(!dropdownOpen)}>
-              <EllipsisVerticalIcon className="h-6 w-6 text-[var(--text)]" />
-            </button>
-
-            {dropdownOpen && (
-              <div className="absolute right-0 mt-2 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
-                {["week", "month", "year"].map((r) => (
-                  <button
-                    key={r}
-                    onClick={() => { setRange(r); setDropdownOpen(false); }}
-                    className="block px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
-                  >
-                    {r}
-                  </button>
-                ))}
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-2 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
+                  {["week", "month", "year"].map((r) => (
+                    <button
+                      key={r}
+                      onClick={() => { setRange(r); setDropdownOpen(false); }}
+                      className="block px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
+                    >
+                      {r}
+                    </button>
+                  ))}
               </div>
             )}
+            </div>
           </div>
         </div>
 
