@@ -58,7 +58,7 @@ export default function StaffDashboardLayout({  darkMode, setDarkMode  }) {
       <div className="flex flex-col flex-1">
 
         {/* Header (mobile & tablet) */}
-      <StaffDashboardSidebar toggleDrawer={toggleDrawer}  />
+      <StaffDashboardHeader toggleDrawer={toggleDrawer}  />
 
         {/* Main content */}
         <main 
