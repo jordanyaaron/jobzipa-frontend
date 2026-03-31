@@ -132,7 +132,7 @@ export default function StaffDashboardSidebar({ toggleDrawer , sidebarOpen, setS
 
     const navNonOfficialLinks = [
         {
-          name: "Overview",
+          name: "Overviews",
           path: "/staff",
           icon: Squares2X2Icon,
           replace : true
@@ -190,18 +190,14 @@ export default function StaffDashboardSidebar({ toggleDrawer , sidebarOpen, setS
     function useNavLinks() {
         const location = useLocation();
         const path = location.pathname;
-
-        let navArray = [];
-
         if (path.startsWith("/admin")) {
-            navArray = navAdminLinks;
+            return navAdminLinks;
         } else if (path.startsWith("/official")) {
-            navArray = navOfficialLinks;
-        } else if (path.startsWith("/staff")) {
-            navArray = navNonOfficialLinks;
+            return navOfficialLinks;
+        } else if(path.startsWith("/staff")) {
+            return navNonOfficialLinks;
         }
 
-        return navArray;
     }
 
     return (
