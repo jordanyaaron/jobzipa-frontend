@@ -11,7 +11,7 @@ import {
 
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
- export default function  StaffDashboardHeader  ({ darkMode, setDarkMode, toggleDrawer }) {
+ export default function  StaffDashboardHeader  ({ toggleDrawer }) {
   
   
   const [search, setSearch] = useState("");

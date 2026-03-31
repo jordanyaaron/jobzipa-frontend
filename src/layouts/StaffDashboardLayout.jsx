@@ -4,6 +4,7 @@ import "../css/DeviceSize.css";// Importing Components
 
 // headers
 import StaffDashboardHeader from "../components/headers/StaffDashboardHeader";
+import StaffDashboardSidebar from "../components/sidebars/StaffDashboardSidebar";
 // import "../css/Post.css";
 // import "../css/QuillEditor.css";
 // import "../css/Cropper.css";
@@ -48,7 +49,7 @@ export default function StaffDashboardLayout({  darkMode, setDarkMode  }) {
     <div className="flex h-screen bg-[var(--background)] text-[var(--text)]">
 
       {/* Sidebar */}
-      <StaffSideBar toggleDrawer={toggleDrawer} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      <StaffDashboardSidebar toggleDrawer={toggleDrawer} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
       {/* Divider line (desktop only) */}
       <div className="hidden md:block w-px bg-[var(--border)]" />
@@ -57,7 +58,7 @@ export default function StaffDashboardLayout({  darkMode, setDarkMode  }) {
       <div className="flex flex-col flex-1">
 
         {/* Header (mobile & tablet) */}
-      <StaffDashboardHeader/>
+      <StaffDashboardSidebar toggleDrawer={toggleDrawer}  />
 
         {/* Main content */}
         <main 
