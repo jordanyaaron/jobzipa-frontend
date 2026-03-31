@@ -1,6 +1,6 @@
 import React, { useState , useEffect , useRef , useCallback } from "react";
 import { Link , useOutletContext } from "react-router-dom";
-import { UserGroupIcon , EllipsisVerticalIcon } from "@heroicons/react/24/outline";
+import { UserGroupIcon , EllipsisVerticalIcon , EllipsisHorizontalCircleIcon} from "@heroicons/react/24/outline";
 import {generateVisitors} from "@/data/visitors"
 import { 
   format, startOfWeek, 
@@ -251,12 +251,12 @@ function Visitors () {
       <div className="p-4 mt-[20px] rounded-2xl border border-[var(--border)] bg-[var(--background)]">
         <div
           className="
-            relative w-full min-h-9 border border-[var(--border)]
+            relative w-full min-h-9 
           "
         >
           <div 
             className="
-              flex items-center justify-between px-4 h-16
+              flex items-center justify-between px-0 h-16
             "
           >
             <div
@@ -289,7 +289,7 @@ function Visitors () {
             </div>
             <div className="relative" ref={dropdownRef}>
               <button onClick={() => setDropdownOpen(!dropdownOpen)}>
-                <EllipsisVerticalIcon className="h-6 w-6 text-[var(--text)]" />
+                <EllipsisHorizontalCircleIcon className="h-6 w-6 text-[var(--text)]" />
               </button>
 
               {dropdownOpen && (
@@ -309,17 +309,34 @@ function Visitors () {
           </div>
         </div>
 
-        <div className="w-full h-[300px]">
+        <div className="w-full h-[250px] md:h-[300px]">
           <ResponsiveContainer>
             <LineChart data={visitorsData}>
-              <XAxis dataKey="day" />
-              <YAxis />
-              <Tooltip />
+              <XAxis 
+                dataKey="day" 
+                stroke="var(--border)"
+                tick={{fill:"var(--text)"}}
+              />
+              <YAxis 
+                stroke="var(--border)"
+                tick={{fill:"var(--text)"}}
+              />
+              <Tooltip 
+                contentStyle={{
+                  backgroundColor: "var(--background)",
+                  border: "1px solid var(--border)",
+                  borderRadius: "8px"
+                }}
+                labelStyle={{ color: "var(--text)" }}
+                itemStyle={{ color: "#3b82f6" }}
+              />
               <Line
                 type="monotone"
+                dot={false}
+                activeDot={{r:6}}
                 dataKey="visitors"
                 stroke="#3b82f6"
-                strokeWidth={3}
+                strokeWidth={2}
               />
             </LineChart>
           </ResponsiveContainer>
