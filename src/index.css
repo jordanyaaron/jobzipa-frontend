@@ -79,11 +79,8 @@
   }
 
 
-  /* Grobal styling of rechart */
-  .recharts-wrapper:focus {
-    outline: none;
-  }
   
-  .recharts-surface:focus {
-    outline: none;
+  
+  .recharts-wrapper:focus , .recharts-surface:focus {
+    outline: none !important;
   }

@@ -313,6 +313,7 @@ function Visitors () {
           <ResponsiveContainer>
             <LineChart 
               data={visitorsData}
+              tableIndex={-1}
               style={{ outline: "none" }}
             >
               <XAxis 
