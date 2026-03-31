@@ -6,7 +6,7 @@ import { Routes , Route } from 'react-router-dom';
 import ProtectedRoute from "./ProtectedRoute";
 
 // layouts
-import MianLayout from '../layouts/MainLayout';
+import StaffDashboardLayout from '../layouts/StaffDashboardLayout';
 import HomeLayout from '../layouts/HomeLayout';
 import PostLayout from '../layouts/PostLayout';
 import AuthLayout from '../layouts/AuthLayout';
@@ -29,13 +29,11 @@ import StaffCompleteRegistration from '../pages/auth/StaffCompleteRegistration';
 import ResetPassword from '../pages/auth/ResetPassword';
 import ResetPasswordEmailSent from '../pages/auth/ResetPasswordEmailSent';
 import InviteStaff from '../pages/auth/InviteStaff';
-// import AdminDashboard from '../pages/dashboard/AdminDashboard';PostAJob
-// import PostAJob from '../pages/dashboard/AdminDashboard';
 import StaffDashboard from '../pages/dashboard/StaffDashboard';
 
 
 // dashboards
-// super dashboard
+// 1. super 
 import OverviewsSuper from '../pages/dashboard/super/Overviews'
 import AnalyticsSuper from '../pages/dashboard/super/Analytics'
 import JobsSuper from '../pages/dashboard/super/Jobs'
@@ -48,6 +46,10 @@ import SettingsSuper from '../pages/dashboard/super/Settings'
 import SuperPayouts from '../pages/dashboard/super/Payouts'
 import InviteMember from '../pages/dashboard/InviteStaff'
 import NotificationDetail from '@/pages/dashboard/NotificationDetail';
+
+// 2. staff 
+import Overviews from '../pages/dashboard/Overviews'
+
 
 const AppRoutes = ({ darkMode, setDarkMode }) => {
     return (
@@ -188,6 +190,42 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
             />
         </Route> 
 
+
+        <Route element={<StaffDashboardLayout />}>
+            {/* Admin routes */}
+          <Route path="/admin">
+            <Route index element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <Overviews />
+              </ProtectedRoute>
+            } />
+          </Route>
+
+          {/* Official routes */}
+          <Route path="/official">
+            <Route index element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <Overviews />
+              </ProtectedRoute>
+            } />
+          </Route>
+
+          {/* staff normal routes */}
+          <Route path="/staff">
+            <Route index element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <Overviews />
+              </ProtectedRoute>
+            } />
+          </Route>
+
+          
+        </Route>
+
+        
+
+        
+       
 
         {/* <Route element={<AuthLayout/>}>
             <Route path="/forgot-password" element={<ResetPassword />} />
