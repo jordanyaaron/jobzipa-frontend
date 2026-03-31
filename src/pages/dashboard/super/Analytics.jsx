@@ -249,7 +249,11 @@ function Visitors () {
 
       </div>
       <div className="p-4 mt-[20px] rounded-2xl border border-[var(--border)] bg-[var(--background)]">
-      
+        <div
+          className="
+            relative w-full h-9 border border-[var(--border)]
+          "
+        ></div>
         <div className="relative w-full ">
           <div
             className="
