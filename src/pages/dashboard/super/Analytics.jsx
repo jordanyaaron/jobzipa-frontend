@@ -311,7 +311,10 @@ function Visitors () {
 
         <div className="w-full h-[250px] md:h-[300px]">
           <ResponsiveContainer>
-            <LineChart data={visitorsData}>
+            <LineChart 
+              data={visitorsData}
+              style={{ outline: "none" }}
+            >
               <XAxis 
                 dataKey="day" 
                 stroke="var(--border)"
