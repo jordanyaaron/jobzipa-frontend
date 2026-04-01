@@ -1,4 +1,4 @@
-import { Link , useOutletContext } from "react-router-dom";
+import { Link ,  } from "react-router-dom";
 import {
   EyeIcon,PlusIcon,
   PencilSquareIcon,
@@ -175,8 +175,9 @@ export default function JobsAdmin(
                 <option value="all">All</option>
                 <option value="active">Active</option>
                 <option value="pending">Pending</option>
-                <option value="reported">Reported</option>
+                <option value="closed">Closed</option>
             </select>
+        
         </div>
         </div>
         {/* Scrollable row */}

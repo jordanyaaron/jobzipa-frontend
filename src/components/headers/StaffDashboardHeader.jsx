@@ -30,7 +30,12 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
     const dropdownPosterRef = useRef();
 
     // Options
-    const filterOptions = ["all", "Super", "Admin", "Official", "Unofficial"];
+    const filterOptions = obStatus = [
+        "all",
+        "active",
+        "pending",
+        "closed"
+      ];
   
     // UseEffects Hooks
     // 1. Close dropdown when clicking outside
