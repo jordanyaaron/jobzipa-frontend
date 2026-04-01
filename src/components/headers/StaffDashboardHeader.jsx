@@ -109,7 +109,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                         <div className="absolute right-0 mt-2 w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
                             
                             <button
-                                key={option}
+                                
                                 onClick={() => {
                                     setViewAllPosts(true); // 👈 important
                                     setDropdownOpen(false);
@@ -119,7 +119,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                                 All Post
                             </button>
                             <button
-                                key={option}
+                                
                                 onClick={() => {
                                     setViewAllPosts(false); // 👈 important
                                     setDropdownOpen(false);
