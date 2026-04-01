@@ -6,10 +6,14 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function JobsAdmin(
-    setFilter ,
-    setViewAllPosts ,
-    viewAllPosts,
-    filter
+    {
+        setFilter ,
+        setViewAllPosts ,
+        viewAllPosts,
+        filter ,
+        searchQuery,
+        setSearchQuery
+    }
 ){
     const myJobPost = [
         {

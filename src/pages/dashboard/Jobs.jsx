@@ -30,11 +30,11 @@ export default function JobsInStaff(){
                     // seter
                         setFilter={setFilter} 
                         setViewAllPosts={setViewAllPosts} 
-                        setSearchQuery
+                        setSearchQuery = {setSearchQuery}
                     // variable
                         viewAllPosts={viewAllPosts} 
                         filter={filter}
-                        searchQuery 
+                        searchQuery = {searchQuery}
                 />
                 : path.startsWith("/official") && user.is_official
                 ? <h1 className="mt-16 text-[var(--text)]">Officicial Jobs</h1>
