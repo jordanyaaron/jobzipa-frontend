@@ -81,7 +81,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                 {/* Left */}
                 <div className="flex items-center gap-3">
                     <button
-                        onClick={() => setMobileSearchOpen(true)}
+                        onClick={toggleDrawer}
                         className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
                     >
                         <Bars3Icon className="h-6 w-6   text-[var(--text)]" />
@@ -101,7 +101,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                     {
                         path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs")
                         ?   <button
-                                onClick={toggleDrawer}
+                                onClick={() => setMobileSearchOpen(true)}
                                 className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
                             >
                                 <MagnifyingGlassIcon className="h-6 w-6   text-[var(--text)]" />
