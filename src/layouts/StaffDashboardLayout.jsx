@@ -60,7 +60,7 @@ export default function StaffDashboardLayout({  darkMode, setDarkMode  }) {
       <div className="flex flex-col flex-1">
 
         {/* Header (mobile & tablet) */}
-      <StaffDashboardHeader toggleDrawer={toggleDrawer}  />
+      <StaffDashboardHeader toggleDrawer={toggleDrawer} setFilter={setFilter} setViewAllPosts={setViewAllPosts}   />
 
         {/* Main content */}
         <main 

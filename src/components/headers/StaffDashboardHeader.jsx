@@ -14,9 +14,9 @@ import {
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
  export default function  StaffDashboardHeader  ( 
-    toggleDrawer ,
+    {toggleDrawer ,
     setFilter,
-    setViewAllPosts,
+    setViewAllPosts,}
 
 ) {
     const path = useLocation();
