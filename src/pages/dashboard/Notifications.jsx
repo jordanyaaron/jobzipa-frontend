@@ -1,5 +1,5 @@
-
 import { NavLink, useNavigate , useLocation} from "react-router-dom";
+import { getUser, isAuthenticated } from "@/utils/auth";
 import NotificationsAdmin from "./admin/Notifications";
 
 export default function Notifications(){

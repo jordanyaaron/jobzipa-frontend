@@ -1,4 +1,5 @@
 import { NavLink, useNavigate , useLocation} from "react-router-dom";
+import { getUser, isAuthenticated } from "@/utils/auth";
 import JobsAdmin from "./admin/Jobs";
 
 export default function JobsInStaff(){
