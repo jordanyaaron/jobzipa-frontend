@@ -13,12 +13,12 @@ import {
 
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
- export default function  StaffDashboardHeader  ({ 
+ export default function  StaffDashboardHeader  ( 
     toggleDrawer ,
     setFilter,
     setViewAllPosts,
 
-}) {
+) {
     const path = useLocation();
     const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);

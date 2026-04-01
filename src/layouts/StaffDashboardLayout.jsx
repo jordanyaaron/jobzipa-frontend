@@ -51,7 +51,7 @@ export default function StaffDashboardLayout({  darkMode, setDarkMode  }) {
     <div className="flex h-screen bg-[var(--background)] text-[var(--text)]">
 
       {/* Sidebar */}
-      <StaffDashboardSidebar toggleDrawer={toggleDrawer} setFilter={setFilter} setViewAllPosts={setViewAllPosts} viewAllPosts={viewAllPosts}/>
+      <StaffDashboardSidebar toggleDrawer={toggleDrawer} setFilter={setFilter} setViewAllPosts={setViewAllPosts} />
 
       {/* Divider line (desktop only) */}
       <div className="hidden md:block w-px bg-[var(--border)]" />
