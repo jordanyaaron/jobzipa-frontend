@@ -41,14 +41,14 @@ import {
           replace : true
         },
         {
-          name: "Revenue",
-          path: "/admin/revenue",
+          name: "Monitization",
+          path: "/admin/monitization",
           icon: CurrencyDollarIcon,
           replace : true
         },
         {
           name: "Payouts",
-          path: "/admin/Payouts",
+          path: "/admin/payouts",
           icon: BanknotesIcon,
           replace : true
         },
@@ -60,7 +60,7 @@ import {
         },
         {
           name: "Reports",
-          path: "/admin/report",
+          path: "/admin/reports",
           icon: ExclamationTriangleIcon,
           replace : true
         },

@@ -58,7 +58,7 @@ import Analytics from '../pages/dashboard/Analytics'
 
 // 2. admin page 
 import PayoutsAdmin from '../pages/dashboard/admin/Payouts'
-
+import StaffsAdmin from '../pages/dashboard/admin/Staffs'
 
 
 const AppRoutes = ({ darkMode, setDarkMode }) => {
@@ -203,19 +203,112 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
 
         <Route element={<StaffDashboardLayout />}>
             {/* Admin routes */}
-          <Route path="/admin">
+          <Route path={"/admin"}>
             <Route index element={
               <ProtectedRoute requireStaffOnly={true}>
                 <Overviews />
               </ProtectedRoute>
             } />
+
+            <Route path="jobs" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <JobsInStaff />
+              </ProtectedRoute>
+            } />
+
+            <Route path="staffs" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <StaffsAdmin />
+              </ProtectedRoute>
+            } />
+
+            <Route path="analytics" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <Analytics />
+              </ProtectedRoute>
+            } />
+
+            <Route path="monitization" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <Monitizations />
+              </ProtectedRoute>
+            } />
+
+            <Route path="payouts" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <PayoutsAdmin />
+              </ProtectedRoute>
+            } />
+
+
+            <Route path="notifications" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <Notifications />
+              </ProtectedRoute>
+            } />
+            
+
+            <Route path="reports" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <Reports />
+              </ProtectedRoute>
+            } />
+
+
+            <Route path="settings" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <Reports />
+              </ProtectedRoute>
+            } />
+                      
           </Route>
 
           {/* Official routes */}
           <Route path="/official">
-            <Route index element={
+          <Route index element={
               <ProtectedRoute requireStaffOnly={true}>
                 <Overviews />
+              </ProtectedRoute>
+            } />
+
+            <Route path="jobs" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <JobsInStaff />
+              </ProtectedRoute>
+            } />
+
+            
+
+            <Route path="analytics" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <Analytics />
+              </ProtectedRoute>
+            } />
+
+            <Route path="monitization" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <Monitizations />
+              </ProtectedRoute>
+            } />
+
+
+            <Route path="notifications" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <Notifications />
+              </ProtectedRoute>
+            } />
+            
+
+            <Route path="reports" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <Reports />
+              </ProtectedRoute>
+            } />
+
+
+            <Route path="settings" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <Reports />
               </ProtectedRoute>
             } />
           </Route>
