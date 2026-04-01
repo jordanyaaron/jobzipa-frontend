@@ -17,6 +17,8 @@ import Footer from "../components/Foote";
 export default function StaffDashboardLayout({  darkMode, setDarkMode  }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const toggleDrawer = () => setSidebarOpen(!sidebarOpen);
+  const [viewAllPosts, setViewAllPosts] = useState(true);
+  const [filter, setFilter] = useState("all");
   
   
 
@@ -49,7 +51,7 @@ export default function StaffDashboardLayout({  darkMode, setDarkMode  }) {
     <div className="flex h-screen bg-[var(--background)] text-[var(--text)]">
 
       {/* Sidebar */}
-      <StaffDashboardSidebar toggleDrawer={toggleDrawer} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      <StaffDashboardSidebar toggleDrawer={toggleDrawer} setFilter={setFilter} setViewAllPosts={setViewAllPosts} viewAllPosts={viewAllPosts}/>
 
       {/* Divider line (desktop only) */}
       <div className="hidden md:block w-px bg-[var(--border)]" />
@@ -72,10 +74,18 @@ export default function StaffDashboardLayout({  darkMode, setDarkMode  }) {
           "
         >
           
-          <Outlet context={{ 
+          <Outlet context={{
+
             // theme mode 
-            darkMode , setDarkMode ,
-            setSidebarOpen, 
+                darkMode , setDarkMode ,
+                setSidebarOpen, 
+            // variables
+                viewAllPosts,
+                filter,
+            // seters
+                setViewAllPosts,
+                setFilter,
+
           }} />
         </main>
 
