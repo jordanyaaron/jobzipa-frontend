@@ -1,7 +1,7 @@
 import { NavLink, useNavigate , useLocation} from "react-router-dom";
-import OverviewsAdmin from "./admin/Overviews";
+import JobsAdmin from "./admin/Jobs";
 
-export default function Overviews(){
+export default function JobsInStaff(){
     const location = useLocation();
     const path = location.pathname;
     const user = getUser();
@@ -11,11 +11,11 @@ export default function Overviews(){
         <>
             {
                 path.startsWith("/admin") && user.is_admin
-                ? <OverviewsAdmin/>
+                ? <JobsAdmin/>
                 : path.startsWith("/official") && user.is_official
-                ? <h1 className="mt-16 text-[var(--text)]">Officicial Overview</h1>
+                ? <h1 className="mt-16 text-[var(--text)]">Officicial Jobs</h1>
                 : path.startsWith("/staff") && user.is_staff
-                ? <h1 className="mt-16 text-[var(--text)]">Staff Overview</h1>
+                ? <h1 className="mt-16 text-[var(--text)]">Staff jobs</h1>
                 : ""
             }
         </>

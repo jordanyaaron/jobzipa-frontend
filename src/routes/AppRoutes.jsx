@@ -47,8 +47,18 @@ import SuperPayouts from '../pages/dashboard/super/Payouts'
 import InviteMember from '../pages/dashboard/InviteStaff'
 import NotificationDetail from '@/pages/dashboard/NotificationDetail';
 
-// 2. staff 
+// 2. staff control 
 import Overviews from '../pages/dashboard/Overviews'
+import Reports from '../pages/dashboard/Reports'
+import JobsInStaff from '../pages/dashboard/Jobs'
+import Monitizations from '../pages/dashboard/Monitization'
+import Settings from '../pages/dashboard/Settings'
+import Notifications from '../pages/dashboard/Notifications'
+import Analytics from '../pages/dashboard/Analytics'
+
+// 2. admin page 
+import PayoutsAdmin from '../pages/dashboard/admin/Payouts'
+
 
 
 const AppRoutes = ({ darkMode, setDarkMode }) => {

@@ -1,0 +1,26 @@
+
+import { NavLink, useNavigate , useLocation} from "react-router-dom";
+import ReportsAdmin from "./admin/Reports";
+
+export default function Reports(){
+    const location = useLocation();
+    const path = location.pathname;
+    const user = getUser();
+    
+    
+    return(
+        <>
+            {
+                path.startsWith("/admin") && user.is_admin
+                ? <h1 className="mt-16 text-[var(--text)]">Admin Settings</h1>
+                : path.startsWith("/official") && user.is_official
+                ? <h1 className="mt-16 text-[var(--text)]">Officicial Settings</h1>
+                : path.startsWith("/staff") && user.is_staff
+                ? <h1 className="mt-16 text-[var(--text)]">Staff Settings</h1>
+                : path.startsWith("/super") && user.is_superuser
+                ? <h1 className="mt-16 text-[var(--text)]">super Settings</h1>
+                : ""
+            }
+        </>
+    )
+}
