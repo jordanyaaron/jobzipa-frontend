@@ -30,7 +30,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
     const dropdownPosterRef = useRef();
 
     // Options
-    const filterOptions = obStatus = [
+    const filterOptions  = [
         "all",
         "active",
         "pending",
