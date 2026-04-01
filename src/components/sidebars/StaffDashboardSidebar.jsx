@@ -30,7 +30,7 @@ import {
         },
         {
           name: "Winning Team",
-          path: "/admin/staff",
+          path: "/admin/staffs",
           icon: UsersIcon,
           replace : true
         },
