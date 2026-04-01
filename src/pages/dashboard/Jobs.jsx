@@ -10,9 +10,12 @@ export default function JobsInStaff(){
         // variables
             viewAllPosts,
             filter,
+            searchQuery,
         // seters
             setViewAllPosts,
             setFilter,
+            setSearchQuery
+
     } = useOutletContext();
     const location = useLocation();
     const path = location.pathname;
@@ -23,7 +26,16 @@ export default function JobsInStaff(){
         <>
             {
                 path.startsWith("/admin") && user.is_admin
-                ? <JobsAdmin setFilter={setFilter} setViewAllPosts={setViewAllPosts} viewAllPosts={viewAllPosts} filter={filter} />
+                ? <JobsAdmin 
+                    // seter
+                        setFilter={setFilter} 
+                        setViewAllPosts={setViewAllPosts} 
+                        setSearchQuery
+                    // variable
+                        viewAllPosts={viewAllPosts} 
+                        filter={filter}
+                        searchQuery 
+                />
                 : path.startsWith("/official") && user.is_official
                 ? <h1 className="mt-16 text-[var(--text)]">Officicial Jobs</h1>
                 : path.startsWith("/staff") && user.is_staff

@@ -19,7 +19,7 @@ export default function StaffDashboardLayout({  darkMode, setDarkMode  }) {
   const toggleDrawer = () => setSidebarOpen(!sidebarOpen);
   const [viewAllPosts, setViewAllPosts] = useState(true);
   const [filter, setFilter] = useState("all");
-  
+  const [searchQuery, setSearchQuery] = useState(null)
   
 
 
@@ -60,7 +60,7 @@ export default function StaffDashboardLayout({  darkMode, setDarkMode  }) {
       <div className="flex flex-col flex-1">
 
         {/* Header (mobile & tablet) */}
-      <StaffDashboardHeader toggleDrawer={toggleDrawer} setFilter={setFilter} setViewAllPosts={setViewAllPosts}   />
+      <StaffDashboardHeader toggleDrawer={toggleDrawer} setFilter={setFilter} setViewAllPosts={setViewAllPosts} setSearchQuery={setSearchQuery}   />
 
         {/* Main content */}
         <main 
@@ -82,9 +82,11 @@ export default function StaffDashboardLayout({  darkMode, setDarkMode  }) {
             // variables
                 viewAllPosts,
                 filter,
+                searchQuery,
             // seters
                 setViewAllPosts,
                 setFilter,
+                setSearchQuery
 
           }} />
         </main>

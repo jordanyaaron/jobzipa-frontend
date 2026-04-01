@@ -14,12 +14,15 @@ import {
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
  export default function  StaffDashboardHeader  ( 
-    {toggleDrawer ,
-    setFilter,
-    setViewAllPosts,}
-
+    {
+        toggleDrawer ,
+        setFilter,
+        setViewAllPosts,
+        setSearchQuery
+    }
 ) {
-    const path = useLocation();
+    const location = useLocation();
+    const path = location.pathname;
     const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [dropdownPosterOpen, setDropdownPosterOpen] = useState(false);
@@ -68,99 +71,138 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
     return (
         <header
-        className="fixed lg:hidden  top-0 left-0 w-full z-40 border-b  border-[var(--border)] bg-[var(--header-bg)]"
+            className="fixed lg:hidden  top-0 left-0 w-full z-40 border-b  border-[var(--border)] bg-[var(--header-bg)]"
         >
-        <div 
-                className={`flex items-center justify-between px-4 md:px-6 h-16 transition-all duration-200 ${
-                    mobileSearchOpen ? "opacity-0 pointer-events-none" : "opacity-100"
-                }`}
-        >
-            {/* Left */}
-            <div className="flex items-center gap-3">
-                <button
-                    onClick={toggleDrawer}
-                    className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
-                >
-                    <Bars3Icon className="h-6 w-6   text-[var(--text)]" />
-                </button>
-                <Link to="/" className="flex items-center">
-                    <img src={JobzipaLogo} alt="Jobzipa" className="h-9 md:h-10" />
-                </Link>
-            </div>
-
-            {/* Right */}
-            <div className="flex items-center gap-3">
-                <button
-                    onClick={toggleDrawer}
-                    className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
-                >
-                    <MagnifyingGlassIcon className="h-6 w-6   text-[var(--text)]" />
-                </button>
-                
-                <div className="relative" ref={dropdownPosterRef}>
+            <div 
+                    className={`flex items-center justify-between px-4 md:px-6 h-16 transition-all duration-200 ${
+                        mobileSearchOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+                    }`}
+            >
+                {/* Left */}
+                <div className="flex items-center gap-3">
                     <button
-                        onClick={() => setDropdownPosterOpen(!dropdownPosterOpen)}
-                        className="p-2 rounded-lg hover:bg-[var(--hover)]"
+                        onClick={() => setMobileSearchOpen(true)}
+                        className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
                     >
-                        <AdjustmentsHorizontalIcon className="h-6 w-6 text-[var(--text)]" />
+                        <Bars3Icon className="h-6 w-6   text-[var(--text)]" />
                     </button>
-
-                    {dropdownPosterOpen && (
-                        <div className="absolute right-0 mt-2 w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
+                    {
+                        path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs")  
+                        ?   <h1 className="text-[var(--text)]">Jobs</h1>
+                        :   <Link to="/" className="flex items-center">
+                                <img src={JobzipaLogo} alt="Jobzipa" className="h-9 md:h-10" />
+                            </Link>
+                    }
                             
-                            <button
-                                
-                                onClick={() => {
-                                    setViewAllPosts(true); // 👈 important
-                                    setDropdownOpen(false);
-                                }}
-                                className="block w-full text-left px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
-                            >
-                                All Post
-                            </button>
-                            <button
-                                
-                                onClick={() => {
-                                    setViewAllPosts(false); // 👈 important
-                                    setDropdownOpen(false);
-                                }}
-                                className="block w-full text-left px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
-                            >
-                                My Posts
-                            </button>
-                        </div>
-                    )}
                 </div>
 
-                <div className="relative" ref={dropdownRef}>
-                    <button
-                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className="p-2 rounded-lg hover:bg-[var(--hover)]"
-                    >
-                    <FunnelIcon className="h-6 w-6 text-[var(--text)]" />
-                    </button>
+                {/* Right */}
+                <div className="flex items-center gap-3">
+                    {
+                        path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs")
+                        ?   <button
+                                onClick={toggleDrawer}
+                                className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
+                            >
+                                <MagnifyingGlassIcon className="h-6 w-6   text-[var(--text)]" />
+                            </button>
+                        : ""
+                    }
+                   
 
-                    {dropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
-                        {filterOptions.map((option) => (
-                        <button
-                            key={option}
-                            onClick={() => {
-                                setFilter(option); // 👈 important
-                            setDropdownOpen(false);
-                            }}
-                            className="block w-full text-left px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
-                        >
-                            {option}
-                        </button>
-                        ))}
-                    </div>
-                    )}
+                    {
+                        path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs")
+                        ?   <div className="relative" ref={dropdownPosterRef}>
+                                <button
+                                    onClick={() => {
+                                        setDropdownPosterOpen(!dropdownPosterOpen)
+                                    }}
+                                    className="p-2 rounded-lg hover:bg-[var(--hover)]"
+                                >
+                                    <AdjustmentsHorizontalIcon className="h-6 w-6 text-[var(--text)]" />
+                                </button>
+
+                                {dropdownPosterOpen && (
+                                    <div className="absolute right-0 mt-2 w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
+                                        
+                                        <button
+                                            
+                                            onClick={() => {
+                                                setViewAllPosts(true);
+                                                setDropdownPosterOpen(false);
+                                            }}
+                                            className="block w-full text-left px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
+                                        >
+                                            All Post
+                                        </button>
+                                        <button
+                                            
+                                            onClick={() => {
+                                                setViewAllPosts(false); 
+                                                setDropdownPosterOpen(false);
+                                            }}
+                                            className="block w-full text-left px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
+                                        >
+                                            My Posts
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+                        : ""
+                    }
+
+                    {
+                        path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs")
+                        ?   <div className="relative" ref={dropdownRef}>
+                                <button
+                                onClick={() => setDropdownOpen(!dropdownOpen)}
+                                className="p-2 rounded-lg hover:bg-[var(--hover)]"
+                                >
+                                <FunnelIcon className="h-6 w-6 text-[var(--text)]" />
+                                </button>
+
+                                {dropdownOpen && (
+                                <div className="absolute right-0 mt-2 w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
+                                    {filterOptions.map((option) => (
+                                    <button
+                                        key={option}
+                                        onClick={() => {
+                                            setFilter(option); // 👈 important
+                                        setDropdownOpen(false);
+                                        }}
+                                        className="block w-full text-left px-4 py-2 text-sm hover:bg-[var(--hover)] capitalize"
+                                    >
+                                        {option}
+                                    </button>
+                                    ))}
+                                </div>
+                                )}
+                            </div>
+                        :   ""
+                    }
+                    
                 </div>
-                
-                
             </div>
-        </div>
+        {/* Mobile Search Overlay */}
+            {mobileSearchOpen && (
+                <div className="fixed top-0 left-0 w-full h-16 z-50 flex items-center px-4 bg-[var(--background)] border-b border-[var(--border)]">
+                
+                <button
+                    onClick={() => setMobileSearchOpen(false)}
+                    className="mr-3 p-2 rounded-lg hover:bg-[var(--hover)]"
+                >
+                    <ArrowLeftIcon className="h-6 w-6 text-[var(--text)]" />
+                </button>
+
+                <input
+                    type="text"
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search jobs..."
+                    className="flex-1 px-4 py-2 rounded-lg border border-[var(--border)] bg-[var(--main-bg)] text-[var(--text)] focus:outline-none"
+                    autoFocus
+                />
+                </div>
+            )}
         </header>
     );
 };
