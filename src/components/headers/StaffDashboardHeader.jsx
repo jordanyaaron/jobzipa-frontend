@@ -7,7 +7,8 @@ import {
   ArrowLeftIcon,
   AdjustmentsHorizontalIcon ,
   Bars3Icon,
-  PlusIcon
+  PlusIcon ,
+  FunnelIcon
 } from "@heroicons/react/24/outline";
 
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
