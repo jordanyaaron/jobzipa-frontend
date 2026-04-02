@@ -89,52 +89,24 @@ export default function JobsAdmin(
         : filteredJobs.filter(job => job.staff === "You");
 
 
-        const updateStatus = (id, status) => {
-            setLoadingId(id);
-          
-            setTimeout(() => {
-              setJobs(prev =>
-                prev.map(job =>
-                  job.id === id ? { ...job, status } : job
-                )
-              );
-          
-              setLoadingId(null);
-            }, 1000); // ⏱ 1 second delay
-          };
-          
+    const updateStatus = (id, status) => {
+        setLoadingId(id);
+        
+        setTimeout(() => {
+            setJobs(prev =>
+            prev.map(job =>
+                job.id === id ? { ...job, status } : job
+            )
+            );
+        
+            setLoadingId(null);
+        }, 1000); // ⏱ 1 second delay
+        };
+        
           
 
     // function 
-    const handleActivate = (id) => {
-        setJobs(prev =>
-            prev.map(job =>
-            job.id === id
-                ? { ...job, status: "active" }
-                : job
-            )
-        );
-    };
-
-    const handleOpen = (id) => {
-        setJobs(prev =>
-            prev.map(job =>
-            job.id === id
-                ? { ...job, status: "closed" }
-                : job
-            )
-        );
-    };
-
-    const handleClose = (id) => {
-        setJobs(prev =>
-            prev.map(job =>
-            job.id === id
-                ? { ...job, status: "pending" }
-                : job
-            )
-        );
-    };
+   
 
     
       
@@ -180,7 +152,7 @@ export default function JobsAdmin(
                     {/* poster */}
                     <select
                         value={filter}
-                        onChange={(e) => setViewAllPosts(e.target.value==="true")}
+                        onChange={(e) => setViewAllPosts(e.target.value === "true")}
                         className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
                     >
                         <option value="true">All Posts</option>
@@ -294,7 +266,7 @@ export default function JobsAdmin(
                                         {
                                             job.status === 'closed'
                                             && (   <button
-                                                    onClick={updateStatus(job.id, "active")}
+                                                    onClick={()=>updateStatus(job.id, "active")}
                                                     disabled={loadingId === job.id}
                                                     className="
                                                     py-2 px-3 rounded-lg cursor-pointer
