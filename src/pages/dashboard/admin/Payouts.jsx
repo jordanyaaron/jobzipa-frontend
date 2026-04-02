@@ -157,7 +157,7 @@ export default function PayoutsAdmin(){
                                         {
                                             payout.status === 'pending' && (
                                                 <button
-                                                    onClick={() => updateStatus(payout.id, "pending")}
+                                                    onClick={() => updateStatus(payout.id, "approved")}
                                                     disabled={loadingId === payout.id}
                                                     className="py-2 px-3 rounded-lg text-white bg-blue-600 flex items-center gap-2"
                                                 >
@@ -174,7 +174,7 @@ export default function PayoutsAdmin(){
                                             )
                                             }
                                         {
-                                            payout.status === 'approved'
+                                            payout.status === 'pending'
                                             && (   
                                                 <button
                                                     disabled={loadingId === payout.id}
