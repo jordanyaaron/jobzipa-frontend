@@ -178,7 +178,7 @@ export default function PayoutsAdmin(){
                                             && (   
                                                 <button
                                                     disabled={loadingId === payout.id}
-                                                    onClick={() => updateStatus(payout.id, "closed")}
+                                                    onClick={() => updateStatus(payout.id, "pending")}
                                                     className="
                                                         py-2 px-3 rounded-lg cursor-pointer
                                                         text-white bg-red-600
@@ -188,11 +188,11 @@ export default function PayoutsAdmin(){
                                                     {loadingId === payout.id ? (
                                                         <>
                                                             <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                                                            "closing..."
+                                                            "rejecting..."
                                                         </>
                                                         
                                                     )  : (
-                                                        "close"
+                                                        "reject"
                                                     )}
                                                     
                                                 </button>
