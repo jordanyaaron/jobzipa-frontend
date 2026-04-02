@@ -4,6 +4,7 @@ import {
   PencilSquareIcon,
   TrashIcon,
 } from "@heroicons/react/24/outline";
+import React, {useState} from "react"
 
 export default function JobsAdmin(
     {
