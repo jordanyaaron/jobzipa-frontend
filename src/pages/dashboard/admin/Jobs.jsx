@@ -16,58 +16,61 @@ export default function JobsAdmin(
         setSearchQuery
     }
 ){
+
+    const allJobPost = [
+        {
+            id: 1,
+            title: "Frontend Developer",
+            staff: "You",
+            status: "active",
+            views: 120,
+            date: "2026-03-18",
+        },
+        {
+            id: 2,
+            title: "Backend Engineer",
+            staff: "Mary",
+            status: "pending",
+            views: 80,
+            date: "2026-03-17",
+        },
+        {
+            id: 3,
+            title: "Data Analyst",
+            staff: "James",
+            status: "active",
+            views: 150,
+            date: "2026-03-15",
+        },
+        {
+            id: 4,
+            title: "Mobile App Developer",
+            staff: "Sophia",
+            status: "closed",
+            views: 60,
+            date: "2026-03-13",
+        },
+        {
+            id: 5,
+            title: "DevOps Engineer",
+            staff: "Michael",
+            status: "active",
+            views: 210,
+            date: "2026-03-11",
+        },
+        {
+            id: 6,
+            title: "UI/UX Designer",
+            staff: "You",
+            status: "pending",
+            views: 65,
+            date: "2026-03-16",
+        },
+    ];
+
     const [jobs, setJobs] = useState(allJobPost);
     
-    const allJobPost = [
-    {
-        id: 1,
-        title: "Frontend Developer",
-        staff: "You",
-        status: "active",
-        views: 120,
-        date: "2026-03-18",
-    },
-    {
-        id: 2,
-        title: "Backend Engineer",
-        staff: "Mary",
-        status: "pending",
-        views: 80,
-        date: "2026-03-17",
-    },
-    {
-        id: 3,
-        title: "Data Analyst",
-        staff: "James",
-        status: "active",
-        views: 150,
-        date: "2026-03-15",
-    },
-    {
-        id: 4,
-        title: "Mobile App Developer",
-        staff: "Sophia",
-        status: "closed",
-        views: 60,
-        date: "2026-03-13",
-    },
-    {
-        id: 5,
-        title: "DevOps Engineer",
-        staff: "Michael",
-        status: "active",
-        views: 210,
-        date: "2026-03-11",
-    },
-    {
-        id: 6,
-        title: "UI/UX Designer",
-        staff: "You",
-        status: "pending",
-        views: 65,
-        date: "2026-03-16",
-    },
-    ];
+    
 
     const filteredJobs = jobs.filter((job) => {
         const matchesFilter =
