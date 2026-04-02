@@ -124,127 +124,182 @@ export default function JobsAdmin(
     const jobsToDisplay = viewAllPosts
         ? filteredAllJobsPost
         : filteredMyJobsPost;
+
+
+    // function 
+    const handleActivate = (id) => {
+        console.log(id)
+    };
+
+    const handleOpen = (id) => {
+        console.log(id)
+    };
+
+    const handleClose = (id) => {
+        console.log(id)
+    };
+
+    
       
     return (
-    <div className="p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
-    
-        <div className="hidden lg:flex lg:flex-row md:items-center md:justify-between gap-3 min-w-0">
-        <h1 className="text-lg md:text-2xl font-bold">Jobs</h1>
-
-        <div className="flex gap-2 w-full md:w-auto min-w-0">
-            {/* post */}
+        <>
             <Link
-            to="/super/post"
-            className="flex items-center gap-2 px-3 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
+                to="/super/post"
+                className="fixed right-4 b0ttom-4 md:hidden flex items-center gap-2 px-3 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
             >
-            <PlusIcon className="h-5 w-5" />
-            <span className="hidden sm:block">Post</span>
+                <PlusIcon className="h-5 w-5" />
+                <span className="hidden sm:block">Post New Job</span>
             </Link>
+            <div className="p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
+                
+                <div className="hidden lg:flex lg:flex-row md:items-center md:justify-between gap-3 min-w-0">
+                <h1 className="text-lg md:text-2xl font-bold">Jobs</h1>
 
-            {/* Search */}
-            <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search jobs..."
-            className="
-                w-full md:w-[250px]
-                px-3 py-2 rounded-lg border
-                border-[var(--border)]
-                bg-[var(--background)]
-                text-sm
-            "
-            />
-
-            {/* poster */}
-            <select
-                value={filter}
-                onChange={(e) => setViewAllPosts(e.target.value)}
-                className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
-            >
-                <option value={true}>All Posts</option>
-                <option value={false}>My Posts</option>
-            </select>
-
-            {/* Filter */}
-            <select
-                value={filter}
-                onChange={(e) => setFilter(e.target.value)}
-                className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
-            >
-                <option value="all">All</option>
-                <option value="active">Active</option>
-                <option value="pending">Pending</option>
-                <option value="closed">Closed</option>
-            </select>
-        
-        </div>
-        </div>
-        {/* Scrollable row */}
-        <div className="flex mt-16 lg:mt-0 overflow-x-auto  scrollbar-hide  gap-3 border border-[var(--border)]  rounded-lg">
-        <table className="min-w-[700px] w-full text-sm">
-            <thead className="bg-[var(--hover)] text-left">
-                <tr>
-                <th className="p-3">Title</th>
-                <th className="p-3">Staff</th>
-                <th className="p-3">Status</th>
-                <th className="p-3">Views</th>
-                <th className="p-3">Date</th>
-                <th className="p-3 text-right">Actions</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                {jobsToDisplay.map((job) => (
-                    <tr
-                        key={job.id}
-                        className="border-t border-[var(--border)] hover:bg-[var(--hover)]"
+                <div className="flex gap-2 w-full md:w-auto min-w-0">
+                    {/* post */}
+                    <Link
+                    to="/super/post"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
                     >
-                        <td className="p-3 whitespace-nowrap">{job.title}</td>
-                        <td className="p-3 whitespace-nowrap">{job.staff}</td>
+                        <PlusIcon className="h-5 w-5" />
+                        <span className="hidden sm:block">Post New Job</span>
+                    </Link>
 
-                        {/* Status */}
-                        <td className="p-3">
-                        <span
-                            className={`
-                            px-2 py-1 rounded-full text-xs whitespace-nowrap
-                            ${
-                                job.status === "active"
-                                ? "bg-green-100 text-green-600"
-                                : job.status === "pending"
-                                ? "bg-yellow-100 text-yellow-600"
-                                : "bg-red-100 text-red-600"
-                            }
-                            `}
-                        >
-                            {job.status}
-                        </span>
-                        </td>
+                    {/* Search */}
+                    <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search jobs..."
+                    className="
+                        w-full md:w-[250px]
+                        px-3 py-2 rounded-lg border
+                        border-[var(--border)]
+                        bg-[var(--background)]
+                        text-sm
+                    "
+                    />
 
-                        <td className="p-3 whitespace-nowrap">{job.views}</td>
-                        <td className="p-3 whitespace-nowrap">{job.date}</td>
+                    {/* poster */}
+                    <select
+                        value={filter}
+                        onChange={(e) => setViewAllPosts(e.target.value)}
+                        className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
+                    >
+                        <option value={true}>All Posts</option>
+                        <option value={false}>My Posts</option>
+                    </select>
 
-                        {/* Actions */}
-                        <td className="p-3">
-                        <div className="flex justify-end gap-2 whitespace-nowrap">
-                            <button className="p-2 hover:bg-[var(--hover)] rounded">
-                            <EyeIcon className="h-4 w-4" />
-                            </button>
+                    {/* Filter */}
+                    <select
+                        value={filter}
+                        onChange={(e) => setFilter(e.target.value)}
+                        className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
+                    >
+                        <option value="all">All</option>
+                        <option value="active">Active</option>
+                        <option value="pending">Pending</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                
+                </div>
+                </div>
+                {/* Scrollable row */}
+                <div className="flex mt-16 lg:mt-0 overflow-x-auto  scrollbar-hide  gap-3 border border-[var(--border)]  rounded-lg">
+                <table className="min-w-[700px] w-full text-sm">
+                    <thead className="bg-[var(--hover)] text-left">
+                        <tr>
+                        <th className="p-3">Title</th>
+                        <th className="p-3">Staff</th>
+                        <th className="p-3">Status</th>
+                        <th className="p-3">Views</th>
+                        <th className="p-3">Date</th>
+                        <th className="p-3 text-right">Actions</th>
+                        </tr>
+                    </thead>
 
-                            <button className="p-2 hover:bg-[var(--hover)] rounded">
-                            <PencilSquareIcon className="h-4 w-4" />
-                            </button>
+                    <tbody>
+                        {jobsToDisplay.map((job) => (
+                            <tr
+                                key={job.id}
+                                className="border-t border-[var(--border)] hover:bg-[var(--hover)]"
+                            >
+                                <td className="p-3 whitespace-nowrap">{job.title}</td>
+                                <td className="p-3 whitespace-nowrap">{job.staff}</td>
 
-                            <button className="p-2 hover:bg-red-100 rounded">
-                            <TrashIcon className="h-4 w-4 text-red-500" />
-                            </button>
-                        </div>
-                        </td>
-                    </tr>
-                ))}
-            </tbody>
-            </table>
-        </div>
-    </div>
+                                {/* Status */}
+                                <td className="p-3">
+                                <span
+                                    className={`
+                                    px-2 py-1 rounded-full text-xs whitespace-nowrap
+                                    ${
+                                        job.status === "active"
+                                        ? "bg-green-100 text-green-600"
+                                        : job.status === "pending"
+                                        ? "bg-yellow-100 text-yellow-600"
+                                        : "bg-red-100 text-red-600"
+                                    }
+                                    `}
+                                >
+                                    {job.status}
+                                </span>
+                                </td>
+
+                                <td className="p-3 whitespace-nowrap">{job.views}</td>
+                                <td className="p-3 whitespace-nowrap">{job.date}</td>
+
+                                {/* Actions */}
+                                <td className="p-3">
+                                <div className="flex justify-end gap-2 whitespace-nowrap">
+                                    {
+                                        job.status === 'pending'
+                                        && (   <button
+                                                onClick={()=>handleActivate(job.id)}
+                                                className="
+                                                   py-2 px-3 rounded-lg cursor-pointer
+                                                   text-white bg-blue-600
+                                                "
+                                            >
+                                                Activate
+                                            </button>
+                                        )
+                                    }
+                                    {
+                                        job.status === 'active'
+                                        && (   <button
+                                                onClick={()=>handleClose(job.id)}
+                                                className="
+                                                   py-2 px-3 rounded-lg cursor-pointer
+                                                   text-white bg-red-600
+                                                "
+                                            >
+                                                close
+                                            </button>
+                                        )
+                                    }
+
+                                    {
+                                        job.status === 'closed'
+                                        && (   <button
+                                                onClick={()=>handleOpen(job.id)}
+                                                className="
+                                                   py-2 px-3 rounded-lg cursor-pointer
+                                                   text-white bg-green-600
+                                                "
+                                            >
+                                                open
+                                            </button>
+                                        )
+                                    }
+                                </div>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </>
+    
     );
 }
