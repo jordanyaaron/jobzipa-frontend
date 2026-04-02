@@ -69,6 +69,7 @@ export default function JobsAdmin(
     ];
 
     const [jobs, setJobs] = useState(allJobPost);
+    const [loadingId, setLoadingId] = useState(null);
     
     
 
@@ -88,6 +89,22 @@ export default function JobsAdmin(
         : filteredJobs.filter(job => job.staff === "You");
 
 
+        const updateStatus = (id, status) => {
+            setLoadingId(id);
+          
+            setTimeout(() => {
+              setJobs(prev =>
+                prev.map(job =>
+                  job.id === id ? { ...job, status } : job
+                )
+              );
+          
+              setLoadingId(null);
+            }, 1000); // ⏱ 1 second delay
+          };
+          
+          
+
     // function 
     const handleActivate = (id) => {
         setJobs(prev =>
@@ -100,11 +117,23 @@ export default function JobsAdmin(
     };
 
     const handleOpen = (id) => {
-        console.log(id)
+        setJobs(prev =>
+            prev.map(job =>
+            job.id === id
+                ? { ...job, status: "closed" }
+                : job
+            )
+        );
     };
 
     const handleClose = (id) => {
-        console.log(id)
+        setJobs(prev =>
+            prev.map(job =>
+            job.id === id
+                ? { ...job, status: "pending" }
+                : job
+            )
+        );
     };
 
     
@@ -151,11 +180,11 @@ export default function JobsAdmin(
                     {/* poster */}
                     <select
                         value={filter}
-                        onChange={(e) => setViewAllPosts(e.target.value)}
+                        onChange={(e) => setViewAllPosts(e.target.value==="true")}
                         className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
                     >
-                        <option value={true}>All Posts</option>
-                        <option value={false}>My Posts</option>
+                        <option value="true">All Posts</option>
+                        <option value="false">My Posts</option>
                     </select>
 
                     {/* Filter */}
@@ -219,28 +248,45 @@ export default function JobsAdmin(
                                     <td className="p-3">
                                     <div className="flex justify-start gap-2 whitespace-nowrap">
                                         {
-                                            job.status === 'pending'
-                                            && (   <button
-                                                    onClick={()=>handleActivate(job.id)}
-                                                    className="
-                                                    py-2 px-3 rounded-lg cursor-pointer
-                                                    text-white bg-blue-600
-                                                    "
-                                                >
-                                                    Activate
+                                            job.status === 'pending' && (
+                                                <button
+                                                    onClick={() => updateStatus(job.id, "active")}
+                                                    disabled={loadingId === job.id}
+                                                    className="py-2 px-3 rounded-lg text-white bg-blue-600 flex items-center gap-2"
+                                                    >
+                                                    {loadingId === job.id ? (
+                                                        <>
+                                                            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                                                            "Activating..."
+                                                        </>
+                                                        
+                                                    )  : (
+                                                        "Activate"
+                                                    )}
                                                 </button>
                                             )
-                                        }
+                                            }
                                         {
                                             job.status === 'active'
-                                            && (   <button
-                                                    onClick={()=>handleClose(job.id)}
+                                            && (   
+                                                <button
+                                                    disabled={loadingId === job.id}
+                                                    onClick={() => updateStatus(job.id, "closed")}
                                                     className="
                                                     py-2 px-3 rounded-lg cursor-pointer
                                                     text-white bg-red-600
                                                     "
                                                 >
-                                                    close
+                                                    {loadingId === job.id ? (
+                                                        <>
+                                                            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                                                            "closing..."
+                                                        </>
+                                                        
+                                                    )  : (
+                                                        "close"
+                                                    )}
+                                                    
                                                 </button>
                                             )
                                         }
@@ -248,13 +294,23 @@ export default function JobsAdmin(
                                         {
                                             job.status === 'closed'
                                             && (   <button
-                                                    onClick={()=>handleOpen(job.id)}
+                                                    onClick={updateStatus(job.id, "active")}
+                                                    disabled={loadingId === job.id}
                                                     className="
                                                     py-2 px-3 rounded-lg cursor-pointer
                                                     text-white bg-green-600
                                                     "
                                                 >
-                                                    open
+                                                    {loadingId === job.id ? (
+                                                        <>
+                                                            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                                                            "reactivating..."
+                                                        </>
+                                                        
+                                                    )  : (
+                                                        "reactivate"
+                                                    )}
+                                                    
                                                 </button>
                                             )
                                         }
