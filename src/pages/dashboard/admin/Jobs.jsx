@@ -225,7 +225,7 @@ export default function JobsAdmin(
                                                     onClick={() => updateStatus(job.id, "active")}
                                                     disabled={loadingId === job.id}
                                                     className="py-2 px-3 rounded-lg text-white bg-blue-600 flex items-center gap-2"
-                                                    >
+                                                >
                                                     {loadingId === job.id ? (
                                                         <>
                                                             <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
@@ -245,8 +245,9 @@ export default function JobsAdmin(
                                                     disabled={loadingId === job.id}
                                                     onClick={() => updateStatus(job.id, "closed")}
                                                     className="
-                                                    py-2 px-3 rounded-lg cursor-pointer
-                                                    text-white bg-red-600
+                                                        py-2 px-3 rounded-lg cursor-pointer
+                                                        text-white bg-red-600
+                                                        flex items-center gap-2
                                                     "
                                                 >
                                                     {loadingId === job.id ? (
@@ -269,8 +270,9 @@ export default function JobsAdmin(
                                                     onClick={()=>updateStatus(job.id, "active")}
                                                     disabled={loadingId === job.id}
                                                     className="
-                                                    py-2 px-3 rounded-lg cursor-pointer
-                                                    text-white bg-green-600
+                                                        py-2 px-3 rounded-lg cursor-pointer
+                                                        text-white bg-green-600
+                                                        flex items-center gap-2
                                                     "
                                                 >
                                                     {loadingId === job.id ? (
