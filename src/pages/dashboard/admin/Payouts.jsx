@@ -174,7 +174,7 @@ export default function PayoutsAdmin(){
                                             )
                                             }
                                         {
-                                            payout.status === 'pending'
+                                            payout.status === 'approved'
                                             && (   
                                                 <button
                                                     disabled={loadingId === payout.id}
