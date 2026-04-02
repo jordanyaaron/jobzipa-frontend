@@ -102,6 +102,8 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                     {
                         path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs")  
                         ?   <h1 className="text-[var(--text)] font-bold">Jobs</h1>
+                        :  path.startsWith("/admin/payouts")
+                        ?   <h1 className="text-[var(--text)] font-bold">Payouts</h1>
                         :   <Link to="/" className="flex items-center">
                                 <img src={JobzipaLogo} alt="Jobzipa" className="h-9 md:h-10" />
                             </Link>

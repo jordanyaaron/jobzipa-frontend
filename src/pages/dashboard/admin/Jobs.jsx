@@ -297,6 +297,5 @@ export default function JobsAdmin(
                 </div>
             </div>
         </>
-    
     );
 }
