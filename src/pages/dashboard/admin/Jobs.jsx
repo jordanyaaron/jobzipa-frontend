@@ -148,9 +148,9 @@ export default function JobsAdmin(
                 className="fixed right-4 bottom-4.5 md:hidden flex items-center gap-2 px-3 py-2 rounded-xl text-white bg-green-600 hover:bg-green-700"
             >
                 <PlusIcon className="h-5 w-5" />
-                <span className="hidden ">Post New Job</span>
+                <span >Post New Job</span>
             </Link>
-            <div className="p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
+            <div className="p-2 pb-[64px] md:p-4  w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
                 
                 <div className="hidden lg:flex lg:flex-row md:items-center md:justify-between gap-3 min-w-0">
                 <h1 className="text-lg md:text-2xl font-bold">Jobs</h1>
@@ -205,97 +205,96 @@ export default function JobsAdmin(
                 </div>
                 </div>
                 {/* Scrollable row */}
-                <div className="flex mt-16 pb-[64px] lg:mt-0 overflow-x-auto  scrollbar-hide  gap-3 border border-[var(--border)]  rounded-lg">
-                <table className="min-w-[700px] w-full text-sm">
-                    <thead className="bg-[var(--hover)] text-left">
-                        <tr>
-                        <th className="p-3">Title</th>
-                        <th className="p-3">Staff</th>
-                        <th className="p-3">Status</th>
-                        <th className="p-3">Views</th>
-                        <th className="p-3">Date</th>
-                        <th className="p-3">Actions</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        {jobsToDisplay.map((job) => (
-                            <tr
-                                key={job.id}
-                                className="border-t border-[var(--border)] hover:bg-[var(--hover)]"
-                            >
-                                <td className="p-3 whitespace-nowrap">{job.title}</td>
-                                <td className="p-3 whitespace-nowrap">{job.staff}</td>
-
-                                {/* Status */}
-                                <td className="p-3">
-                                <span
-                                    className={`
-                                    px-2 py-1 rounded-full text-xs whitespace-nowrap
-                                    ${
-                                        job.status === "active"
-                                        ? "bg-green-100 text-green-600"
-                                        : job.status === "pending"
-                                        ? "bg-yellow-100 text-yellow-600"
-                                        : "bg-red-100 text-red-600"
-                                    }
-                                    `}
-                                >
-                                    {job.status}
-                                </span>
-                                </td>
-
-                                <td className="p-3 whitespace-nowrap">{job.views}</td>
-                                <td className="p-3 whitespace-nowrap">{job.date}</td>
-
-                                {/* Actions */}
-                                <td className="p-3">
-                                <div className="flex justify-start gap-2 whitespace-nowrap">
-                                    {
-                                        job.status === 'pending'
-                                        && (   <button
-                                                onClick={()=>handleActivate(job.id)}
-                                                className="
-                                                   py-2 px-3 rounded-lg cursor-pointer
-                                                   text-white bg-blue-600
-                                                "
-                                            >
-                                                Activate
-                                            </button>
-                                        )
-                                    }
-                                    {
-                                        job.status === 'active'
-                                        && (   <button
-                                                onClick={()=>handleClose(job.id)}
-                                                className="
-                                                   py-2 px-3 rounded-lg cursor-pointer
-                                                   text-white bg-red-600
-                                                "
-                                            >
-                                                close
-                                            </button>
-                                        )
-                                    }
-
-                                    {
-                                        job.status === 'closed'
-                                        && (   <button
-                                                onClick={()=>handleOpen(job.id)}
-                                                className="
-                                                   py-2 px-3 rounded-lg cursor-pointer
-                                                   text-white bg-green-600
-                                                "
-                                            >
-                                                open
-                                            </button>
-                                        )
-                                    }
-                                </div>
-                                </td>
+                <div className="flex mt-16 lg:mt-0 overflow-x-auto  scrollbar-hide  gap-3 border border-[var(--border)]  rounded-lg">
+                    <table className="min-w-[700px] w-full text-sm">
+                        <thead className="bg-[var(--hover)] text-left">
+                            <tr>
+                            <th className="p-3">Title</th>
+                            <th className="p-3">Staff</th>
+                            <th className="p-3">Status</th>
+                            <th className="p-3">Views</th>
+                            <th className="p-3">Date</th>
+                            <th className="p-3">Actions</th>
                             </tr>
-                        ))}
-                    </tbody>
+                        </thead>
+                        <tbody>
+                            {jobsToDisplay.map((job) => (
+                                <tr
+                                    key={job.id}
+                                    className="border-t border-[var(--border)] hover:bg-[var(--hover)]"
+                                >
+                                    <td className="p-3 whitespace-nowrap">{job.title}</td>
+                                    <td className="p-3 whitespace-nowrap">{job.staff}</td>
+
+                                    {/* Status */}
+                                    <td className="p-3">
+                                    <span
+                                        className={`
+                                        px-2 py-1 rounded-full text-xs whitespace-nowrap
+                                        ${
+                                            job.status === "active"
+                                            ? "bg-green-100 text-green-600"
+                                            : job.status === "pending"
+                                            ? "bg-yellow-100 text-yellow-600"
+                                            : "bg-red-100 text-red-600"
+                                        }
+                                        `}
+                                    >
+                                        {job.status}
+                                    </span>
+                                    </td>
+
+                                    <td className="p-3 whitespace-nowrap">{job.views}</td>
+                                    <td className="p-3 whitespace-nowrap">{job.date}</td>
+
+                                    {/* Actions */}
+                                    <td className="p-3">
+                                    <div className="flex justify-start gap-2 whitespace-nowrap">
+                                        {
+                                            job.status === 'pending'
+                                            && (   <button
+                                                    onClick={()=>handleActivate(job.id)}
+                                                    className="
+                                                    py-2 px-3 rounded-lg cursor-pointer
+                                                    text-white bg-blue-600
+                                                    "
+                                                >
+                                                    Activate
+                                                </button>
+                                            )
+                                        }
+                                        {
+                                            job.status === 'active'
+                                            && (   <button
+                                                    onClick={()=>handleClose(job.id)}
+                                                    className="
+                                                    py-2 px-3 rounded-lg cursor-pointer
+                                                    text-white bg-red-600
+                                                    "
+                                                >
+                                                    close
+                                                </button>
+                                            )
+                                        }
+
+                                        {
+                                            job.status === 'closed'
+                                            && (   <button
+                                                    onClick={()=>handleOpen(job.id)}
+                                                    className="
+                                                    py-2 px-3 rounded-lg cursor-pointer
+                                                    text-white bg-green-600
+                                                    "
+                                                >
+                                                    open
+                                                </button>
+                                            )
+                                        }
+                                    </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
                     </table>
                 </div>
             </div>
