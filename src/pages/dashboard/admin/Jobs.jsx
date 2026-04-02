@@ -15,6 +15,9 @@ export default function JobsAdmin(
         setSearchQuery
     }
 ){
+    const [jobs, setJobs] = useState(viewAllPosts
+        ? filteredAllJobsPost
+        : filteredMyJobsPost);
     const myJobPost = [
         {
           id: 1,
@@ -128,8 +131,12 @@ export default function JobsAdmin(
 
     // function 
     const handleActivate = (id) => {
-        console.log(id)
-    };
+        setJobs(prev =>
+          prev.map(job =>
+            job.id === id ? { ...job, status: "active" } : job
+          )
+        );
+      };
 
     const handleOpen = (id) => {
         console.log(id)
@@ -158,7 +165,7 @@ export default function JobsAdmin(
                 <div className="flex gap-2 w-full md:w-auto min-w-0">
                     {/* post */}
                     <Link
-                    to="/super/post"
+                    to="/post"
                     className="flex items-center gap-2 px-3 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
                     >
                         <PlusIcon className="h-5 w-5" />
@@ -218,7 +225,7 @@ export default function JobsAdmin(
                             </tr>
                         </thead>
                         <tbody>
-                            {jobsToDisplay.map((job) => (
+                            {jobs.map((job) => (
                                 <tr
                                     key={job.id}
                                     className="border-t border-[var(--border)] hover:bg-[var(--hover)]"
