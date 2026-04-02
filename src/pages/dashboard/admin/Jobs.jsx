@@ -16,128 +16,85 @@ export default function JobsAdmin(
         setSearchQuery
     }
 ){
-    const [jobs, setJobs] = useState(viewAllPosts
-        ? filteredAllJobsPost
-        : filteredMyJobsPost);
-    const myJobPost = [
-        {
-          id: 1,
-          title: "Frontend Developer",
-          staff: "You",
-          status: "active",
-          views: 120,
-          date: "2026-03-18",
-        },
-        {
-          id: 2,
-          title: "UI/UX Designer",
-          staff: "You",
-          status: "pending",
-          views: 65,
-          date: "2026-03-16",
-        },
-        {
-          id: 3,
-          title: "React Developer",
-          staff: "You",
-          status: "closed",
-          views: 200,
-          date: "2026-03-14",
-        },
-        {
-          id: 4,
-          title: "Tailwind CSS Expert",
-          staff: "You",
-          status: "active",
-          views: 90,
-          date: "2026-03-12",
-        },
-      ];
-      
-     const allJobPost = [
-        {
-          id: 1,
-          title: "Frontend Developer",
-          staff: "You",
-          status: "active",
-          views: 120,
-          date: "2026-03-18",
-        },
-        {
-          id: 2,
-          title: "Backend Engineer",
-          staff: "Mary",
-          status: "pending",
-          views: 80,
-          date: "2026-03-17",
-        },
-        {
-          id: 3,
-          title: "Data Analyst",
-          staff: "James",
-          status: "active",
-          views: 150,
-          date: "2026-03-15",
-        },
-        {
-          id: 4,
-          title: "Mobile App Developer",
-          staff: "Sophia",
-          status: "closed",
-          views: 60,
-          date: "2026-03-13",
-        },
-        {
-          id: 5,
-          title: "DevOps Engineer",
-          staff: "Michael",
-          status: "active",
-          views: 210,
-          date: "2026-03-11",
-        },
-        {
-          id: 6,
-          title: "UI/UX Designer",
-          staff: "You",
-          status: "pending",
-          views: 65,
-          date: "2026-03-16",
-        },
-      ];
-    const filteredAllJobsPost = allJobPost.filter((job) => {
-        const matchesFilter =
-            filter === "all" || job.status === filter;
+    const [jobs, setJobs] = useState(allJobPost);
     
-        const matchesSearch =
-        (job.title?.toLowerCase() || "").includes(searchQuery?.toLowerCase() || "") ||
-        (job.staff?.toLowerCase() || "").includes(searchQuery?.toLowerCase() || "");
-    
-        return matchesFilter && matchesSearch;
-    });
+    const allJobPost = [
+    {
+        id: 1,
+        title: "Frontend Developer",
+        staff: "You",
+        status: "active",
+        views: 120,
+        date: "2026-03-18",
+    },
+    {
+        id: 2,
+        title: "Backend Engineer",
+        staff: "Mary",
+        status: "pending",
+        views: 80,
+        date: "2026-03-17",
+    },
+    {
+        id: 3,
+        title: "Data Analyst",
+        staff: "James",
+        status: "active",
+        views: 150,
+        date: "2026-03-15",
+    },
+    {
+        id: 4,
+        title: "Mobile App Developer",
+        staff: "Sophia",
+        status: "closed",
+        views: 60,
+        date: "2026-03-13",
+    },
+    {
+        id: 5,
+        title: "DevOps Engineer",
+        staff: "Michael",
+        status: "active",
+        views: 210,
+        date: "2026-03-11",
+    },
+    {
+        id: 6,
+        title: "UI/UX Designer",
+        staff: "You",
+        status: "pending",
+        views: 65,
+        date: "2026-03-16",
+    },
+    ];
 
-    const filteredMyJobsPost = myJobPost.filter((job) => {
+    const filteredJobs = jobs.filter((job) => {
         const matchesFilter =
             filter === "all" || job.status === filter;
-    
+        
         const matchesSearch =
-        (job.title?.toLowerCase() || "").includes(searchQuery?.toLowerCase() || "")
-    
+            (job.title?.toLowerCase() || "").includes(searchQuery?.toLowerCase() || "") ||
+            (job.staff?.toLowerCase() || "").includes(searchQuery?.toLowerCase() || "");
+        
         return matchesFilter && matchesSearch;
     });
 
     const jobsToDisplay = viewAllPosts
-        ? filteredAllJobsPost
-        : filteredMyJobsPost;
+        ? filteredJobs
+        : filteredJobs.filter(job => job.staff === "You");
 
 
     // function 
     const handleActivate = (id) => {
         setJobs(prev =>
-          prev.map(job =>
-            job.id === id ? { ...job, status: "active" } : job
-          )
+            prev.map(job =>
+            job.id === id
+                ? { ...job, status: "active" }
+                : job
+            )
         );
-      };
+    };
 
     const handleOpen = (id) => {
         console.log(id)
@@ -226,7 +183,7 @@ export default function JobsAdmin(
                             </tr>
                         </thead>
                         <tbody>
-                            {jobs.map((job) => (
+                            {jobsToDisplay.map((job) => (
                                 <tr
                                     key={job.id}
                                     className="border-t border-[var(--border)] hover:bg-[var(--hover)]"
