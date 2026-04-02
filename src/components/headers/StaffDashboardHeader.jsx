@@ -30,12 +30,20 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
     const dropdownPosterRef = useRef();
 
     // Options
-    const filterOptions  = [
-        "all",
-        "active",
-        "pending",
-        "closed"
-      ];
+    const filterOptions  = path.startsWith('/admin/jobs') 
+    ?   [
+            "all",
+            "active",
+            "pending",
+            "closed"
+        ]
+    : path.startsWith('/admin/payouts') 
+    ?   [
+            "all",
+            "pending",
+            "approved"
+        ]
+    : []
   
     // UseEffects Hooks
     // 1. Close dropdown when clicking outside
@@ -104,7 +112,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                 {/* Right */}
                 <div className="flex items-center gap-3">
                     {
-                        path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs")
+                        path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs") || path.startsWith('/admin/payouts') 
                         ?   <button
                                 onClick={() => setMobileSearchOpen(true)}
                                 className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
@@ -157,7 +165,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                     }
 
                     {
-                        path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs")
+                        path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs") || path.startsWith('/admin/payouts') 
                         ?   <div className="relative" ref={dropdownRef}>
                                 <button
                                 onClick={() => setDropdownOpen(!dropdownOpen)}
