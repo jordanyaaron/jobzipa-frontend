@@ -145,7 +145,7 @@ export default function JobsAdmin(
         <>
             <Link
                 to="/super/post"
-                className="fixed right-4 b0ttom-4 md:hidden flex items-center gap-2 px-3 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
+                className="fixed right-4 bottom-4 md:hidden flex items-center gap-2 px-3 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
             >
                 <PlusIcon className="h-5 w-5" />
                 <span className="hidden sm:block">Post New Job</span>
@@ -214,7 +214,7 @@ export default function JobsAdmin(
                         <th className="p-3">Status</th>
                         <th className="p-3">Views</th>
                         <th className="p-3">Date</th>
-                        <th className="p-3 text-right">Actions</th>
+                        <th className="p-3">Actions</th>
                         </tr>
                     </thead>
 
@@ -250,7 +250,7 @@ export default function JobsAdmin(
 
                                 {/* Actions */}
                                 <td className="p-3">
-                                <div className="flex justify-end gap-2 whitespace-nowrap">
+                                <div className="flex justify-start gap-2 whitespace-nowrap">
                                     {
                                         job.status === 'pending'
                                         && (   <button
