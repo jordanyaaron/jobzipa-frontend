@@ -64,8 +64,8 @@ export default function PayoutsAdmin(){
           
           setTimeout(() => {
             setPayouts(prev =>
-              prev.map(job =>
-                  job.id === id ? { ...job, status } : job
+              prev.map(payout =>
+                payout.id === id ? { ...payout, status } : payout
               )
               );
           
@@ -124,7 +124,7 @@ export default function PayoutsAdmin(){
                         <tbody>
                             {payoutsToDisplay.map((payout) => (
                                 <tr
-                                    key={job.id}
+                                    key={payout.id}
                                     className="border-t border-[var(--border)] hover:bg-[var(--hover)]"
                                 >
                                     <td className="p-3 whitespace-nowrap">{payout.fullName}</td>
