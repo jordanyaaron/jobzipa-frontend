@@ -227,13 +227,13 @@ export default function JobsAdmin(
                                                     className="py-2 px-3 rounded-lg text-white bg-blue-600 flex items-center gap-2"
                                                 >
                                                     {loadingId === job.id ? 
-                                                        <>
+                                                        (<>
                                                             <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
                                                             Activating...
-                                                        </>
+                                                        </>)
                                                         
                                                      : 
-                                                        Activate
+                                                        "Activate"
                                                     }
                                                 </button>
                                             )
@@ -251,13 +251,13 @@ export default function JobsAdmin(
                                                     "
                                                 >
                                                     {loadingId === job.id ? 
-                                                        <>
+                                                        (<>
                                                             <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
                                                             closing...
-                                                        </>
+                                                        </>)
                                                         
                                                       : 
-                                                        close
+                                                        "close"
                                                     }
                                                     
                                                 </button>
@@ -276,12 +276,12 @@ export default function JobsAdmin(
                                                     "
                                                 >
                                                     {loadingId === job.id ? 
-                                                        <>
+                                                        (<>
                                                             <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
                                                             reactivating...
-                                                        </>
+                                                        </>)
                                                       : 
-                                                        reactivate
+                                                        "reactivate"
                                                     }
                                                     
                                                 </button>

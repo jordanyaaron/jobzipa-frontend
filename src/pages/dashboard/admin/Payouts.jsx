@@ -159,13 +159,12 @@ export default function PayoutsAdmin(){
                                                     className="py-2 px-3 rounded-lg text-white bg-blue-600 flex items-center gap-2"
                                                 >
                                                     {loadingId === payout.id ? 
-                                                        <>
+                                                        (<>
                                                             <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
                                                             Approving...
-                                                        </>
-                                                        
+                                                        </>) 
                                                      : 
-                                                        Approve
+                                                        "Approve"
                                                     }
                                                 </button>
                                             )
@@ -183,13 +182,13 @@ export default function PayoutsAdmin(){
                                                     "
                                                 >
                                                     {loadingId === payout.id ? 
-                                                        <>
+                                                        (<>
                                                             <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
                                                             rejecting...
-                                                        </>
+                                                        </>)
                                                         
                                                       : 
-                                                        reject
+                                                        "reject"
                                                     }
                                                     
                                                 </button>
