@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { reports } from "@/data/roports"; // hii ndio data ya job reports
+import { reports } from "@/data/roports"; 
 import { useNavigate } from "react-router-dom";
 import { EyeIcon, ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
@@ -19,9 +19,13 @@ export default function ReportsAdmin(
 
     // Filter and search logic
     const filteredReports = reports.filter((report) => {
-        const matchesStatus = filter === "all" || report.status === filter;
+        const matchesStatus =
+            filter === "all" || report.status === filter;
+    
         const matchesSearch =
-        report.jobTitle.toLowerCase().includes(searchQuery.toLowerCase()) 
+            (report.jobTitle?.toLowerCase() || "")
+                .includes(searchQuery?.toLowerCase() || "");
+    
         return matchesStatus && matchesSearch;
     });
 
