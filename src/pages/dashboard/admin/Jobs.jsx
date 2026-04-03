@@ -233,7 +233,7 @@ export default function JobsAdmin(
                                                         </>
                                                         
                                                     )  : (
-                                                        "Activate"
+                                                        Activate
                                                     )}
                                                 </button>
                                             )
@@ -257,7 +257,7 @@ export default function JobsAdmin(
                                                         </>
                                                         
                                                     )  : (
-                                                        "close"
+                                                        close
                                                     )}
                                                     
                                                 </button>
@@ -282,7 +282,7 @@ export default function JobsAdmin(
                                                         </>
                                                         
                                                     )  : (
-                                                        "reactivate"
+                                                        reactivate
                                                     )}
                                                     
                                                 </button>

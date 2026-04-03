@@ -168,7 +168,7 @@ export default function PayoutsAdmin(){
                                                         </>
                                                         
                                                     )  : (
-                                                        "Approve"
+                                                        Approve
                                                     )}
                                                 </button>
                                             )
@@ -192,7 +192,7 @@ export default function PayoutsAdmin(){
                                                         </>
                                                         
                                                     )  : (
-                                                        "reject"
+                                                        reject
                                                     )}
                                                     
                                                 </button>
