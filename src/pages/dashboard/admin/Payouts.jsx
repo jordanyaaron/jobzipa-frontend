@@ -8,9 +8,6 @@ import {
 
 export default function PayoutsAdmin(){
     const { 
-        // theme mode 
-            darkMode , setDarkMode ,
-            setSidebarOpen, 
         // variables
             filter,
             searchQuery,
