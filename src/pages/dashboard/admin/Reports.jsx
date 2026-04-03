@@ -37,7 +37,7 @@ export default function ReportsAdmin(
             rejected: "bg-red-100 text-red-800",
         };
     return(
-        <div className="p-4 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
+        <div className="p-4 mt-[64px] md:mt-0 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
             <div className="hidden lg:flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
                 <h1 className="text-lg lg:text-2xl font-bold">Job Reports</h1>
 
@@ -94,7 +94,7 @@ export default function ReportsAdmin(
                         className="border-t border-[var(--border)] hover:bg-[var(--hover)]"
                         >
                         <td className="p-3">{report.jobTitle}</td>
-                        <td className="p-3 max-w-[250px] truncate ">{report.messages[report.messages.length - 1].message}</td>
+                        <td className="p-3 max-w-[150px]  ">{report.messages[report.messages.length - 1].message.slice(0, 40) + "..."}</td>
                         <td className="p-3">{report.messages[report.messages.length - 1].reporter}</td>
                         <td className="p-3" >
                             <span className={`py-1 px-3 rounded-lg ${statusColors[report.status]}`}>
