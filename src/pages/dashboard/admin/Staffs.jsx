@@ -82,6 +82,7 @@ const staffList = [
   ];
 export default function StaffsAdmin(){
     const [confirmData, setConfirmData] = useState(null);
+    const [openDropdownId, setOpenDropdownId] = useState(null);
     const [actionComand, setCctionComand] = useState(null);
     const [userOfConcern, setUserOfConcern] = useState(null);
     const { 
@@ -169,7 +170,7 @@ export default function StaffsAdmin(){
             {confirmData && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black/50">
                     <div className="bg-white p-6 rounded-lg">
-                    <p>
+                    <p >
                         Are you sure you want to {confirmData.action} this user?
                     </p>
 
@@ -181,7 +182,7 @@ export default function StaffsAdmin(){
                         }}
                         className="px-4 py-2 bg-red-600 text-white rounded"
                         >
-                        Yes
+                            Yes
                         </button>
 
                         <button
@@ -275,126 +276,35 @@ export default function StaffsAdmin(){
                                     <td className="p-3 whitespace-nowrap">{staff.posts}</td>
                                     <td className="p-3 whitespace-nowrap">{staff.dateJoined}</td>
 
-                                    {/* Actions */}
-                                    <td className="p-3">
-                                        <div className="flex justify-start gap-2 whitespace-nowrap">
-                                            <button
-                                                onClick={() => 
-                                                    {
-                                                        setConfirmData({
-                                                            id: staff.id,
-                                                            action: staff.status === "suspended" ? "unsuspend" : "suspend"
-                                                        })
-                                                    }
-                                                }
-                                                disabled={loadingId === staff.id}
-                                                className="py-2 px-3 rounded-lg text-white bg-blue-600 flex items-center gap-2"
-                                            >
-                                                {
-                                                    loadingId === `${staff.id}-suspended`
-                                                        ?
-                                                            (<>
-                                                                <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                                                                suspending...
-                                                            </>) 
-                                                        : 
-                                                    loadingId === `${staff.id}-unsuspend`
-                                                        ?
-                                                            (<>
-                                                                <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                                                                unsuspending...
-                                                            </>) 
-                                                        : 
-                                                    `
-                                                        ${
-                                                            staff.status === 'suspended'
-                                                                ? 'unsuspend' : 'suspend'
-                                                        }
-                                                    `
-                                                }
-                                            </button>
+                                    <td className="p-3 relative">
+                                        <button
+                                            onClick={() =>
+                                            setOpenDropdownId(openDropdownId === staff.id ? null : staff.id)
+                                            }
+                                            className="p-2 rounded hover:bg-[var(--hover)]"
+                                        >
+                                            ⋮
+                                        </button>
+
+                                        {openDropdownId === staff.id && (
+                                            <div className="absolute right-0 mt-2 w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
 
                                             <button
                                                 onClick={() => {
-                                                        setConfirmData({
-                                                            id : staff.id,
-                                                            action : staff.status === 'active'
-                                                                ? 'deactivate' : 'activate'}
-                                                        )
-                                                    }
-                                                }
-                                                disabled={loadingId === `${staff.id }-deactivate`|| loadingId === `${staff.id }-activate`|| staff.status === 'suspended' }
-                                                className={`
-                                                        py-2 px-3 rounded-lg text-white bg-blue-600 flex items-center gap-2
-                                                        ${
-                                                            staff.status === 'suspended' ? "bg-gray-600" : "bg-blue-600"
-                                                        }
-                                                    `
-                                                }
+                                                handleAction({
+                                                    id: staff.id,
+                                                    action:
+                                                    staff.status === "suspended" ? "unsuspend" : "suspend",
+                                                });
+                                                setOpenDropdownId(null);
+                                                }}
+                                                className="block w-full text-left px-4 py-2 hover:bg-[var(--hover)]"
                                             >
-                                            {    loadingId === `${staff.id}-'activate'`
-                                                    ?
-                                                        (<>
-                                                            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                                                            activating...
-                                                        </>) 
-                                                    : 
-                                                loadingId === `${staff.id}-deactivate`
-                                                    ?
-                                                        (<>
-                                                            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                                                            deactivating...
-                                                        </>) 
-                                                    : 
-                                                `
-                                                    ${
-                                                        staff.status === 'suspended' || 'inactive'
-                                                            ? 'activate' : 'deactivate'
-                                                    }
-                                                `}
+                                                {staff.status === "suspended" ? "Unsuspend" : "Suspend"}
                                             </button>
 
-                                            <button
-                                                onClick={() => {
-                                                        setConfirmData({
-                                                            id : staff.id,
-                                                            action : staff.role === 'staff'
-                                                                ? 'upgrade' : 'downgrade'}
-                                                        )
-                                                    } 
-                                                }
-                                                disabled={loadingId === `${staff.id }-downgrade`|| loadingId === `${staff.id }-upgrade`|| staff.status === 'suspended' || staff.status === 'inactive'}
-                                                className={`
-                                                        py-2 px-3 rounded-lg text-white bg-blue-600 flex items-center gap-2
-                                                        ${
-                                                            staff.status === 'suspended' || 'inactive' ? "bg-gray-600" 
-                                                            : staff.role === 'staff' ? "bg-blue-900" : "bg-blue-600"
-                                                        }
-                                                    `
-                                                }
-                                            >
-                                                {loadingId === `${staff.id}-activate`
-                                                    ?
-                                                        (<>
-                                                            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                                                            activating...
-                                                        </>) 
-                                                    : 
-                                                loadingId === `${staff.id}-deactivate`
-                                                    ?
-                                                        (<>
-                                                            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                                                            deactivating...
-                                                        </>) 
-                                                    : 
-                                                `
-                                                    ${
-                                                        staff.status === 'suspended' || 'inactive'
-                                                            ? 'activate' : 'deactivate'
-                                                    }
-                                                `}
-                                            </button>
-                                        </div>
+                                            </div>
+                                        )}
                                     </td>
                                 </tr>
                             ))}
