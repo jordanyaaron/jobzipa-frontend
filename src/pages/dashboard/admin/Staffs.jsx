@@ -332,14 +332,14 @@ export default function StaffsAdmin(){
                                                     `
                                                 }
                                             >
-                                                loadingId === {`${staff.id}-'activate'`}
+                                            {    loadingId === `${staff.id}-'activate'`
                                                     ?
                                                         (<>
                                                             <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
                                                             activating...
                                                         </>) 
                                                     : 
-                                                loadingId === {`${staff.id}-deactivate`}
+                                                loadingId === `${staff.id}-deactivate`
                                                     ?
                                                         (<>
                                                             <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
@@ -351,7 +351,7 @@ export default function StaffsAdmin(){
                                                         staff.status === 'suspended' || 'inactive'
                                                             ? 'activate' : 'deactivate'
                                                     }
-                                                `
+                                                `}
                                             </button>
 
                                             <button
@@ -373,14 +373,14 @@ export default function StaffsAdmin(){
                                                     `
                                                 }
                                             >
-                                                loadingId === {`${staff.id}-'activate'`}
+                                                {loadingId === `${staff.id}-activate`
                                                     ?
                                                         (<>
                                                             <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
                                                             activating...
                                                         </>) 
                                                     : 
-                                                loadingId === {`${staff.id}-deactivate`}
+                                                loadingId === `${staff.id}-deactivate`
                                                     ?
                                                         (<>
                                                             <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
@@ -392,7 +392,7 @@ export default function StaffsAdmin(){
                                                         staff.status === 'suspended' || 'inactive'
                                                             ? 'activate' : 'deactivate'
                                                     }
-                                                `
+                                                `}
                                             </button>
                                         </div>
                                     </td>
