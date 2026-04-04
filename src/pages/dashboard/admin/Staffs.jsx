@@ -1,5 +1,5 @@
 import { Link , useOutletContext  } from "react-router-dom";
-import React, {useState} from "react"
+import React, {useState , useEffect} from "react"
 import {
   EyeIcon,PlusIcon,
   PencilSquareIcon,
@@ -166,6 +166,13 @@ export default function StaffsAdmin(){
       
         
       };
+
+      useEffect(() => {
+        const handleClickOutside = () => setOpenDropdownId(null);
+        document.addEventListener("click", handleClickOutside);
+      
+        return () => document.removeEventListener("click", handleClickOutside);
+      }, []);
     return(
         <>
             {confirmData && (
@@ -293,7 +300,7 @@ export default function StaffsAdmin(){
                                         </button>
 
                                         {openDropdownId === staff.id && (
-                                            <div className="absolute right-9 mt-0 mr- w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
+                                            <div className="absolute right-9 top-0 mr- w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
 
                                             <button
                                                 onClick={() => {
