@@ -1,5 +1,5 @@
 import { Link , useOutletContext  } from "react-router-dom";
-import React, {useState , useEffect} from "react"
+import React, {useState , useEffect , useRef} from "react"
 import {
   EyeIcon,PlusIcon,
   PencilSquareIcon,
@@ -82,6 +82,7 @@ const staffList = [
     },
   ];
 export default function StaffsAdmin(){
+    const dropdownIdRef = useRef(null);
     const [confirmData, setConfirmData] = useState(null);
     const [openDropdownId, setOpenDropdownId] = useState(null);
     const [actionComand, setCctionComand] = useState(null);
@@ -166,6 +167,26 @@ export default function StaffsAdmin(){
       
         
       };
+
+
+      const dropdownRefs = useRef({});
+
+      
+      useEffect(() => {
+        const handleClickOutside = (e) => {
+          if (
+            openDropdownId &&
+            dropdownRefs.current[openDropdownId] &&
+            !dropdownRefs.current[openDropdownId].contains(e.target)
+          ) {
+            setOpenDropdownId(null);
+          }
+        };
+      
+        document.addEventListener("mousedown", handleClickOutside);
+        return () =>
+          document.removeEventListener("mousedown", handleClickOutside);
+      }, [openDropdownId]);
 
       
     return(
@@ -280,39 +301,44 @@ export default function StaffsAdmin(){
                                     <td className="p-3 whitespace-nowrap">{staff.dateJoined}</td>
 
                                     <td className="p-3 relative text-right">
-                                        <button
-                                            onClick={() =>
-                                            setOpenDropdownId(openDropdownId === staff.id ? null : staff.id)
-                                            }
-                                            className={`
-                                                "p-2 rounded hover:bg-[var(--background)] "
-                                                ${
-                                                    openDropdownId === staff.id && "bg-[var(--hover)]"
-                                                }
-                                            `}
+                                        <div
+                                            ref={(el) => (dropdownRefs.current[staff.id] = el)}
+                                            className="p-3 relative text-right"
                                         >
-                                            <EllipsisHorizontalIcon className="w-5 h-5"/>
-                                        </button>
-
-                                        {openDropdownId === staff.id && (
-                                            <div className="absolute right-9 top-0 mr- w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
-
                                             <button
-                                                onClick={() => {
-                                                handleAction({
-                                                    id: staff.id,
-                                                    action:
-                                                    staff.status === "suspended" ? "unsuspend" : "suspend",
-                                                });
-                                                setOpenDropdownId(null);
-                                                }}
-                                                className="block w-full text-left px-4 py-2 hover:bg-[var(--hover)]"
+                                                onClick={() =>
+                                                setOpenDropdownId(openDropdownId === staff.id ? null : staff.id)
+                                                }
+                                                className={`
+                                                    "p-2 rounded hover:bg-[var(--background)] "
+                                                    ${
+                                                        openDropdownId === staff.id && "bg-[var(--hover)]"
+                                                    }
+                                                `}
                                             >
-                                                {staff.status === "suspended" ? "Unsuspend" : "Suspend"}
+                                                <EllipsisHorizontalIcon className="w-5 h-5"/>
                                             </button>
 
-                                            </div>
-                                        )}
+                                            {openDropdownId === staff.id && (
+                                                <div className="absolute right-9 top-0 mr- w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
+
+                                                <button
+                                                    onClick={() => {
+                                                    handleAction({
+                                                        id: staff.id,
+                                                        action:
+                                                        staff.status === "suspended" ? "unsuspend" : "suspend",
+                                                    });
+                                                    setOpenDropdownId(null);
+                                                    }}
+                                                    className="block w-full text-left px-4 py-2 hover:bg-[var(--hover)]"
+                                                >
+                                                    {staff.status === "suspended" ? "Unsuspend" : "Suspend"}
+                                                </button>
+
+                                                </div>
+                                            )}
+                                        </div>
                                     </td>
                                 </tr>
                             ))}
