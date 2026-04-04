@@ -323,7 +323,7 @@ export default function StaffsAdmin(){
                                                 <div className="absolute right-9 top-0 mr- w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
                                                     <div
                                                         className="
-                                                            p-2 border-b border-[var(--boredr)]
+                                                            p-2 border-b border-[var(--border)] text-left
                                                         "
                                                     >
                                                         <h1 className="text-[var(--text)] font-bold">Actions</h1>
