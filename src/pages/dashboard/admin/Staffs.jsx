@@ -167,12 +167,7 @@ export default function StaffsAdmin(){
         
       };
 
-      useEffect(() => {
-        const handleClickOutside = () => setOpenDropdownId(null);
-        document.addEventListener("click", handleClickOutside);
       
-        return () => document.removeEventListener("click", handleClickOutside);
-      }, []);
     return(
         <>
             {confirmData && (
