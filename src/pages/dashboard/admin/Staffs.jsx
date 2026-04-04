@@ -343,8 +343,10 @@ export default function StaffsAdmin(){
                                                                         <button
                                                                             className="
                                                                                 w-full px-2 py-2 
-                                                                                flex flex-col items-center justify-start gap-2 
+                                                                                flex items-start justify-start gap-2
+                                                                                hover:bg-[var(--hover)] 
                                                                             "
+                                                                            onClick={()=>{setConfirmData(null)}}
                                                                         >
                                                                             <ArrowDownCircleIcon className="w-6 h-6"/>
                                                                             Demote to staff
@@ -352,8 +354,10 @@ export default function StaffsAdmin(){
                                                                         <button
                                                                             className="
                                                                                 w-full px-2 py-2 
-                                                                                flex flex-col items-center justify-start gap-2 
+                                                                                flex  items-start justify-start gap-2 
+                                                                                hover:bg-[var(--hover)] 
                                                                             "
+                                                                            onClick={()=>{setConfirmData(null)}}
                                                                         >
                                                                             <StopCircleIcon className="w-6 h-6"/>
                                                                             Suspend User
@@ -361,8 +365,10 @@ export default function StaffsAdmin(){
                                                                         <button
                                                                             className="
                                                                                 w-full px-2 py-2 
-                                                                                flex flex-col items-center justify-start gap-2 
+                                                                                flex  items-start justify-start gap-2
+                                                                                hover:bg-[var(--hover)] 
                                                                             "
+                                                                            onClick={()=>{setConfirmData(null)}}
                                                                         >
                                                                             <PauseCircleIcon className="w-6 h-6"/>
                                                                             Deactivate
