@@ -3,8 +3,16 @@ import React, {useState , useEffect , useRef} from "react"
 import {
   EyeIcon,PlusIcon,
   PencilSquareIcon,
-  TrashIcon,
-  EllipsisHorizontalIcon
+  TrashIcon ,
+  ArrowTrendingUpIcon ,
+  ArrowDownCircleIcon ,
+  EllipsisHorizontalIcon,
+  StopCircleIcon , LockOpenIcon,
+  PauseCircleIcon , 
+  PowerIcon, 
+  ArrowDownRightIcon,
+  StopCircleIcon,
+  PauseCircleIcon
 } from "@heroicons/react/24/outline";
 
 const staffList = [
@@ -329,45 +337,43 @@ export default function StaffsAdmin(){
                                                         <h1 className="text-[var(--text)] font-bold">Actions</h1>
                                                     </div>
                                                     <div>
-                                                        <button
-                                                            onClick={() => {
-                                                                handleAction({
-                                                                    id: staff.id,
-                                                                    action:
-                                                                    staff.status === "suspended" ? "unsuspend" : "suspend",
-                                                                });
-                                                                setOpenDropdownId(null);
-                                                            }}
-                                                            className="block w-full text-left px-4 py-2 hover:bg-[var(--hover)]"
-                                                        >
-                                                            {staff.status === "suspended" ? "Unsuspend" : "Suspend"}
-                                                        </button>
-                                                        <button
-                                                            onClick={() => {
-                                                                handleAction({
-                                                                    id: staff.id,
-                                                                    action:
-                                                                    staff.status === "suspended" ? "unsuspend" : "suspend",
-                                                                });
-                                                                setOpenDropdownId(null);
-                                                            }}
-                                                            className="block w-full text-left px-4 py-2 hover:bg-[var(--hover)]"
-                                                        >
-                                                            {staff.status === "suspended" ? "Unsuspend" : "Suspend"}
-                                                        </button>
-                                                        <button
-                                                            onClick={() => {
-                                                                handleAction({
-                                                                    id: staff.id,
-                                                                    action:
-                                                                    staff.status === "suspended" ? "unsuspend" : "suspend",
-                                                                });
-                                                                setOpenDropdownId(null);
-                                                            }}
-                                                            className="block w-full text-left px-4 py-2 hover:bg-[var(--hover)]"
-                                                        >
-                                                            {staff.status === "suspended" ? "Unsuspend" : "Suspend"}
-                                                        </button>
+                                                        {
+                                                            staff.status === 'active' &&  (
+                                                                staff.role === 'official' 
+                                                                ? 
+                                                                    <>
+                                                                        <button
+                                                                            className="
+                                                                                w-full px-2 py-2 
+                                                                                flex flex-col items-center justify-start gap-2 
+                                                                            "
+                                                                        >
+                                                                            <ArrowDownCircleIcon className="w-6 h-6"/>
+                                                                            Demote to staff
+                                                                        </button>
+                                                                        <button
+                                                                            className="
+                                                                                w-full px-2 py-2 
+                                                                                flex flex-col items-center justify-start gap-2 
+                                                                            "
+                                                                        >
+                                                                            <StopCircleIcon className="w-6 h-6"/>
+                                                                            Suspend User
+                                                                        </button>
+                                                                        <button
+                                                                            className="
+                                                                                w-full px-2 py-2 
+                                                                                flex flex-col items-center justify-start gap-2 
+                                                                            "
+                                                                        >
+                                                                            <PauseCircleIcon className="w-6 h-6"/>
+                                                                            Deactivate
+                                                                        </button>
+                                                                    </>
+                                                                : 
+                                                                    <></>
+                                                            )
+                                                        }
                                                     </div>
                                                 
 
