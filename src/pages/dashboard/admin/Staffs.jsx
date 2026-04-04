@@ -11,8 +11,6 @@ import {
   PauseCircleIcon , 
   PowerIcon, 
   ArrowDownRightIcon,
-  StopCircleIcon,
-  PauseCircleIcon
 } from "@heroicons/react/24/outline";
 
 const staffList = [
