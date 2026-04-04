@@ -4,6 +4,7 @@ import {
   EyeIcon,PlusIcon,
   PencilSquareIcon,
   TrashIcon,
+  EllipsisHorizontalIcon
 } from "@heroicons/react/24/outline";
 
 const staffList = [
@@ -276,18 +277,23 @@ export default function StaffsAdmin(){
                                     <td className="p-3 whitespace-nowrap">{staff.posts}</td>
                                     <td className="p-3 whitespace-nowrap">{staff.dateJoined}</td>
 
-                                    <td className="p-3 relative">
+                                    <td className="p-3 relative text-right">
                                         <button
                                             onClick={() =>
                                             setOpenDropdownId(openDropdownId === staff.id ? null : staff.id)
                                             }
-                                            className="p-2 rounded hover:bg-[var(--hover)]"
+                                            className={`
+                                                "p-2 rounded hover:bg-[var(--background)] "
+                                                ${
+                                                    openDropdownId === staff.id && "bg-[var(--hover)]"
+                                                }
+                                            `}
                                         >
-                                            ⋮
+                                            <EllipsisHorizontalIcon className="w-5 h-5"/>
                                         </button>
 
                                         {openDropdownId === staff.id && (
-                                            <div className="absolute right-0 mt-2 w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
+                                            <div className="absolute right-9 mt-0 mr- w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
 
                                             <button
                                                 onClick={() => {
