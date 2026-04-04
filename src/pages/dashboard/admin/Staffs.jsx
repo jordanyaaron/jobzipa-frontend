@@ -321,20 +321,55 @@ export default function StaffsAdmin(){
 
                                             {openDropdownId === staff.id && (
                                                 <div className="absolute right-9 top-0 mr- w-40 bg-[var(--background)] border border-[var(--border)] rounded-lg shadow-lg z-50">
-
-                                                <button
-                                                    onClick={() => {
-                                                    handleAction({
-                                                        id: staff.id,
-                                                        action:
-                                                        staff.status === "suspended" ? "unsuspend" : "suspend",
-                                                    });
-                                                    setOpenDropdownId(null);
-                                                    }}
-                                                    className="block w-full text-left px-4 py-2 hover:bg-[var(--hover)]"
-                                                >
-                                                    {staff.status === "suspended" ? "Unsuspend" : "Suspend"}
-                                                </button>
+                                                    <div
+                                                        className="
+                                                            p-2 border-b border-[var(--boredr)]
+                                                        "
+                                                    >
+                                                        <h1 className="text-[var(--text)] font-bold">Actions</h1>
+                                                    </div>
+                                                    <div>
+                                                        <button
+                                                            onClick={() => {
+                                                                handleAction({
+                                                                    id: staff.id,
+                                                                    action:
+                                                                    staff.status === "suspended" ? "unsuspend" : "suspend",
+                                                                });
+                                                                setOpenDropdownId(null);
+                                                            }}
+                                                            className="block w-full text-left px-4 py-2 hover:bg-[var(--hover)]"
+                                                        >
+                                                            {staff.status === "suspended" ? "Unsuspend" : "Suspend"}
+                                                        </button>
+                                                        <button
+                                                            onClick={() => {
+                                                                handleAction({
+                                                                    id: staff.id,
+                                                                    action:
+                                                                    staff.status === "suspended" ? "unsuspend" : "suspend",
+                                                                });
+                                                                setOpenDropdownId(null);
+                                                            }}
+                                                            className="block w-full text-left px-4 py-2 hover:bg-[var(--hover)]"
+                                                        >
+                                                            {staff.status === "suspended" ? "Unsuspend" : "Suspend"}
+                                                        </button>
+                                                        <button
+                                                            onClick={() => {
+                                                                handleAction({
+                                                                    id: staff.id,
+                                                                    action:
+                                                                    staff.status === "suspended" ? "unsuspend" : "suspend",
+                                                                });
+                                                                setOpenDropdownId(null);
+                                                            }}
+                                                            className="block w-full text-left px-4 py-2 hover:bg-[var(--hover)]"
+                                                        >
+                                                            {staff.status === "suspended" ? "Unsuspend" : "Suspend"}
+                                                        </button>
+                                                    </div>
+                                                
 
                                                 </div>
                                             )}
