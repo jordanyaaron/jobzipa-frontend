@@ -179,7 +179,7 @@ export default function StaffsAdmin(){
                 setOpenConfirmer(false)
             }, 1500);
 
-            toast.success(f`${actionData.fullName} is successfully
+            toast.success(`${actionData.fullName} is successfully
                     ${
                         promotion 
                         ? 
