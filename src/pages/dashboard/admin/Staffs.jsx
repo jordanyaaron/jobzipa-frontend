@@ -179,8 +179,11 @@ export default function StaffsAdmin(){
                 setOpenConfirmer(false)
             }, 1500);
 
-            toast.success(`${actionData.fullName} is successfully
-                    ${
+            toast.success(
+                <span>
+                    <strong> {actionData.fullName }</strong>
+                   is successfully
+                    {
                         promotion 
                         ? 
                             actionData.role === 'official' 
@@ -189,13 +192,12 @@ export default function StaffsAdmin(){
                         
                         :
                             actionData.status === 'active' 
-                            ? ' activated'
+                            ? ' reactivated'
                             : actionData.status === 'suspended' 
                             ? ' suspended' 
-                            : ' inactive' 
+                            : ' deactivated' 
                     }
-                 `
-
+                </span>
             )
             setConfirmData(null);
             setPromotion(false);
@@ -229,7 +231,15 @@ export default function StaffsAdmin(){
         <>
             {openConfirmer && (
 
-                <div className="fixed inset-0 flex items-center justify-center bg-black/50">
+                <div className={
+                        ` 
+                            "fixed inset-0 flex items-center justify-center bg-black/50"
+                            ${
+                                loading && "flex-col gap-3"
+                            }
+                        `
+                    }
+                >
                     {
                         !loading 
                         ? 
@@ -237,7 +247,7 @@ export default function StaffsAdmin(){
                                 <div className="bg-white p-6 rounded-lg">
                                     <h1 className="text-black font-bold">Confirm Action</h1>
                                     <p className="text-black">
-                                        Are you sure you want to {confirmData.action} this user?
+                                        Are you sure you want to <strong className="text-blue-600">{confirmData?.fullName}</strong> this user?
                                     </p>
 
                                     <div className="flex gap-3 mt-4">
@@ -251,7 +261,11 @@ export default function StaffsAdmin(){
                                         </button>
 
                                         <button
-                                            onClick={() => setConfirmData(null)}
+                                            onClick={() =>{ 
+                                                    setOpenConfirmer(false)
+                                                    setConfirmData(null)
+                                                }
+                                            }
                                             className="px-4 py-2 bg-gray-300 rounded"
                                         >
                                             Cancel
@@ -262,7 +276,7 @@ export default function StaffsAdmin(){
                         :
                             <>
                                 <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                                wait a moment...
+                                <br /><br />wait a moment...
                             </>
                     }
                    
