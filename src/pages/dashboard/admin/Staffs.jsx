@@ -105,6 +105,7 @@ export default function StaffsAdmin(){
       const [staffs, setStaffs] = useState(staffList);
       
       const [loadingId, setLoadingId] = useState(null);
+      const [loading, setLoading] = useState(false);
       
       
   
@@ -129,50 +130,50 @@ export default function StaffsAdmin(){
         let newStatus;
         let newRole;
 
-        if (actionData.action === 'upgrade' || 'downgrade'){
-            if(actionData.action === 'upgrade' ){newRole='official'}
-            else if (actionData.action === 'downgrade' ){newRole='staff'}
-            setTimeout(() => {
-                setStaffs(prev =>
-                    prev.map(staff =>
-                    staff.id === actionData.id
-                    ? { ...staff, role: newRole }
-                    : staff
-                )
-            );
+        // if (actionData.action === 'upgrade' || 'downgrade'){
+        //     if(actionData.action === 'upgrade' ){newRole='official'}
+        //     else if (actionData.action === 'downgrade' ){newRole='staff'}
+        //     setTimeout(() => {
+        //         setStaffs(prev =>
+        //             prev.map(staff =>
+        //             staff.id === actionData.id
+        //             ? { ...staff, role: newRole }
+        //             : staff
+        //         )
+        //     );
         
-            setLoadingId(null);
-            }, 1000);
-        }else{
-            if (actionData.action === "suspend") {
-                newStatus = "suspended";
-            } else if (actionData.action === "unsuspend") {
-            newStatus = "active";
-            }else if (actionData.action === "deactivate") {
-                newStatus = "inactive";
-            }else if (actionData.action === "activate") {
-                newStatus = "active";
-            }else if (actionData.action === "unsuspend") {
-                newStatus = "active";
-            }else if (actionData.action === "unsuspend") {
-                newStatus = "active";
-            }
+        //     setLoadingId(null);
+        //     }, 1000);
+        // }else{
+        //     if (actionData.action === "suspend") {
+        //         newStatus = "suspended";
+        //     } else if (actionData.action === "unsuspend") {
+        //     newStatus = "active";
+        //     }else if (actionData.action === "deactivate") {
+        //         newStatus = "inactive";
+        //     }else if (actionData.action === "activate") {
+        //         newStatus = "active";
+        //     }else if (actionData.action === "unsuspend") {
+        //         newStatus = "active";
+        //     }else if (actionData.action === "unsuspend") {
+        //         newStatus = "active";
+        //     }
 
             setTimeout(() => {
-            setStaffs(prev =>
-                prev.map(staff =>
-                staff.id === actionData.id
-                    ? { ...staff, status: newStatus }
-                    : staff
-                )
-            );
+                // setStaffs(prev =>
+                //     prev.map(staff =>
+                //     staff.id === actionData.id
+                //         ? { ...staff, status: newStatus }
+                //         : staff
+                //     )
+                // );
         
             setLoadingId(null);
-            }, 1000);
+            }, 1500);
         }
       
         
-      };
+      
 
 
       const dropdownRefs = useRef({});
@@ -198,31 +199,44 @@ export default function StaffsAdmin(){
     return(
         <>
             {confirmData && (
+
                 <div className="fixed inset-0 flex items-center justify-center bg-black/50">
-                    <div className="bg-white p-6 rounded-lg">
-                    <p >
-                        Are you sure you want to {confirmData.action} this user?
-                    </p>
+                    {
+                        loading 
+                        ? 
+                            <>
+                                <div className="bg-white p-6 rounded-lg">
+                                    <h1 className="text-black font-bold">Confirm Action</h1>
+                                    <p className="text-black">
+                                        Are you sure you want to {confirmData.action} this user?
+                                    </p>
 
-                    <div className="flex gap-3 mt-4">
-                        <button
-                        onClick={() => {
-                            handleAction(confirmData);
-                            setConfirmData(null);
-                        }}
-                        className="px-4 py-2 bg-red-600 text-white rounded"
-                        >
-                            Yes
-                        </button>
+                                    <div className="flex gap-3 mt-4">
+                                        <button
+                                        onClick={() => {
+                                            handleAction(confirmData);
+                                        }}
+                                        className="px-4 py-2 bg-red-600 text-white rounded"
+                                        >
+                                            Yes
+                                        </button>
 
-                        <button
-                        onClick={() => setConfirmData(null)}
-                        className="px-4 py-2 bg-gray-300 rounded"
-                        >
-                        Cancel
-                        </button>
-                    </div>
-                    </div>
+                                        <button
+                                        onClick={() => setConfirmData(null)}
+                                        className="px-4 py-2 bg-gray-300 rounded"
+                                        >
+                                        Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </>
+                        :
+                            <>
+                                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                wait a moment...
+                            </>
+                    }
+                   
                 </div>
             )}
             <div className="p-2 pb-[64px] md:p-4  w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
@@ -346,10 +360,17 @@ export default function StaffsAdmin(){
                                                                                 flex items-center text-left gap-2
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
-                                                                            onClick={()=>{setOpenDropdownId(null)}}
+                                                                            onClick={()=>{
+                                                                                    setConfirmData({
+                                                                                        id:staff.id,
+                                                                                        action:''
+                                                                                    })
+                                                                                    setOpenDropdownId(null)
+                                                                                }
+                                                                            }
                                                                         >
                                                                             <ArrowDownCircleIcon className="w-6 h-6"/>
-                                                                           <span> Demote to staff</span>
+                                                                           <span>Demote to staff</span>
                                                                         </button>
                                                                         <button
                                                                             className="
@@ -357,7 +378,14 @@ export default function StaffsAdmin(){
                                                                                 flex  items-center text-left gap-2 
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
-                                                                            onClick={()=>{setOpenDropdownId(null)}}
+                                                                            onClick={()=>{
+                                                                                    setConfirmData({
+                                                                                        id:staff.id,
+                                                                                        action:''
+                                                                                    })
+                                                                                    setOpenDropdownId(null)
+                                                                                }
+                                                                            }
                                                                         >
                                                                             <StopCircleIcon className="w-6 h-6"/>
                                                                             <span>Suspend User</span>
@@ -368,7 +396,14 @@ export default function StaffsAdmin(){
                                                                                 flex  items-center text-left  gap-2
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
-                                                                            onClick={()=>{setOpenDropdownId(null)}}
+                                                                            onClick={()=>{
+                                                                                    setConfirmData({
+                                                                                        id:staff.id,
+                                                                                        action:''
+                                                                                    })
+                                                                                    setOpenDropdownId(null)
+                                                                                }
+                                                                            }
                                                                         >
                                                                             <PauseCircleIcon className="w-6 h-6"/>
                                                                             <span >Deactivate</span>
@@ -382,7 +417,14 @@ export default function StaffsAdmin(){
                                                                                 flex items-center text-left   gap-2
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
-                                                                            onClick={()=>{setOpenDropdownId(null)}}
+                                                                            onClick={()=>{
+                                                                                setConfirmData({
+                                                                                    id:staff.id,
+                                                                                    action:''
+                                                                                })
+                                                                                setOpenDropdownId(null)
+                                                                            }
+                                                                        }
                                                                         >
                                                                             <ArrowDownCircleIcon className="w-6 h-6"/>
                                                                             <span >Promote to Official</span>
@@ -393,7 +435,14 @@ export default function StaffsAdmin(){
                                                                                 flex  items-center  text-left  gap-2 
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
-                                                                            onClick={()=>{setOpenDropdownId(null)}}
+                                                                            onClick={()=>{
+                                                                                setConfirmData({
+                                                                                    id:staff.id,
+                                                                                    action:''
+                                                                                })
+                                                                                setOpenDropdownId(null)
+                                                                            }
+                                                                        }
                                                                         >
                                                                             <PowerIcon className="w-6 h-6"/>
                                                                             <span >Deactivate</span>
@@ -407,13 +456,20 @@ export default function StaffsAdmin(){
                                                                     <button
                                                                             className="
                                                                                 w-full px-2 py-2 
-                                                                                flex items-center  gap-2
+                                                                                flex items-center  text-left   gap-2
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
-                                                                            onClick={()=>{setOpenDropdownId(null)}}
+                                                                            onClick={()=>{
+                                                                                setConfirmData({
+                                                                                    id:staff.id,
+                                                                                    action:''
+                                                                                })
+                                                                                setOpenDropdownId(null)
+                                                                            }
+                                                                        }
                                                                         >
                                                                             <LockOpenIcon className="w-6 h-6"/>
-                                                                            <span className="flex item-start  justify-start ">Remove from suspend</span>
+                                                                            <span >Remove from suspend</span>
                                                                         </button>
                                                                 </>
                                                             )
@@ -427,7 +483,14 @@ export default function StaffsAdmin(){
                                                                                 flex items-center  gap-2
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
-                                                                            onClick={()=>{setOpenDropdownId(null)}}
+                                                                            onClick={()=>{
+                                                                                setConfirmData({
+                                                                                    id:staff.id,
+                                                                                    action:''
+                                                                                })
+                                                                                setOpenDropdownId(null)
+                                                                            }
+                                                                        }
                                                                         >
                                                                             <LockOpenIcon className="w-6 h-6"/>
                                                                             <span className="flex item-start justify-start ">return to active</span>
