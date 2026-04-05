@@ -105,7 +105,7 @@ export default function StaffsAdmin(){
     } = useOutletContext();
       const [staffs, setStaffs] = useState(staffList);
       
-      const [loadingId, setLoadingId] = useState(null);
+      const [openConfirmer, setOpenConfirmer] = useState(false);
       const [loading, setLoading] = useState(false);
       const [promotion, setPromotion] = useState(false);
       
@@ -176,9 +176,10 @@ export default function StaffsAdmin(){
         
                 
                 setLoading(false);
+                setOpenConfirmer(false)
             }, 1500);
 
-            toast.success(f`${action.fullName} is successfully
+            toast.success(f`${actionData.fullName} is successfully
                     ${
                         promotion 
                         ? 
@@ -226,7 +227,7 @@ export default function StaffsAdmin(){
       
     return(
         <>
-            {confirmData && (
+            {openConfirmer && (
 
                 <div className="fixed inset-0 flex items-center justify-center bg-black/50">
                     {
@@ -395,6 +396,7 @@ export default function StaffsAdmin(){
                                                                                         fullName:staff.fullName,
                                                                                         role:'staff'
                                                                                     })
+                                                                                    setOpenConfirmer(true)
                                                                                     setPromotion(true)
                                                                                     setOpenDropdownId(null)
                                                                                 }
@@ -416,6 +418,7 @@ export default function StaffsAdmin(){
                                                                                         fullName:staff.fullName,
                                                                                         role:staff.role,
                                                                                     })
+                                                                                    setOpenConfirmer(true)
                                                                                     setOpenDropdownId(null)
                                                                                 }
                                                                             }
@@ -436,6 +439,7 @@ export default function StaffsAdmin(){
                                                                                         fullName:staff.fullName,
                                                                                         role:staff.role,
                                                                                     })
+                                                                                    setOpenConfirmer(true)
                                                                                     setOpenDropdownId(null)
                                                                                 }
                                                                             }
@@ -459,6 +463,7 @@ export default function StaffsAdmin(){
                                                                                     fullName:staff.fullName,
                                                                                     action:'official'
                                                                                 })
+                                                                                setOpenConfirmer(true)
                                                                                 setPromotion(true)
                                                                                 setOpenDropdownId(null)
                                                                             }
@@ -480,6 +485,7 @@ export default function StaffsAdmin(){
                                                                                     fullName:staff.fullName,
                                                                                     role:staff.role,
                                                                                 })
+                                                                                setOpenConfirmer(true)
                                                                                 setOpenDropdownId(null)
                                                                             }
                                                                         }
@@ -506,6 +512,7 @@ export default function StaffsAdmin(){
                                                                                     fullName:staff.fullName,
                                                                                     role:staff.role,
                                                                                 })
+                                                                                setOpenConfirmer(true)
                                                                                 setOpenDropdownId(null)
                                                                             }
                                                                         }
@@ -532,7 +539,7 @@ export default function StaffsAdmin(){
                                                                                     fullName:staff.fullName,
                                                                                     role:staff.role,
                                                                                 })
-                                                                            
+                                                                                setOpenConfirmer(true)
                                                                                 setOpenDropdownId(null)
                                                                             }
                                                                         }
