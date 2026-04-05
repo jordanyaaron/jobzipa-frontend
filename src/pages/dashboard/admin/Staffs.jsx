@@ -12,6 +12,7 @@ import {
   PowerIcon, 
   ArrowDownRightIcon,
 } from "@heroicons/react/24/outline";
+import toast from "react-hot-toast";
 
 const staffList = [
     {
@@ -106,6 +107,7 @@ export default function StaffsAdmin(){
       
       const [loadingId, setLoadingId] = useState(null);
       const [loading, setLoading] = useState(false);
+      const [promotion, setPromotion] = useState(false);
       
       
   
@@ -125,11 +127,10 @@ export default function StaffsAdmin(){
   
   
       const handleAction = (actionData) => {
-        setLoadingId(`${actionData.id}-${actionData.action}`);
         setLoading(true)
       
-        let newStatus;
-        let newRole;
+        const newStatus = actionData.status;
+        const newRole = actionData.role;
 
         // if (actionData.action === 'upgrade' || 'downgrade'){
         //     if(actionData.action === 'upgrade' ){newRole='official'}
@@ -161,17 +162,42 @@ export default function StaffsAdmin(){
         //     }
 
             setTimeout(() => {
-                // setStaffs(prev =>
-                //     prev.map(staff =>
-                //     staff.id === actionData.id
-                //         ? { ...staff, status: newStatus }
-                //         : staff
-                //     )
-                // );
+                setStaffs(prev =>
+                    prev.map(staff =>
+                      staff.id === actionData.id
+                        ? { 
+                            ...staff, 
+                            status: newStatus,
+                            role: newRole   // 👈 ongeza hii
+                          }
+                        : staff
+                    )
+                  );
         
-                setConfirmData(null);
-                setLoading(false)
+                
+                setLoading(false);
             }, 1500);
+
+            toast.success(f`${action.fullName} is successfully
+                    ${
+                        promotion 
+                        ? 
+                            actionData.role === 'official' 
+                            ? ' demoted to normal staff'
+                            : ' promoted to official staff'
+                        
+                        :
+                            actionData.status === 'active' 
+                            ? ' activated'
+                            : actionData.status === 'suspended' 
+                            ? ' suspended' 
+                            : ' inactive' 
+                    }
+                 `
+
+            )
+            setConfirmData(null);
+            setPromotion(false);
         }
       
         
@@ -218,16 +244,16 @@ export default function StaffsAdmin(){
                                         onClick={() => {
                                             handleAction(confirmData);
                                         }}
-                                        className="px-4 py-2 bg-red-600 text-white rounded"
+                                            className="px-4 py-2 bg-red-600 text-white rounded"
                                         >
                                             Yes
                                         </button>
 
                                         <button
-                                        onClick={() => setConfirmData(null)}
-                                        className="px-4 py-2 bg-gray-300 rounded"
+                                            onClick={() => setConfirmData(null)}
+                                            className="px-4 py-2 bg-gray-300 rounded"
                                         >
-                                        Cancel
+                                            Cancel
                                         </button>
                                     </div>
                                 </div>
@@ -365,8 +391,11 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{
                                                                                     setConfirmData({
                                                                                         id:staff.id,
-                                                                                        action:''
+                                                                                        status:staff.status,
+                                                                                        fullName:staff.fullName,
+                                                                                        role:'staff'
                                                                                     })
+                                                                                    setPromotion(true)
                                                                                     setOpenDropdownId(null)
                                                                                 }
                                                                             }
@@ -383,7 +412,9 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{
                                                                                     setConfirmData({
                                                                                         id:staff.id,
-                                                                                        action:''
+                                                                                        status:'suspended',
+                                                                                        fullName:staff.fullName,
+                                                                                        role:staff.role,
                                                                                     })
                                                                                     setOpenDropdownId(null)
                                                                                 }
@@ -401,7 +432,9 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{
                                                                                     setConfirmData({
                                                                                         id:staff.id,
-                                                                                        action:''
+                                                                                        status:'active',
+                                                                                        fullName:staff.fullName,
+                                                                                        role:staff.role,
                                                                                     })
                                                                                     setOpenDropdownId(null)
                                                                                 }
@@ -422,8 +455,11 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{
                                                                                 setConfirmData({
                                                                                     id:staff.id,
-                                                                                    action:''
+                                                                                    status:staff.status,
+                                                                                    fullName:staff.fullName,
+                                                                                    action:'official'
                                                                                 })
+                                                                                setPromotion(true)
                                                                                 setOpenDropdownId(null)
                                                                             }
                                                                         }
@@ -440,7 +476,9 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{
                                                                                 setConfirmData({
                                                                                     id:staff.id,
-                                                                                    action:''
+                                                                                    status:'inactive',
+                                                                                    fullName:staff.fullName,
+                                                                                    role:staff.role,
                                                                                 })
                                                                                 setOpenDropdownId(null)
                                                                             }
@@ -464,7 +502,9 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{
                                                                                 setConfirmData({
                                                                                     id:staff.id,
-                                                                                    action:''
+                                                                                    stutus:'active',
+                                                                                    fullName:staff.fullName,
+                                                                                    role:staff.role,
                                                                                 })
                                                                                 setOpenDropdownId(null)
                                                                             }
@@ -488,8 +528,11 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{
                                                                                 setConfirmData({
                                                                                     id:staff.id,
-                                                                                    action:''
+                                                                                    status:'active',
+                                                                                    fullName:staff.fullName,
+                                                                                    role:staff.role,
                                                                                 })
+                                                                            
                                                                                 setOpenDropdownId(null)
                                                                             }
                                                                         }
