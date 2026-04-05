@@ -177,29 +177,30 @@ export default function StaffsAdmin(){
                 
                 setLoading(false);
                 setOpenConfirmer(false)
+                toast.success(
+                    <span>
+                        <strong> {actionData.fullName + " is successfully"}</strong>
+                        {
+                            promotion 
+                            ? 
+                                actionData.role === 'official' 
+                                ? ' demoted to normal staff'
+                                : ' promoted to official staff'
+                            
+                            :
+                                actionData.status === 'active' 
+                                ? ' reactivated'
+                                : actionData.status === 'suspended' 
+                                ? ' suspended' 
+                                : ' deactivated' 
+                        }
+                    </span>
+                )
+                setConfirmData(null);
+                setPromotion(false);
             }, 1500);
 
-            toast.success(
-                <span>
-                    <strong> {actionData.fullName + " is successfully"}</strong>
-                    {
-                        promotion 
-                        ? 
-                            actionData.role === 'official' 
-                            ? ' demoted to normal staff'
-                            : ' promoted to official staff'
-                        
-                        :
-                            actionData.status === 'active' 
-                            ? ' reactivated'
-                            : actionData.status === 'suspended' 
-                            ? ' suspended' 
-                            : ' deactivated' 
-                    }
-                </span>
-            )
-            setConfirmData(null);
-            setPromotion(false);
+            
         }
       
         
@@ -235,7 +236,7 @@ export default function StaffsAdmin(){
                         !loading 
                         ? 
                             <>
-                                <div className=" sm:w-[250px]  md:w-[300px] bg-white p-6 rounded-lg">
+                                <div className=" sm:w-[180px]  md:w-[300px] bg-white p-6 rounded-lg">
                                     <h1 className="text-black font-bold">Confirm Action</h1>
                                     <p className="text-black">
                                         Are you sure you want to <strong className="text-blue-600">{confirmData?.fullName}</strong> this user?
