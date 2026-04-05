@@ -181,8 +181,7 @@ export default function StaffsAdmin(){
 
             toast.success(
                 <span>
-                    <strong> {actionData.fullName }</strong>
-                   is successfully
+                    <strong> {actionData.fullName + " is successfully"}</strong>
                     {
                         promotion 
                         ? 
@@ -231,17 +230,12 @@ export default function StaffsAdmin(){
         <>
             {openConfirmer && (
 
-                <div className={
-                        
-                            "fixed inset-0 flex items-center justify-center bg-black/50"
-                        
-                    }
-                >
+                <div className="fixed inset-0 flex items-center justify-center bg-black/50">
                     {
                         !loading 
                         ? 
                             <>
-                                <div className="bg-white p-6 rounded-lg">
+                                <div className=" sm:w-[250px]  md:w-[300px] bg-white p-6 rounded-lg">
                                     <h1 className="text-black font-bold">Confirm Action</h1>
                                     <p className="text-black">
                                         Are you sure you want to <strong className="text-blue-600">{confirmData?.fullName}</strong> this user?
@@ -274,11 +268,11 @@ export default function StaffsAdmin(){
                             <>
                                 <div
                                     className="
-                                        flex   flex-col gap-3
+                                        flex justify-center items-center  flex-col gap-3
                                     "
                                 >
                                         <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                                        <br /><br />wait a moment...
+                                        wait a moment...
                                 </div>
                                 
                             </>
@@ -353,7 +347,7 @@ export default function StaffsAdmin(){
                                             ${
                                                     staff.status === "active"
                                                     ? "bg-green-100 text-green-600"
-                                                    : staff.status === "suspeded"
+                                                    : staff.status === "suspended"
                                                     ? "bg-yellow-100 text-yellow-600"
                                                     : "bg-red-100 text-red-600"
                                                 }
