@@ -234,9 +234,6 @@ export default function StaffsAdmin(){
                 <div className={
                         ` 
                             "fixed inset-0 flex items-center justify-center bg-black/50"
-                            ${
-                                loading && "flex-col gap-3"
-                            }
                         `
                     }
                 >
@@ -275,8 +272,15 @@ export default function StaffsAdmin(){
                             </>
                         :
                             <>
-                                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                                <br /><br />wait a moment...
+                                <div
+                                    className="
+                                        flex   flex-col gap-3
+                                    "
+                                >
+                                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                        <br /><br />wait a moment...
+                                </div>
+                                
                             </>
                     }
                    
