@@ -343,35 +343,35 @@ export default function StaffsAdmin(){
                                                                         <button
                                                                             className="
                                                                                 w-full px-2 py-2 
-                                                                                flex items-start justify-start gap-2
+                                                                                flex items-center gap-2
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
                                                                             onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <ArrowDownCircleIcon className="w-6 h-6"/>
-                                                                            Demote to staff
+                                                                           <span className="flex justify-start "> Demote to staff</span>
                                                                         </button>
                                                                         <button
                                                                             className="
                                                                                 w-full px-2 py-2 
-                                                                                flex  items-start justify-start gap-2 
+                                                                                flex  items-center gap-2 
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
                                                                             onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <StopCircleIcon className="w-6 h-6"/>
-                                                                            Suspend User
+                                                                            <span className="flex justify-start ">Suspend User</span>
                                                                         </button>
                                                                         <button
                                                                             className="
                                                                                 w-full px-2 py-2 
-                                                                                flex  items-start justify-start gap-2
+                                                                                flex  items-center gap-2
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
                                                                             onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <PauseCircleIcon className="w-6 h-6"/>
-                                                                            Deactivate
+                                                                            <span className="flex justify-start ">Deactivate</span>
                                                                         </button>
                                                                     </>
                                                                 : 
@@ -379,24 +379,24 @@ export default function StaffsAdmin(){
                                                                         <button
                                                                             className="
                                                                                 w-full px-2 py-2 
-                                                                                flex items-start justify-start gap-2
+                                                                                flex items-center  gap-2
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
                                                                             onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <ArrowDownCircleIcon className="w-6 h-6"/>
-                                                                            Promote to Official
+                                                                            <span className="flex justify-start ">Promote to Official</span>
                                                                         </button>
                                                                         <button
                                                                             className="
                                                                                 w-full px-2 py-2 
-                                                                                flex  items-start justify-start gap-2 
+                                                                                flex  items-center  gap-2 
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
                                                                             onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <PowerIcon className="w-6 h-6"/>
-                                                                            Deactivate
+                                                                            <span className="flex justify-start ">Deactivate</span>
                                                                         </button>
                                                                     </>
                                                             )
@@ -407,13 +407,13 @@ export default function StaffsAdmin(){
                                                                     <button
                                                                             className="
                                                                                 w-full px-2 py-2 
-                                                                                flex items-start justify-start gap-2
+                                                                                flex items-center  gap-2
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
                                                                             onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <LockOpenIcon className="w-6 h-6"/>
-                                                                            remove form suspend
+                                                                            <span className="flex justify-start ">Remove from suspend</span>
                                                                         </button>
                                                                 </>
                                                             )
@@ -424,13 +424,13 @@ export default function StaffsAdmin(){
                                                                     <button
                                                                             className="
                                                                                 w-full px-2 py-2 
-                                                                                flex items-start justify-start gap-2
+                                                                                flex items-center  gap-2
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
                                                                             onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <LockOpenIcon className="w-6 h-6"/>
-                                                                            return to active
+                                                                            <span className="flex justify-start ">return to active</span>
                                                                         </button>
                                                                 </>
                                                             )
