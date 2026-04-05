@@ -349,7 +349,7 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <ArrowDownCircleIcon className="w-6 h-6"/>
-                                                                           <span className="flex justify-start "> Demote to staff</span>
+                                                                           <span className="flex item-start  justify-start "> Demote to staff</span>
                                                                         </button>
                                                                         <button
                                                                             className="
@@ -360,7 +360,7 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <StopCircleIcon className="w-6 h-6"/>
-                                                                            <span className="flex justify-start ">Suspend User</span>
+                                                                            <span className="flex item-start  justify-start ">Suspend User</span>
                                                                         </button>
                                                                         <button
                                                                             className="
@@ -371,7 +371,7 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <PauseCircleIcon className="w-6 h-6"/>
-                                                                            <span className="flex justify-start ">Deactivate</span>
+                                                                            <span className="flex item-start  justify-start ">Deactivate</span>
                                                                         </button>
                                                                     </>
                                                                 : 
@@ -385,7 +385,7 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <ArrowDownCircleIcon className="w-6 h-6"/>
-                                                                            <span className="flex justify-start ">Promote to Official</span>
+                                                                            <span className="flex item-start  justify-start ">Promote to Official</span>
                                                                         </button>
                                                                         <button
                                                                             className="
@@ -396,7 +396,7 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <PowerIcon className="w-6 h-6"/>
-                                                                            <span className="flex justify-start ">Deactivate</span>
+                                                                            <span className="flex  item-start justify-start ">Deactivate</span>
                                                                         </button>
                                                                     </>
                                                             )
@@ -413,7 +413,7 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <LockOpenIcon className="w-6 h-6"/>
-                                                                            <span className="flex justify-start ">Remove from suspend</span>
+                                                                            <span className="flex item-start  justify-start ">Remove from suspend</span>
                                                                         </button>
                                                                 </>
                                                             )
@@ -430,7 +430,7 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <LockOpenIcon className="w-6 h-6"/>
-                                                                            <span className="flex justify-start ">return to active</span>
+                                                                            <span className="flex item-start justify-start ">return to active</span>
                                                                         </button>
                                                                 </>
                                                             )
