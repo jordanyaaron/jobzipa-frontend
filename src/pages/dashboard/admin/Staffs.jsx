@@ -37,7 +37,7 @@ const staffList = [
       id: 3,
       fullName: "James Mwangi",
       username: "james_m",
-      status: "suspended",
+      status: "active",
       role: "staff",
       dateJoined: "2025-12-20",
       posts: 20,
@@ -64,7 +64,7 @@ const staffList = [
       id: 6,
       fullName: "Amina Hassan",
       username: "amina_h",
-      status: "pending",
+      status: "active",
       role: "official",
       dateJoined: "2026-03-12",
       posts: 2,
@@ -461,7 +461,7 @@ export default function StaffsAdmin(){
                                                                                     id:staff.id,
                                                                                     status:staff.status,
                                                                                     fullName:staff.fullName,
-                                                                                    action:'official'
+                                                                                    role:'official'
                                                                                 })
                                                                                 setOpenConfirmer(true)
                                                                                 setPromotion(true)
