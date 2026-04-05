@@ -1,5 +1,6 @@
 import { Link , useOutletContext  } from "react-router-dom";
 import React, {useState , useEffect , useRef} from "react"
+import toast from "react-hot-toast";
 import {
   EyeIcon,PlusIcon,
   PencilSquareIcon,
@@ -435,7 +436,7 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{
                                                                                     setConfirmData({
                                                                                         id:staff.id,
-                                                                                        status:'active',
+                                                                                        status:'inactive',
                                                                                         fullName:staff.fullName,
                                                                                         role:staff.role,
                                                                                     })
@@ -508,7 +509,7 @@ export default function StaffsAdmin(){
                                                                             onClick={()=>{
                                                                                 setConfirmData({
                                                                                     id:staff.id,
-                                                                                    stutus:'active',
+                                                                                    status:'active',
                                                                                     fullName:staff.fullName,
                                                                                     role:staff.role,
                                                                                 })
