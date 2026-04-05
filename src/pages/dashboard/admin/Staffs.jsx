@@ -126,6 +126,7 @@ export default function StaffsAdmin(){
   
       const handleAction = (actionData) => {
         setLoadingId(`${actionData.id}-${actionData.action}`);
+        setLoading(true)
       
         let newStatus;
         let newRole;
@@ -168,7 +169,8 @@ export default function StaffsAdmin(){
                 //     )
                 // );
         
-            setLoadingId(null);
+                setConfirmData(null);
+                setLoading(false)
             }, 1500);
         }
       
@@ -202,7 +204,7 @@ export default function StaffsAdmin(){
 
                 <div className="fixed inset-0 flex items-center justify-center bg-black/50">
                     {
-                        loading 
+                        !loading 
                         ? 
                             <>
                                 <div className="bg-white p-6 rounded-lg">
