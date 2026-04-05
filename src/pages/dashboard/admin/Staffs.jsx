@@ -346,7 +346,7 @@ export default function StaffsAdmin(){
                                                                                 flex items-start justify-start gap-2
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
-                                                                            onClick={()=>{setConfirmData(null)}}
+                                                                            onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <ArrowDownCircleIcon className="w-6 h-6"/>
                                                                             Demote to staff
@@ -357,7 +357,7 @@ export default function StaffsAdmin(){
                                                                                 flex  items-start justify-start gap-2 
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
-                                                                            onClick={()=>{setConfirmData(null)}}
+                                                                            onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <StopCircleIcon className="w-6 h-6"/>
                                                                             Suspend User
@@ -368,14 +368,71 @@ export default function StaffsAdmin(){
                                                                                 flex  items-start justify-start gap-2
                                                                                 hover:bg-[var(--hover)] 
                                                                             "
-                                                                            onClick={()=>{setConfirmData(null)}}
+                                                                            onClick={()=>{setOpenDropdownId(null)}}
                                                                         >
                                                                             <PauseCircleIcon className="w-6 h-6"/>
                                                                             Deactivate
                                                                         </button>
                                                                     </>
                                                                 : 
-                                                                    <></>
+                                                                    <>
+                                                                        <button
+                                                                            className="
+                                                                                w-full px-2 py-2 
+                                                                                flex items-start justify-start gap-2
+                                                                                hover:bg-[var(--hover)] 
+                                                                            "
+                                                                            onClick={()=>{setOpenDropdownId(null)}}
+                                                                        >
+                                                                            <ArrowDownCircleIcon className="w-6 h-6"/>
+                                                                            Promote to Official
+                                                                        </button>
+                                                                        <button
+                                                                            className="
+                                                                                w-full px-2 py-2 
+                                                                                flex  items-start justify-start gap-2 
+                                                                                hover:bg-[var(--hover)] 
+                                                                            "
+                                                                            onClick={()=>{setOpenDropdownId(null)}}
+                                                                        >
+                                                                            <PowerIcon className="w-6 h-6"/>
+                                                                            Deactivate
+                                                                        </button>
+                                                                    </>
+                                                            )
+                                                        }
+                                                        {
+                                                            staff.status === 'suspended' && (
+                                                                <>
+                                                                    <button
+                                                                            className="
+                                                                                w-full px-2 py-2 
+                                                                                flex items-start justify-start gap-2
+                                                                                hover:bg-[var(--hover)] 
+                                                                            "
+                                                                            onClick={()=>{setOpenDropdownId(null)}}
+                                                                        >
+                                                                            <LockOpenIcon className="w-6 h-6"/>
+                                                                            remove form suspend
+                                                                        </button>
+                                                                </>
+                                                            )
+                                                        }
+                                                        {
+                                                            staff.status === 'inactive' && (
+                                                                <>
+                                                                    <button
+                                                                            className="
+                                                                                w-full px-2 py-2 
+                                                                                flex items-start justify-start gap-2
+                                                                                hover:bg-[var(--hover)] 
+                                                                            "
+                                                                            onClick={()=>{setOpenDropdownId(null)}}
+                                                                        >
+                                                                            <LockOpenIcon className="w-6 h-6"/>
+                                                                            return to active
+                                                                        </button>
+                                                                </>
                                                             )
                                                         }
                                                     </div>
