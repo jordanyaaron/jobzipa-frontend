@@ -232,7 +232,7 @@ export default function StaffsAdmin(){
     // this is for romove confirmerBox when clicked outside
     useEffect(() => {
         const handleClickOutside = (e) => {
-        if (dropdownPosterRef.current && !confirmerBoxRef.current.contains(e.target)) {
+        if (confirmerBoxRef.current && !confirmerBoxRef.current.contains(e.target)) {
             setOpenConfirmer(false)
             setConfirmData(null);
             setPromotion(false);
