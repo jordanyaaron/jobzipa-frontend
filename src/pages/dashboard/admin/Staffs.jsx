@@ -244,14 +244,14 @@ export default function StaffsAdmin(){
                                         {
                                             promotion 
                                             ? 
-                                                actionData.role === 'official' 
+                                                confirmData?.role === 'official' 
                                                 ? ' promote '
                                                 : ' demoted to normal staff'
                                             
                                             :
-                                                actionData.status === 'active' 
+                                                confirmData?.status === 'active' 
                                                 ? ' reactivate '
-                                                : actionData.status === 'suspended' 
+                                                : confirmData?.status === 'suspended' 
                                                 ? ' suspend ' 
                                                 : ' deactivate ' 
                                         }
@@ -259,7 +259,7 @@ export default function StaffsAdmin(){
                                         {
                                             promotion 
                                             ? 
-                                                actionData.role === 'official' 
+                                            confirmData?.role === 'official' 
                                                 ? ' official staff'
                                                 : ' to normal staff'
                                             
