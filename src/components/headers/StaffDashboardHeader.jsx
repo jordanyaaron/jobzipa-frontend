@@ -107,14 +107,14 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                 {/* Left */}
                 <div className="flex items-center gap-3">
                     {   
-                        !path.startsWith("/admin/settings") || !path.startsWith("/staff/settings") && ( 
-                            <button
+                        path.startsWith("/admin/settings") || path.startsWith("/staff/settings") ? ""
+                        :   <button
                                 onClick={toggleDrawer}
                                 className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
                             >
                                 <Bars3Icon className="h-6 w-6   text-[var(--text)]" />
                             </button>
-                        )
+                        
                     }
                     {
                         path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs")  
@@ -223,14 +223,14 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                     }
 
                     {
-                        path.startsWith("/admin/settings") || path.startsWith("/staff/settings") && ( 
-                            <button
+                        path.startsWith("/admin/settings") || path.startsWith("/staff/settings") 
+                        ?  <button
                                 onClick={toggleDrawer}
                                 className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
                             >
                                 <Bars3Icon className="h-6 w-6   text-[var(--text)]" />
                             </button>
-                        )
+                        :  "" 
                     }
                     
                 </div>
