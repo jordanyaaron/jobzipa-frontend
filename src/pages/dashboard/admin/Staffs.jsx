@@ -207,25 +207,40 @@ export default function StaffsAdmin(){
         
       
 
+    // Ref Variable Section
+    const dropdownRefs = useRef({});
+    const confirmerBoxRef = useRef();
 
-      const dropdownRefs = useRef({});
+    
+    useEffect(() => {
+    const handleClickOutside = (e) => {
+        if (
+        openDropdownId &&
+        dropdownRefs.current[openDropdownId] &&
+        !dropdownRefs.current[openDropdownId].contains(e.target)
+        ) {
+        setOpenDropdownId(null);
+        }
+    };
+    
+    document.addEventListener("mousedown", handleClickOutside);
+    return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
+    }, [openDropdownId]);
 
-      
-      useEffect(() => {
+
+    // this is for romove confirmerBox when clicked outside
+    useEffect(() => {
         const handleClickOutside = (e) => {
-          if (
-            openDropdownId &&
-            dropdownRefs.current[openDropdownId] &&
-            !dropdownRefs.current[openDropdownId].contains(e.target)
-          ) {
-            setOpenDropdownId(null);
-          }
+        if (dropdownPosterRef.current && !confirmerBoxRef.current.contains(e.target)) {
+            setOpenConfirmer(false)
+            setConfirmData(null);
+            setPromotion(false);
+        }
         };
-      
         document.addEventListener("mousedown", handleClickOutside);
-        return () =>
-          document.removeEventListener("mousedown", handleClickOutside);
-      }, [openDropdownId]);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
 
       
     return(
@@ -237,7 +252,10 @@ export default function StaffsAdmin(){
                         !loading 
                         ? 
                             <>
-                                <div className=" w-[240px]  md:w-[300px] bg-white p-6 rounded-lg">
+                                <div 
+                                    className=" w-[240px]  md:w-[300px] bg-white p-6 rounded-lg"
+                                    ref={confirmerBoxRef}
+                                >
                                     <h1 className="text-black font-bold">Confirm Action</h1>
                                     <p className="text-black">
                                         Are you sure you want to 
@@ -246,7 +264,7 @@ export default function StaffsAdmin(){
                                             ? 
                                                 confirmData?.role === 'official' 
                                                 ? ' promote '
-                                                : ' demoted to normal staff'
+                                                : ' demoted '
                                             
                                             :
                                                 confirmData?.status === 'active' 
@@ -260,7 +278,7 @@ export default function StaffsAdmin(){
                                             promotion 
                                             ? 
                                             confirmData?.role === 'official' 
-                                                ? ' official staff'
+                                                ? ' to official staff'
                                                 : ' to normal staff'
                                             
                                             :""
