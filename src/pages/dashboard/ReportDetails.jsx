@@ -97,12 +97,12 @@ export default function ReportDetails() {
                         </span>
                       <p 
                         className="
-                          grid grid-cols-1 flex-1
+                          grid grid-cols-1 flex-1 pl-2
                         "
-                      >
+                      ><strong className="justify-start col-span-1">
                         <Link to={`/:${message.reporter}`}>
-                            <strong className="justify-start col-span-1">{message.reporter}</strong>
-                        </Link>
+                            {message.reporter}
+                        </Link></strong>
                         <span 
                             className="justify-start cursor-pointer col-span-1"
                             onClick={()=>{
