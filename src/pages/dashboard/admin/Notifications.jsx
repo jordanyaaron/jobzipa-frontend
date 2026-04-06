@@ -74,8 +74,8 @@ export default function NotificationsAdmin() {
 
           {/* Filter */}
           <select
-            value={notificationCategoryFilter}
-            onChange={(e) => setNotificationFilter(e.target.value)}
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
             className="px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] text-sm"
           >
             <option value="all">All</option>

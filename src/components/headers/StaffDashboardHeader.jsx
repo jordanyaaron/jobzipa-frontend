@@ -53,7 +53,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
         ]
     :  path.startsWith('/admin/notifications') 
     ?   [
-            "all", "pending", "in_progress", "resolved", "rejected"
+            "all", "staff", "post", "payout"
         ]
     : []
     
