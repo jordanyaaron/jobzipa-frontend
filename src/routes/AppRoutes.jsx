@@ -61,6 +61,9 @@ import ReportDetails from '@/pages/dashboard/ReportDetails';
 import PayoutsAdmin from '../pages/dashboard/admin/Payouts'
 import StaffsAdmin from '../pages/dashboard/admin/Staffs'
 
+// 3. staff general
+import SettingsStaff from '../pages/dashboard/Settings'
+
 
 const AppRoutes = ({ darkMode, setDarkMode }) => {
     return (
@@ -270,7 +273,7 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
 
             <Route path="settings" element={
               <ProtectedRoute requireStaffOnly={true}>
-                <Reports />
+                <SettingsStaff />
               </ProtectedRoute>
             } />
                       
