@@ -31,7 +31,7 @@ export default function ReportDetails() {
   const [reportMessageId, setReportMessageId] = useState(null);
 
   const report = reports.find((r) => r.id === Number(id));
-  console.log(stringify(report))
+  
 
  
 
