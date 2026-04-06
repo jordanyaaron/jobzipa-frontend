@@ -179,13 +179,14 @@ export default function StaffsAdmin(){
                 setOpenConfirmer(false)
                 toast.success(
                     <span>
-                        <strong> {actionData.fullName + " is successfully"}</strong>
+                        <strong> {actionData.fullName }</strong>
+                        {" is successfully"}
                         {
                             promotion 
                             ? 
                                 actionData.role === 'official' 
-                                ? ' demoted to normal staff'
-                                : ' promoted to official staff'
+                                ? ' promoted to official staff'
+                                : ' demoted to normal staff'
                             
                             :
                                 actionData.status === 'active' 
@@ -239,7 +240,31 @@ export default function StaffsAdmin(){
                                 <div className=" w-[240px]  md:w-[300px] bg-white p-6 rounded-lg">
                                     <h1 className="text-black font-bold">Confirm Action</h1>
                                     <p className="text-black">
-                                        Are you sure you want to <strong className="text-blue-600">{confirmData?.fullName}</strong> this user?
+                                        Are you sure you want to 
+                                        {
+                                            promotion 
+                                            ? 
+                                                actionData.role === 'official' 
+                                                ? ' promote '
+                                                : ' demoted to normal staff'
+                                            
+                                            :
+                                                actionData.status === 'active' 
+                                                ? ' reactivate '
+                                                : actionData.status === 'suspended' 
+                                                ? ' suspend ' 
+                                                : ' deactivate ' 
+                                        }
+                                        <strong className="text-blue-600">{confirmData?.fullName}</strong>
+                                        {
+                                            promotion 
+                                            ? 
+                                                actionData.role === 'official' 
+                                                ? ' official staff'
+                                                : ' to normal staff'
+                                            
+                                            :""
+                                        }
                                     </p>
 
                                     <div className="flex gap-3 mt-4">
