@@ -3,7 +3,7 @@ import React, {useState , useEffect , useRef} from "react"
 import {
   EyeIcon,PlusIcon,
   PencilSquareIcon,
-  TrashIcon ,
+  TrashIcon , UserPlusIcon,
   ArrowTrendingUpIcon ,
   ArrowDownCircleIcon ,
   EllipsisHorizontalIcon,
@@ -326,10 +326,10 @@ export default function StaffsAdmin(){
             )}
             <Link
                 to="/admin/invite"
-                className="fixed right-4 bottom-4.5 md:hidden flex items-center gap-2 px-3 py-3 rounded-full text-white bg-green-600 hover:bg-green-700"
+                className="fixed right-4 bottom-4.5 md:hidden flex items-center gap-2 px-4 py-3 rounded-full text-white bg-green-600 hover:bg-green-700"
             >
-                <PlusIcon className="h-5 w-5" />
-                <span >Post New Job</span>
+                <UserPlusIcon className="h-5 w-5" />
+                <span >Invite Staff</span>
             </Link>
             <div className="p-2 pb-[64px] md:p-4  w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
                 
@@ -368,7 +368,7 @@ export default function StaffsAdmin(){
                     </div>
                 </div>
                 {/* Scrollable row */}
-                <div className="flex mt-16 lg:mt-0 overflow-x-auto  scrollbar-hide  gap-3 border border-[var(--border)]  rounded-lg">
+                <div className="flex  mt-16 mb-[70px] lg:mt-0 overflow-x-auto  scrollbar-hide  gap-3 border border-[var(--border)]  rounded-lg">
                     <table className="min-w-[700px] w-full text-sm">
                         <thead className="bg-[var(--hover)] text-left">
                             <tr>
