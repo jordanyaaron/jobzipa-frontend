@@ -24,7 +24,7 @@ register("short", (number, index) => [
 
 
 
-export default function ReportDetail() {
+export default function ReportDetails() {
   const { id } = useParams();
 
   // local state (temporary)
