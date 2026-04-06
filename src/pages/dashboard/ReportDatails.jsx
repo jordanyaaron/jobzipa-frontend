@@ -3,6 +3,7 @@ import { useParams , Link } from "react-router-dom";
 import { reports } from "@/data/roports";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { register, format } from "timeago.js";
+import { stringify } from "uuid";
 
 register("short", (number, index) => [
   ["just now", "now"],
@@ -30,6 +31,7 @@ export default function ReportDetail() {
   const [reportMessageId, setReportMessageId] = useState(null);
 
   const report = reports.find((r) => r.id === Number(id));
+  console.log(stringify(report))
 
  
 
@@ -39,7 +41,7 @@ export default function ReportDetail() {
  
 
   if (!report) {
-    return <div className="p-4 w-[100vw] md:w-screen flex items-center justify-center">Report not found</div>;
+    return <div className="p-4 w-full h-full flex justify-center items-center">Report not found</div>;
   }
 
   return (
@@ -60,7 +62,7 @@ export default function ReportDetail() {
         >
             <ul className="mx-0 w-full lg:w-[700px] w-full text-sm" >
             {report.messages.length === 0 ? (
-              <li className="px-4  py-3 text-sm text-gray-500">No Reports</li>
+              <li className=" w-full h-full flex justify-center items-center px-4  py-3 text-sm text-gray-500">No Reports</li>
             ) : (
                 report.messages.map((message) => (
                 <li
