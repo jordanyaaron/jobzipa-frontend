@@ -14,7 +14,7 @@ export default function ReportDetail() {
   const report = reports.find((r) => r.id === id);
 
   if (!report) {
-    return <div className="p-4">Report not found</div>;
+    return <div className="p-4 w-[100vw] md:w-screen flex items-center justify-center">Report not found</div>;
   }
 
   // 🔥 change status

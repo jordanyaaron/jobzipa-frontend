@@ -21,6 +21,7 @@
     "react-hot-toast": "^2.6.0",
     "react-router-dom": "^7.9.3",
     "recharts": "^3.8.0",
+    "timeago.js": "^4.0.2",
     "uuid": "^13.0.0"
   },
   "devDependencies": {
