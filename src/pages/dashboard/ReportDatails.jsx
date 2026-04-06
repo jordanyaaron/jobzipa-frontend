@@ -29,7 +29,7 @@ export default function ReportDetail() {
   // local state (temporary)
   const [reportMessageId, setReportMessageId] = useState(null);
 
-  const report = reports.find((r) => r.id === id);
+  const report = reports.find((r) => r.id === Number(id));
 
  
 
