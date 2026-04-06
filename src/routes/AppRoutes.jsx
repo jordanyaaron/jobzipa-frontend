@@ -246,6 +246,12 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
                 <Notifications />
               </ProtectedRoute>
             } />
+
+            <Route path="notifications/:category/:id" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <NotificationDetail />
+              </ProtectedRoute>
+            } />
             
 
             <Route path="reports" element={

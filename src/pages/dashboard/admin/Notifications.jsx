@@ -28,7 +28,7 @@ export default function NotificationsAdmin() {
 
   const unreadCount = notificationsData.filter((n) => !n.read).length;
   const handleClick = (n) => {
-    navigate(`/super/notifications/${n.category}/${n.id}`);
+    navigate(`/admin/notifications/${n.category}/${n.id}`);
   };
   // Close dropdown when clicking outside
   useEffect(() => {
