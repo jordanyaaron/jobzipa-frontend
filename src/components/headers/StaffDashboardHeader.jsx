@@ -51,6 +51,10 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
     ?   [
             "all", "active", "suspended", "inactive"
         ]
+    :  path.startsWith('/admin/notifications') 
+    ?   [
+            "all", "pending", "in_progress", "resolved", "rejected"
+        ]
     : []
     
 
@@ -117,9 +121,12 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                         ?   <h1 className="text-[var(--text)] font-bold">Reports</h1>
                         :   path.startsWith("/admin/staffs")
                         ?   <h1 className="text-[var(--text)] font-bold">Staffs</h1>
+                        :   path.startsWith("/admin/notifications")
+                        ?   <h1 className="text-[var(--text)] font-bold">Notifications</h1>
                         :   <Link to="/" className="flex items-center">
                                 <img src={JobzipaLogo} alt="Jobzipa" className="h-9 md:h-10" />
                             </Link>
+                            
                     }
                             
                 </div>
@@ -127,7 +134,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                 {/* Right */}
                 <div className="flex items-center gap-3">
                     {
-                        path.startsWith("/admin/staffs") || path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs") || path.startsWith('/admin/payouts') || path.startsWith('/admin/reports') 
+                        path.startsWith('/admin/notifications') || path.startsWith("/admin/staffs") || path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs") || path.startsWith('/admin/payouts') || path.startsWith('/admin/reports') 
                         ?   <button
                                 onClick={() => setMobileSearchOpen(true)}
                                 className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
@@ -180,7 +187,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                     }
 
                     {
-                        path.startsWith('/admin/staffs') || path.startsWith('/admin/reports') || path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs") || path.startsWith('/admin/payouts') 
+                        path.startsWith('/admin/notifications') || path.startsWith('/admin/staffs') || path.startsWith('/admin/reports') || path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs") || path.startsWith('/admin/payouts') 
                         ?   <div className="relative" ref={dropdownRef}>
                                 <button
                                 onClick={() => setDropdownOpen(!dropdownOpen)}

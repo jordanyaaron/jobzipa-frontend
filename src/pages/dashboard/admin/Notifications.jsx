@@ -43,7 +43,7 @@ export default function NotificationsAdmin() {
 
   const filteredNotificationData = notificationsData.filter((item) => {
     const matchesFilter =
-    notificationCategoryFilter === "all" || item.category === notificationCategoryFilter;
+    filter === "all" || item.category === filter;
   
     const matchesSearch =
       (item.message?.toLowerCase() || "").includes(searchQuery?.toLowerCase() || "");
