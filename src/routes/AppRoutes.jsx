@@ -254,13 +254,13 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
             } />
             
 
-            <Route path="report" element={
+            <Route path="reports" element={
               <ProtectedRoute requireStaffOnly={true}>
                 <Reports />
               </ProtectedRoute>
             } />
 
-          <Route path="reports/:id" element={
+          <Route path="report/:id" element={
               <ProtectedRoute requireStaffOnly={true}>
                 <ReportDetail />
               </ProtectedRoute>
