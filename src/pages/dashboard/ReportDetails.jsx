@@ -65,7 +65,7 @@ export default function ReportDetails() {
         >
             <ul className="mx-0 w-full lg:w-[700px] w-full text-sm" >
             {report.messages.length === 0 ? (
-              <li className=" w-full h-full flex justify-center items-center px-4  py-3 text-sm text-gray-500">No Reports</li>
+              <li className=" w-full h-full flex justify-center items-center px-2   py-3 md:px-4  text-sm text-gray-500">No Reports</li>
             ) : (
                 report.messages.map((message) => (
                 <li
@@ -83,7 +83,7 @@ export default function ReportDetails() {
                     >
                         <span 
                             className="
-                                flex  rounded-full justify-start items-center p-0 bg-purple-200 text-purple-800
+                                pl-2 flex  rounded-full justify-start items-center p-0 bg-purple-200 text-purple-800
                             "
                         >
                             <img 
