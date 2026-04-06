@@ -277,7 +277,7 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
               </ProtectedRoute>
             } />
 
-            <Route path="/super/invite" element={
+            <Route path="invite" element={
                 <ProtectedRoute requireAdminAndSuper={true}>
                   <InviteStaff />
                 </ProtectedRoute>
