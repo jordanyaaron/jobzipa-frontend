@@ -205,7 +205,7 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
         </Route> 
 
 
-        <Route element={<StaffDashboardLayout />}>
+        <Route element={<StaffDashboardLayout  darkMode={darkMode} setDarkMode={setDarkMode}  />}>
             {/* Admin routes */}
           <Route path={"/admin"}>
             <Route index element={

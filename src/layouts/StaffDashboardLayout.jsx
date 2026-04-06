@@ -1,13 +1,10 @@
 import React,{ useState , useEffect } from "react";
-import { Outlet, useLocation } from "react-router-dom";
-import "../css/DeviceSize.css";// Importing Components
+import { Outlet  } from "react-router-dom";
+import "../css/DeviceSize.css";
 
 // headers
 import StaffDashboardHeader from "../components/headers/StaffDashboardHeader";
 import StaffDashboardSidebar from "../components/sidebars/StaffDashboardSidebar";
-// import "../css/Post.css";
-// import "../css/QuillEditor.css";
-// import "../css/Cropper.css";
 import "../css/DeviceSize.css"; // CSS file
 import Footer from "../components/Foote";
 
