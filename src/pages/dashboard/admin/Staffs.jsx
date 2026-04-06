@@ -231,12 +231,12 @@ export default function StaffsAdmin(){
         <>
             {openConfirmer && (
 
-                <div className="fixed inset-0 flex items-center justify-center bg-black/50">
+                <div className="fixed inset-0 z-50 w-[100vw] md:w-screen flex items-center justify-center bg-black/50">
                     {
                         !loading 
                         ? 
                             <>
-                                <div className=" sm:w-[180px]  md:w-[300px] bg-white p-6 rounded-lg">
+                                <div className=" w-[180px]  md:w-[300px] bg-white p-6 rounded-lg">
                                     <h1 className="text-black font-bold">Confirm Action</h1>
                                     <p className="text-black">
                                         Are you sure you want to <strong className="text-blue-600">{confirmData?.fullName}</strong> this user?
