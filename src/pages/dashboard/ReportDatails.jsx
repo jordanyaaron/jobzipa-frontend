@@ -104,7 +104,7 @@ export default function ReportDetail() {
                             className="justify-start cursor-pointer col-span-1"
                             onClick={()=>{
                                     if(!reportMessageId){
-                                        setReportMessageId(message.message.id)
+                                        setReportMessageId(message.id)
                                     }else{
                                         setReportMessageId(null)
                                     }
@@ -112,15 +112,15 @@ export default function ReportDetail() {
                             }
                         >
                             {   
-                                reportMessageId === message.message.id 
-                                ? message.message.slice(0, 40) + "..."
-                                : message.message
+                                reportMessageId === message.id 
+                                ? message.message
+                                : message.message.slice(0, 40) + "..."
                             }
                         </span>
                         
                       </p>
                     </div>
-                    <span className="text-xs text-gray-400 w-[50px]">{format(message.message.date, "short")}</span>
+                    <span className="text-xs text-gray-400 w-[50px]">{format(message.date, "short")}</span>
                   </div>
                 </li>
               ))

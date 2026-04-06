@@ -55,7 +55,7 @@ import Monitizations from '../pages/dashboard/Monitization'
 import Settings from '../pages/dashboard/Settings'
 import Notifications from '../pages/dashboard/Notifications'
 import Analytics from '../pages/dashboard/Analytics'
-import NotificationDetails from '@/pages/dashboard/NotificationDetails';
+import ReportDetails from '@/pages/dashboard/ReportDetails';
 
 // 2. admin page 
 import PayoutsAdmin from '../pages/dashboard/admin/Payouts'
@@ -263,7 +263,7 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
 
           <Route path="report/:id" element={
               <ProtectedRoute requireStaffOnly={true}>
-                <NotificationDetails />
+                <ReportDetails/>
               </ProtectedRoute>
             } />
 
