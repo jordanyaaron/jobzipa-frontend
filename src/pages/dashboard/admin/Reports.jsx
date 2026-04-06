@@ -119,7 +119,7 @@ export default function ReportsAdmin(
                             </button>
                             {/* View Report */}
                             <button
-                                onClick={() => navigate(`/super/report/${report.id}`)}
+                                onClick={() => navigate(`/admin/report/${report.id}`)}
                                 className="
                                 p-2 rounded-lg 
                                 hover:bg-gray-200 
