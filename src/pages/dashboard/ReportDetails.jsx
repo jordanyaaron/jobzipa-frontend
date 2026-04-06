@@ -53,14 +53,14 @@ export default function ReportDetails() {
                 >{report.jobTitle}</h1>
             </Link>
             <p className="text-[var(--placeholder)]">
-                <span className="text-[var(--placeholder)]">@ {report.companyName}</span>
+                <span className="text-[var(--placeholder)]">@ {report.companyName} </span>
                 <span className="text-[var(--placeholder)]">Posted by </span>
                 <span  className="hover:decoration-underline text-blue-600 "><Link to={`/${report.poster}`}> {` ${report.poster}`}</Link></span>
             </p>
         </div>
         <div
             className="
-                relativ px-2
+                relativ 
             "
         >
             <ul className="mx-0 w-full lg:w-[700px] w-full text-sm" >
@@ -83,7 +83,7 @@ export default function ReportDetails() {
                     >
                         <span 
                             className="
-                                pl-2 flex  rounded-full justify-start items-center p-0 bg-purple-200 text-purple-800
+                                flex  rounded-full justify-start items-center  p-0 bg-purple-200 text-purple-800
                             "
                         >
                             <img 
