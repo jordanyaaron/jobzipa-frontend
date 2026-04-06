@@ -236,7 +236,7 @@ export default function StaffsAdmin(){
                         !loading 
                         ? 
                             <>
-                                <div className=" w-[180px]  md:w-[300px] bg-white p-6 rounded-lg">
+                                <div className=" w-[240px]  md:w-[300px] bg-white p-6 rounded-lg">
                                     <h1 className="text-black font-bold">Confirm Action</h1>
                                     <p className="text-black">
                                         Are you sure you want to <strong className="text-blue-600">{confirmData?.fullName}</strong> this user?
@@ -269,7 +269,7 @@ export default function StaffsAdmin(){
                             <>
                                 <div
                                     className="
-                                        flex justify-center items-center  flex-col gap-3
+                                        flex justify-center items-center  flex-col gap-3 font-black text-white
                                     "
                                 >
                                         <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
