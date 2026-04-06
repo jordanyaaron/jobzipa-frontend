@@ -46,14 +46,14 @@ export default function ReportDetails() {
 
   return (
     <div className="p-1 mt-[68px] md:mt-0 md:p-6 w-[calc(100vw)] md:w-[calc(100vw-240px)] space-y-4">
-        <div className="relative px-2">
+        <div className="relative px-3">
             <Link to="">
                 <h1
-                  className="font-extrabold text-[20px]"
+                  className="font-extrabold text-[20px] text-[var(--text)]"
                 >{report.jobTitle}</h1>
             </Link>
             <p className="text-[var(--placeholder)]">
-                <span className="text-[var(--placeholder)]">@ {report.companyName} </span>
+                <span className="text-[var(--text)]">@ {report.companyName} </span>
                 <span className="text-[var(--placeholder)]">Posted by </span>
                 <span  className="hover:decoration-underline text-blue-600 "><Link to={`/${report.poster}`}> {` ${report.poster}`}</Link></span>
             </p>
