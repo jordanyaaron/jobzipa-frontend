@@ -106,12 +106,16 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
             >
                 {/* Left */}
                 <div className="flex items-center gap-3">
-                    <button
-                        onClick={toggleDrawer}
-                        className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
-                    >
-                        <Bars3Icon className="h-6 w-6   text-[var(--text)]" />
-                    </button>
+                    {   
+                        !path.startsWith("/admin/settings") || !path.startsWith("/staff/settings") && ( 
+                            <button
+                                onClick={toggleDrawer}
+                                className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
+                            >
+                                <Bars3Icon className="h-6 w-6   text-[var(--text)]" />
+                            </button>
+                        )
+                    }
                     {
                         path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs")  
                         ?   <h1 className="text-[var(--text)] font-bold">Jobs</h1>
@@ -122,6 +126,8 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                         :   path.startsWith("/admin/staffs")
                         ?   <h1 className="text-[var(--text)] font-bold">Staffs</h1>
                         :   path.startsWith("/admin/notifications")
+                        ?   <h1 className="text-[var(--text)] font-bold">Notifications</h1>
+                        :   path.startsWith("/admin/settings") || path.startsWith("/staff/settings") 
                         ?   <h1 className="text-[var(--text)] font-bold">Notifications</h1>
                         :   <Link to="/" className="flex items-center">
                                 <img src={JobzipaLogo} alt="Jobzipa" className="h-9 md:h-10" />
@@ -214,6 +220,17 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                                 )}
                             </div>
                         :   ""
+                    }
+
+                    {
+                        path.startsWith("/admin/settings") || path.startsWith("/staff/settings") && ( 
+                            <button
+                                onClick={toggleDrawer}
+                                className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
+                            >
+                                <Bars3Icon className="h-6 w-6   text-[var(--text)]" />
+                            </button>
+                        )
                     }
                     
                 </div>
