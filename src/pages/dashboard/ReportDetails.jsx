@@ -45,14 +45,14 @@ export default function ReportDetails() {
   }
 
   return (
-    <div className="p-4 lg:p-6 w-[calc(100vw)] md:w-[calc(100vw-240px)] space-y-4">
+    <div className="p-1 mt-[68px] md:mt-0 md:p-6 w-[calc(100vw)] md:w-[calc(100vw-240px)] space-y-4">
         <div className="relative">
             <Link to="">
                 <h1>{report.jobTitle}</h1>
             </Link>
             <p>
                 <span >At {report.companyName}</span>
-                <span>Posted by <Link to={`/:${report.poster}`}>{report.poster}</Link></span>
+                <span>Posted by <Link to={` /:${report.poster}`}>{report.poster}</Link></span>
             </p>
         </div>
         <div
