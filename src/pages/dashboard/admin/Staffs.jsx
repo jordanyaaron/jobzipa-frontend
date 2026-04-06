@@ -324,6 +324,13 @@ export default function StaffsAdmin(){
                    
                 </div>
             )}
+            <Link
+                to="/admin/invite"
+                className="fixed right-4 bottom-4.5 md:hidden flex items-center gap-2 px-3 py-3 rounded-full text-white bg-green-600 hover:bg-green-700"
+            >
+                <PlusIcon className="h-5 w-5" />
+                <span >Post New Job</span>
+            </Link>
             <div className="p-2 pb-[64px] md:p-4  w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
                 
                 <div className="hidden lg:flex lg:flex-row md:items-center md:justify-between gap-3 min-w-0">

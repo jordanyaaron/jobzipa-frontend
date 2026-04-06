@@ -24,6 +24,11 @@ const ProtectedRoute = ({
     return <Navigate to="/unauthorized" replace />;
   }
 
+   // 👑 admin and super user only routes
+  if (requireAdminAndSuper && !( user.is_superuser || user.is_admin )) {
+    return <Navigate to="/unauthorized" replace />;
+  }
+
   // 👨‍💼 Staff-only (BUT exclude superuser)
   if (requireStaffOnly) {
     if (user.is_superuser) {

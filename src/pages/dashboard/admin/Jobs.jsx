@@ -114,7 +114,7 @@ export default function JobsAdmin(
         <>
             <Link
                 to="/super/post"
-                className="fixed right-4 bottom-4.5 md:hidden flex items-center gap-2 px-3 py-2 rounded-xl text-white bg-green-600 hover:bg-green-700"
+                className="fixed right-4 bottom-4.5 md:hidden flex items-center gap-2 px-3 py-3 rounded-full text-white bg-green-600 hover:bg-green-700"
             >
                 <PlusIcon className="h-5 w-5" />
                 <span >Post New Job</span>

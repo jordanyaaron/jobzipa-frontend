@@ -264,7 +264,7 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
               </ProtectedRoute>
             } />
 
-          <Route path="report/:id" element={
+            <Route path="report/:id" element={
               <ProtectedRoute requireStaffOnly={true}>
                 <ReportDetails/>
               </ProtectedRoute>
@@ -276,12 +276,19 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
                 <SettingsStaff />
               </ProtectedRoute>
             } />
+
+            <Route path="/super/invite" element={
+                <ProtectedRoute requireAdminAndSuper={true}>
+                  <InviteStaff />
+                </ProtectedRoute>
+              } 
+            />
                       
           </Route>
 
           {/* Official routes */}
           <Route path="/official">
-          <Route index element={
+            <Route index element={
               <ProtectedRoute requireStaffOnly={true}>
                 <Overviews />
               </ProtectedRoute>
