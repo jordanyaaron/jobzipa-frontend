@@ -6,6 +6,7 @@ const ProtectedRoute = ({
   children,
   requireSuperuser = false,
   requireStaffOnly = false,
+  requireAdminAndSuper = false,
 }) => {
   const location = useLocation();
   const user = getUser();
