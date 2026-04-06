@@ -46,18 +46,21 @@ export default function ReportDetails() {
 
   return (
     <div className="p-1 mt-[68px] md:mt-0 md:p-6 w-[calc(100vw)] md:w-[calc(100vw-240px)] space-y-4">
-        <div className="relative">
+        <div className="relative px-2">
             <Link to="">
-                <h1>{report.jobTitle}</h1>
+                <h1
+                  className="font-extrabold text-[20px]"
+                >{report.jobTitle}</h1>
             </Link>
-            <p>
-                <span >At {report.companyName}</span>
-                <span>Posted by <Link to={` /:${report.poster}`}>{report.poster}</Link></span>
+            <p className="text-[var(--placeholder)]">
+                <span className="text-[var(--placeholder)]">@ {report.companyName}</span>
+                <span className="text-[var(--placeholder)]">Posted by </span>
+                <span  className="hover:decoration-underline text-blue-600 "><Link to={`/${report.poster}`}> {` ${report.poster}`}</Link></span>
             </p>
         </div>
         <div
             className="
-                relativ p-2
+                relativ px-2
             "
         >
             <ul className="mx-0 w-full lg:w-[700px] w-full text-sm" >
@@ -74,13 +77,13 @@ export default function ReportDetails() {
                         hover:bg-[var(--hover)] cursor-pointer
                     "
                 > 
-                  <div className="flex justify-start items-center gap-2">
+                  <div className="flex justify-start items-center gap-3">
                     <div
                       className="flex-1 flex  justify-start items-center gap-2"
                     >
                         <span 
                             className="
-                                flex  rounded-full justify-center p-0 bg-purple-200 text-purple-800
+                                flex  rounded-full justify-start items-center p-0 bg-purple-200 text-purple-800
                             "
                         >
                             <img 
