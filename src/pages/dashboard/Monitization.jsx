@@ -331,8 +331,8 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
     return (
       <div className="space-y-3">
         <select
-          value={phone}
-          onChange={handleChange}
+          value={provider}
+          onChange={(e) => setProvider(e.target.value)}
           className="w-full px-3 py-2 border  border-[var(--border)] rounded-lg"
         >
           <option value="M-Pesa">Vodacom (M-Pesa)</option>
@@ -345,10 +345,7 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
             type="text"
             placeholder="Phone number"
             value={phone}
-            onChange={(e) => {
-                const value = e.target.value.replace(/\D/g, ""); // 🔥 numbers only
-                setPhone(value);
-            }}
+            onChange={handleChange}}
             className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
         />
   
