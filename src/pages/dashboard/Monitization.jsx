@@ -294,22 +294,43 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
         // Remove non-digits
         if (!digits) return "";
 
-        // ensure 255
-        if (!digits.startsWith("255")) {
-        if (digits.startsWith("0")) {
-            digits = "255" + digits.slice(1);
-        } else {
-            digits = "255" + digits;
-        }
-        }
+        
 
         // format spacing
         return digits.replace(/(\d{3})(\d{2})(\d{3})(\d{3})/, "$1 $2 $3 $4");// partial input
     };
 
-  const handleChange = (e) => {
-    setPhone(formatPhone(e.target.value));
-  };
+    const handleChange = (e) => {
+        let raw = e.target.value.replace(/\D/g, "");
+        
+        // auto format to 255
+        if (raw.startsWith("0")) {
+            raw = "255" + raw.slice(1);
+        }
+
+        if (!raw.startsWith("255")) {
+            raw = "255" + raw;
+        }
+        setPhone(formatPhone(raw));
+        raw = raw.slice(0, 12); 
+
+        const detected = getProviderFromPrefix(raw);
+        setProvider(detected);
+        
+    };
+
+    const getProviderFromPrefix = (phone) => {
+        if (!phone.startsWith("255") || phone.length < 5) return null;
+        
+        const prefix = phone.slice(3, 5);
+        
+        if (["74", "75", "76" , "79"].includes(prefix)) return "M-Pesa";
+        if (["78", "68" , "65"].includes(prefix)) return "Airtel";
+        if (["71","71", "77"].includes(prefix)) return "Mixx";
+        if (["62","61",].includes(prefix)) return "Halotel";
+        
+        return "Unknown";
+    };
   
     const handleSave = () => {
       if (!phone) return alert("Enter phone number");
@@ -332,8 +353,9 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
         >
           <option value="M-Pesa">Vodacom (M-Pesa)</option>
           <option value="Airtel Money">Airtel</option>
-          <option value="Tigo Pesa">Tigo (Yas)</option>
+          <option value="Mixx">Yas</option>
           <option value="Halopesa">Halotel</option>
+          <option value="Unknown">Unknown</option>
         </select>
   
         <input
