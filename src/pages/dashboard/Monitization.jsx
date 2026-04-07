@@ -40,6 +40,7 @@ export default function Monetizations() {
   const [withdrawAmount, setWithdrawAmount] = useState("");
   const [loading, setLoading] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [tab, setTab] = useState("mobile");
   
   const handleWithdraw = () => {
     const amount = Number(withdrawAmount);
