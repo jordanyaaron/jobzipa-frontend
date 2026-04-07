@@ -84,7 +84,11 @@ export default function Monetizations() {
   };
 
   return (
-    <div className="p-2 pb-[64px] md:p-4  w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
+
+    <div className="p-2 pb-[64px] mt-[64px] md:mt-0 md:p-4  w-[calc(100vw)] md:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
+      <h1
+        className="text-[24px] text-[var(--text)]"
+      >Monitizations</h1>
       <div
          className="grid grid-cols-1 md:grid-cols-2 gap-4"
       >
@@ -182,7 +186,7 @@ export default function Monetizations() {
 // 🔹 Card component
 function Card({ title, value }) {
   return (
-    <div className="p-4 border border-[var(border)] rounded-xl">
+    <div className="p-4 border border-[var(--border)] rounded-xl">
       <p className="text-sm">{title}</p>
       <h2 className="text-xl font-bold">Tsh {value.toLocaleString()}</h2>
     </div>
