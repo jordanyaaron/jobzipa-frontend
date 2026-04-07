@@ -345,7 +345,7 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
             type="text"
             placeholder="Phone number"
             value={phone}
-            onChange={handleChange}}
+            onChange={handleChange}
             className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
         />
   
