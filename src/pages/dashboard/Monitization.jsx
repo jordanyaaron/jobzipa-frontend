@@ -302,22 +302,23 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
 
     const handleChange = (e) => {
         let raw = e.target.value.replace(/\D/g, "");
-        
-        // auto format to 255
+      
         if (raw.startsWith("0")) {
-            raw = "255" + raw.slice(1);
+          raw = "255" + raw.slice(1);
         }
-
+      
         if (!raw.startsWith("255")) {
-            raw = "255" + raw;
+          raw = "255" + raw;
         }
-        setPhone(formatPhone(raw));
-        raw = raw.slice(0, 12); 
-
-        const detected = getProviderFromPrefix(raw);
-        setProvider(detected);
-        
-    };
+      
+        raw = raw.slice(0, 12);
+      
+        setPhone(raw);
+      
+        // 🔥 detect network hapa
+        const detectedProvider = getProviderFromPrefix(raw);
+        setProvider(detectedProvider);
+      };
 
     const getProviderFromPrefix = (phone) => {
         if (!phone.startsWith("255") || phone.length < 5) return null;
@@ -333,16 +334,32 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
     };
   
     const handleSave = () => {
-      if (!phone) return alert("Enter phone number");
-  
-      setPaymentMethod({
-        type: "mobile",
-        provider,
-        phone,
-      });
-  
-      setOpenModal(false);
-    };
+        // validation
+        if (phone.length !== 12) {
+          setError("Invalid phone number");
+          return;
+        }
+      
+        if (!provider || provider === "Unknown") {
+          setError("Unsupported network");
+          return;
+        }
+      
+        const newPaymentMethod = {
+          type: "mobile",
+          number: phone,
+          provider: provider,
+          createdAt: new Date().toISOString(),
+        };
+      
+        // 🔥 SAVE
+        setPaymentMethod(newPaymentMethod);
+      
+        // reset
+        setError("");
+      };
+
+
   
     return (
       <div className="space-y-3">
@@ -361,7 +378,7 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
         <input
             type="text"
             placeholder="Phone number"
-            value={phone}
+            value={formatPhone(phone)}
             onChange={handleChange}
             className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
         />
