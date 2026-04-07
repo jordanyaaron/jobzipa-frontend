@@ -304,10 +304,7 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
         }
 
         // Format as 255 XX XXX XXX
-        const match = digits.match(/^(\d{3})(\d{2})(\d{3})(\d{3})$/);
-        if (match) {
-        return `${match[1]} ${match[3]} ${match[3]} ${match[4]}`;
-        }
+        
 
         return digits; // partial input
     };
