@@ -89,51 +89,65 @@ export default function Monetizations() {
     <>
         {openModal && (
             <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-                <div className="bg-[var(--header-bg)] text-[var(--text)] w-[calc(100vw-80px)] md:w-full max-w-md rounded-xl p-4 space-y-4">
-                
-                <h2 className="font-bold text-lg">Add Payment Method</h2>
+                        
+                {
+                    loading 
+                    ?
+                        <div
+                            className="
+                                flex justify-center items-center  flex-col gap-3 font-black text-white
+                            "
+                        >
+                                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                wait a moment...
+                        </div>
+                    :  
+                        <div className="bg-[var(--header-bg)] text-[var(--text)] w-[calc(100vw-80px)] md:w-full max-w-md rounded-xl p-4 space-y-4">
+                        
+                            <h2 className="font-bold text-lg">Add Payment Method</h2>
 
-                {/* Tabs */}
-                <div className="flex border-b border-[var(--border)]">
-                    <button
-                    onClick={() => setTab("mobile")}
-                    className={`flex-1 py-2 ${
-                        tab === "mobile" ? "border-b-2 border-blue-600 font-bold" : ""
-                    }`}
-                    >
-                        Mobile
-                    </button>
+                            {/* Tabs */}
+                            <div className="flex border-b border-[var(--border)]">
+                                <button
+                                onClick={() => setTab("mobile")}
+                                className={`flex-1 py-2 ${
+                                    tab === "mobile" ? "border-b-2 border-blue-600 font-bold" : ""
+                                }`}
+                                >
+                                    Mobile
+                                </button>
 
-                    <button
-                    onClick={() => setTab("bank")}
-                    className={`flex-1 py-2 ${
-                        tab === "bank" ? "border-b-2 border-blue-600 font-bold" : ""
-                    }`}
-                    >
-                    Bank
-                    </button>
-                </div>
+                                <button
+                                onClick={() => setTab("bank")}
+                                className={`flex-1 py-2 ${
+                                    tab === "bank" ? "border-b-2 border-blue-600 font-bold" : ""
+                                }`}
+                                >
+                                Bank
+                                </button>
+                            </div>
 
-                {/* CONTENT */}
-                {tab === "mobile" ? (
-                    <MobileForm />
-                ) : (
-                    <BankForm />
-                )}
+                            {/* CONTENT */}
+                            {tab === "mobile" ? (
+                                <MobileForm  loading={loading} setLoading={setLoading}   setPaymentMethod={setPaymentMethod} setOpenModal={setOpenModal}/>
+                            ) : (
+                                <BankForm loading={loading} setLoading={setLoading}   setPaymentMethod={setPaymentMethod} setOpenModal={setOpenModal} />
+                            )}
 
-                {/* Close */}
-                <button
-                    onClick={() => setOpenModal(false)}
-                    className="w-full py-2 bg-gray-400 rounded-lg"
-                >
-                    Cancel
-                </button>
-                </div>
+                            {/* Close */}
+                            <button
+                                onClick={() => setOpenModal(false)}
+                                className="w-full py-2 bg-gray-400 rounded-lg"
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                }
             </div>
         )}
         <div className="p-2 pb-[64px] mt-[64px] md:mt-0 md:p-4  w-[calc(100vw)] md:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
             <h1
-            className="hidden md:block text-[24px] text-[var(--text)]"
+                className="hidden md:block text-[24px] text-[var(--text)]"
             >Monitizations</h1>
             <div
                 className="grid grid-cols-1 md:grid-cols-2 gap-2"
@@ -285,7 +299,7 @@ function Card({ title, value }) {
 }
 
 // MobileForm
-function MobileForm({ setPaymentMethod, setOpenModal }) {
+function MobileForm({ setPaymentMethod, setOpenModal,loading,setLoading }) {
     const [provider, setProvider] = useState("M-Pesa");
     const [phone, setPhone] = useState("");
 
@@ -334,6 +348,7 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
     };
   
     const handleSave = () => {
+        setLoading(!loading)
         // validation
         if (phone.length !== 12) {
           setError("Invalid phone number");
@@ -394,7 +409,7 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
   }
   
 // BackForm
-function BankForm({ setPaymentMethod, setOpenModal }) {
+function BankForm({ setPaymentMethod, setOpenModal ,loading,setLoading }) {
     const [bankName, setBankName] = useState("");
     const [accountNumber, setAccountNumber] = useState("");
     const [accountName, setAccountName] = useState("");
