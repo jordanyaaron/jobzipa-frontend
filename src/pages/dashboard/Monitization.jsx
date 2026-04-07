@@ -94,7 +94,7 @@ export default function Monetizations() {
                 <h2 className="font-bold text-lg">Add Payment Method</h2>
 
                 {/* Tabs */}
-                <div className="flex border-b">
+                <div className="flex border-b border-[var(--border)]">
                     <button
                     onClick={() => setTab("mobile")}
                     className={`flex-1 py-2 ${
@@ -124,7 +124,7 @@ export default function Monetizations() {
                 {/* Close */}
                 <button
                     onClick={() => setOpenModal(false)}
-                    className="w-full py-2 bg-gray-200 rounded-lg"
+                    className="w-full py-2 bg-gray-400 rounded-lg"
                 >
                     Cancel
                 </button>
@@ -307,7 +307,7 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
         <select
           value={provider}
           onChange={(e) => setProvider(e.target.value)}
-          className="w-full px-3 py-2 border rounded-lg"
+          className="w-full px-3 py-2 border  border-[var(--border)] rounded-lg"
         >
           <option value="M-Pesa">Vodacom (M-Pesa)</option>
           <option value="Airtel Money">Airtel</option>
@@ -320,7 +320,7 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
           placeholder="Phone number"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          className="w-full px-3 py-2 border rounded-lg"
+          className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
         />
   
         <button
@@ -362,7 +362,7 @@ function BankForm({ setPaymentMethod, setOpenModal }) {
           placeholder="Bank Name"
           value={bankName}
           onChange={(e) => setBankName(e.target.value)}
-          className="w-full px-3 py-2 border rounded-lg"
+          className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
         />
   
         <input
@@ -370,7 +370,7 @@ function BankForm({ setPaymentMethod, setOpenModal }) {
           placeholder="Account Number"
           value={accountNumber}
           onChange={(e) => setAccountNumber(e.target.value)}
-          className="w-full px-3 py-2 border rounded-lg"
+          className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
         />
   
         <input
@@ -378,7 +378,7 @@ function BankForm({ setPaymentMethod, setOpenModal }) {
           placeholder="Account Name"
           value={accountName}
           onChange={(e) => setAccountName(e.target.value)}
-          className="w-full px-3 py-2 border rounded-lg"
+          className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
         />
   
         <button
