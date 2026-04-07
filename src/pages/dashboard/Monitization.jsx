@@ -84,25 +84,30 @@ export default function Monetizations() {
   };
 
   return (
-    <div className="p-4 space-y-6">
+    <div className="p-2 pb-[64px] md:p-4  w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
+      <div
+         className="grid grid-cols-1 md:grid-cols-2 gap-4"
+      >
 
-      {/* 🔹 Summary */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Card title="Balance" value={summary.availableBalance} />
-        <Card title="Total Earned" value={summary.totalEarnings} />
-        <Card title="Withdrawn" value={summary.totalWithdrawn} />
-        <Card title="Pending" value={summary.pending} />
-      </div>
+        {/* 🔹 Payment Method */}
+        <div className="p-4 border border-[var(--border)] rounded-lg">
+            <h2 className="font-bold mb-2">Payment Method</h2>
+            <p>{paymentMethod.provider}</p>
+            <p>{paymentMethod.phone}</p>
+        </div>
 
-      {/* 🔹 Payment Method */}
-      <div className="p-4 border rounded-lg">
-        <h2 className="font-bold mb-2">Payment Method</h2>
-        <p>{paymentMethod.provider}</p>
-        <p>{paymentMethod.phone}</p>
+        {/* 🔹 Summary */}
+        <div className="  grid grid-cols-2 md:grid-cols-4 gap-4">
+            <Card title="Balance" value={summary.availableBalance} />
+            <Card title="Total Earned" value={summary.totalEarnings} />
+            <Card title="Withdrawn" value={summary.totalWithdrawn} />
+            <Card title="Pending" value={summary.pending} />
+        </div>
       </div>
+      
 
       {/* 🔹 Withdraw */}
-      <div className="p-4 border rounded-lg space-y-3">
+      <div className="p-4 border border-[var(--border)]  rounded-lg space-y-3">
         <h2 className="font-bold">Withdraw</h2>
 
         <input
@@ -110,7 +115,7 @@ export default function Monetizations() {
           value={withdrawAmount}
           onChange={(e) => setWithdrawAmount(e.target.value)}
           placeholder="Enter amount"
-          className="w-full px-3 py-2 border rounded-lg"
+          className="w-full px-3 py-2 border border-[var(--border)]  rounded-lg"
         />
 
         <button
@@ -126,7 +131,7 @@ export default function Monetizations() {
       </div>
 
       {/* 🔹 Transactions */}
-      <div className="border rounded-lg overflow-x-auto">
+      <div className="border border-[var(--border)]  rounded-lg overflow-x-auto">
         <table className="min-w-full text-sm">
           <thead className="bg-gray-100 text-left">
             <tr>
@@ -140,7 +145,7 @@ export default function Monetizations() {
 
           <tbody>
             {transactions.map((tx) => (
-              <tr key={tx.id} className="border-t">
+              <tr key={tx.id} className="border-t border-[var(--border)] ">
                 <td className="p-3 capitalize">{tx.type}</td>
                 <td className="p-3">{tx.amount}</td>
 
@@ -177,7 +182,7 @@ export default function Monetizations() {
 // 🔹 Card component
 function Card({ title, value }) {
   return (
-    <div className="p-4 border rounded-xl">
+    <div className="p-4 border border-[var(border)] rounded-xl">
       <p className="text-sm">{title}</p>
       <h2 className="text-xl font-bold">Tsh {value.toLocaleString()}</h2>
     </div>
