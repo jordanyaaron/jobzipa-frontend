@@ -87,7 +87,7 @@ export default function Monetizations() {
 
     <div className="p-2 pb-[64px] mt-[64px] md:mt-0 md:p-4  w-[calc(100vw)] md:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
       <h1
-        className="text-[24px] text-[var(--text)]"
+        className="hidden md:block text-[24px] text-[var(--text)]"
       >Monitizations</h1>
       <div
          className="grid grid-cols-1 md:grid-cols-2 gap-4"

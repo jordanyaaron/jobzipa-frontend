@@ -107,7 +107,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                 {/* Left */}
                 <div className="flex items-center gap-3">
                     {   
-                        path.startsWith("/admin/payouts") || path.startsWith("/admin/reports") ||
+                        path.startsWith("/admin/monitization") || path.startsWith("/admin/payouts") || path.startsWith("/admin/reports") ||
                         path.startsWith("/admin/staffs") || path.startsWith("/admin/notifications") ||
                         path.startsWith("/admin/settings") || path.startsWith("/staff/settings") ? ""
                         :   <button
@@ -131,6 +131,8 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                         ?   <h1 className="text-[var(--text)] font-bold">Notifications</h1>
                         :   path.startsWith("/admin/settings") || path.startsWith("/staff/settings") 
                         ?   <h1 className="text-[var(--text)] font-bold">Settings</h1>
+                        :   path.startsWith("/admin/settings") || path.startsWith("/staff/settings") 
+                        ?   <h1 className="text-[var(--text)] text-[20px] font-bold">monitization</h1>
                         :   <Link to="/" className="flex items-center">
                                 <img src={JobzipaLogo} alt="Jobzipa" className="h-9 md:h-10" />
                             </Link>
@@ -225,7 +227,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                     }
 
                     {
-                        path.startsWith("/admin/payouts") || path.startsWith("/admin/reports") ||
+                        path.startsWith("/admin/monitization") || path.startsWith("/admin/payouts") || path.startsWith("/admin/reports") ||
                         path.startsWith("/admin/staffs") || path.startsWith("/admin/notifications") ||
                         path.startsWith("/admin/settings") || path.startsWith("/staff/settings")  
                         ?  <button
