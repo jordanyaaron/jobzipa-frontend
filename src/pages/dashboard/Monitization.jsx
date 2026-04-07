@@ -290,7 +290,7 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
     const [phone, setPhone] = useState("");
 
     // Auto-format function
-    const formatPhone = (value) => {
+    const formatPhone = (digits) => {
         // Remove non-digits
         if (!digits) return "";
 
