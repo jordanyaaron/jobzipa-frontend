@@ -107,6 +107,8 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                 {/* Left */}
                 <div className="flex items-center gap-3">
                     {   
+                        path.startsWith("/admin/payouts") || path.startsWith("/admin/reports") ||
+                        path.startsWith("/admin/staffs") || path.startsWith("/admin/notifications") ||
                         path.startsWith("/admin/settings") || path.startsWith("/staff/settings") ? ""
                         :   <button
                                 onClick={toggleDrawer}
@@ -223,7 +225,9 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                     }
 
                     {
-                        path.startsWith("/admin/settings") || path.startsWith("/staff/settings") 
+                        path.startsWith("/admin/payouts") || path.startsWith("/admin/reports") ||
+                        path.startsWith("/admin/staffs") || path.startsWith("/admin/notifications") ||
+                        path.startsWith("/admin/settings") || path.startsWith("/staff/settings")  
                         ?  <button
                                 onClick={toggleDrawer}
                                 className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
