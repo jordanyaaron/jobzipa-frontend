@@ -89,7 +89,7 @@ export default function Monetizations() {
     <>
         {openModal && (
             <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-                <div className="bg-white w-full max-w-md rounded-xl p-4 space-y-4">
+                <div className="bg-[var(--header-bg)] text-[var(--text)] w-[calc(100vw-80px)] md:w-full max-w-md rounded-xl p-4 space-y-4">
                 
                 <h2 className="font-bold text-lg">Add Payment Method</h2>
 
@@ -101,7 +101,7 @@ export default function Monetizations() {
                         tab === "mobile" ? "border-b-2 border-blue-600 font-bold" : ""
                     }`}
                     >
-                    Mobile
+                        Mobile
                     </button>
 
                     <button
