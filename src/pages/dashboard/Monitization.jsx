@@ -316,11 +316,14 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
         </select>
   
         <input
-          type="text"
-          placeholder="Phone number"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
+            type="text"
+            placeholder="Phone number"
+            value={phone}
+            onChange={(e) => {
+                const value = e.target.value.replace(/\D/g, ""); // 🔥 numbers only
+                setPhone(value);
+            }}
+            className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
         />
   
         <button
