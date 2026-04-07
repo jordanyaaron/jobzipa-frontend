@@ -120,19 +120,19 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                     }
                     {
                         path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs")  
-                        ?   <h1 className="text-[var(--text)] font-bold">Jobs</h1>
+                        ?   <h1 className="text-[var(--text)]  text-[20px] font-bold">Jobs</h1>
                         :  path.startsWith("/admin/payouts")
-                        ?   <h1 className="text-[var(--text)] font-bold">Payouts</h1>
+                        ?   <h1 className="text-[var(--text)]  text-[20px] font-bold">Payouts</h1>
                         :   path.startsWith("/admin/reports")
-                        ?   <h1 className="text-[var(--text)] font-bold">Reports</h1>
+                        ?   <h1 className="text-[var(--text)]  text-[20px] font-bold">Reports</h1>
                         :   path.startsWith("/admin/staffs")
-                        ?   <h1 className="text-[var(--text)] font-bold">Staffs</h1>
+                        ?   <h1 className="text-[var(--text)]  text-[20px] font-bold">Staffs</h1>
                         :   path.startsWith("/admin/notifications")
-                        ?   <h1 className="text-[var(--text)] font-bold">Notifications</h1>
+                        ?   <h1 className="text-[var(--text)]  text-[20px] font-bold">Notifications</h1>
                         :   path.startsWith("/admin/settings") || path.startsWith("/staff/settings") 
-                        ?   <h1 className="text-[var(--text)] font-bold">Settings</h1>
+                        ?   <h1 className="text-[var(--text)]  text-[20px] font-bold">Settings</h1>
                         :   path.startsWith("/staff/monitization") || path.startsWith("/admin/monitization") || path.startsWith("/super/monitization")
-                        ?   <h1 className="text-[var(--text)] text-[20px] font-bold">monitization</h1>
+                        ?   <h1 className="text-[var(--text)] text-[20px] font-bold">Monitizations</h1>
                         :   <Link to="/" className="flex items-center">
                                 <img src={JobzipaLogo} alt="Jobzipa" className="h-9 md:h-10" />
                             </Link>

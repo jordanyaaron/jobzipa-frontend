@@ -90,91 +90,107 @@ export default function Monetizations() {
         className="hidden md:block text-[24px] text-[var(--text)]"
       >Monitizations</h1>
       <div
-         className="grid grid-cols-1 md:grid-cols-2 gap-4"
+         className="grid grid-cols-1 md:grid-cols-2 gap-2"
       >
 
-        {/* 🔹 Payment Method */}
-        <div className="p-4 border border-[var(--border)] rounded-lg">
-            <h2 className="font-bold mb-2">Payment Method</h2>
-            <p>{paymentMethod.provider}</p>
-            <p>{paymentMethod.phone}</p>
-        </div>
-
-        {/* 🔹 Summary */}
-        <div className="  grid grid-cols-2 md:grid-cols-4 gap-4">
+         {/* 🔹 Summary */}
+         <div className="  grid grid-cols-2  gap-2">
             <Card title="Balance" value={summary.availableBalance} />
             <Card title="Total Earned" value={summary.totalEarnings} />
             <Card title="Withdrawn" value={summary.totalWithdrawn} />
             <Card title="Pending" value={summary.pending} />
         </div>
+
+            
+        <div className="grid grid-cols-1  gap-2">
+            {/* 🔹 Payment Method */}
+            <div className="p-4 border border-[var(--border)] rounded-lg">
+                <h2 className="font-bold mb-2">Payment Method</h2>
+                <p>{paymentMethod.provider}</p>
+                <p>{paymentMethod.phone}</p>
+            </div>
+
+            {/* 🔹 Withdraw */}
+            <div className="p-4 border border-[var(--border)]  rounded-lg space-y-3">
+                <h2 className="font-bold">Withdraw</h2>
+
+                <input
+                type="number"
+                value={withdrawAmount}
+                onChange={(e) => setWithdrawAmount(e.target.value)}
+                placeholder="Enter amount"
+                className="w-full px-3 py-2 border border-[var(--border)]  rounded-lg"
+                />
+
+                <button
+                onClick={handleWithdraw}
+                disabled={loading}
+                className="bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2"
+                >
+                {loading && (
+                    <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                )}
+                Withdraw
+                </button>
+            </div>
+        </div>
       </div>
       
 
-      {/* 🔹 Withdraw */}
-      <div className="p-4 border border-[var(--border)]  rounded-lg space-y-3">
-        <h2 className="font-bold">Withdraw</h2>
-
-        <input
-          type="number"
-          value={withdrawAmount}
-          onChange={(e) => setWithdrawAmount(e.target.value)}
-          placeholder="Enter amount"
-          className="w-full px-3 py-2 border border-[var(--border)]  rounded-lg"
-        />
-
-        <button
-          onClick={handleWithdraw}
-          disabled={loading}
-          className="bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2"
-        >
-          {loading && (
-            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-          )}
-          Withdraw
-        </button>
-      </div>
+     
 
       {/* 🔹 Transactions */}
       <div className="border border-[var(--border)]  rounded-lg overflow-x-auto">
         <table className="min-w-full text-sm text-[var(--text)]">
-          <thead className="bg-[var(--hover)] text-left">
-            <tr>
-              <th className="p-3">Type</th>
-              <th className="p-3">Amount</th>
-              <th className="p-3">Status</th>
-              <th className="p-3">Reference</th>
-              <th className="p-3">Date</th>
-            </tr>
-          </thead>
+            <thead className="bg-[var(--hover)] text-left">
+                <tr>
+                <th className="p-3">Type</th>
+                <th className="p-3">Amount</th>
+                <th className="p-3">Status</th>
+                <th className="p-3">Reference</th>
+                <th className="p-3">Date</th>
+                </tr>
+            </thead>
 
-          <tbody>
-            {transactions.map((tx) => (
-              <tr key={tx.id} className="border-t border-[var(--border)] ">
-                <td className="p-3 capitalize">{tx.type}</td>
-                <td className="p-3">{tx.amount}</td>
+            <tbody>
+                {transactions.length === 0 ? (
+                    <tr>
+                    <td
+                        colSpan="5"
+                        className="p-6 text-center text-sm text-gray-500"
+                    >
+                        No transactions Yet
+                    </td>
+                    </tr>
+                ) : (
+                    transactions.map((tx) => (
+                    <tr key={tx.id} className="border-t border-[var(--border)]">
+                        <td className="p-3 capitalize">{tx.type}</td>
+                        <td className="p-3">{tx.amount}</td>
 
-                <td className="p-3">
-                  <span
-                    className={`
-                      px-2 py-1 rounded-full text-xs
-                      ${
-                        tx.status === "completed"
-                          ? "bg-green-100 text-green-600"
-                          : tx.status === "pending"
-                          ? "bg-yellow-100 text-yellow-600"
-                          : "bg-red-100 text-red-600"
-                      }
-                    `}
-                  >
-                    {tx.status}
-                  </span>
-                </td>
+                        <td className="p-3">
+                        <span
+                            className={`
+                            px-2 py-1 rounded-full text-xs
+                            ${
+                                tx.status === "completed"
+                                ? "bg-green-100 text-green-600"
+                                : tx.status === "pending"
+                                ? "bg-yellow-100 text-yellow-600"
+                                : "bg-red-100 text-red-600"
+                            }
+                            `}
+                        >
+                            {tx.status}
+                        </span>
+                        </td>
 
-                <td className="p-3">{tx.reference}</td>
-                <td className="p-3">{tx.date}</td>
-              </tr>
-            ))}
-          </tbody>
+                        <td className="p-3">{tx.reference}</td>
+                        <td className="p-3">{tx.date}</td>
+                    </tr>
+                    ))
+                )}
+            </tbody>
         </table>
       </div>
 
