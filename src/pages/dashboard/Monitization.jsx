@@ -136,8 +136,8 @@ export default function Monetizations() {
 
       {/* 🔹 Transactions */}
       <div className="border border-[var(--border)]  rounded-lg overflow-x-auto">
-        <table className="min-w-full text-sm">
-          <thead className="bg-gray-100 text-left">
+        <table className="min-w-full text-sm text-[var(--text)]">
+          <thead className="bg-[var(--hover)] text-left">
             <tr>
               <th className="p-3">Type</th>
               <th className="p-3">Amount</th>
