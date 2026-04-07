@@ -292,21 +292,19 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
     // Auto-format function
     const formatPhone = (value) => {
         // Remove non-digits
-        let digits = value.replace(/\D/g, "");
+        if (!digits) return "";
 
-        // Ensure it starts with 255
+        // ensure 255
         if (!digits.startsWith("255")) {
-            if (digits.startsWith("0")) {
-                digits = "255" + digits.slice(1);
-            } else {
-                digits = "255" + digits;
-            }
+        if (digits.startsWith("0")) {
+            digits = "255" + digits.slice(1);
+        } else {
+            digits = "255" + digits;
+        }
         }
 
-        // Format as 255 XX XXX XXX
-        
-
-        return digits; // partial input
+        // format spacing
+        return digits.replace(/(\d{3})(\d{2})(\d{3})(\d{3})/, "$1 $2 $3 $4");// partial input
     };
 
   const handleChange = (e) => {
