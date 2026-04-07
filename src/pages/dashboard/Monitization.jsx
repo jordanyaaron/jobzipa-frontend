@@ -288,6 +288,33 @@ function Card({ title, value }) {
 function MobileForm({ setPaymentMethod, setOpenModal }) {
     const [provider, setProvider] = useState("M-Pesa");
     const [phone, setPhone] = useState("");
+
+    // Auto-format function
+    const formatPhone = (value) => {
+        // Remove non-digits
+        let digits = value.replace(/\D/g, "");
+
+        // Ensure it starts with 255
+        if (!digits.startsWith("255")) {
+            if (digits.startsWith("0")) {
+                digits = "255" + digits.slice(1);
+            } else {
+                digits = "255" + digits;
+            }
+        }
+
+        // Format as 255 XX XXX XXX
+        const match = digits.match(/^(\d{3})(\d{2})(\d{3})(\d{3})$/);
+        if (match) {
+        return `${match[1]} ${match[2]} ${match[3]} ${match[4]}`;
+        }
+
+        return digits; // partial input
+    };
+
+  const handleChange = (e) => {
+    setPhone(formatPhone(e.target.value));
+  };
   
     const handleSave = () => {
       if (!phone) return alert("Enter phone number");
@@ -303,10 +330,9 @@ function MobileForm({ setPaymentMethod, setOpenModal }) {
   
     return (
       <div className="space-y-3">
-        
         <select
-          value={provider}
-          onChange={(e) => setProvider(e.target.value)}
+          value={phone}
+          onChange={handleChange}
           className="w-full px-3 py-2 border  border-[var(--border)] rounded-lg"
         >
           <option value="M-Pesa">Vodacom (M-Pesa)</option>
