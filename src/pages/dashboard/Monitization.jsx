@@ -39,6 +39,7 @@ export default function Monetizations() {
   // 💸 Withdraw
   const [withdrawAmount, setWithdrawAmount] = useState("");
   const [loading, setLoading] = useState(false);
+  const [saveMethodLoading,setSaveMethodLoading] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [tab, setTab] = useState("mobile");
   
@@ -91,7 +92,7 @@ export default function Monetizations() {
             <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
                         
                 {
-                    loading 
+                    saveMethodLoading 
                     ?
                         <div
                             className="
@@ -129,9 +130,9 @@ export default function Monetizations() {
 
                             {/* CONTENT */}
                             {tab === "mobile" ? (
-                                <MobileForm  loading={loading} setLoading={setLoading}   setPaymentMethod={setPaymentMethod} setOpenModal={setOpenModal}/>
+                                <MobileForm  saveMethodLoading={losaveMethodLoadingading} setSaveMethodLoading={setSaveMethodLoading}   setPaymentMethod={setPaymentMethod} setOpenModal={setOpenModal}/>
                             ) : (
-                                <BankForm loading={loading} setLoading={setLoading}   setPaymentMethod={setPaymentMethod} setOpenModal={setOpenModal} />
+                                <BankForm saveMethodLoading={saveMethodLoading} setSaveMethodLoading={setSaveMethodLoading}   setPaymentMethod={setPaymentMethod} setOpenModal={setOpenModal} />
                             )}
 
                             {/* Close */}
@@ -299,7 +300,7 @@ function Card({ title, value }) {
 }
 
 // MobileForm
-function MobileForm({ setPaymentMethod, setOpenModal,loading,setLoading }) {
+function MobileForm({ setPaymentMethod, setOpenModal,setSaveMethodLoading,saveMethodLoading }) {
     const [provider, setProvider] = useState("M-Pesa");
     const [phone, setPhone] = useState("");
 
@@ -348,7 +349,7 @@ function MobileForm({ setPaymentMethod, setOpenModal,loading,setLoading }) {
     };
   
     const handleSave = () => {
-        setLoading(!loading)
+        setSaveMethodLoading(!saveMethodLoading)
         // validation
         if (phone.length !== 12) {
           setError("Invalid phone number");
@@ -409,7 +410,7 @@ function MobileForm({ setPaymentMethod, setOpenModal,loading,setLoading }) {
   }
   
 // BackForm
-function BankForm({ setPaymentMethod, setOpenModal ,loading,setLoading }) {
+function BankForm({ setPaymentMethod, setOpenModal ,setSaveMethodLoading,saveMethodLoading }) {
     const [bankName, setBankName] = useState("");
     const [accountNumber, setAccountNumber] = useState("");
     const [accountName, setAccountName] = useState("");
