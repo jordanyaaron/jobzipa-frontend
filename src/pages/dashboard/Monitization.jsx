@@ -130,7 +130,7 @@ export default function Monetizations() {
 
                             {/* CONTENT */}
                             {tab === "mobile" ? (
-                                <MobileForm  saveMethodLoading={losaveMethodLoadingading} setSaveMethodLoading={setSaveMethodLoading}   setPaymentMethod={setPaymentMethod} setOpenModal={setOpenModal}/>
+                                <MobileForm  saveMethodLoading={saveMethodLoading} setSaveMethodLoading={setSaveMethodLoading}   setPaymentMethod={setPaymentMethod} setOpenModal={setOpenModal}/>
                             ) : (
                                 <BankForm saveMethodLoading={saveMethodLoading} setSaveMethodLoading={setSaveMethodLoading}   setPaymentMethod={setPaymentMethod} setOpenModal={setOpenModal} />
                             )}
