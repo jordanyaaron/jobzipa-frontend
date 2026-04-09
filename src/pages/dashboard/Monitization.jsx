@@ -432,12 +432,10 @@ function BankForm({ setPaymentMethod, setOpenModal ,setSaveMethodLoading,saveMet
           accountName,
         });
       
-          // 🔥 SAVE
-          setPaymentMethod(newPaymentMethod);
 
-          setSaveMethodLoading(false);
-          setOpenModal(false);
-          toast.success("You've successfully added a new method")
+        setSaveMethodLoading(false);
+        setOpenModal(false);
+        toast.success("You've successfully added a new method")
       }, 1500);
   
       
