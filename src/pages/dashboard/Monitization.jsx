@@ -457,7 +457,7 @@ function BankForm({ setPaymentMethod, setOpenModal ,setSaveMethodLoading,saveMet
           type="text"
           placeholder="Bank Name"
           value={bankName}
-          onChange={handleChange}
+          onChange={(e) => setBankName(e.target.value)}
           className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
         />
   
@@ -465,7 +465,7 @@ function BankForm({ setPaymentMethod, setOpenModal ,setSaveMethodLoading,saveMet
           type="text"
           placeholder="Account Number"
           value={accountNumber}
-          onChange={(e) => setAccountNumber(e.target.value)}
+          onChange={handleChange}
           className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
         />
   
