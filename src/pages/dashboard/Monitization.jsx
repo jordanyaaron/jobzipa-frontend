@@ -343,7 +343,7 @@ function MobileForm({ setPaymentMethod, setOpenModal,setSaveMethodLoading,saveMe
         if (["74", "75", "76" , "79"].includes(prefix)) return "M-Pesa";
         if (["78", "68" , "65"].includes(prefix)) return "Airtel";
         if (["71","71", "77"].includes(prefix)) return "Mixx";
-        if (["62","61",].includes(prefix)) return "Halotel";
+        if (["62","61",].includes(prefix)) return "Halopesa";
         
         return "Unknown";
     };
@@ -385,8 +385,8 @@ function MobileForm({ setPaymentMethod, setOpenModal,setSaveMethodLoading,saveMe
           className="w-full px-3 py-2 border  border-[var(--border)] rounded-lg"
         >
           <option value="M-Pesa">Vodacom (M-Pesa)</option>
-          <option value="Airtel Money">Airtel</option>
-          <option value="Mixx">Yas</option>
+          <option value="Airtel">Airtel</option>
+          <option value="Mixx">Yas (Mixx)</option>
           <option value="Halopesa">Halotel</option>
           <option value="Unknown">Unknown</option>
         </select>
