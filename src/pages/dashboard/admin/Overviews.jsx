@@ -21,10 +21,16 @@ export default function OverviewsAdmin() {
       icon: <BriefcaseIcon className="w-6 h-6 text-green-600" />,
     },
     {
+        title: "My Jobs Post",
+        value: 10,
+        icon: <BriefcaseIcon className="w-6 h-6 text-blue-600" />,
+      },
+    {
       title: "Staff",
       value: 25,
       icon: <UsersIcon className="w-6 h-6" />,
     },
+    
     {
       title: "Pending Payouts",
       value: 12,
@@ -58,10 +64,10 @@ export default function OverviewsAdmin() {
   ];
 
   return (
-    <div className="p-4 space-y-4">
+    <div className="p-4 mt-[65px] lg:mt-0  space-y-4">
 
       {/* 🔝 Top Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-3">
         {stats.map((item, i) => (
           <div
             key={i}
