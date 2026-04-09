@@ -119,9 +119,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                         
                     }
                     {
-                        path.startsWith("/admin/") || path.startsWith("/staff")  
-                        ?   <h1 className="text-[var(--text)]  text-[20px] font-bold">Overviews</h1>
-                        :  path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs")  
+                        path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs")  
                         ?   <h1 className="text-[var(--text)]  text-[20px] font-bold">Jobs</h1>
                         :  path.startsWith("/admin/payouts")
                         ?   <h1 className="text-[var(--text)]  text-[20px] font-bold">Payouts</h1>
@@ -135,9 +133,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                         ?   <h1 className="text-[var(--text)]  text-[20px] font-bold">Settings</h1>
                         :   path.startsWith("/staff/monitization") || path.startsWith("/admin/monitization") || path.startsWith("/super/monitization")
                         ?   <h1 className="text-[var(--text)] text-[20px] font-bold">Monitizations</h1>
-                        :   <Link to="/" className="flex items-center">
-                                <img src={JobzipaLogo} alt="Jobzipa" className="h-9 md:h-10" />
-                            </Link>
+                        :   <h1 className="text-[var(--text)]  text-[20px] font-bold">Overviews</h1>
                             
                     }
                             
