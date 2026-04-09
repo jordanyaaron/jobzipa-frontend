@@ -39,7 +39,7 @@ export default function ReportsAdmin(
     return(
         <div className="p-4 mt-[64px] md:mt-0 w-[calc(100vw)] lg:w-[calc(100vw-240px)] space-y-4 overflow-x-hidden">
             <div className="hidden lg:flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
-                <h1 className="text-lg lg:text-2xl font-bold">Job Reports</h1>
+                <h1 className="text-lg  lg:text-2xl font-bold">Job Reports</h1>
 
                 <div className="flex gap-2 w-full lg:w-auto">
                 {/* Search */}

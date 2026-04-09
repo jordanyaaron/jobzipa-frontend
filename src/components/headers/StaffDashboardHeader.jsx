@@ -106,7 +106,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
             >
                 {/* Left */}
                 <div className="flex items-center gap-3">
-                    {   
+                    {   path.startsWith("/admin/") || path.startsWith("/staff")  ||
                         path.startsWith("/admin/monitization") || path.startsWith("/admin/payouts") || path.startsWith("/admin/reports") ||
                         path.startsWith("/admin/staffs") || path.startsWith("/admin/notifications") ||
                         path.startsWith("/admin/settings") || path.startsWith("/staff/settings") ? ""
@@ -119,7 +119,9 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                         
                     }
                     {
-                        path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs")  
+                        path.startsWith("/admin/") || path.startsWith("/staff")  
+                        ?   <h1 className="text-[var(--text)]  text-[20px] font-bold">Overviews</h1>
+                        :  path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs")  
                         ?   <h1 className="text-[var(--text)]  text-[20px] font-bold">Jobs</h1>
                         :  path.startsWith("/admin/payouts")
                         ?   <h1 className="text-[var(--text)]  text-[20px] font-bold">Payouts</h1>
@@ -144,6 +146,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                 {/* Right */}
                 <div className="flex items-center gap-3">
                     {
+                        
                         path.startsWith('/admin/notifications') || path.startsWith("/admin/staffs") || path.startsWith("/admin/jobs") || path.startsWith("/staff/jobs") || path.startsWith('/admin/payouts') || path.startsWith('/admin/reports') 
                         ?   <button
                                 onClick={() => setMobileSearchOpen(true)}
@@ -227,6 +230,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                     }
 
                     {
+                        path.startsWith("/admin/") || path.startsWith("/staff")  ||
                         path.startsWith("/admin/monitization") || path.startsWith("/admin/payouts") || path.startsWith("/admin/reports") ||
                         path.startsWith("/admin/staffs") || path.startsWith("/admin/notifications") ||
                         path.startsWith("/admin/settings") || path.startsWith("/staff/settings")  
