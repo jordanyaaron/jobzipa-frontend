@@ -1,5 +1,5 @@
 import React from "react";
-import { ChartBarIcon } from "@heroicons/react/24/outline";
+import { Square3Stack3DIcon } from "@heroicons/react/24/outline";
 
 export default function DashboardComeSoon() {
   return (
@@ -10,7 +10,7 @@ export default function DashboardComeSoon() {
         {/* Icon */}
         <div className="flex justify-center">
           <div className="p-4 rounded-full bg-blue-100">
-            <ChartBarIcon className="w-8 h-8 text-blue-600" />
+            <Square3Stack3DIcon className="w-8 h-8 text-blue-600" />
           </div>
         </div>
 
@@ -21,8 +21,9 @@ export default function DashboardComeSoon() {
 
         {/* Message */}
         <p className="text-sm text-gray-500">
-          We are currently building powerful analytics tools to help you track
-          performance, earnings, and system activity.
+          The dashboard is currently in process. we're building a complete 
+          experience to help you manage everything smoothly. Stay tuned and 
+          keep an eye on your notifications for updates.
         </p>
 
         {/* Spinner */}
