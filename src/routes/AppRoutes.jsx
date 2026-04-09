@@ -30,6 +30,7 @@ import ResetPassword from '../pages/auth/ResetPassword';
 import ResetPasswordEmailSent from '../pages/auth/ResetPasswordEmailSent';
 import InviteStaff from '../pages/auth/InviteStaff';
 import StaffDashboard from '../pages/dashboard/StaffDashboard';
+import DashboardComeSoon from '@/pages/cooming-soon/DashboardComeSoon'
 
 
 // dashboards
@@ -77,6 +78,17 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
             {/* <Route path="/invite-staff" element={<InviteStaff />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/faq" element={<FaQ/>} /> */}
+            <Route path="/admin" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <DashboardComeSoon />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/staff" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <DashboardComeSoon />
+              </ProtectedRoute>
+            } />
         </Route>
 
         <Route element={<AuthLayout/>}>
@@ -205,8 +217,8 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
         </Route> 
 
 
-        <Route element={<StaffDashboardLayout  darkMode={darkMode} setDarkMode={setDarkMode}  />}>
-            {/* Admin routes */}
+        {/* <Route element={<StaffDashboardLayout  darkMode={darkMode} setDarkMode={setDarkMode}  />}>
+            
           <Route path={"/admin"}>
             <Route index element={
               <ProtectedRoute requireStaffOnly={true}>
@@ -286,67 +298,16 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
                       
           </Route>
 
-          {/* Official routes */}
-          <Route path="/official">
-            <Route index element={
-              <ProtectedRoute requireStaffOnly={true}>
-                <Overviews />
-              </ProtectedRoute>
-            } />
-
-            <Route path="jobs" element={
-              <ProtectedRoute requireStaffOnly={true}>
-                <JobsInStaff />
-              </ProtectedRoute>
-            } />
-
-            
-
-            <Route path="analytics" element={
-              <ProtectedRoute requireStaffOnly={true}>
-                <Analytics />
-              </ProtectedRoute>
-            } />
-
-            <Route path="monitization" element={
-              <ProtectedRoute requireStaffOnly={true}>
-                <Monitizations />
-              </ProtectedRoute>
-            } />
-
-
-            <Route path="notifications" element={
-              <ProtectedRoute requireStaffOnly={true}>
-                <Notifications />
-              </ProtectedRoute>
-            } />
-            
-
-            <Route path="reports" element={
-              <ProtectedRoute requireStaffOnly={true}>
-                <Reports />
-              </ProtectedRoute>
-            } />
-
-
-            <Route path="settings" element={
-              <ProtectedRoute requireStaffOnly={true}>
-                <Reports />
-              </ProtectedRoute>
-            } />
-          </Route>
-
-          {/* staff normal routes */}
-          <Route path="/staff">
-            <Route index element={
-              <ProtectedRoute requireStaffOnly={true}>
-                <Overviews />
-              </ProtectedRoute>
-            } />
-          </Route>
-
+ 
           
-        </Route>
+          <Route path={"/staff"}>
+            <Route index element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <OverviewsStaff />
+              </ProtectedRoute>
+            } />
+          </Route>
+        </Route> */}
 
         
 

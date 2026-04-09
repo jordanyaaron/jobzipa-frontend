@@ -72,66 +72,9 @@ import {
         }
     ];
 
-    const navOfficialLinks = [
+    const navStaffLinks = [
         {
           name: "Overview",
-          path: "/official",
-          icon: Squares2X2Icon,
-          replace : true
-        },
-        {
-          name: "Jobs",
-          path: "/official/jobs",
-          icon: BriefcaseIcon,
-          replace : true
-        },
-        {
-          name: "Winning Team",
-          path: "/official/staff",
-          icon: UsersIcon,
-          replace : true
-        },
-        {
-          name: "Analytics",
-          path: "/official/analytics",
-          icon: ChartBarIcon,
-          replace : true
-        },
-        {
-          name: "Revenue",
-          path: "/official/revenue",
-          icon: CurrencyDollarIcon,
-          replace : true
-        },
-        {
-          name: "Payouts",
-          path: "/official/Payouts",
-          icon: BanknotesIcon,
-          replace : true
-        },
-        {
-          name: "Notifications",
-          path: "/official/notifications",
-          icon: BellIcon,
-          replace : true
-        },
-        {
-          name: "Reports",
-          path: "/official/report",
-          icon: ExclamationTriangleIcon,
-          replace : true
-        },
-        {
-          name: "Settings",
-          path: "/official/settings",
-          icon: Cog6ToothIcon ,
-          replace : true
-        }
-    ];
-
-    const navNonOfficialLinks = [
-        {
-          name: "Overviews",
           path: "/staff",
           icon: Squares2X2Icon,
           replace : true
@@ -156,14 +99,8 @@ import {
         },
         {
           name: "Revenue",
-          path: "/staff/revenue",
+          path: "/staff/monitization",
           icon: CurrencyDollarIcon,
-          replace : true
-        },
-        {
-          name: "Payouts",
-          path: "/staff/Payouts",
-          icon: BanknotesIcon,
           replace : true
         },
         {
@@ -185,15 +122,15 @@ import {
           replace : true
         }
     ];
+
+    
     const location = useLocation();
     const path = location.pathname;
     if (path.startsWith("/admin")) {
         return navAdminLinks;
-    } else if (path.startsWith("/official")) {
-        return navOfficialLinks;
-    } else if(path.startsWith("/staff")) {
-        return navNonOfficialLinks;
-    }
+    } else if (path.startsWith("/staff")) {
+        return navStaffLinks;
+    } 
 
 }
 

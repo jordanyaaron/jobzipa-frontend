@@ -26,18 +26,11 @@ const StaffSidebar = ({ toggleDrawer }) => {
 
       if (
         user.is_staff &&
-        !user.is_official &&
-        !user.is_admin &&
-        !user.is_superuser
-      ) {
-          url = "/staff";
-      } else if (
-        user.is_staff &&
         user.is_official &&
         !user.is_admin &&
         !user.is_superuser
       ) {
-          url = "/official";
+          url = "/staff";
       } else if (
         user.is_staff &&
         user.is_official &&
