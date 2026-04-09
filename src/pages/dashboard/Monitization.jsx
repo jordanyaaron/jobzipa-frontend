@@ -31,10 +31,7 @@ export default function Monetizations() {
   ]);
 
   // 💳 Payment Method
-  const [paymentMethod, setPaymentMethod] = useState({
-    provider: "M-Pesa",
-    phone: "07XXXXXXXX",
-  });
+  const [paymentMethod, setPaymentMethod] = useState(null);
 
   // 💸 Withdraw
   const [withdrawAmount, setWithdrawAmount] = useState("");
