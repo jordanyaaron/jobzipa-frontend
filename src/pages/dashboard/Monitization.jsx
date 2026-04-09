@@ -420,17 +420,28 @@ function BankForm({ setPaymentMethod, setOpenModal ,setSaveMethodLoading,saveMet
   
     const handleSave = () => {
       if (!bankName || !accountNumber || !accountName) {
-        return alert("Fill all fields");
+        return toast.error("Fill all fields");
       }
+
+      setTimeout(() => {
+          
+        setPaymentMethod({
+          type: "bank",
+          bankName,
+          accountNumber,
+          accountName,
+        });
+      
+          // 🔥 SAVE
+          setPaymentMethod(newPaymentMethod);
+
+          setSaveMethodLoading(false);
+          setOpenModal(false);
+          toast.success("You've successfully added a new method")
+      }, 1500);
   
-      setPaymentMethod({
-        type: "bank",
-        bankName,
-        accountNumber,
-        accountName,
-      });
+      
   
-      setOpenModal(false);
     };
   
     return (
