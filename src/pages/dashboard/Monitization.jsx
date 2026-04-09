@@ -442,6 +442,13 @@ function BankForm({ setPaymentMethod, setOpenModal ,setSaveMethodLoading,saveMet
       
   
     };
+
+    const handleChange = (e) => {
+      let raw = e.target.value.replace(/\D/g, "");
+      setAccountNumber(raw);
+    };
+
+    
   
     return (
       <div className="space-y-3">
@@ -450,7 +457,7 @@ function BankForm({ setPaymentMethod, setOpenModal ,setSaveMethodLoading,saveMet
           type="text"
           placeholder="Bank Name"
           value={bankName}
-          onChange={(e) => setBankName(e.target.value)}
+          onChange={handleChange}
           className="w-full px-3 py-2 border border-[var(--border)] rounded-lg"
         />
   
