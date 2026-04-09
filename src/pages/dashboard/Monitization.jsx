@@ -422,6 +422,7 @@ function BankForm({ setPaymentMethod, setOpenModal ,setSaveMethodLoading,saveMet
       if (!bankName || !accountNumber || !accountName) {
         return toast.error("Fill all fields");
       }
+      setSaveMethodLoading(!saveMethodLoading);
 
       setTimeout(() => {
           
