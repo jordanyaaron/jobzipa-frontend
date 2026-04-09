@@ -5,7 +5,7 @@ import { ChartBarIcon } from "@heroicons/react/24/outline";
 
 export default function AnalyticsAdmin() {
   return (
-    <div className="w-full h-[70vh] flex items-center justify-center">
+    <div className="w-full p-3  h-[70vh] flex items-center justify-center">
       
       <div className="max-w-md w-full p-6 rounded-2xl border border-[var(--border)] bg-[var(--background)] text-center space-y-4 shadow-sm">
         

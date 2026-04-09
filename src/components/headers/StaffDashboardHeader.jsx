@@ -122,7 +122,9 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
                         ?   <h1 className="text-[var(--text)]  text-[20px] font-bold">Settings</h1>
                         :   path.startsWith("/staff/monitization") || path.startsWith("/admin/monitization") || path.startsWith("/super/monitization")
                         ?   <h1 className="text-[var(--text)] text-[20px] font-bold">Monitizations</h1>
-                        :   <h1 className="text-[var(--text)]  text-[20px] font-bold">Overviews</h1>
+                        :   path.startsWith("/staff/analytics") || path.startsWith("/admin/analytics") || path.startsWith("/super/analytics")
+                        ?   <h1 className="text-[var(--text)] text-[20px] font-bold">Analytics</h1>
+                        : <h1 className="text-[var(--text)]  text-[20px] font-bold">Overviews</h1>
                             
                     }
                             
