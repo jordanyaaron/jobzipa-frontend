@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import toast from "react-hot-toast";
 export default function Monetizations() {
 
   // 💰 Summary
@@ -357,19 +357,25 @@ function MobileForm({ setPaymentMethod, setOpenModal,setSaveMethodLoading,saveMe
           setError("Unsupported network");
           return;
         }
+
+        setTimeout(() => {
+          
+          const newPaymentMethod = {
+            type: "mobile",
+            number: phone,
+            provider: provider,
+            createdAt: new Date().toISOString(),
+          };
+        
+          // 🔥 SAVE
+            setPaymentMethod(newPaymentMethod);
+
+            setSaveMethodLoading(false);
+            setOpenModal(false);
+            toast.success("You've successfully added a new method")
+        }, 1500);
       
-        const newPaymentMethod = {
-          type: "mobile",
-          number: phone,
-          provider: provider,
-          createdAt: new Date().toISOString(),
-        };
-      
-        // 🔥 SAVE
-        setPaymentMethod(newPaymentMethod);
-      
-        // reset
-        setError("");
+        
       };
 
 
