@@ -20,7 +20,7 @@
           lg:w-[700px]
         "
       >
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6">
+        <div className="grid grid-cols-1  pt-6">
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
