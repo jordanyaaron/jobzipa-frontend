@@ -2,7 +2,7 @@ import React, { useuseEffect , useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Nav';
 import Footer from '../components/Foote';
-import JobsSkeleton from '@/pages/loading-blocks/JobPostLoadinBlock'
+import JobsSkeleton from '@/pages/loading-blocks/'
 
 const Home = () => {
   const [ blockSkeleton , setBlockSkeleton ] = useState(true);
