@@ -6,7 +6,7 @@ import JobsSkeleton from '@/pages/loading-blocks/JobPostLoadinBlock'
 
 const Home = () => {
   const [ blockSkeleton , setBlockSkeleton ] = useState(true);
-
+ 
   if (blockSkeleton
 
   ){
