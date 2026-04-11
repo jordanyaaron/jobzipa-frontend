@@ -15,8 +15,8 @@ export default function DashboardComeSoon() {
         </div>
 
         {/* Title */}
-        <h2 className="text-lg font-bold">
-          Analytics Dashboard
+        <h2 className="text-[22px] font-bold text-[var(--text)] font-bold">
+           Dashboard (In Progress)
         </h2>
 
         {/* Message */}
