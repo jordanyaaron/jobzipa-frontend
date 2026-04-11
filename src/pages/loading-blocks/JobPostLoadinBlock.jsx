@@ -14,42 +14,65 @@
   
   export default function JobsSkeleton(){
     return (
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6">
         {[...Array(6)].map((_, i) => (
           <div
             key={i}
             className="
-              p-4 rounded-2xl
-              border border-[var(--border)]
-              bg-[var(--background)]
+              p-4 
+              border-b border-[var(--border)]
               space-y-4
               shadow-sm
             "
           >
-            {/* Title */}
-            <SkeletonBlock className="h-5 w-3/4" />
+            {/* header */}
+            <div
+              className="grid grid-cols-1"
+            >
+              <div className="w-[80px] h-[80px]"
+              >
+               <SkeletonBlock className="h-10 w-10 rounded-full" />
+              </div>
+              <div
+                className="
+                  col-span-1 
+                "
+              >
+                <div className="flex gap-2">
+                  <SkeletonBlock className="h-5 flex-1 rounded-xl" />
+                  <SkeletonBlock className="h-5 w-5 rounded-full" />
+                </div>
   
-            {/* Company */}
+                {/* Company */}
+                <SkeletonBlock className="h-4 w-1/2" />
+                
+                <div className="flex gap-2">
+                  <SkeletonBlock className="h-5 w-16 rounded-full" />
+                  <SkeletonBlock className="h-5 w-20 rounded-full" />
+                </div>
+                
+              </div>
+            </div>
+
+            {/* <SkeletonBlock className="h-5 w-3/4" />
+  
             <SkeletonBlock className="h-4 w-1/2" />
   
-            {/* Description */}
             <div className="space-y-2">
               <SkeletonBlock className="h-3 w-full" />
               <SkeletonBlock className="h-3 w-5/6" />
               <SkeletonBlock className="h-3 w-2/3" />
             </div>
   
-            {/* Tags / meta */}
             <div className="flex gap-2">
               <SkeletonBlock className="h-5 w-16 rounded-full" />
               <SkeletonBlock className="h-5 w-20 rounded-full" />
             </div>
   
-            {/* Footer */}
             <div className="flex justify-between items-center pt-2">
               <SkeletonBlock className="h-4 w-20" />
               <SkeletonBlock className="h-9 w-24 rounded-lg" />
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
