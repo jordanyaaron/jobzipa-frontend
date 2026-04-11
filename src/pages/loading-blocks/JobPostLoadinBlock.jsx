@@ -1,4 +1,4 @@
-const SkeletonBlock = ({ className = "" }) => (
+  const SkeletonBlock = ({ className = "" }) => (
     <div
       className={`
         ${className}
@@ -12,7 +12,7 @@ const SkeletonBlock = ({ className = "" }) => (
     />
   );
   
-  const JobsSkeleton = () => {
+  export default function JobsSkeleton(){
     return (
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[...Array(6)].map((_, i) => (
