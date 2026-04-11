@@ -25,14 +25,14 @@
           >
             {/* header */}
             <div className="flex gap-2">
-              <div className="w-[80px] h-[80px]" > <SkeletonBlock className="h-10 w-10 rounded-full" /></div>
+              <div className="w-[80px] h-[80px] border border-[var(--border)]" > <SkeletonBlock className="h-10 w-10 rounded-full" /></div>
               <div className="flex-1 flex justify-between items-center " > 
                 <SkeletonBlock className="h-4 w-1/3  rounded-xl" />
                 <SkeletonBlock className="h-4 w-4 rounded-full" />
               </div>
             </div>
             <div className="flex flex-col gap-2 my-3">
-              <SkeletonBlock className="h-5 flex-1 rounded-xl" />
+              <SkeletonBlock className="h-5 w-full rounded-xl" />
               <SkeletonBlock className="h-5 w-1/3  rounded-xl" />
             </div>
             <div className="flex flex-col gap-2 my-3">
