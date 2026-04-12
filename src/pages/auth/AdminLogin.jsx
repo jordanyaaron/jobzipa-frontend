@@ -31,7 +31,7 @@ const AdminLogin = () => {
       const response = await api.post("auth/login/", formData, { skipAuth: true });
       const { access, refresh, user } = response.data;
       // Store tokens
-      localStorage.setItem("access", response.data.access);
+      localStorage.setItem("accessToken", response.data.access);
       localStorage.setItem("refresh", response.data.refresh);
       localStorage.setItem("user", JSON.stringify(response.data.user));
       // Redirect based on role

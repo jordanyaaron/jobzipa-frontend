@@ -54,7 +54,7 @@ api.interceptors.response.use(
 
       const newAccess = res.data.access
 
-      localStorage.setItem("access", newAccess)
+      localStorage.setItem("accessToken", newAccess)
 
       api.defaults.headers.common["Authorization"] =
         `Bearer ${newAccess}`
