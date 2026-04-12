@@ -22,7 +22,7 @@ const HomeLayout = ({ darkMode, setDarkMode}) => {
 
       {/* Desktop Sidebar */}
       <aside className="hidden lg:flex shrink-0 w-64 border-r border-[var(--border)] bg-[var(--sidebar-bg)]">
-        {isStaff ? <StaffSidebar toggleDrawer={!toggleDrawer} /> : <PublicSidebar toggleDrawer={!toggleDrawer} />}
+        {isStaff ? <StaffSidebar toggleDrawer={toggleDrawer} /> : <PublicSidebar toggleDrawer={toggleDrawer} />}
       </aside>
 
       {/* Overlay (mobile) */}
