@@ -18,11 +18,11 @@ const MianLayout = ({ darkMode, setDarkMode }) => (
 
   <Header  darkMode={darkMode} setDarkMode={setDarkMode} />
 
-  <div className="flex flex-1 pt-16 md:pt-0">
+  <div className="flex flex-1 pt-16 md:pt-0 h-[calc(100vh-64px)] overflow-hidden">
 
     <SideBar />
 
-    <main className="flex-1 p-6 border-l bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-800 p-4" >
+    <main className="flex-1 overflow-y-auto p-4 border-l bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-800" >
       <Outlet />
     </main>
 
