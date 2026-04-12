@@ -2,7 +2,8 @@ import React, { useuseEffect , useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Nav';
 import Footer from '../components/Foote';
-import { JobsSkeleton , SkeletonBlock } from '@/pages/loading-blocks/JobPostLoadinBlock'
+import SkeletonBlock from "@/components/skeletons/JobZipaSkeleton";
+import  JobsSkeleton  from '@/pages/loading-blocks/JobPostLoadinBlock'
 
 
 const Home = () => {
