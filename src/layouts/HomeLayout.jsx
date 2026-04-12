@@ -67,7 +67,7 @@ const HomeLayout = ({ darkMode, setDarkMode}) => {
         )}
 
         {/* Pages */}
-        <main className="pt-16 px-4 md:px-6 flex-1 overflow-y-auto">
+        <main className="pt-16 bg-[var(--main-bg)] px-4 md:px-6 flex-1 overflow-y-auto">
           <Outlet />
         </main>
 
