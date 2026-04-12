@@ -42,9 +42,9 @@ const AdminLogin = () => {
       } else {
         navigate("/" , { replace : true } );
       }
-    // } catch (err) {
-    //   console.log(err)
-      setError(JSON.stringify(err.response?.data));
+    } catch (err) {
+      console.log(err)
+      setError(JSON.stringify(err.response?.data))
     }finally {
       setLoading(false);
     }
