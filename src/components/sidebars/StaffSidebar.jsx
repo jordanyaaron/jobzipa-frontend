@@ -60,7 +60,7 @@ const StaffSidebar = ({ toggleDrawer }) => {
   ];
 
   const handleLogout = () => {
-    localStorage.removeItem("access");
+    localStorage.removeItem("accessToken");
     localStorage.removeItem("refresh");
     localStorage.removeItem("user");
     navigate("/");
