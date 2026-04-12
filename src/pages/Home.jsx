@@ -2,39 +2,53 @@ import React, { useuseEffect , useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Nav';
 import Footer from '../components/Foote';
-import JobsSkeleton from '@/pages/loading-blocks/JobPostLoadinBlock'
+import { JobsSkeleton , SkeletonBlock } from '@/pages/loading-blocks/JobPostLoadinBlock'
+
 
 const Home = () => {
   const [ blockSkeleton , setBlockSkeleton ] = useState(true);
  
-  if (blockSkeleton
-
-  ){
-    return (
-       <JobsSkeleton />
-    );
-  }
-  return <>
-    <div className="content-container">
-        {/* <nav>
-            <Navbar/>
-        </nav> */}
-        <main
-          className="
-            min-h-[calc(100vh-130px)]
-          "
-        >
-         <h1>
-            Jobs
-         </h1>
-        </main>
-        <aside>
-            <div className='ad-section'></div>
-            <div className='ad-section'></div>
+ 
+  return 
+    <>
+      <div className="w-fulll flex gap-2" >
+        {
+          blockSkeleton 
+          ?  <JobsSkeleton />
+          :  <main
+                className="
+                  min-h-[calc(100vh-130px)]
+                "
+              >
+                <h1>Jobs</h1>
+              </main>
+        }
+        <aside className="hidden lg:block">
+            <div className='flex gap-2'>
+              <div className='relative'>
+                <SkeletonBlock className="w-[200px] h-[300px]"/>
+              </div>
+              <div className='flex flex-col gap-2'>
+                <SkeletonBlock className="h-5 flex-1"/>
+                <SkeletonBlock className="h-5 w-3/4"/>
+                <SkeletonBlock className="h-5 w-1/4"/>
+              </div>
+            </div>
+            <div className='flex gap-2'>
+              <div className='relative'>
+                <SkeletonBlock className="w-[200px] h-[300px]"/>
+              </div>
+              <div className='flex flex-col gap-2'>
+                <SkeletonBlock className="h-5 flex-1"/>
+                <SkeletonBlock className="h-5 w-3/4"/>
+                <SkeletonBlock className="h-5 w-1/4"/>
+              </div>
+            </div>
             <Footer/>
         </aside>
-    </div>
-  </>
+      </div>
+              
+    </>
 };
 
 export default Home;
