@@ -22,12 +22,12 @@ const HomeLayout = ({ darkMode, setDarkMode}) => {
 
       {/* Desktop Sidebar */}
       <aside className="hidden lg:flex shrink-0 w-64 border-r border-[var(--border)] bg-[var(--sidebar-bg)]">
-        {isStaff ? <StaffSidebar toggleDrawer={toggleDrawer} /> : <PublicSidebar toggleDrawer={toggleDrawer} />}
+        {isStaff ? <StaffSidebar toggleDrawer={!toggleDrawer} /> : <PublicSidebar toggleDrawer={!toggleDrawer} />}
       </aside>
 
       {/* Overlay (mobile) */}
       <div
-        className={`fixed inset-0 z-100 bg-black/40 lg:hidden transition-opacity ${
+        className={`fixed inset-0 z-50 bg-black/40 lg:hidden transition-opacity ${
           drawerOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
