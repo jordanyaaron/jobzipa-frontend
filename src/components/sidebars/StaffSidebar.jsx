@@ -99,8 +99,8 @@ const StaffSidebar = ({ toggleDrawer }) => {
                 key={link.name}
                 onClick={
                   ()=>{
-                    toggleDrawer();
                     handleLogout();
+                    toggleDrawer();
                   }
                 }
                 className="
