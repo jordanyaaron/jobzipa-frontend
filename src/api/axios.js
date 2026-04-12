@@ -16,7 +16,7 @@ api.interceptors.request.use(
       return config
     }
 
-    const token = localStorage.getItem("accessToken")
+    const token = localStorage.getItem("access")
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
@@ -54,7 +54,7 @@ api.interceptors.response.use(
 
       const newAccess = res.data.access
 
-      localStorage.setItem("accessToken", newAccess)
+      localStorage.setItem("access", newAccess)
 
       api.defaults.headers.common["Authorization"] =
         `Bearer ${newAccess}`
