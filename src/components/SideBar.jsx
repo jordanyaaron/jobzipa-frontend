@@ -23,8 +23,15 @@ export default function  Sidebar  ( { sidebarOpen, setSidebarOpen } )  {
   ];
 
   return (
-    <aside className="hidden lg:flex lg:flex-col w-64 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4 h-screen sticky top-0 pt-16 z-10">
-      <nav className="flex mt-[30px] flex-col space-y-2">
+    <aside className="
+    hidden lg:flex lg:flex-col
+    w-64
+    bg-gray-50 dark:bg-gray-900
+    text-gray-900 dark:text-gray-100
+    p-4
+    h-full
+    pt-16
+  "><nav className="flex mt-[30px] flex-col space-y-2">
         {links.map((link) => {
             const Icon = link.icon;
 
