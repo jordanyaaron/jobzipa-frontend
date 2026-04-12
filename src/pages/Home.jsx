@@ -23,10 +23,10 @@ const Home = () => {
               <h1>Jobs</h1>
             </main>
       }
-      <aside className="hidden lg:block">
+      <aside className="hidden lg:flex gap-3 flex-col">
           <div className='flex gap-2'>
-            <div className='relative'>
-              <SkeletonBlock className="w-[200px] h-[300px]"/>
+            <div className=''>
+              <SkeletonBlock className="w-[100px] h-[100px]"/>
             </div>
             <div className='flex flex-col gap-2'>
               <SkeletonBlock className="h-5 flex-1"/>
@@ -35,8 +35,8 @@ const Home = () => {
             </div>
           </div>
           <div className='flex gap-2'>
-            <div className='relative'>
-              <SkeletonBlock className="w-[200px] h-[300px]"/>
+            <div className=''>
+              <SkeletonBlock className="w-[100px] h-[100px]"/>
             </div>
             <div className='flex flex-col gap-2'>
               <SkeletonBlock className="h-5 flex-1"/>
