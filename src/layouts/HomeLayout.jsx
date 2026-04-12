@@ -18,7 +18,7 @@ const HomeLayout = ({ darkMode, setDarkMode}) => {
 
 
   return (
-    <div className="flex min-h-screen bg-[var(--main-bg)]">
+    <div className="flex h-screen overflow-hidden bg-[var(--main-bg)]">
 
       {/* Desktop Sidebar */}
       <aside className="hidden lg:flex shrink-0 w-64 border-r border-[var(--border)] bg-[var(--sidebar-bg)]">
@@ -27,7 +27,7 @@ const HomeLayout = ({ darkMode, setDarkMode}) => {
 
       {/* Overlay (mobile) */}
       <div
-        className={`fixed inset-0 z-40 bg-black/40 lg:hidden transition-opacity ${
+        className={`fixed inset-0 z-100 bg-black/40 lg:hidden transition-opacity ${
           drawerOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -67,7 +67,7 @@ const HomeLayout = ({ darkMode, setDarkMode}) => {
         )}
 
         {/* Pages */}
-        <main className="pt-16 px-4 md:px-6 flex-1">
+        <main className="pt-16 px-4 md:px-6 flex-1 overflow-y-auto">
           <Outlet />
         </main>
 
