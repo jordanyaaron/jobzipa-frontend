@@ -10,6 +10,7 @@ import logoAddIcon from '../../assets/icons/gallery.png';
 import closeIcon from '../../assets/icons/close.png';
 import plusIcon from '../../assets/icons/plus.png';
 import JobzipaLogo from '../../assets/logos/jobzipa.png';
+import { formatDate } from 'date-fns';
 // import plusIcon from '../../assets/icons/plus.png';
 
 
@@ -86,12 +87,14 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     // Date Data
     const [dateData, setDateData] = useState({
         actual_date: "",
-        deadline_date: ""
+        deadline_date: "",
       })
+
+    // date function
     const handleChange = (e) => {
         setDateData({
           ...dateData,
-          [e.target.name]: formatToBackendDate(e.target.value)
+          [e.target.name]: e.target.value
         })
       }
    
@@ -210,6 +213,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
         const handlePostJob = async (finalLocations) => {
             console.log("🔥 handlePostJob CALLED!");
             console.log("🔥🔥🔥 WE GOT ",locations.length, ' IN HERE Thank you');
+           
 
             const formData = new FormData();
             formData.append("title", title);
@@ -221,8 +225,8 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
             formData.append("job_type", type);
             formData.append("job_mode", mode);
             formData.append("position", positionValue);
-            formData.append("actual_date", dateData.actual_date)
-            formData.append("deadline_date", dateData.deadline_date)
+            formData.append("actual_date", formatToBackendDate(dateData.actual_date))
+            formData.append("deadline_date", formatToBackendDate(dateData.deadline_date))
             formData.append("application_link", applicationLink);
             if (companyLogo) formData.append("company_logo", companyLogo);
 
