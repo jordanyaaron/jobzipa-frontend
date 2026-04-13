@@ -96,6 +96,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
           ...dateData,
           [e.target.name]: e.target.value
         })
+        console.log(e.target.value)
       }
    
     
@@ -225,8 +226,8 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
             formData.append("job_type", type);
             formData.append("job_mode", mode);
             formData.append("position", positionValue);
-            formData.append("actual_date", formatToBackendDate(dateData.actual_date))
-            formData.append("deadline_date", formatToBackendDate(dateData.deadline_date))
+            formData.append("actual_date", formatToBackendDate(dateData.actual_date));
+            formData.append("deadline_date", formatToBackendDate(dateData.deadline_date));
             formData.append("application_link", applicationLink);
             if (companyLogo) formData.append("company_logo", companyLogo);
 
