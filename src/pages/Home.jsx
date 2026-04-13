@@ -4,6 +4,7 @@ import Navbar from '../components/Nav';
 import Footer from '../components/Foote';
 import SkeletonBlock from "@/components/skeletons/JobZipaSkeleton";
 import  JobsSkeleton  from '@/pages/loading-blocks/JobPostLoadinBlock'
+import api from '@/api/axios';
 
 
 const Home = () => {
