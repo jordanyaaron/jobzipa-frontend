@@ -17,15 +17,15 @@ function Footer() {
                 text-center
             ">
 
-                <p className="text-gray-500 dark:text-gray-400 text-xs">
-                <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">About Us</a> |
-                <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Contact Us</a> |
-                <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Terms & Conditions</a> |
-                <a href="#" className="no-underline text-[#3E907D] ml-1 hover:underline">Privacy & Cookies Policies</a>
+                <p className="text-[var(--placeholder)] text-xs">
+                <a href="#" className="no-underline text-[var(--placeholder)]  ml-1 hover:underline">About Us</a> |
+                <a href="#" className="no-underline text-[var(--placeholder)]  ml-1 hover:underline">Contact Us</a> |
+                <a href="#" className="no-underline text-[var(--placeholder)]  ml-1 hover:underline">Terms & Conditions</a> |
+                <a href="#" className="no-underline text-[var(--placeholder)]  ml-1 hover:underline">Privacy & Cookies Policies</a>
                 </p>
 
-                <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">
-                JobZipa Inc &copy; 2025. All Rights Reserved
+                <p className="text-[var(--placeholder)]  text-xs mt-1">
+                    JobZipa Inc &copy; {new Date().getFullYear()}. All Rights Reserved
                 </p>
 
             </footer>
