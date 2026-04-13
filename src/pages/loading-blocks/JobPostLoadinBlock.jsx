@@ -2,9 +2,7 @@
   export default function JobsSkeleton(){
     return (
       <>
-        <div className="w-fulll flex gap-2">
-          
-        </div>
+        
           <div
             className="
               w-full
