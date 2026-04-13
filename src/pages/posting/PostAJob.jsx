@@ -226,8 +226,8 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
             formData.append("job_type", type);
             formData.append("job_mode", mode);
             formData.append("position", positionValue);
-            formData.append("actual_date", formatToBackendDate(dateData.actual_date));
-            formData.append("deadline_date", formatToBackendDate(dateData.deadline_date));
+            formData.append("actual_date", dateData.actual_date);
+            formData.append("deadline_date", dateData.deadline_date);
             formData.append("application_link", applicationLink);
             if (companyLogo) formData.append("company_logo", companyLogo);
 
@@ -255,14 +255,6 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
             }
         };
 
-
-        // For handlingDtae error
-        const formatToBackendDate = (date) => {
-            if (!date) return null;
-          
-            const [month, day, year] = date.split("/");
-            return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
-          };
 
         const resetJobForm = () => {
             // resting state
