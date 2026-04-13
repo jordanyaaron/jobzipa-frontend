@@ -211,49 +211,67 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
         };
 
     //  SUBMITION HANDLER ( Posting after a form validation) 
-        const handlePostJob = async (finalLocations) => {
-            console.log("🔥 handlePostJob CALLED!");
-            console.log("🔥🔥🔥 WE GOT ",locations.length, ' IN HERE Thank you');
-           
-
-            const formData = new FormData();
-            formData.append("title", title);
-            formData.append("description", jobDescriptions);
-            formData.append("biography", biography);
-            formData.append("company", companyName);
-            formData.append("location", JSON.stringify(finalLocations)); 
-            formData.append("tags", JSON.stringify(tags));
-            formData.append("job_type", type);
-            formData.append("job_mode", mode);
-            formData.append("position", positionValue);
-            formData.append("actual_date", dateData.actual_date);
-            formData.append("deadline_date", dateData.deadline_date);
-            formData.append("application_link", applicationLink);
-            if (companyLogo) formData.append("company_logo", companyLogo);
-
-            setIsLoading(true)
-            
-                
-            console.log({
-                job_mode: mode,
-                application_link: applicationLink,
-            });
-        
-            try {
-                await api.post("jobs/create/", formData);
-                setIsLoading(false)
-                toast.success("Job posted successfully!");
-                resetJobForm()
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1500);
-                // Reset form state
-            } catch (error) {
-                setIsLoading(false)
-                console.log("Post Job Error:", error.response || error);
-                toast.error("Failed to post job. Please try again.");
-            }
-        };
+    const handlePostJob = async (finalLocations) => {
+        console.log("🔥 handlePostJob CALLED!");
+        console.log("🔥 LOCATIONS LENGTH:", finalLocations?.length);
+      
+        const formData = new FormData();
+      
+        formData.append("title", title);
+        formData.append("description", jobDescriptions);
+        formData.append("biography", biography);
+        formData.append("company", companyName);
+        formData.append("location", JSON.stringify(finalLocations));
+        formData.append("tags", JSON.stringify(tags));
+        formData.append("job_type", type);
+        formData.append("job_mode", mode);
+        formData.append("position", positionValue);
+        formData.append("actual_date", dateData.actual_date);
+        formData.append("deadline_date", dateData.deadline_date);
+        formData.append("application_link", applicationLink);
+      
+        if (companyLogo) {
+          formData.append("company_logo", companyLogo);
+        }
+      
+        setIsLoading(true);
+      
+        // 🔥 FULL DEBUG (IMPORTANT)
+        console.log("===== FORM DATA =====");
+        for (let pair of formData.entries()) {
+          console.log(pair[0], ":", pair[1]);
+        }
+      
+        try {
+          const res = await api.post("jobs/create/", formData);
+      
+          console.log("🔥 SUCCESS RESPONSE:", res.data);
+      
+          setIsLoading(false);
+          toast.success("Job posted successfully!");
+      
+          resetJobForm();
+      
+          setTimeout(() => {
+            window.location.reload();
+          }, 1500);
+      
+        } catch (error) {
+          setIsLoading(false);
+      
+          // 🔥 FULL ERROR BREAKDOWN
+          console.log("========== JOB POST ERROR ==========");
+          console.log("Message:", error.message);
+          console.log("Status:", error.response?.status);
+          console.log("Data:", error.response?.data);
+          console.log("Full Error:", error);
+      
+          toast.error(
+            error.response?.data?.detail ||
+            "Failed to post job. Please try again."
+          );
+        }
+      };
 
 
         const resetJobForm = () => {
