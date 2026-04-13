@@ -91,7 +91,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     const handleChange = (e) => {
         setDateData({
           ...dateData,
-          [e.target.name]: e.target.value
+          [e.target.name]: formatToBackendDate(e.target.value)
         })
       }
    
@@ -249,6 +249,15 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                 toast.error("Failed to post job. Please try again.");
             }
         };
+
+
+        // For handlingDtae error
+        const formatToBackendDate = (date) => {
+            if (!date) return null;
+          
+            const [month, day, year] = date.split("/");
+            return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+          };
 
         const resetJobForm = () => {
             // resting state
