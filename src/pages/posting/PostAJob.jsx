@@ -724,7 +724,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                                     transition-colors duration-200
                                                                 "
                                                             >
-                                                            <PencilIcon className="w-4 h-4" />
+                                                                <PencilIcon className="w-4 h-4" />
                                                             </button>
                                                         </div>
                                                     </div>
@@ -1421,14 +1421,14 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
 
                                         <div
                                             className="
-                                                w-[calc(100vw-40px)] lg:w-[650px]
+                                                w-[calc(100vw-40px)] lg:w-[600px]
                                                 mx-2 lg:mx-6
                                                 grid grid-cols-1 md:grid-cols-2 
                                                 gap-2
                                             "
                                         >
                                             {/* Actual Date */}
-                                            <div className="col-span-1  flex flex-col">
+                                            <div className="flex flex-col">
                                                 <label 
                                                     className='
                                                         my-[12px]
@@ -1464,7 +1464,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
 
 
                                             {/* Deadline Date */}
-                                            <div className="col-span-1    flex flex-col">
+                                            <div className="flex flex-col">
                                                 <label  
                                                     className='
                                                         my-[12px]
