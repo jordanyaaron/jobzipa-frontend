@@ -250,7 +250,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                 // Reset form state
             } catch (error) {
                 setIsLoading(false)
-                console.error("Post Job Error:", error.response || error);
+                console.log("Post Job Error:", error.response || error);
                 toast.error("Failed to post job. Please try again.");
             }
         };
