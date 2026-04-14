@@ -59,7 +59,7 @@ import {
         </div>
   
         {/* DESCRIPTION */}
-        <div
+        <div className="text-sm text-gray-600 dark:text-gray-300 mt-3 line-clamp-2"
             dangerouslySetInnerHTML={{ __html: job.description }}
         />
   
