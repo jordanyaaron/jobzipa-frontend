@@ -53,8 +53,17 @@ const Home = () => {
             >
               {jobs.map((job) => (
                 <>
-                    <div ></div>
-                    <div className="flex flex-col text-[var(--text)]  pt-6">
+                    <div className="flex flex-col text-[var(--text)]  pt-3" >
+                      {/* header */}
+                      <div  className="flex gap-2">
+                        <img src={job.company_logo} alt="" srcset="" className="h-10 w-10 rounded-full"  />
+                        <div className="flex-1 flex gap-2 justify-between items-center">
+                          <p>{job.company}</p>
+                          <p>{job.actual_date}</p>
+                        </div>
+                      </div>
+                    </div>
+                    {/* <div className="flex flex-col text-[var(--text)]  pt-6">
                         <div
                           key={job.public_id}
                           className="
@@ -63,7 +72,6 @@ const Home = () => {
                             border-b border-[var(--border)]
                           "
                         >
-                          {/* header */}
                           <div className="flex gap-2">
                             <div className="w-10 h-10" >
                               <img src={job.company_logo} alt="" srcset="" className="h-10 w-10 rounded-full"  />
@@ -107,7 +115,7 @@ const Home = () => {
                       
                       
                         </div> 
-                    </div>
+                    </div> */}
                 </>
                 
               )
