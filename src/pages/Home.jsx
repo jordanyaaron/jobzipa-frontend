@@ -52,60 +52,64 @@ const Home = () => {
               "
             >
               {jobs.map((job) => (
-                <div className="flex flex-col text-[var(--text)]  pt-6">
-                <div
-                  key={job.public_id}
-                  className="
-                    p-4 
-                    space-y-4
-                    border-b border-[var(--border)]
-                  "
-                >
-                  {/* header */}
-                  <div className="flex gap-2">
-                    <div className="w-10 h-10" >
-                      <img src={job.company_logo} alt="" srcset="" className="h-10 w-10 rounded-full"  />
-                    <div className="flex-1 flex justify-between items-center " > 
-                      <p>{job.company}</p>
-                      <p>{job.actual_date}</p>
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-2 my-3">
-                    <p>{job.title}</p>
-                    <p>
-                      <span>
-                        {job.location?.length > 0 && (
-                          <>
-                            {job.location[0].locationRigion}, {job.location[0].locationCountry}
+                <>
+                    <div ></div>
+                    <div className="flex flex-col text-[var(--text)]  pt-6">
+                        <div
+                          key={job.public_id}
+                          className="
+                            p-4 
+                            space-y-4
+                            border-b border-[var(--border)]
+                          "
+                        >
+                          {/* header */}
+                          <div className="flex gap-2">
+                            <div className="w-10 h-10" >
+                              <img src={job.company_logo} alt="" srcset="" className="h-10 w-10 rounded-full"  />
+                            <div className="flex-1 flex justify-between items-center " > 
+                              <div>{job.company}</div>
+                              <div>{job.actual_date}</div>
+                            </div>
+                          </div>
+                          <div className="flex flex-col gap-2 my-3">
+                            <div>{job.title}</div>
+                            <div>
+                              <span>
+                                {job.location?.length > 0 && (
+                                  <>
+                                    {job.location[0].locationRigion}, {job.location[0].locationCountry}
 
-                            {job.location.length > 1 && (
-                              <span className="ml-1 text-sm text-gray-500">
-                                +{job.location.length - 1}
+                                    {job.location.length > 1 && (
+                                      <span className="ml-1 text-sm text-gray-500">
+                                        +{job.location.length - 1}
+                                      </span>
+                                    )}
+                                  </>
+                                )}
                               </span>
-                            )}
-                          </>
-                        )}
-                      </span>
-                    </p>
-                    <div className="flex gap-2 text-sm">
-                      <span className="px-2 py-1 bg-blue-100 text-blue-600 rounded-full">
-                        {JOB_TYPE_MAP[job.job_type]}
-                      </span>
+                            </div>
+                            <div className="flex gap-2 text-sm">
+                              <span className="px-2 py-1 bg-blue-100 text-blue-600 rounded-full">
+                                {JOB_TYPE_MAP[job.job_type]}
+                              </span>
 
-                      <span className="px-2 py-1 bg-green-100 text-green-600 rounded-full">
-                        {JOB_MODE_MAP[job.job_mode]}
-                      </span>
+                              <span className="px-2 py-1 bg-green-100 text-green-600 rounded-full">
+                                {JOB_MODE_MAP[job.job_mode]}
+                              </span>
+                            </div>
+                          </div>
+                          <div className="flex  gap-2 my-3">
+                            <button className="h-6 w-6 rounded-sm" ></button>
+                            <button className="h-6 w-6 rounded-sm" ></button>
+                          </div>
+                        </div>
+                      
+                      
+                        </div> 
                     </div>
-                  </div>
-                  <div className="flex  gap-2 my-3">
-                    <button className="h-6 w-6 rounded-sm" ></button>
-                    <button className="h-6 w-6 rounded-sm" ></button>
-                  </div>
-                </div>
-              
-              
-              </div> 
-            </div>
+                </>
+                
               )
             )}
            
