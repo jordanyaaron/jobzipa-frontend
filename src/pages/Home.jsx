@@ -10,6 +10,19 @@ import api from '@/api/axios';
 const Home = () => {
   const [ blockSkeleton , setBlockSkeleton ] = useState(true);
   const [jobs, setJobs] = useState([]);
+  
+  const JOB_TYPE_MAP = {
+    FT: "Full Time",
+    PT: "Part Time",
+    CT: "Contract",
+    IN: "Internship",
+  };
+  
+  const JOB_MODE_MAP = {
+    RM: "Remote",
+    ON: "On-site",
+    HY: "Hybrid",
+  };
 
   useEffect(() => {
     const fetchJobs = async () => {
