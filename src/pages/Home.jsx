@@ -10,7 +10,7 @@ import api from '@/api/axios';
 const Home = () => {
   const [ blockSkeleton , setBlockSkeleton ] = useState(true);
   const [jobs, setJobs] = useState([]);
-  
+
   const JOB_TYPE_MAP = {
     FT: "Full Time",
     PT: "Part Time",
@@ -52,7 +52,7 @@ const Home = () => {
               "
             >
               {jobs.map((job) => (
-                <div className="grid grid-cols-1 text[var(--text)]  pt-6">
+                <div className="flex flex-col text-[var(--text)]  pt-6">
                 <div
                   key={job.public_id}
                   className="
