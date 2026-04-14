@@ -6,6 +6,7 @@ import Footer from '../components/Foote';
 import SkeletonBlock from "@/components/skeletons/JobZipaSkeleton";
 import  JobsSkeleton  from '@/pages/loading-blocks/JobPostLoadinBlock'
 import api from '@/api/axios';
+import { shortTimeAgo } from '@/utils/time';
 
 
 const Home = () => {
@@ -54,17 +55,17 @@ const Home = () => {
             >
               {jobs.map((job) => (
                 <>
-                    <div className="flex flex-col text-[var(--text)]  pt-3" >
+                    <div className="flex flex-col text-[var(--text)]  pt-5" >
                       {/* header */}
                       <div  className="flex gap-2">
                         <img src={job.company_logo} alt="" srcset="" className="h-10 w-10 rounded-full"  />
                         <div className="flex-1 flex gap-2 justify-start items-center">
                           <span>{job.company}</span>
-                          <span>{job.actual_date}</span>
+                          <span>{shortTimeAgo(job.actual_date)}</span>
                         </div>
                       </div>
                       {/* title & locations */}
-                      <div  className="flex flex-col gap-2">
+                      <div  className="flex flex-col pl-3 gap-2">
                         <p>{job.title}</p>
                         <p>
                           {job.location?.length > 0 && (
@@ -80,7 +81,7 @@ const Home = () => {
                           )}
                         </p>
                       </div>
-                      <div className="flex gap-2 text-sm">
+                      <div className="flex gap-2 pl-3  text-sm">
                         <span className="px-2 py-1 bg-blue-100 text-blue-600 rounded-full">
                           {JOB_TYPE_MAP[job.job_type]}
                         </span>
@@ -88,9 +89,9 @@ const Home = () => {
                           {JOB_MODE_MAP[job.job_mode]}
                         </span>
                       </div>
-                      <div className="flex  gap-2 my-3">
+                      <div className="flex pl-3   gap-2 my-3">
                         <button className="p-0" ><BookmarkIcon className="h-6 w-6 "/></button>
-                        <button className="p-0" ><BookmarkIcon className="h-6 w-6 "/></button>
+                        <button className="p-0" ><ShareIcon className="h-6 w-6 "/></button>
                       </div>
                     </div>
                     {/* <div className="flex flex-col text-[var(--text)]  pt-6">

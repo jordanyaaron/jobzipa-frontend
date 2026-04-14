@@ -1,3 +1,5 @@
+import { format } from "timeago.js";
+
 export const formatNotificationTime = (dateString) => {
     const now = new Date();
     const date = new Date(dateString);
@@ -32,3 +34,24 @@ export const formatNotificationTime = (dateString) => {
       year: "numeric",
     });
   };
+
+
+export const shortTimeAgo = (date) => {
+  const full = format(date);
+
+  return full
+    .replace(" minutes", "m")
+    .replace(" minute", "m")
+    .replace(" hours", "h")
+    .replace(" hour", "h")
+    .replace(" days", "d")
+    .replace(" day", "d")
+    .replace(" weeks", "w")
+    .replace(" week", "w")
+    .replace(" months", "mo")
+    .replace(" month", "mo")
+    .replace(" years", "y")
+    .replace(" year", "y")
+    .replace("ago", "")
+    .trim();
+};
