@@ -56,7 +56,7 @@ const Home = () => {
             >
               {jobs.map((job) => (
                 <>
-                    <JobCard key={jod.id} job={job}/>
+                    <JobCard key={job.id} job={job}/>
                     {/* <div className="flex flex-col gap-0 text-[var(--text)]  pt-5" >
                       <div  className="flex gap-2 ">
                         <img src={job.company_logo} alt="" srcset="" className="h-10 w-10 rounded-full"  />
