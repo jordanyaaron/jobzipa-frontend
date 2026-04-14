@@ -51,6 +51,7 @@ const Home = () => {
         :  <main
               className="
                 w-full
+                pt-6
                 lg:w-[710px] 
               "
             >

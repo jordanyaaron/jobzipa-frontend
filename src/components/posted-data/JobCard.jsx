@@ -59,9 +59,9 @@ import {
         </div>
   
         {/* DESCRIPTION */}
-        <p className="text-sm text-gray-600 dark:text-gray-300 mt-3 line-clamp-2">
-          {job.description}
-        </p>
+        <div
+            dangerouslySetInnerHTML={{ __html: job.description }}
+        />
   
         {/* LOCATION */}
         <p className="text-sm mt-2 text-gray-500">
