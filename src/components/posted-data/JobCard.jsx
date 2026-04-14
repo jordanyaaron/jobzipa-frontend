@@ -1,0 +1,106 @@
+import {
+    BookmarkIcon,
+    ArrowUpRightIcon,
+  } from "@heroicons/react/24/outline";
+  import { useState } from "react";
+  import { shortTimeAgo } from "@/utils/time";
+  
+  const JOB_TYPE_MAP = {
+    FT: "Full Time",
+    PT: "Part Time",
+    CT: "Contract",
+  };
+  
+  const JOB_MODE_MAP = {
+    RM: "Remote",
+    ON: "On-site",
+    HY: "Hybrid",
+  };
+  
+  export default function JobCard({ job }) {
+    const [saved, setSaved] = useState(false);
+  
+    return (
+      <div className="border border-[var(--border)] rounded-xl p-4 bg-white dark:bg-gray-900 hover:shadow-md transition">
+  
+        {/* HEADER */}
+        <div className="flex items-start justify-between">
+  
+          <div className="flex gap-3">
+            <img
+              src={job.company_logo}
+              alt="logo"
+              className="w-12 h-12 rounded-lg object-cover"
+            />
+  
+            <div>
+              <h2 className="font-semibold text-lg">{job.title}</h2>
+              <p className="text-sm text-gray-500">{job.company}</p>
+            </div>
+          </div>
+  
+          {/* ACTIONS */}
+          <div className="flex gap-2">
+            <button
+              onClick={() => setSaved(!saved)}
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              <BookmarkIcon
+                className={`h-5 w-5 ${
+                  saved ? "text-blue-500 fill-blue-500" : ""
+                }`}
+              />
+            </button>
+  
+            <button className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+              <ArrowUpRightIcon className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+  
+        {/* DESCRIPTION */}
+        <p className="text-sm text-gray-600 dark:text-gray-300 mt-3 line-clamp-2">
+          {job.description}
+        </p>
+  
+        {/* LOCATION */}
+        <p className="text-sm mt-2 text-gray-500">
+          {job.location?.length > 0 && (
+            <>
+              {job.location[0].locationRigion},{" "}
+              {job.location[0].locationCountry}
+  
+              {job.location.length > 1 && (
+                <span className="ml-1 text-xs text-gray-400">
+                  +{job.location.length - 1}
+                </span>
+              )}
+            </>
+          )}
+        </p>
+  
+        {/* TAGS */}
+        <div className="flex gap-2 mt-3 flex-wrap">
+          <span className="text-xs px-2 py-1 bg-blue-100 text-blue-600 rounded-full">
+            {JOB_TYPE_MAP[job.job_type]}
+          </span>
+  
+          <span className="text-xs px-2 py-1 bg-green-100 text-green-600 rounded-full">
+            {JOB_MODE_MAP[job.job_mode]}
+          </span>
+        </div>
+  
+        {/* FOOTER */}
+        <div className="flex justify-between items-center mt-4 pt-3 border-t border-[var(--border)]">
+  
+          <p className="text-xs text-gray-500">
+            {shortTimeAgo(job.created_at)}
+          </p>
+  
+          <button className="text-sm px-3 py-1 rounded-md bg-black text-white hover:opacity-80">
+            Apply
+          </button>
+        </div>
+      </div>
+    );
+  }

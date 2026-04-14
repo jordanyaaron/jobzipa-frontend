@@ -7,6 +7,7 @@ import SkeletonBlock from "@/components/skeletons/JobZipaSkeleton";
 import  JobsSkeleton  from '@/pages/loading-blocks/JobPostLoadinBlock'
 import api from '@/api/axios';
 import { shortTimeAgo } from '@/utils/time';
+import JobCard from '@/components/posted-data/JobCard';
 
 
 const Home = () => {
@@ -55,8 +56,8 @@ const Home = () => {
             >
               {jobs.map((job) => (
                 <>
-                    <div className="flex flex-col gap-0 text-[var(--text)]  pt-5" >
-                      {/* header */}
+                    <JobCard key={jod.id} job={job}/>
+                    {/* <div className="flex flex-col gap-0 text-[var(--text)]  pt-5" >
                       <div  className="flex gap-2 ">
                         <img src={job.company_logo} alt="" srcset="" className="h-10 w-10 rounded-full"  />
                         <div className="flex-1 flex gap-2 justify-start items-center">
@@ -64,7 +65,6 @@ const Home = () => {
                           <span className="font-light text-[var(--placeholder)]">{shortTimeAgo(job.actual_date)}</span>
                         </div>
                       </div>
-                      {/* title & locations */}
                       <div  className="flex flex-col pl-6 gap-1 mt-2">
                         <p className="font-black">{job.title}</p>
                         <p>
@@ -90,9 +90,8 @@ const Home = () => {
                           <button className="p-0" ><ForwardIcon className="h-5 w-5 "/></button>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                 </>
-                
               )
             )}
            
