@@ -62,6 +62,23 @@ const Home = () => {
                           <p>{job.actual_date}</p>
                         </div>
                       </div>
+                      {/* title & locations */}
+                      <div  className="flex flex-col gap-2">
+                        <p>{job.company}</p>
+                        <p>
+                          {job.location?.length > 0 && (
+                            <>
+                              {job.location[0].locationRigion}, {job.location[0].locationCountry}
+
+                              {job.location.length > 1 && (
+                                <span className="ml-1 text-sm text-gray-500">
+                                  +{job.location.length - 1}
+                                </span>
+                              )}
+                            </>
+                          )}
+                        </p>
+                      </div>
                     </div>
                     {/* <div className="flex flex-col text-[var(--text)]  pt-6">
                         <div
