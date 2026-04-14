@@ -1,4 +1,5 @@
 import React, { useEffect , useState } from 'react';
+import { BookmarkIcon, ShareIcon } from "@heroicons/react/24/outline";
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Nav';
 import Footer from '../components/Foote';
@@ -57,14 +58,14 @@ const Home = () => {
                       {/* header */}
                       <div  className="flex gap-2">
                         <img src={job.company_logo} alt="" srcset="" className="h-10 w-10 rounded-full"  />
-                        <div className="flex-1 flex gap-2 justify-between items-center">
-                          <p>{job.company}</p>
-                          <p>{job.actual_date}</p>
+                        <div className="flex-1 flex gap-2 justify-start items-center">
+                          <span>{job.company}</span>
+                          <span>{job.actual_date}</span>
                         </div>
                       </div>
                       {/* title & locations */}
                       <div  className="flex flex-col gap-2">
-                        <p>{job.company}</p>
+                        <p>{job.title}</p>
                         <p>
                           {job.location?.length > 0 && (
                             <>
@@ -78,6 +79,18 @@ const Home = () => {
                             </>
                           )}
                         </p>
+                      </div>
+                      <div className="flex gap-2 text-sm">
+                        <span className="px-2 py-1 bg-blue-100 text-blue-600 rounded-full">
+                          {JOB_TYPE_MAP[job.job_type]}
+                        </span>
+                        <span className="px-2 py-1 bg-green-100 text-green-600 rounded-full">
+                          {JOB_MODE_MAP[job.job_mode]}
+                        </span>
+                      </div>
+                      <div className="flex  gap-2 my-3">
+                        <button className="p-0" ><BookmarkIcon className="h-6 w-6 "/></button>
+                        <button className="p-0" ><BookmarkIcon className="h-6 w-6 "/></button>
                       </div>
                     </div>
                     {/* <div className="flex flex-col text-[var(--text)]  pt-6">
