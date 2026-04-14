@@ -1,5 +1,5 @@
 import React, { useEffect , useState } from 'react';
-import { BookmarkIcon, ArrowUpTrayIcon } from "@heroicons/react/24/outline";
+import { BookmarkIcon, ForwardIcon } from "@heroicons/react/24/outline";
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Nav';
 import Footer from '../components/Foote';
@@ -55,9 +55,9 @@ const Home = () => {
             >
               {jobs.map((job) => (
                 <>
-                    <div className="flex flex-col gap-2 text-[var(--text)]  pt-5" >
+                    <div className="flex flex-col gap-0 text-[var(--text)]  pt-5" >
                       {/* header */}
-                      <div  className="flex gap-2">
+                      <div  className="flex gap-2 ">
                         <img src={job.company_logo} alt="" srcset="" className="h-10 w-10 rounded-full"  />
                         <div className="flex-1 flex gap-2 justify-start items-center">
                           <span>{job.company}</span>
@@ -65,7 +65,7 @@ const Home = () => {
                         </div>
                       </div>
                       {/* title & locations */}
-                      <div  className="flex flex-col pl-6 gap-1">
+                      <div  className="flex flex-col pl-6 gap-1 mt-2">
                         <p className="font-black">{job.title}</p>
                         <p>
                           {job.location?.length > 0 && (
@@ -81,11 +81,11 @@ const Home = () => {
                           )}
                         </p>
                       </div>
-                      <div className="flex gap-2 pl-6  text-sm  justify-between items-center">
+                      <div className="flex mt-1 gap-2 pl-6  text-sm  justify-between items-center">
                         <p>
                           {JOB_TYPE_MAP[job.job_type]} • {JOB_MODE_MAP[job.job_mode]}
                         </p>
-                        <div className="flex gap-2 my-3">
+                        <div className="flex gap-3 my-3">
                           <button className="p-0" ><BookmarkIcon className="h-5 w-5 "/></button>
                           <button className="p-0" ><ArrowUpTrayIcon className="h-5 w-5 "/></button>
                         </div>
