@@ -94,11 +94,11 @@ import {
         <div className="flex justify-between items-center mt-4 pt-3 border-t border-[var(--border)]">
   
           <p className="text-xs text-gray-500">
-            {shortTimeAgo(job.created_at)}
+            {shortTimeAgo(job.actual_date)}
           </p>
   
           <button className="text-sm px-3 py-1 rounded-md bg-black text-white hover:opacity-80">
-            Apply
+            View more
           </button>
         </div>
       </div>
