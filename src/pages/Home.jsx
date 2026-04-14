@@ -61,7 +61,7 @@ const Home = () => {
                         <img src={job.company_logo} alt="" srcset="" className="h-10 w-10 rounded-full"  />
                         <div className="flex-1 flex gap-2 justify-start items-center">
                           <span>{job.company}</span>
-                          <span className="font-black">{shortTimeAgo(job.actual_date)}</span>
+                          <span className="font-light text-[var(--placeholder)]">{shortTimeAgo(job.actual_date)}</span>
                         </div>
                       </div>
                       {/* title & locations */}
@@ -81,12 +81,11 @@ const Home = () => {
                           )}
                         </p>
                       </div>
-                      <div className="flex gap-2 pl-3  text-sm">
+                      <div className="flex gap-2 pl-6  text-sm  justify-start items-center">
                       <p>
                         {JOB_TYPE_MAP[job.job_type]} • {JOB_MODE_MAP[job.job_mode]}
                       </p>
-                      </div>
-                      <div className="flex pl-6   gap-2 my-3">
+                      <div className="flex gap-2 my-3">
                         <button className="p-0" ><BookmarkIcon className="h-4 w-4 "/></button>
                         <button className="p-0" ><ShareIcon className="h-4 w-4 "/></button>
                       </div>
