@@ -1,5 +1,5 @@
 import React, { useEffect , useState } from 'react';
-import { BookmarkIcon, ShareIcon } from "@heroicons/react/24/outline";
+import { BookmarkIcon, ArrowUpTrayIcon } from "@heroicons/react/24/outline";
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Nav';
 import Footer from '../components/Foote';
@@ -81,13 +81,13 @@ const Home = () => {
                           )}
                         </p>
                       </div>
-                      <div className="flex gap-2 pl-6  text-sm  justify-start items-center">
+                      <div className="flex gap-2 pl-6  text-sm  justify-between items-center">
                         <p>
                           {JOB_TYPE_MAP[job.job_type]} • {JOB_MODE_MAP[job.job_mode]}
                         </p>
                         <div className="flex gap-2 my-3">
-                          <button className="p-0" ><BookmarkIcon className="h-4 w-4 "/></button>
-                          <button className="p-0" ><ShareIcon className="h-4 w-4 "/></button>
+                          <button className="p-0" ><BookmarkIcon className="h-5 w-5 "/></button>
+                          <button className="p-0" ><ArrowUpTrayIcon className="h-5 w-5 "/></button>
                         </div>
                       </div>
                     </div>
