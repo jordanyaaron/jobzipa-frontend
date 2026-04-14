@@ -87,7 +87,7 @@ const Home = () => {
                         </p>
                         <div className="flex gap-3 my-3">
                           <button className="p-0" ><BookmarkIcon className="h-5 w-5 "/></button>
-                          <button className="p-0" ><ArrowUpTrayIcon className="h-5 w-5 "/></button>
+                          <button className="p-0" ><ForwardIcon className="h-5 w-5 "/></button>
                         </div>
                       </div>
                     </div>
