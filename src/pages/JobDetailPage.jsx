@@ -41,7 +41,7 @@ export default function JobDetailPage() {
     }, []);
 
     return (
-        <main className="pt-16 bg-[var(--main-bg)] px-4 md:px-6 flex-1 overflow-y-auto">
+        <main className="pt-6 lg:pt-16 bg-[var(--main-bg)] px-1 md:px-6 flex-1 overflow-y-auto">
             <div className="w-fulll flex  gap-2 justify-center" >
                 {
                 blockSkeleton 
