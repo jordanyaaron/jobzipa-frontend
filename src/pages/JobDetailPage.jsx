@@ -17,6 +17,7 @@ export default function JobDetailPage() {
                   lg:w-[710px] 
                 "
               >
+                <h1>job detail</h1>
                 
               </main>
         }
