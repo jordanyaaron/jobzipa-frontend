@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes , Route } from 'react-router-dom';
 
+
 // route
 
 import ProtectedRoute from "./ProtectedRoute";
@@ -11,9 +12,11 @@ import HomeLayout from '../layouts/HomeLayout';
 import PostLayout from '../layouts/PostLayout';
 import AuthLayout from '../layouts/AuthLayout';
 import DashboardLayout from '../layouts/DashboardLayout';
+import JobLayout from "@/layouts/JobLayout";
 
 // elements
 import Home from '../pages/Home';
+import JobDetailPage from "@/pages/JobDetailPage";
 import GenaralBookmark from '../pages/Bookmacked';
 import GenealNotifications from '../pages/Notifacations';
 import GenaralSettings from '../pages/GeneralSettings';
@@ -69,6 +72,7 @@ import SettingsStaff from '../pages/dashboard/Settings'
 const AppRoutes = ({ darkMode, setDarkMode }) => {
     return (
       <Routes>
+
         <Route  element={<HomeLayout darkMode={darkMode} setDarkMode={setDarkMode} />}>
             <Route path="/" element={<Home />} />
             <Route path="/bookmarked" element={<GenaralBookmark />} />
@@ -89,6 +93,11 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
                 <DashboardComeSoon />
               </ProtectedRoute>
             } />
+        </Route>
+
+
+        <Route path="/jobs" element={<JobLayout />}>
+          <Route path=":id" element={<JobDetailPage />} />
         </Route>
 
         <Route element={<AuthLayout/>}>
@@ -215,6 +224,8 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
               } 
             />
         </Route> 
+
+
 
 
         {/* <Route element={<StaffDashboardLayout  darkMode={darkMode} setDarkMode={setDarkMode}  />}>

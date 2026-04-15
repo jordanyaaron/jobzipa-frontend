@@ -1,9 +1,10 @@
 import {
     BookmarkIcon,
     ArrowUpRightIcon,
-  } from "@heroicons/react/24/outline";
-  import { useState } from "react";
-  import { shortTimeAgo } from "@/utils/time";
+} from "@heroicons/react/24/outline";
+import { useState } from "react";
+import { shortTimeAgo } from "@/utils/time";
+import { Link } from "react-router-dom";
   
   const JOB_TYPE_MAP = {
     FT: "Full Time",
@@ -34,8 +35,10 @@ import {
             />
   
             <div>
-              <h2 className="font-semibold text-lg">{job.title}</h2>
-              <p className="text-sm text-gray-500">{job.company}</p>
+                <Link to={`/jobs/${job.public_id}`}>
+                    <h2 className="font-semibold text-lg hover:underline">{job.title}</h2>
+                </Link>
+                <p className="text-sm text-gray-500">{job.company}</p>
             </div>
           </div>
   
@@ -93,13 +96,12 @@ import {
         {/* FOOTER */}
         <div className="flex justify-between items-center mt-4 pt-3 border-t border-[var(--border)]">
   
-          <p className="text-xs text-gray-500">
-            {shortTimeAgo(job.actual_date)}
-          </p>
-  
-          <button className="text-sm px-3 py-1 rounded-md bg-black text-white hover:opacity-80">
-            View more
-          </button>
+            <p className="text-xs text-gray-500">
+                {shortTimeAgo(job.actual_date)}
+            </p>
+            <Link to={`/jobs/${job.public_id}`} className="text-sm px-3 py-2 rounded-md bg-black text-white hover:opacity-80">
+                View more
+            </Link>
         </div>
       </div>
     );
