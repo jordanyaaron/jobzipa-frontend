@@ -1,3 +1,4 @@
+import { useState} from "react-router-dom";
 import SkeletonBlock from "@/components/skeletons/JobZipaSkeleton";
 import  JobsSkeleton  from '@/pages/loading-blocks/JobPostLoadinBlock'
 
@@ -17,7 +18,6 @@ export default function JobDetailPage() {
                 "
               >
                 
-              
               </main>
         }
         <aside className="p-6 hidden lg:flex gap-3 flex-col ">
