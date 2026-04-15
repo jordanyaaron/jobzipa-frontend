@@ -39,7 +39,7 @@ const Home = () => {
               className="
                 w-full
                 pt-6
-                lg:w-[710px] 
+                lg:w-[600px] 
               "
             >
               {jobs.map((job) => (
