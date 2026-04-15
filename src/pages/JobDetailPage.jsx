@@ -54,7 +54,7 @@ export default function JobDetailPage() {
                         text-[var(--text)]
                         "
                     >              {/* MAIN */}
-                        <div className="lg:col-span-2 space-y-4">
+                        <div className="lg:col-span-2 space-y-2">
                             
                             {/* HEADER */}
                             <div className="p-5 ">
@@ -94,9 +94,9 @@ export default function JobDetailPage() {
 
                                 </div>
 
-                                {/* APPLY BUTTON */}
+                                
+                                {/* META */}
                                 <div className="mt-4">
-                                    {/* META */}
                                     <div className="flex flex-wrap gap-2 mt-2 text-sm text-gray-500">
                                         <span>
                                             {job.location?.[0]?.locationRigion},{" "}
@@ -107,9 +107,10 @@ export default function JobDetailPage() {
                                         <span>•</span>
 
                                         <span>{JOB_TYPE_MAP[job.job_type]}</span>
+                                    </div>
 
-                                        <span>•</span>
-
+                                    <div className="flex flex-wrap gap-2 mt-2 text-sm text-gray-500">
+                                        
                                         <span>{JOB_MODE_MAP[job.job_mode]}</span>
 
                                         <span>•</span>
@@ -118,8 +119,8 @@ export default function JobDetailPage() {
                                     </div>
                                 </div>
 
-                                {/* APPLY BUTTON */}
-                                <div className="mt-4 flex lg:hidden">
+                                {/* ACTION BUTTON ON MOBILE */}
+                                <div className="ml-[-10px] mt-2 flex lg:hidden">
                                     <div className="flex lg:hidden gap-2" >
                                         <button
                                             onClick={() => setSaved(!saved)}
@@ -149,11 +150,11 @@ export default function JobDetailPage() {
                                 />
                             </div>
 
-                            <div className="mt-4">
+                            <div className="p-5 ">
                                 <a
                                     href={job.application_link}
                                     target="_blank"
-                                    className="inline-block px-5 py-2 bg-black text-white rounded-md hover:opacity-80"
+                                    className="inline-block px-5 py-2 bg-[var(--text)] text-[var(--background)] rounded-md hover:opacity-80"
                                 >
                                     Apply Now
                                 </a>
