@@ -128,7 +128,7 @@ export default function JobDetailPage() {
                                         >
                                             <BookmarkIcon
                                                 className={`h-5 w-5 ${
-                                                saved ? "text-blue-500 fill-blue-500" : ""
+                                                saved ? "text-[var(--text)] fill-[var(--text)]" : ""
                                                 }`}
                                             />
                                         </button>
@@ -164,7 +164,7 @@ export default function JobDetailPage() {
                     </main>
                 }
                 <aside className="hidden lg:block pb-10 w-[400px]">
-                    <div className="sticky top-6">
+                    <div className="sticky top-10">
 
                         {/* ADS */}
                         <div className='mt-4 flex flex-col gap-2'>
