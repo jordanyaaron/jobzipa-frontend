@@ -9,8 +9,6 @@ import {
     BookmarkIcon,
     ArrowUpRightIcon,
   } from "@heroicons/react/24/outline";
-  import { useParams } from "react-router-dom";
-  import { useEffect, useState } from "react";
   import { shortTimeAgo } from "@/utils/time";
   
   const JOB_TYPE_MAP = {
