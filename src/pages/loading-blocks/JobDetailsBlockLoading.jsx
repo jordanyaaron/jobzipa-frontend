@@ -9,32 +9,41 @@ export default function JobDetailSkeleton() {
               lg:w-[600px]
             "
     >
-        <div className="grid grid-cols-1  gap-6">
+        <div className="grid grid-cols-1 pt-6 gap-3">
 
             {/* MAIN CONTENT */}
-            <div className=" space-y-4">
+            <div className=" space-y-4 ">
 
                 {/* Header */}
-                <div className="bg-white dark:bg-gray-900 p-5 rounded-xl border space-y-3">
-                <SkeletonBlock className="h-6 w-2/3" />
-                <SkeletonBlock className="h-4 w-1/3" />
+                <div className="p-5  space-y-3">
+                <div className="flex gap-2">
+                    <div className="w-10 h-10" > <SkeletonBlock className="h-10 w-10 rounded-full" /></div>
+                    <div className="flex-1 flex justify-between items-center " > 
+                      <SkeletonBlock className="h-4 w-1/2  rounded-xl" />
+                      <SkeletonBlock className="h-4 w-10 rounded-full" />
+                    </div>
+                  </div>
                 </div>
 
                 {/* Description */}
-                <div className="bg-white dark:bg-gray-900 p-5 rounded-xl border space-y-3">
+                <div className="p-5 space-y-3">
                 <SkeletonBlock className="h-5 w-1/4" />
 
-                <SkeletonBlock className="h-4 w-full" />
-                <SkeletonBlock className="h-4 w-full" />
-                <SkeletonBlock className="h-4 w-5/6" />
-                <SkeletonBlock className="h-4 w-2/3" />
+                    <SkeletonBlock className="h-4 w-full" />
+                    <SkeletonBlock className="h-4 w-full" />
+                    <SkeletonBlock className="h-4 w-5/6" />
+                    <SkeletonBlock className="h-4 w-2/3" />
+                    <SkeletonBlock className="h-4 w-1/3" />
+                    <SkeletonBlock className="h-4 w-2/3" />
+                    <SkeletonBlock className="h-4 w-1/4" />
                 </div>
 
                 {/* Extra Section */}
-                <div className="bg-white dark:bg-gray-900 p-5 rounded-xl border space-y-3">
-                <SkeletonBlock className="h-5 w-1/3" />
-                <SkeletonBlock className="h-4 w-full" />
-                <SkeletonBlock className="h-4 w-4/5" />
+                <div className="p-5 e-y-3">
+                    <SkeletonBlock className="h-5 w-1/3" />
+                    <SkeletonBlock className="h-4 w-full" />
+                    <SkeletonBlock className="h-4 w-4/5" />
+                    <SkeletonBlock className="h-4 w-3/5" />
                 </div>
 
             </div>
