@@ -57,7 +57,7 @@ export default function JobDetailPage() {
                         <div className="lg:col-span-2 space-y-0.5">
                             
                             {/* HEADER */}
-                            <div className="p-2 ">
+                            <div className="p-4 ">
 
                                 <div className="flex justify-between items-start">
 
@@ -142,7 +142,7 @@ export default function JobDetailPage() {
                             </div>
 
                             {/* DESCRIPTION */}
-                            <div className=" p-2 ">
+                            <div className=" p-4 mb-[-10px]">
 
                                 <div
                                 className="prose dark:prose-invert max-w-none text-sm"
@@ -150,7 +150,7 @@ export default function JobDetailPage() {
                                 />
                             </div>
 
-                            <div className="p-2 mb-5">
+                            <div className="p-4 mb-5">
                                 <a
                                     href={job.application_link}
                                     target="_blank"
