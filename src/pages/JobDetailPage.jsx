@@ -56,7 +56,7 @@ export default function JobDetailPage() {
                         <div className="lg:col-span-2 space-y-4">
                             
                             {/* HEADER */}
-                            <div className="bg-white dark:bg-gray-900 p-5 rounded-xl border">
+                            <div className="p-5 ">
 
                                 <div className="flex justify-between items-start">
 
@@ -128,7 +128,7 @@ export default function JobDetailPage() {
                             </div>
 
                             {/* DESCRIPTION */}
-                            <div className="bg-white dark:bg-gray-900 p-5 rounded-xl border">
+                            <div className=" p-5 ">
 
                                 <div
                                 className="prose dark:prose-invert max-w-none text-sm"
