@@ -1,4 +1,4 @@
-import { useState} from "react-router-dom";
+import React, { useState}  from "react";
 import SkeletonBlock from "@/components/skeletons/JobZipaSkeleton";
 import  JobsSkeleton  from '@/pages/loading-blocks/JobPostLoadinBlock'
 
