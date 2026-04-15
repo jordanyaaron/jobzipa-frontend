@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet , Link} from "react-router-dom";
 import JobzipaLogo from "@/assets/logos/jobzipa.png";
 
 export default function JobLayout() {
