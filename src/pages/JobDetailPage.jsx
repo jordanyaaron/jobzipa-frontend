@@ -42,7 +42,7 @@ export default function JobDetailPage() {
 
     return (
         <main className="pt-10 lg:pt-16 bg-[var(--main-bg)] px-1 md:px-6 flex-1 overflow-y-auto">
-            <div className="w-fulll flex  gap-2 justify-center" >
+            <div className="w-fulll flex  gap-2 justify-center relative" >
                 {
                 blockSkeleton 
                 ?  <JobDetailSkeleton />
@@ -163,23 +163,30 @@ export default function JobDetailPage() {
                         </div>
                     </main>
                 }
-                <aside className="p-6 hidden w-[400px] lg:flex gap-3 flex-col ">
-                    <div className=' mt-4 flex-col  flex gap-2'>
-                    <SkeletonBlock className="w-20 h-6 "/>
-                    <SkeletonBlock className="w-full h-[150px]"/>
+                <aside className="hidden lg:block w-[400px]">
+                    <div className="sticky top-20">
+
+                        {/* ADS */}
+                        <div className='mt-4 flex flex-col gap-2'>
+                        <SkeletonBlock className="w-20 h-6"/>
+                        <SkeletonBlock className="w-full h-[150px]"/>
+                        </div>
+
+                        <div className='flex gap-2'>
+                        <div>
+                            <SkeletonBlock className="w-[100px] h-[100px]"/>
+                        </div>
+                        <div className='flex-1 flex flex-col gap-2'>
+                            <SkeletonBlock className="h-5 w-full"/>
+                            <SkeletonBlock className="h-5 w-3/4"/>
+                            <SkeletonBlock className="h-5 w-1/4"/>
+                        </div>
+                        </div>
+
+                        <Footer />
+
                     </div>
-                    <div className='flex gap-2'>
-                    <div className=''>
-                        <SkeletonBlock className="w-[100px] h-[100px]"/>
-                    </div>
-                    <div className='flex-1 flex flex-col gap-2'>
-                        <SkeletonBlock className="h-5 w-full"/>
-                        <SkeletonBlock className="h-5 w-3/4"/>
-                        <SkeletonBlock className="h-5 w-1/4"/>
-                    </div>
-                    </div>
-                    <Footer/>
-                </aside>
+                    </aside>
             </div>
         </main>
             
