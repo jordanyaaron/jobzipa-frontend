@@ -29,6 +29,7 @@ export default function JobDetailPage() {
     const { id } = useParams();
     const [job, setJob] = useState(null);
     const [ blockSkeleton , setBlockSkeleton ] = useState(true);
+    const [saved, setSaved] = useState(false);
 
     useEffect(() => {
         api.get(`jobs/${id}/`) // badilisha na dynamic id
