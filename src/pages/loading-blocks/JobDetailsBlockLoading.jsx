@@ -45,6 +45,14 @@ export default function JobDetailSkeleton() {
                     <SkeletonBlock className="h-4 w-3/5" />
                 </div>
 
+                {/* Extra Section */}
+                <div className="p-2 space-y-3">
+                    <SkeletonBlock className="h-5 w-1/3" />
+                    <SkeletonBlock className="h-4 w-full" />
+                    <SkeletonBlock className="h-4 w-4/5" />
+                    <SkeletonBlock className="h-4 w-3/5" />
+                </div>
+
             </div>
         </div>
     </div>
