@@ -38,7 +38,7 @@ export default function JobDetailSkeleton() {
                 </div>
 
                 {/* Extra Section */}
-                <div className="p-2 space-y-3">
+                <div className="p-2 mb-10 space-y-3">
                     <SkeletonBlock className="h-5 w-1/3" />
                     <SkeletonBlock className="h-4 w-full" />
                     <SkeletonBlock className="h-4 w-4/5" />
@@ -47,9 +47,9 @@ export default function JobDetailSkeleton() {
 
                 {/* Extra Section */}
                 <div className="p-2 space-y-3">
-                    <SkeletonBlock className="h-5 w-1/3" />
-                    <SkeletonBlock className="h-4 w-full" />
+                    <SkeletonBlock className="h-5 w-2/5" />
                     <SkeletonBlock className="h-4 w-4/5" />
+                    <SkeletonBlock className="h-4 w-full" />
                     <SkeletonBlock className="h-4 w-3/5" />
                 </div>
 

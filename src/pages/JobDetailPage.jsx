@@ -1,11 +1,26 @@
-import React, { useState}  from "react";
+import React, {useEffect, useState}  from "react";
 import Footer from "@/components/Foote";
 import SkeletonBlock from "@/components/skeletons/JobZipaSkeleton";
-import  JobDetailSkeleton  from '@/pages/loading-blocks/JobDetailsBlockLoading'
+import JobDetailSkeleton  from '@/pages/loading-blocks/JobDetailsBlockLoading';
+import api from "@/api/axios";
+import { useParams } from "react-router-dom";
+
+
 
 export default function JobDetailPage() {
-
+    const { id } = useParams();
+    const [job, setJob] = useState(null);
     const [ blockSkeleton , setBlockSkeleton ] = useState(true);
+
+    useEffect(() => {
+        api.get(`jobs/${id}/`) // badilisha na dynamic id
+        .then(res => {
+            setJob(res.data);
+        })
+        .catch(err => console.log(err))
+        .finally(() => setBlockSkeleton(false));
+    }, []);
+
     return (
         <main className="pt-16 bg-[var(--main-bg)] px-4 md:px-6 flex-1 overflow-y-auto">
             <div className="w-fulll flex  gap-2 justify-center" >
@@ -19,7 +34,7 @@ export default function JobDetailPage() {
                         lg:w-[600px] 
                         "
                     >
-                        <h1>job detail</h1>
+                        <h1>{job.title}</h1>
                         
                     </main>
                 }
