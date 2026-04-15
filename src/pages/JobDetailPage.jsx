@@ -150,7 +150,7 @@ export default function JobDetailPage() {
                                 />
                             </div>
 
-                            <div className="p-5 ">
+                            <div className="p-5 mb-5">
                                 <a
                                     href={job.application_link}
                                     target="_blank"
