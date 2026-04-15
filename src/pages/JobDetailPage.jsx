@@ -54,7 +54,7 @@ export default function JobDetailPage() {
                         text-[var(--text)]
                         "
                     >              {/* MAIN */}
-                        <div className="lg:col-span-2 space-y-2">
+                        <div className="lg:col-span-2 space-y-0.5">
                             
                             {/* HEADER */}
                             <div className="p-5 ">
