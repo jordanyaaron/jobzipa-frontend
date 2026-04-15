@@ -41,7 +41,7 @@ export default function JobDetailPage() {
     }, []);
 
     return (
-        <main className="pt-6 lg:pt-16 bg-[var(--main-bg)] px-1 md:px-6 flex-1 overflow-y-auto">
+        <main className="pt-10 lg:pt-16 bg-[var(--main-bg)] px-1 md:px-6 flex-1 overflow-y-auto">
             <div className="w-fulll flex  gap-2 justify-center" >
                 {
                 blockSkeleton 
@@ -51,6 +51,7 @@ export default function JobDetailPage() {
                         w-full
                         pt-6
                         lg:w-[600px] 
+                        text-[var(--text)]
                         "
                     >              {/* MAIN */}
                         <div className="lg:col-span-2 space-y-4">
@@ -60,23 +61,47 @@ export default function JobDetailPage() {
 
                                 <div className="flex justify-between items-start">
 
-                                <div className="flex gap-4">
-                                    <img
-                                    src={job.company_logo}
-                                    alt=""
-                                    className="w-14 h-14 rounded-lg object-cover"
-                                    />
+                                    <div className="flex gap-4">
+                                        <img
+                                        src={job.company_logo}
+                                        alt=""
+                                        className="w-14 h-14 rounded-lg object-cover"
+                                        />
 
-                                    <div>
-                                    <h1 className="text-2xl font-bold">{job.title}</h1>
-                                    <p className="text-gray-500">{job.company}</p>
+                                        <div>
+                                            <h1 className="text-2xl font-bold">{job.title}</h1>
+                                            <p className="text-gray-500">{job.company}</p>
+                                        </div>
+                                    </div>
 
+                                    {/* ACTIONS */}
+                                    <div className="hidden lg:flex gap-2" >
+                                        <button
+                                            onClick={() => setSaved(!saved)}
+                                            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                                        >
+                                            <BookmarkIcon
+                                                className={`h-5 w-5 ${
+                                                saved ? "text-blue-500 fill-blue-500" : ""
+                                                }`}
+                                            />
+                                        </button>
+
+                                        <button className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                                            <ArrowUpRightIcon className="h-5 w-5" />
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                                {/* APPLY BUTTON */}
+                                <div className="mt-4">
                                     {/* META */}
                                     <div className="flex flex-wrap gap-2 mt-2 text-sm text-gray-500">
                                         <span>
-                                        {job.location?.[0]?.locationRigion},{" "}
-                                        {job.location?.[0]?.locationCountry}
-                                        {job.location?.length > 1 && ` +${job.location.length - 1}`}
+                                            {job.location?.[0]?.locationRigion},{" "}
+                                            {job.location?.[0]?.locationCountry}
+                                            {job.location?.length > 1 && ` +${job.location.length - 1}`}
                                         </span>
 
                                         <span>•</span>
@@ -91,38 +116,26 @@ export default function JobDetailPage() {
 
                                         <span>{shortTimeAgo(job.created_at)}</span>
                                     </div>
-                                    </div>
-                                </div>
-
-                                {/* ACTIONS */}
-                                <div className="flex gap-2">
-                                    <button
-                                    onClick={() => setSaved(!saved)}
-                                    className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
-                                    >
-                                    <BookmarkIcon
-                                        className={`h-5 w-5 ${
-                                        saved ? "text-blue-500 fill-blue-500" : ""
-                                        }`}
-                                    />
-                                    </button>
-
-                                    <button className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
-                                    <ArrowUpRightIcon className="h-5 w-5" />
-                                    </button>
-                                </div>
-
                                 </div>
 
                                 {/* APPLY BUTTON */}
-                                <div className="mt-4">
-                                <a
-                                    href={job.application_link}
-                                    target="_blank"
-                                    className="inline-block px-5 py-2 bg-black text-white rounded-md hover:opacity-80"
-                                >
-                                    Apply Now
-                                </a>
+                                <div className="mt-4 flex lg:hidden">
+                                    <div className="flex lg:hidden gap-2" >
+                                        <button
+                                            onClick={() => setSaved(!saved)}
+                                            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                                        >
+                                            <BookmarkIcon
+                                                className={`h-5 w-5 ${
+                                                saved ? "text-blue-500 fill-blue-500" : ""
+                                                }`}
+                                            />
+                                        </button>
+
+                                        <button className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                                            <ArrowUpRightIcon className="h-5 w-5" />
+                                        </button>
+                                    </div>
                                 </div>
 
                             </div>
@@ -134,6 +147,16 @@ export default function JobDetailPage() {
                                 className="prose dark:prose-invert max-w-none text-sm"
                                     dangerouslySetInnerHTML={{ __html: job.description }}
                                 />
+                            </div>
+
+                            <div className="mt-4">
+                                <a
+                                    href={job.application_link}
+                                    target="_blank"
+                                    className="inline-block px-5 py-2 bg-black text-white rounded-md hover:opacity-80"
+                                >
+                                    Apply Now
+                                </a>
                             </div>
 
                         </div>
