@@ -1,4 +1,5 @@
 import React, { useState}  from "react";
+import Footer from "@/components/Foote";
 import SkeletonBlock from "@/components/skeletons/JobZipaSkeleton";
 import  JobsSkeleton  from '@/pages/loading-blocks/JobPostLoadinBlock'
 
