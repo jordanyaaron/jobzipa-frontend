@@ -1,7 +1,7 @@
 import React, { useState}  from "react";
 import Footer from "@/components/Foote";
 import SkeletonBlock from "@/components/skeletons/JobZipaSkeleton";
-import  JobsSkeleton  from '@/pages/loading-blocks/JobPostLoadinBlock'
+import  JobDetailSkeleton  from '@/pages/loading-blocks/JobDetailsBlockLoading'
 
 export default function JobDetailPage() {
 
@@ -11,12 +11,12 @@ export default function JobDetailPage() {
             <div className="w-fulll flex  gap-2 justify-center" >
                 {
                 blockSkeleton 
-                ?  <JobsSkeleton />
+                ?  <JobDetailSkeleton />
                 :  <main
                         className="
                         w-full
                         pt-6
-                        lg:w-[710px] 
+                        lg:w-[600px] 
                         "
                     >
                         <h1>job detail</h1>
