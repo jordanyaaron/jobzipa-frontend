@@ -7,7 +7,7 @@ export default function JobLayout() {
     <div className="flex h-screen overflow-hidden bg-[var(--main-bg)]">
 
       {/* Main */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col justify-center">
 
         {/* Header */}
         <header className="fixed top-0 left-0 w-full z-40 border-b border-[var(--border)]  bg-[var(--header-bg)]">
