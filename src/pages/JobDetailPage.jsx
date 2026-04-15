@@ -163,7 +163,7 @@ export default function JobDetailPage() {
                         </div>
                     </main>
                 }
-                <aside className="hidden lg:block w-[400px]">
+                <aside className="hidden lg:block pb-10 w-[400px]">
                     <div className="sticky top-6">
 
                         {/* ADS */}
