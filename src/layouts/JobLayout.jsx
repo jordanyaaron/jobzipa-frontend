@@ -1,43 +1,31 @@
 import { Outlet } from "react-router-dom";
+import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
 export default function JobLayout() {
   return (
-    <div className="min-h-screen bg-[var(--main-bg)]">
+    <div className="flex h-screen overflow-hidden bg-[var(--main-bg)]">
 
-      <div className="max-w-7xl mx-auto px-4 py-6">
+      {/* Main */}
+      <div className="flex-1 flex flex-col">
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-          {/* LEFT (optional sidebar or filters) */}
-          <div className="hidden lg:block">
-            {/* unaweza kuweka filters au navigation hapa */}
-          </div>
-
-          {/* MAIN CONTENT */}
-          <div className="lg:col-span-2">
-            <Outlet />
-          </div>
-
-          {/* RIGHT ADS SIDEBAR */}
-          <div className="hidden lg:block space-y-4">
-
-            <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-xl">
-              <h3 className="font-semibold">Sponsored</h3>
-              <p className="text-sm text-gray-600">
-                Your ad here...
-              </p>
+        {/* Header */}
+        <header className="fixed top-0 left-0 w-full z-40 border-b border-[var(--border)]  bg-[var(--header-bg)]">
+            <div
+                className="flex items-center justify-between px-4 md:px-6 h-16 transition-all duration-200 "
+            >
+                {/* Left */}
+                <div className="flex items-center gap-3">
+                    <Link to="/" className="flex items-center">
+                        <img src={JobzipaLogo} alt="Jobzipa" className="h-9 md:h-10" />
+                    </Link>
+                </div>
             </div>
+        </header>
 
-            <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-xl">
-              <h3 className="font-semibold">Trending Jobs</h3>
-              <p className="text-sm text-gray-600">
-                Latest opportunities...
-              </p>
-            </div>
-
-          </div>
-
-        </div>
+        {/* Pages */}
+        <main className="pt-16 bg-[var(--main-bg)] px-4 md:px-6 flex-1 overflow-y-auto">
+          <Outlet />
+        </main>
 
       </div>
     </div>
