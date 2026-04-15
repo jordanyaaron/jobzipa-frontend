@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import JobzipaLogo from "@/logos/jobzipa.png";
+import JobzipaLogo from "@/assets/logos/jobzipa.png";
 
 export default function JobLayout() {
   return (
