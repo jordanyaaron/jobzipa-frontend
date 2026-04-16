@@ -204,7 +204,7 @@ export default function JobDetailPage() {
                   <a
                     href={job.application_link}
                     target="_blank"
-                    className="inline-block px-5 py-2 bg-black text-white rounded-md hover:opacity-80"
+                    className="inline-block px-5 py-2 bg-[var(--text)] text-[var(--main-bg)] rounded-md hover:opacity-80"
                   >
                     Apply Now
                   </a>

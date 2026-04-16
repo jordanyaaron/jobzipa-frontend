@@ -26,6 +26,18 @@
     border-radius: 10px;
   } */
 
+  .ql-editor ol {
+    padding-left: 1.5rem !important;
+  }
+  
+  .ql-editor li[data-list="bullet"] {
+    list-style-type: disc !important;
+  }
+  
+  .ql-editor li[data-list="ordered"] {
+    list-style-type: decimal !important;
+  }
+
 
   @reference "../index.css";
 
