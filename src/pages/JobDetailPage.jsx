@@ -32,13 +32,45 @@ export default function JobDetailPage() {
     const [saved, setSaved] = useState(false);
 
     useEffect(() => {
-        api.get(`jobs/${id}/`) // badilisha na dynamic id
-        .then(res => {
+        const fetchJobDetail = async () => {
+      
+          // 🔥 1. CHECK FROM CACHED JOBS LIST
+          const cachedJobs = localStorage.getItem("jobs_cache");
+      
+          if (cachedJobs) {
+            const parsedJobs = JSON.parse(cachedJobs);
+      
+            const foundJob = parsedJobs.find(
+              (j) => j.public_id === id
+            );
+      
+            if (foundJob) {
+              console.log("⚡ Job found in cache");
+              setJob(foundJob);
+              setBlockSkeleton(false);
+      
+              // 🔄 optional: update background
+              api.get(`jobs/${id}/`).then(res => {
+                setJob(res.data);
+              });
+      
+              return;
+            }
+          }
+      
+          // 🌐 2. FETCH FROM API
+          try {
+            const res = await api.get(`jobs/${id}/`);
             setJob(res.data);
-        })
-        .catch(err => console.log(err))
-        .finally(() => setBlockSkeleton(false));
-    }, []);
+          } catch (err) {
+            console.log("Fetch Job Detail Error:", err.response || err);
+          } finally {
+            setBlockSkeleton(false);
+          }
+        };
+      
+        fetchJobDetail();
+      }, [id]);
 
     return (
         <main className="pt-10 lg:pt-16 bg-[var(--main-bg)] px-1 md:px-6 flex-1 overflow-y-auto">
@@ -146,7 +178,7 @@ export default function JobDetailPage() {
 
                                 <div
                                 className="prose dark:prose-invert max-w-none text-sm"
-                                    dangerouslySetInnerHTML={{ __html: job.description }}
+                                    dangerouslySetInnerHTML={{ __html: job.description.trim() }}
                                 />
                             </div>
 
