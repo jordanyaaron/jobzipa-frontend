@@ -1,6 +1,5 @@
-import React from 'react';
-import Footer from '../components/Foote';
 import React, { useState } from "react";
+import Footer from '../components/Foote';
 import SkeletonBlock from "@/components/skeletons/JobZipaSkeleton";
 
 const GenealNotifications = () => {
