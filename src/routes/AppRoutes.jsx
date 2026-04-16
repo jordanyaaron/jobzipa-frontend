@@ -78,12 +78,17 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
             <Route path="/" element={<Home />} />
             <Route path="/bookmarked" element={<SavedJobsPage />} />
             <Route path="/faq" element={<FaQ />} />
-            <Route path="/notifications" element={<GenealNotifications />} />
+            {/* <Route path="/notifications" element={<GenealNotifications />} /> */}
             <Route path="/settings" element={<GenaralSettings />} />
             <Route path="/search" element={<SearchPage />} />
             {/* <Route path="/invite-staff" element={<InviteStaff />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/faq" element={<FaQ/>} /> */}
+            <Route path="/notifications" element={
+              <ProtectedRoute requireStaffOnly={true}>
+                <GenealNotifications />
+              </ProtectedRoute>
+            } />
             <Route path="/admin" element={
               <ProtectedRoute requireStaffOnly={true}>
                 <DashboardComeSoon />
