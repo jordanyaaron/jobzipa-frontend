@@ -53,7 +53,7 @@ const SavedJobsPage = () => {
                         />
 
                         <div>
-                        <p className="font-semibold">{job.title}</p>
+                        <p className="font-semibold text-[var(--text)] ">{job.title}</p>
                         <p className="text-sm text-gray-500">{job.company}</p>
                         </div>
                     </Link>

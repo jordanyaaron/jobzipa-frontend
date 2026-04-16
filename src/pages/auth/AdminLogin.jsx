@@ -36,9 +36,9 @@ const AdminLogin = () => {
       localStorage.setItem("user", JSON.stringify(response.data.user));
       // Redirect based on role
       if (response.data.user.is_superuser) {
-        navigate("/super" , { replace : true } );
+        navigate("/" , { replace : true } );
       } else if (response.data.user.is_staff) {
-        navigate("/dashboard" , { replace : true } );
+        navigate("/" , { replace : true } );
       } else {
         navigate("/" , { replace : true } );
       }
