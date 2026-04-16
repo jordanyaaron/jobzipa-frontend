@@ -54,7 +54,6 @@ const StaffSidebar = ({ toggleDrawer }) => {
     { name: "Dashboard", icon: Squares2X2Icon, to: dashboardUrl, replace: false },
     { name: "Notifications", icon: BellIcon, to: "/notifications", replace: true },
     { name: "Bookmarked", icon: BookmarkIcon, to: "/bookmarked", replace: true },
-    { name: "Settings", icon: Cog6ToothIcon, to: "/settings", replace: true },
     { name: "FAQ", icon: QuestionMarkCircleIcon, to: "/faq", replace: true },
     { name: "Logout", icon: ArrowLeftStartOnRectangleIcon, action: "logout" },
   ];

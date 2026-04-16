@@ -21,9 +21,8 @@ const PublicSidebar = ({ toggleDrawer }) => {
   const navLinks = [
     { name: "Home", icon: HomeIcon, to: "/", replace: true },
     { name: "Bookmarked", icon: BookmarkIcon, to: "/bookmarked", replace: true },
-    { name: "Login", icon: UserCircleIcon, to: "/login", replace: false },
-    { name: "Settings", icon: Cog6ToothIcon, to: "/settings", replace: true },
     { name: "FAQ", icon: QuestionMarkCircleIcon, to: "/faq", replace: true },
+    { name: "Login", icon: UserCircleIcon, to: "/login", replace: false },
   ];
 
   return (

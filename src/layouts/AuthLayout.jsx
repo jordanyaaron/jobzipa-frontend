@@ -34,7 +34,7 @@ const AuthLayout = () => (
                 bg-white dark:bg-gray-800 z-50
                 p-5 pt-[30px] pb-[30px]
                 -mt-[2px]
-                -mb-6
+                -mb-8
                 h-[60px]
                 flex flex-col items-center justify-center
                 text-center
