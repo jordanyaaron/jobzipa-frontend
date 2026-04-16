@@ -1,9 +1,7 @@
 import { Outlet } from "react-router-dom";
-import DeviceSize from "../components/DeviceSize";
 import "../css/Auth.css";
 import "../css/Home.css";
 // import "../css/Header.css";
-import "../css/DeviceSize.css";// Importing Components
 // import Navbar from '../components/Navbar';
 import Header from "../components/Header";
 import Footer from "../components/Foote";
@@ -35,7 +33,6 @@ const AuthLayout = () => (
             <Footer/>
         </div>
         
-        <DeviceSize/>
         {/* 
         <Navbar/>
         <Outlet />
