@@ -1,4 +1,5 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { useRef , useEffect } from "react";
 import toast from "react-hot-toast";
 
 export default function ShareModal({ open, onClose, job }) {

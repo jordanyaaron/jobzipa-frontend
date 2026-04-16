@@ -7,7 +7,7 @@ import SkeletonBlock from "@/components/skeletons/JobZipaSkeleton";
 import  JobsSkeleton  from '@/pages/loading-blocks/JobPostLoadinBlock'
 import api from '@/api/axios';
 import { shortTimeAgo } from '@/utils/time';
-import JobCard from '@/components/posted-data/JobCard';
+import JobCard from '@/components/cards/JobCard';
 import { saveJobsToCache, getJobsFromCache } from "@/utils/jobCache";
 
 

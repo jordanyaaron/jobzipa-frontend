@@ -58,7 +58,7 @@ import ShareModal from "../models/ShareModel";
                 className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
               >
                 <BookmarkIcon
-                  className={`h-5 w-5 ${
+                  className={`h-5 w-5  text-[var(--text)]  ${
                     saved ? "text-[var(--text)] fill-[var(--text)]" : ""
                   }`}
                 />
@@ -68,7 +68,7 @@ import ShareModal from "../models/ShareModel";
                 onClick={() => setOpenShare(true)}
                 className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
               >
-                <ArrowUpRightIcon className="h-5 w-5" />
+                <ArrowUpRightIcon className="h-5 w-5  text-[var(--text)]  " />
               </button>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "@/api/axios";
-import JobCard from "@/components/posted-data/JobCard";
+import JobCard from '@/components/cards/JobCard';
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
