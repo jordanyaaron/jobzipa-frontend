@@ -27,7 +27,7 @@ const SavedJobsPage = () => {
     <div className="w-fulll flex gap-10" >
       {
         jobs.length === 0 
-        ?  <div className="p-10 text-center text-gray-500">
+        ?  <div className="p-10 w-full lg:w-[560px] text-center text-gray-500">
                 No saved jobs yet 🔖
             </div>
         :  <main

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import {
   SunIcon,
   MoonIcon,
@@ -10,8 +10,19 @@ import {
 
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
+
+
+
 const PublicHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
-  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    if (e.key === "Enter" && query.trim()) {
+      navigate(`/search?q=${query}`);
+    }
+  };
+
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -47,15 +58,16 @@ const PublicHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
         </div>
 
         {/* Desktop Search */}
-        <div className="hidden md:flex flex-1 max-w-xl mx-6">
+        <div className="hidden md:flex flex-1 mx-6">
           <div className="relative w-full">
-            <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 opacity-60" />
+            <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--placeholder)] opacity-60" />
             <input
               type="text"
               placeholder="Search jobs..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 rounded-lg border border-[var(--border)] focus:outline-none text-[var(--text)] placeholder:text-[var(--placeholder)]"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={handleSearch}
+              className="w-full text-[var(--placeholder)] pl-10 pr-4 py-2 rounded-lg border border-[var(--border)] focus:outline-none text-[var(--text)] placeholder:text-[var(--placeholder)]"
             />
           </div>
         </div>
@@ -97,15 +109,16 @@ const PublicHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
             onClick={() => setMobileSearchOpen(false)}
                 className="mr-3 p-2 rounded-lg hover:bg-[var(--hover)]"
             >
-            <ArrowLeftIcon className="h-6 w-6 text-[var(--text)]" />
+              <ArrowLeftIcon className="h-6 w-6 text-[var(--text)]" />
             </button>
 
             {/* Search input */}
             <input
                 type="text"
                 placeholder="Search jobs..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={handleSearch}
                 className="
                     flex-1 px-4 py-2
                     rounded-lg

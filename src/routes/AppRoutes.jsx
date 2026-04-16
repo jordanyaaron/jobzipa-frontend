@@ -20,6 +20,7 @@ import JobDetailPage from "@/pages/JobDetailPage";
 import SavedJobsPage from '../pages/Bookmacked';
 import GenealNotifications from '../pages/Notifacations';
 import GenaralSettings from '../pages/GeneralSettings';
+import SearchPage from '@/pages/SeachPage';
 import FaQ from '../pages/Faq';
 import NotFound from '../pages/NotFound';
 
@@ -79,6 +80,7 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
             <Route path="/faq" element={<FaQ />} />
             <Route path="/notifications" element={<GenealNotifications />} />
             <Route path="/settings" element={<GenaralSettings />} />
+            <Route path="/search" element={<SearchPage />} />
             {/* <Route path="/invite-staff" element={<InviteStaff />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/faq" element={<FaQ/>} /> */}
