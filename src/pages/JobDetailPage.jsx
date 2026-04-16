@@ -181,12 +181,21 @@ export default function JobDetailPage() {
 
                 {/* DESCRIPTION */}
                 <div className="p-4">
-                  <div
-                    className="prose dark:prose-invert max-w-none text-sm"
+                <div
+                    className="
+                        prose
+                        prose-ul:list-disc
+                        prose-ol:list-decimal
+                        prose-li:ml-4
+                        prose-p:leading-relaxed
+                        dark:prose-invert
+                        max-w-none
+                        text-sm
+                    "
                     dangerouslySetInnerHTML={{
-                      __html: job.description?.trim(),
+                        __html: job.description?.trim(),
                     }}
-                  />
+                    />
                 </div>
 
                 {/* APPLY */}
