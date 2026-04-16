@@ -18,7 +18,7 @@ const AuthLayout = () => (
             
             {/* Logo */}
             <div className="flex items-center">
-            <img src={JobzipaLogo} alt="Logo" className="h-14 md:h-16" />
+            <img src={JobzipaLogo} alt="Logo" className="h-9" />
             </div>
         </div>
         </header>
@@ -26,17 +26,33 @@ const AuthLayout = () => (
             absolute
             top-[70px]
             w-full
-            h-[calc(100vh-70px)]
+            h-[calc(100vh-100px)]
             pt-0
         ">
             <Outlet />
-            <Footer/>
+            <footer className="
+                bg-white dark:bg-gray-800 z-50
+                p-5 pt-[30px] pb-[30px]
+                -mt-[2px]
+                -mb-6
+                h-[60px]
+                flex flex-col items-center justify-center
+                text-center
+            ">
+
+                <p className="text-[var(--placeholder)] text-xs">
+                <a href="#" className="no-underline text-[var(--placeholder)]  ml-1 hover:underline">About Us</a> |
+                <a href="#" className="no-underline text-[var(--placeholder)]  ml-1 hover:underline">Contact Us</a> |
+                <a href="#" className="no-underline text-[var(--placeholder)]  ml-1 hover:underline">Terms & Conditions</a> |
+                <a href="#" className="no-underline text-[var(--placeholder)]  ml-1 hover:underline">Privacy & Cookies Policies</a>
+                </p>
+
+                <p className="text-[var(--placeholder)]  text-xs mt-1">
+                    JobZipa Inc &copy; {new Date().getFullYear()}. All Rights Reserved
+                </p>
+
+            </footer>
         </div>
-        
-        {/* 
-        <Navbar/>
-        <Outlet />
-        <Footer /> */}
     </div>
 );
 

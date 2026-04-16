@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import storybookLogo from '../assets/logos/jobzipa.png';
 function Footer() {
     return(
-        <>
             <footer className="
                 bg-[var(--main-bg)]
                 p-5 pt-[30px]
@@ -29,8 +28,6 @@ function Footer() {
                 </p>
 
             </footer>
-            
-        </>
     );
 }
 
