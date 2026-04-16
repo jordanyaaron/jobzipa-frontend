@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 const FAQS = [
-  {
-    question: "What does Jobzipa stand for?",
-    answer:
-        "Jobzipa stands for 'Job Zipping Area' — a digital hub where job opportunities are gathered and made easily accessible. It’s designed to simplify the way people discover and connect with jobs across different industries."
-  },
+    {
+        question: "What does Jobzipa stand for?",
+        answer:
+            "Jobzipa stands for 'Job Zipping Arena' — a dynamic digital space where job opportunities come together. It is designed to help users quickly discover, explore, and connect with jobs across different industries and locations."
+    },
   {
     question: "Can I apply for jobs directly on Jobzipa?",
     answer:
