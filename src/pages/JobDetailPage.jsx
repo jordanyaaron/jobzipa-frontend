@@ -4,6 +4,7 @@ import SkeletonBlock from "@/components/skeletons/JobZipaSkeleton";
 import JobDetailSkeleton  from '@/pages/loading-blocks/JobDetailsBlockLoading';
 import api from "@/api/axios";
 import { useParams } from "react-router-dom";
+import { isJobSaved, toggleSaveJob } from "@/utils/bookmark";
 
 import {
     BookmarkIcon,
@@ -72,6 +73,12 @@ export default function JobDetailPage() {
         fetchJobDetail();
       }, [id]);
 
+    useEffect(() => {
+        if (job) {
+            setSaved(isJobSaved(job.public_id));
+        }
+    }, [job]);
+
     return (
         <main className="pt-10 lg:pt-16 bg-[var(--main-bg)] px-1 md:px-6 flex-1 overflow-y-auto">
             <div className="w-fulll flex  gap-2 justify-center relative" >
@@ -109,7 +116,10 @@ export default function JobDetailPage() {
                                     {/* ACTIONS */}
                                     <div className="hidden lg:flex gap-2" >
                                         <button
-                                            onClick={() => setSaved(!saved)}
+                                            onClick={() => {
+                                                const newState = toggleSaveJob(job);
+                                                setSaved(newState);
+                                            }}
                                             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
                                         >
                                             <BookmarkIcon

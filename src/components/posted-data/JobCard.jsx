@@ -5,6 +5,7 @@ import {
 import { useState } from "react";
 import { shortTimeAgo } from "@/utils/time";
 import { Link } from "react-router-dom";
+import { isJobSaved, toggleSaveJob } from "@/utils/bookmark";
   
   const JOB_TYPE_MAP = {
     FT: "Full Time",
@@ -19,7 +20,7 @@ import { Link } from "react-router-dom";
   };
   
   export default function JobCard({ job }) {
-    const [saved, setSaved] = useState(false);
+    const [saved, setSaved] = useState(isJobSaved(job.public_id));
   
     return (
       <div className="border border-[var(--border)] rounded-xl p-4 bg-white dark:bg-gray-900 hover:shadow-md transition">
@@ -45,7 +46,10 @@ import { Link } from "react-router-dom";
           {/* ACTIONS */}
           <div className="flex gap-2">
             <button
-              onClick={() => setSaved(!saved)}
+              onClick={() => {
+                const newState = toggleSaveJob(job);
+                setSaved(newState);
+              }}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
             >
               <BookmarkIcon
