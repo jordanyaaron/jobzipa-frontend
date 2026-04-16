@@ -183,6 +183,7 @@ export default function JobDetailPage() {
                 <div className="p-4">
                 <div
                     className="
+                        ql-editor
                         prose
                         prose-ul:list-disc
                         prose-ol:list-decimal
