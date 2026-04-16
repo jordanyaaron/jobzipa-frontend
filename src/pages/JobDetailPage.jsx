@@ -165,7 +165,10 @@ export default function JobDetailPage() {
                                 <div className="ml-[-10px] mt-2 flex lg:hidden">
                                     <div className="flex lg:hidden gap-2" >
                                         <button
-                                            onClick={() => setSaved(!saved)}
+                                            onClick={() => {
+                                                const newState = toggleSaveJob(job);
+                                                setSaved(newState);
+                                            }}
                                             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
                                         >
                                             <BookmarkIcon

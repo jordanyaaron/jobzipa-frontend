@@ -53,10 +53,6 @@ import { isJobSaved, toggleSaveJob } from "@/utils/bookmark";
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
             >
               <BookmarkIcon
-                onClick={() => {
-                  const newState = toggleSaveJob(job);
-                  setSaved(newState);
-                }}
                 className={`h-5 w-5 ${
                   saved ? "text-[var(--text)] fill-[var(--text)]" : ""
                 }`}
