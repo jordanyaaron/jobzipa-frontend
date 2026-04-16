@@ -27,7 +27,7 @@ export default function FaQ() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-4 mt-10 text-[var(--text)]" >
+    <div className="max-w-3xl mx-auto p-4 mt-10">
 
       <h1 className="text-2xl font-bold mb-6">
         Frequently Asked Questions
@@ -35,39 +35,50 @@ export default function FaQ() {
 
       <div className="space-y-3">
 
-        {FAQS.map((faq, index) => (
-          <div
-            key={index}
-            className="border rounded-lg p-3 bg-white dark:bg-gray-900"
-          >
+        {FAQS.map((faq, index) => {
+          const isOpen = openIndex === index;
 
-            {/* QUESTION */}
-            <button
-              onClick={() => toggle(index)}
-              className="w-full text-left flex justify-between items-center"
+          return (
+            <div
+              key={index}
+              className="border rounded-lg bg-white dark:bg-gray-900 overflow-hidden"
             >
-              <span className="font-medium">
-                {faq.question}
-              </span>
 
-              <span className="text-xl">
-                {openIndex === index ? "−" : "+"}
-              </span>
-            </button>
+              {/* QUESTION */}
+              <button
+                onClick={() => toggle(index)}
+                className="w-full flex justify-between items-center p-4"
+              >
+                <span className="font-medium text-left">
+                  {faq.question}
+                </span>
 
-            {/* ANSWER */}
-            {openIndex === index && (
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-                {faq.answer}
-              </p>
-            )}
+                {/* ICON ROTATION */}
+                <span
+                  className={`text-xl transition-transform duration-300 ${
+                    isOpen ? "rotate-45" : ""
+                  }`}
+                >
+                  +
+                </span>
+              </button>
 
-          </div>
-        ))}
+              {/* ANSWER WITH ANIMATION */}
+              <div
+                className={`transition-all duration-300 ease-in-out ${
+                  isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                } overflow-hidden px-4`}
+              >
+                <p className="pb-4 text-sm text-gray-600 dark:text-gray-300">
+                  {faq.answer}
+                </p>
+              </div>
+
+            </div>
+          );
+        })}
 
       </div>
     </div>
   );
 }
-
-
