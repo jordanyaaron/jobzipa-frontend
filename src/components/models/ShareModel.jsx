@@ -1,0 +1,56 @@
+import { XMarkIcon } from "@heroicons/react/24/outline";
+
+export default function ShareModal({ open, onClose, job }) {
+  if (!open) return null;
+
+  const url = `${window.location.origin}/jobs/${job.public_id}`;
+
+  const shareToWhatsApp = () => {
+    const text = `${job.title} at ${job.company} \n${url}`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
+  };
+
+  const copyLink = async () => {
+    await navigator.clipboard.writeText(url);
+    alert("Link copied!");
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+      
+      {/* BOX */}
+      <div className="bg-white dark:bg-gray-900 w-[90%] max-w-sm rounded-xl p-4">
+
+        {/* HEADER */}
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="font-semibold">Share Job</h2>
+          <button onClick={onClose}>
+            <XMarkIcon className="h-5 w-5" />
+          </button>
+        </div>
+
+        {/* OPTIONS */}
+        <div className="flex flex-col gap-3">
+
+          {/* WhatsApp */}
+          <button
+            onClick={shareToWhatsApp}
+            className="p-3 rounded-lg bg-green-500 text-white"
+          >
+            Share on WhatsApp
+          </button>
+
+          {/* Copy */}
+          <button
+            onClick={copyLink}
+            className="p-3 rounded-lg border"
+          >
+            Copy Link
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+  );
+}

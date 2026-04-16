@@ -12,7 +12,14 @@ import {
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
 
 const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
-  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    if (e.key === "Enter" && query.trim()) {
+      navigate(`/search?q=${query}`);
+    }
+  };
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -56,15 +63,10 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
             <input
               type="text"
               placeholder="Search jobs..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="
-                    w-full pl-10 pr-4 py-2
-                    text-[var(--text)]
-                    rounded-lg border focus:outline-none 
-                    bg-[var(--main-bg)] border-[var(--border)] 
-                    placeholder:text-[var(--placeholder)]
-                "
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={handleSearch}
+              className="w-full text-[var(--placeholder)] pl-10 pr-4 py-2 rounded-lg border border-[var(--border)] focus:outline-none text-[var(--text)] placeholder:text-[var(--placeholder)]"
             />
           </div>
         </div>
@@ -126,17 +128,10 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
             <input
                 type="text"
                 placeholder="Search jobs..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="
-                    flex-1 px-4 py-2
-                    rounded-lg
-                    border border-[var(--border)]
-                    bg-[var(--main-bg)]
-                    text-[var(--text)]
-                    placeholder:text-[var(--placeholder)]
-                    focus:outline-none
-                "
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={handleSearch}
+                className="w-full text-[var(--placeholder)] pl-10 pr-4 py-2 rounded-lg border border-[var(--border)] focus:outline-none text-[var(--text)] placeholder:text-[var(--placeholder)]"
                 autoFocus
             />
             </div>
