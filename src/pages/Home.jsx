@@ -31,7 +31,7 @@ const Home = () => {
  
  
   return (
-    <div className="w-fulll flex gap-5" >
+    <div className="w-fulll flex gap-10" >
       {
         blockSkeleton 
         ?  <JobsSkeleton />
@@ -39,7 +39,7 @@ const Home = () => {
               className="
                 w-full
                 pt-6
-                lg:w-[600px] 
+                lg:w-[560px] 
               "
             >
               {jobs.map((job) => (
