@@ -124,7 +124,7 @@ export default function JobDetailPage() {
                                         >
                                             <BookmarkIcon
                                                 className={`h-5 w-5 ${
-                                                saved ? "text-[var(--text)] fill-[var(--text)]" : ""
+                                                    saved ? "text-[var(--text)] fill-[var(--text)]" : ""
                                                 }`}
                                             />
                                         </button>

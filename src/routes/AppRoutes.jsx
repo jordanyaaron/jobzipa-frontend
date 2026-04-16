@@ -17,7 +17,7 @@ import JobLayout from "@/layouts/JobLayout";
 // elements
 import Home from '../pages/Home';
 import JobDetailPage from "@/pages/JobDetailPage";
-import GenaralBookmark from '../pages/Bookmacked';
+import SavedJobsPage from '../pages/Bookmacked';
 import GenealNotifications from '../pages/Notifacations';
 import GenaralSettings from '../pages/GeneralSettings';
 import FaQ from '../pages/Faq';
@@ -75,7 +75,7 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
 
         <Route  element={<HomeLayout darkMode={darkMode} setDarkMode={setDarkMode} />}>
             <Route path="/" element={<Home />} />
-            <Route path="/bookmarked" element={<GenaralBookmark />} />
+            <Route path="/bookmarked" element={<SavedJobsPage />} />
             <Route path="/faq" element={<FaQ />} />
             <Route path="/notifications" element={<GenealNotifications />} />
             <Route path="/settings" element={<GenaralSettings />} />

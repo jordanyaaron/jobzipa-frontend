@@ -37,7 +37,7 @@ import { isJobSaved, toggleSaveJob } from "@/utils/bookmark";
   
             <div>
                 <Link to={`/jobs/${job.public_id}`}>
-                    <h2 className="font-semibold text-lg hover:underline">{job.title}</h2>
+                    <h2 className="font-semibold text-[var(--text)] text-lg hover:underline">{job.title}</h2>
                 </Link>
                 <p className="text-sm text-gray-500">{job.company}</p>
             </div>
@@ -53,8 +53,12 @@ import { isJobSaved, toggleSaveJob } from "@/utils/bookmark";
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
             >
               <BookmarkIcon
+                onClick={() => {
+                  const newState = toggleSaveJob(job);
+                  setSaved(newState);
+                }}
                 className={`h-5 w-5 ${
-                  saved ? "text-blue-500 fill-blue-500" : ""
+                  saved ? "text-[var(--text)] fill-[var(--text)]" : ""
                 }`}
               />
             </button>
