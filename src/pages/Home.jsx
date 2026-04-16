@@ -8,6 +8,9 @@ import  JobsSkeleton  from '@/pages/loading-blocks/JobPostLoadinBlock'
 import api from '@/api/axios';
 import { shortTimeAgo } from '@/utils/time';
 import JobCard from '@/components/posted-data/JobCard';
+import { saveJobsToCache, getJobsFromCache } from "@/utils/jobCache";
+
+
 
 
 const Home = () => {
@@ -16,16 +19,33 @@ const Home = () => {
 
   useEffect(() => {
     const fetchJobs = async () => {
+  
+      // 🔥 1. CHECK CACHE FIRST
+      const cachedJobs = getJobsFromCache();
+  
+      if (cachedJobs) {
+        console.log("⚡ Using cached jobs");
+        setJobs(cachedJobs);
+        setBlockSkeleton(false);
+        return;
+      }
+  
+      // 🌐 2. FETCH FROM API
       try {
         const res = await api.get("jobs/get");
+  
         setJobs(res.data);
+  
+        // 💾 SAVE TO CACHE
+        saveJobsToCache(res.data);
+  
       } catch (error) {
         console.log("Fetch Jobs Error:", error.response || error);
       } finally {
         setBlockSkeleton(false);
       }
     };
-
+  
     fetchJobs();
   }, []);
  
@@ -44,7 +64,7 @@ const Home = () => {
             >
               {jobs.map((job) => (
                 <>
-                    <JobCard key={job.id} job={job}/>
+                    <JobCard key={job.public_id} job={job}/>
                     {/* <div className="flex flex-col gap-0 text-[var(--text)]  pt-5" >
                       <div  className="flex gap-2 ">
                         <img src={job.company_logo} alt="" srcset="" className="h-10 w-10 rounded-full"  />
