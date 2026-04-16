@@ -33,7 +33,7 @@ export default function FaQ() {
         Frequently Asked Questions
       </h1>
 
-      <div className="space-y-3">
+      <div className="space-y-0">
 
         {FAQS.map((faq, index) => {
           const isOpen = openIndex === index;
@@ -44,7 +44,7 @@ export default function FaQ() {
                 className={`
                         "border-0 rounded-lg  overflow-hidden"
                         ${
-                            isOpen ? "bg-gray-200 dark:bg-gray-900" : "bg-[var(--background)]"
+                            isOpen ? "bg-gray-200 dark:bg-gray-900" : "bg-[var(--main-bg)]"
                         }
                     `
                 }
