@@ -38,7 +38,7 @@ export default function ShareModal({ open, onClose, job }) {
 
         {/* HEADER */}
         <div className="flex justify-between items-center mb-4">
-          <h2 className="font-semibold">Share Job</h2>
+          <h2 className="text-[var(--text)] font-semibold">Share Job</h2>
           <button onClick={onClose}>
             <XMarkIcon className="h-5 w-5" />
           </button>
@@ -58,7 +58,7 @@ export default function ShareModal({ open, onClose, job }) {
           {/* Copy */}
           <button
             onClick={copyLink}
-            className="p-3 text-[var(--background)] background-[var(--text)] rounded-lg border"
+            className="p-3 text-[var(--background)] bg-[var(--text)] rounded-lg border"
           >
             Copy Link
           </button>
