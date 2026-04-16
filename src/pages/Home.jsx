@@ -32,7 +32,7 @@ const Home = () => {
   
       // 🌐 2. FETCH FROM API
       try {
-        const res = await api.get("jobs/get");
+        const res = await api.get("jobs/get",{ skipAuth: true });
   
         setJobs(res.data);
   

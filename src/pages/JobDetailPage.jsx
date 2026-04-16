@@ -61,7 +61,7 @@ export default function JobDetailPage() {
       
           // 🌐 2. FETCH FROM API
           try {
-            const res = await api.get(`jobs/${id}/`);
+            const res = await api.get(`jobs/${id}/`,{ skipAuth: true });
             setJob(res.data);
           } catch (err) {
             console.log("Fetch Job Detail Error:", err.response || err);
