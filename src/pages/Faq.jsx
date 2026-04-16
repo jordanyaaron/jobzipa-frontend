@@ -12,7 +12,7 @@ const FAQS = [
       "At the moment, Jobzipa does not support direct job applications. Instead, you can click the 'Apply Now' button available on the job details page to be redirected to the employer’s application platform. In some cases, you may also need to follow the application instructions provided within the job description by the job provider."
   },
   {
-    question: "Do I need an account Do I need an account to use Jobzipa?",
+    question: "Do I need an account to use Jobzipa?",
     answer:
       "No, you can browse and explore job listings on Jobzipa without creating an account."
   },
@@ -86,12 +86,9 @@ export default function FaQ() {
             <div
                 key={index}
                 className={`
-                        "border-0 rounded-lg  overflow-hidden"
-                        ${
-                            isOpen ? "bg-gray-100 dark:bg-gray-900" : "bg-[var(--main-bg)]"
-                        }
-                    `
-                }
+                    border-0 rounded-lg overflow-hidden
+                    ${isOpen ? "bg-gray-100 dark:bg-gray-900" : "bg-[var(--main-bg)]"}
+                  `}
             >
 
               {/* QUESTION */}
