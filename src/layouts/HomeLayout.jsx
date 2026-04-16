@@ -8,6 +8,7 @@ import StaffHeader from "../components/headers/StaffHeader";
 const HomeLayout = ({ darkMode, setDarkMode}) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+
   const toggleDrawer = () => setDrawerOpen(!drawerOpen);
   const user = JSON.parse(localStorage.getItem("user") || "null");
   const isStaff =

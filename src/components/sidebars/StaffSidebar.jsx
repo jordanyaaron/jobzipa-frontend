@@ -1,5 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
-
+import { NavLink, useNavigate  } from "react-router-dom";
 import {
   BriefcaseIcon,
   HomeIcon,
@@ -19,6 +18,7 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
 const StaffSidebar = ({ toggleDrawer }) => {
   const user = getUser();
   const navigate = useNavigate();
+  
   const dashboardUrl = useDashboardUrl();
 
   function useDashboardUrl() {

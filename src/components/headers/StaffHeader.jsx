@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link , useNavigate } from "react-router-dom";
+import { Link , useNavigate , useLocation } from "react-router-dom";
 import {
   SunIcon,
   MoonIcon,
@@ -14,6 +14,8 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
 const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const path = location.pathname;
 
   const handleSearch = (e) => {
     if (e.key === "Enter" && query.trim()) {
@@ -51,44 +53,60 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
             <Bars3Icon className="h-6 w-6   text-[var(--text)]" />
           </button>
 
-          <Link to="/" className="flex items-center">
-            <img src={JobzipaLogo} alt="Jobzipa" className="h-9 md:h-10" />
-          </Link>
+          {
+            path.startsWith("/faq") 
+              ? <h1 className="text-[var(--text)] text-[20px] font-bold">FaQ</h1>
+              : <Link to="/" className="flex items-center">
+                  <img src={JobzipaLogo} alt="Jobzipa" className="h-9 md:h-10" />
+                </Link>
+          }  
         </div>
 
         {/* Desktop Search */}
-        <div className="hidden md:flex flex-1 max-w-xl mx-6">
-          <div className="relative w-full">
-            <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 opacity-60" />
-            <input
-              type="text"
-              placeholder="Search jobs..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyDown={handleSearch}
-              className="w-full text-[var(--placeholder)] pl-10 pr-4 py-2 rounded-lg border border-[var(--border)] focus:outline-none text-[var(--text)] placeholder:text-[var(--placeholder)]"
-            />
-          </div>
-        </div>
+        { 
+          //  this is to ensur job input does not appiar when the path is faq
+          path.startsWith("/faq") 
+          ? ""
+          : <div className="hidden md:flex flex-1 mx-6">
+              <div className="relative w-full">
+                <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--placeholder)] opacity-60" />
+                <input
+                  type="text"
+                  placeholder="Search jobs..."
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyDown={handleSearch}
+                  className="w-full text-[var(--placeholder)] pl-10 pr-4 py-2 rounded-lg border border-[var(--border)] focus:outline-none text-[var(--text)] placeholder:text-[var(--placeholder)]"
+                />
+              </div>
+            </div>
+        }
 
         {/* Right */}
         <div className="flex items-center gap-3">
           {/* Mobile search */}
-          <button
-            onClick={() => setMobileSearchOpen(true)}
-            className="md:hidden p-2 rounded-lg hover:bg-[var(--hover)]"
-          >
-            <MagnifyingGlassIcon className="h-6 w-6 text-[var(--text)]" />
-          </button>
+          {
+            path.startsWith("/faq") 
+            ? ''
+            : <>
+                <button
+                  onClick={() => setMobileSearchOpen(true)}
+                  className="md:hidden p-2 rounded-lg hover:bg-[var(--hover)]"
+                >
+                  <MagnifyingGlassIcon className="h-6 w-6 text-[var(--text)]" />
+                </button>
 
-          {/* Post Button with Plus Icon */}
-          <Link
-            to="/post"
-            className="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
-          >
-            <PlusIcon className="h-5 w-5 text-white" />
-            Post
-          </Link>
+                {/* Post Button with Plus Icon */}
+                <Link
+                  to="/post"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-white bg-green-600 hover:bg-green-700"
+                >
+                  <PlusIcon className="h-5 w-5 text-white" />
+                  Post
+                </Link>
+              </>
+          }
+                
 
           {/* Dark mode toggle */}
           <button
@@ -105,7 +123,7 @@ const StaffHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
       </div>
 
       {/* Mobile Search Overlay */}
-      {mobileSearchOpen && (
+      {!path.startsWith("/faq") && mobileSearchOpen && (
         <div
             className="
             fixed top-0 left-0 w-full h-16

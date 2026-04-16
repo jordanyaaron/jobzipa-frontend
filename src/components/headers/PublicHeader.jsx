@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link , useNavigate } from "react-router-dom";
+import { Link , useNavigate , useLocation } from "react-router-dom";
+
 import {
   SunIcon,
   MoonIcon,
@@ -16,6 +17,8 @@ import JobzipaLogo from "../../assets/logos/jobzipa.png";
 const PublicHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const path = location.pathname;
 
   const handleSearch = (e) => {
     if (e.key === "Enter" && query.trim()) {
@@ -37,50 +40,70 @@ const PublicHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
   }, [windowWidth, mobileSearchOpen]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-40 border-b border-[var(--border)]  bg-[var(--header-bg)]">
+    <header className={`
+          fixed top-0 left-0 w-full z-40 border-b border-[var(--border)]  bg-[var(--header-bg)]
+          
+            ${
+              path.startsWith("/faq") ? "lg:hidden" : ""
+            }
+        `
+      }
+      
+    >
       <div
             className={`flex items-center justify-between px-4 md:px-6 h-16 transition-all duration-200 ${
                 mobileSearchOpen ? "opacity-0 pointer-events-none" : "opacity-100"
             }`}
         >
         {/* Left */}
-        <div className="flex items-center gap-3">
-          <button
-            onClick={toggleDrawer}
-            className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
-          >
-            <Bars3Icon className="h-6 w-6  text-[var(--text)]" />
-          </button>
-
-          <Link to="/" className="flex items-center">
-            <img src={JobzipaLogo} alt="Jobzipa" className="h-9 md:h-10" />
-          </Link>
-        </div>
-
-        {/* Desktop Search */}
-        <div className="hidden md:flex flex-1 mx-6">
-          <div className="relative w-full">
-            <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--placeholder)] opacity-60" />
-            <input
-              type="text"
-              placeholder="Search jobs..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyDown={handleSearch}
-              className="w-full text-[var(--placeholder)] pl-10 pr-4 py-2 rounded-lg border border-[var(--border)] focus:outline-none text-[var(--text)] placeholder:text-[var(--placeholder)]"
-            />
+          <div className="flex items-center gap-3">
+            <button
+              onClick={toggleDrawer}
+              className="lg:hidden p-2 rounded-lg hover:bg-[var(--hover)]  text-[var(--text)]"
+            >
+              <Bars3Icon className="h-6 w-6  text-[var(--text)]" />
+            </button>
+            {
+              path.startsWith("/faq") 
+                ? <h1 className="text-[var(--text)] text-[20px] font-bold">FaQ</h1>
+                : <Link to="/" className="flex items-center">
+                    <img src={JobzipaLogo} alt="Jobzipa" className="h-9 md:h-10" />
+                  </Link>
+            }  
           </div>
-        </div>
 
+       {/* Desktop Search */}
+       { 
+          //  this is to ensur job input does not appiar when the path is faq
+          path.startsWith("/faq") 
+          ? ""
+          : <div className="hidden md:flex flex-1 mx-6">
+              <div className="relative w-full">
+                <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--placeholder)] opacity-60" />
+                <input
+                  type="text"
+                  placeholder="Search jobs..."
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyDown={handleSearch}
+                  className="w-full text-[var(--placeholder)] pl-10 pr-4 py-2 rounded-lg border border-[var(--border)] focus:outline-none text-[var(--text)] placeholder:text-[var(--placeholder)]"
+                />
+              </div>
+            </div>
+        }
         {/* Right */}
         <div className="flex items-center gap-3">
           {/* Mobile search */}
-          <button
-            onClick={() => setMobileSearchOpen(true)}
-            className="md:hidden p-2 rounded-lg hover:bg-[var(--hover)]"
-          >
-            <MagnifyingGlassIcon className="h-6 w-6 text-[var(--text)]" />
-          </button>
+          {
+            path.startsWith("/faq") 
+            ? ''
+            : <button
+              onClick={() => setMobileSearchOpen(true)}
+              className="md:hidden p-2 rounded-lg hover:bg-[var(--hover)]"
+            >
+              <MagnifyingGlassIcon className="h-6 w-6 text-[var(--text)]" />
+            </button>
+          }
 
           {/* Dark mode toggle */}
           <button
@@ -93,7 +116,7 @@ const PublicHeader = ({ darkMode, setDarkMode, toggleDrawer }) => {
       </div>
 
       {/* Mobile Search Overlay */}
-      {mobileSearchOpen && (
+      {!path.startsWith("/faq") && mobileSearchOpen && (
         <div
             className="
             fixed top-0 left-0 w-full h-16

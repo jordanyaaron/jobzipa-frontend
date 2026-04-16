@@ -27,7 +27,7 @@ export default function FaQ() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-4 mt-10">
+    <div className="max-w-3xl mx-auto p-4 mt-10 text-[var(--text)]" >
 
       <h1 className="text-2xl font-bold mb-6">
         Frequently Asked Questions
