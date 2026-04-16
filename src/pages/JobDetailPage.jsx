@@ -74,7 +74,6 @@ export default function JobDetailPage() {
   useEffect(() => {
     if (job) {
       setSaved(isJobSaved(job.public_id));
-      console.log(job.description);
     }
   }, [job]);
 
