@@ -27,9 +27,9 @@ export default function FaQ() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-4 mt-10">
+    <div className="max-w-3xl mx-auto p-2 lg:p-4 mt-4 lg:mt-10">
 
-      <h1 className="text-2xl font-bold mb-6">
+      <h1 className="text-2xl text-[var(--text)] font-bold mb-6">
         Frequently Asked Questions
       </h1>
 
@@ -40,8 +40,14 @@ export default function FaQ() {
 
           return (
             <div
-              key={index}
-              className="border rounded-lg bg-white dark:bg-gray-900 overflow-hidden"
+                key={index}
+                className={`
+                        "border-0 rounded-lg  overflow-hidden"
+                        ${
+                            isOpen ? "bg-gray-200 dark:bg-gray-900" : "bg-[var(--background)]"
+                        }
+                    `
+                }
             >
 
               {/* QUESTION */}
@@ -49,13 +55,13 @@ export default function FaQ() {
                 onClick={() => toggle(index)}
                 className="w-full flex justify-between items-center p-4"
               >
-                <span className="font-medium text-left">
+                <span className="font-medium text-left  text-[var(--text)] ">
                   {faq.question}
                 </span>
 
                 {/* ICON ROTATION */}
                 <span
-                  className={`text-xl transition-transform duration-300 ${
+                  className={`text-xl  text-[var(--text)]  transition-transform duration-300 ${
                     isOpen ? "rotate-45" : ""
                   }`}
                 >
@@ -69,7 +75,7 @@ export default function FaQ() {
                   isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
                 } overflow-hidden px-4`}
               >
-                <p className="pb-4 text-sm text-gray-600 dark:text-gray-300">
+                <p className="pb-4 text-sm text-[var(--placeholder)]">
                   {faq.answer}
                 </p>
               </div>
