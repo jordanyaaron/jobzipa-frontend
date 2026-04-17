@@ -14,7 +14,14 @@ import AuthLayout from '../layouts/AuthLayout';
 import DashboardLayout from '../layouts/DashboardLayout';
 import JobLayout from "@/layouts/JobLayout";
 
+
+
 // elements
+import AboutPage from '@/pages/web/AboutUs';
+import ContactPage from '@/pages/web/ContactUs';
+import PrivacyPage from '@/pages/web/Policies';
+
+
 import Home from '../pages/Home';
 import JobDetailPage from "@/pages/JobDetailPage";
 import SavedJobsPage from '../pages/Bookmacked';
@@ -73,6 +80,10 @@ import SettingsStaff from '../pages/dashboard/Settings'
 const AppRoutes = ({ darkMode, setDarkMode }) => {
     return (
       <Routes>
+
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
 
         <Route  element={<HomeLayout darkMode={darkMode} setDarkMode={setDarkMode} />}>
             <Route path="/" element={<Home />} />
