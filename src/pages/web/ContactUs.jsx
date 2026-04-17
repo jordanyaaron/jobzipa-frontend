@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import contactUsIttustration from "@/assets/illustrations/contactus.png"
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -35,7 +36,7 @@ export default function ContactPage() {
           className="hidden lg:flex flex-col gap-4"
         >
           <img
-            src="https://illustrations.popsy.co/gray/support.svg"
+            src={contactUsIttustration}
             alt="contact"
             className="w-full max-w-md"
           />

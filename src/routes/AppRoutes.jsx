@@ -13,6 +13,7 @@ import PostLayout from '../layouts/PostLayout';
 import AuthLayout from '../layouts/AuthLayout';
 import DashboardLayout from '../layouts/DashboardLayout';
 import JobLayout from "@/layouts/JobLayout";
+import InfoLayout from '@/layouts/WebLayout';
 
 
 
@@ -20,7 +21,6 @@ import JobLayout from "@/layouts/JobLayout";
 import AboutPage from '@/pages/web/AboutUs';
 import ContactPage from '@/pages/web/ContactUs';
 import PrivacyPage from '@/pages/web/Policies';
-import InfoLayout from '@/layouts/WebLayout';
 
 
 
