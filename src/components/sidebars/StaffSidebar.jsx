@@ -62,7 +62,7 @@ const StaffSidebar = ({ toggleDrawer }) => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refresh");
     localStorage.removeItem("user");
-    navigate("/");
+    window.location.reload();
   };
 
   return (
