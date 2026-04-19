@@ -51,51 +51,66 @@ const Home = () => {
  
  
   return (
-    <div className="w-fulll flex gap-10" >
-      {
-        blockSkeleton 
-        ?  <JobsSkeleton />
-        :  <main
-              className="
-                w-full
-                pt-6
-                lg:w-[560px] 
-              "
-            >
-              {jobs.map((job) => (
-                <>
-                    <JobCard key={job.public_id} job={job}/>
-                </>
-              )
-            )}
-           
-            </main>
-      }
-      <aside className="hidden lg:block pb-10 w-[400px]">
-          <div className="sticky top-10">
+    <>
+      <Helmet>
+        <title>Latest Jobs in Tanzania, Kenya & Remote Jobs | Jobzipa</title>
 
-              {/* ADS */}
-              <div className='mt-4 flex flex-col gap-2'>
-                  <SkeletonBlock className="w-20 h-6"/>
-                  <SkeletonBlock className="w-full h-[150px]"/>
-              </div>
+        <meta
+          name="description"
+          content="Find the latest job opportunities in Tanzania, Kenya and remote work. Browse verified job listings and apply easily on Jobzipa."
+        />
 
-              <div className='flex mt-3 gap-2'>
-                <div>
-                  <SkeletonBlock className="w-[100px] h-[100px]"/>
-                </div>
-                <div className='flex-1 flex flex-col gap-2'>
-                    <SkeletonBlock className="h-5 w-full"/>
-                    <SkeletonBlock className="h-5 w-3/4"/>
-                    <SkeletonBlock className="h-5 w-1/4"/>
-                </div>
-              </div>
+        <meta
+          name="keywords"
+          content="jobs in Tanzania, jobs in Kenya, remote jobs, latest jobs, apply jobs online, Jobzipa"
+        />
+      </Helmet>
+      <div className="w-fulll flex gap-10" >
+        {
+          blockSkeleton 
+          ?  <JobsSkeleton />
+          :  <main
+                className="
+                  w-full
+                  pt-6
+                  lg:w-[560px] 
+                "
+              >
+                {jobs.map((job) => (
+                  <>
+                      <JobCard key={job.public_id} job={job}/>
+                  </>
+                )
+              )}
             
-              <Footer />
+              </main>
+        }
+        <aside className="hidden lg:block pb-10 w-[400px]">
+            <div className="sticky top-10">
 
-          </div>
-      </aside>
-    </div>
+                {/* ADS */}
+                <div className='mt-4 flex flex-col gap-2'>
+                    <SkeletonBlock className="w-20 h-6"/>
+                    <SkeletonBlock className="w-full h-[150px]"/>
+                </div>
+
+                <div className='flex mt-3 gap-2'>
+                  <div>
+                    <SkeletonBlock className="w-[100px] h-[100px]"/>
+                  </div>
+                  <div className='flex-1 flex flex-col gap-2'>
+                      <SkeletonBlock className="h-5 w-full"/>
+                      <SkeletonBlock className="h-5 w-3/4"/>
+                      <SkeletonBlock className="h-5 w-1/4"/>
+                  </div>
+                </div>
+              
+                <Footer />
+
+            </div>
+        </aside>
+      </div>
+    </>
   )
     
 };
