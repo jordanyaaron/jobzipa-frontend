@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import React, { useEffect, useState } from "react";
 import Footer from "@/components/Foote";
 import SkeletonBlock from "@/components/skeletons/JobZipaSkeleton";

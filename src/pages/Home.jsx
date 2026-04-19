@@ -1,4 +1,5 @@
 import React, { useEffect , useState } from 'react';
+import { Helmet } from "react-helmet-async";
 import { BookmarkIcon, ForwardIcon } from "@heroicons/react/24/outline";
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Nav';
