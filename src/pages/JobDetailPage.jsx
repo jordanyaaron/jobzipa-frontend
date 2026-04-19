@@ -6,6 +6,7 @@ import api from "@/api/axios";
 import { useParams } from "react-router-dom";
 import { isJobSaved, toggleSaveJob } from "@/utils/bookmark";
 import ShareModal from "@/components/models/ShareModel";
+import { Helmet } from "react-helmet-async";
 
 import {
   BookmarkIcon,
@@ -32,7 +33,7 @@ export default function JobDetailPage() {
   const [job, setJob] = useState(null);
   const [blockSkeleton, setBlockSkeleton] = useState(true);
   const [saved, setSaved] = useState(false);
-  const [openShare, setOpenShare] = useState(false); // ✅ NEW
+  const [openShare, setOpenShare] = useState(false);
 
   useEffect(() => {
     const fetchJobDetail = async () => {
@@ -49,7 +50,6 @@ export default function JobDetailPage() {
           setJob(foundJob);
           setBlockSkeleton(false);
 
-          // background update
           api.get(`jobs/${id}/`, { skipAuth: true }).then((res) => {
             setJob(res.data);
           });
@@ -79,9 +79,28 @@ export default function JobDetailPage() {
 
   return (
     <>
+      {/* SEO START */}
+      <Helmet>
+        <title>
+          {job
+            ? `${job.title} Job in ${job.location?.[0]?.locationRigion || ""} ${job.location?.[0]?.locationCountry || ""} | Jobzipa`
+            : "Job Details | Jobzipa"}
+        </title>
+
+        <meta
+          name="description"
+          content={
+            job
+              ? `Apply for ${job.title} job at ${job.company}. Location: ${job.location?.[0]?.locationRigion}, ${job.location?.[0]?.locationCountry}. Find more jobs on Jobzipa.`
+              : "Find latest jobs on Jobzipa."
+          }
+        />
+      </Helmet>
+      {/* SEO END */}
+
       <main className="pt-10 lg:pt-16 bg-[var(--main-bg)] px-1 md:px-6 flex-1 overflow-y-auto">
-        <div className="w-fulll flex gap-2 justify-center relative">
-          
+        <div className="w-full flex gap-2 justify-center relative">
+
           {blockSkeleton ? (
             <JobDetailSkeleton />
           ) : (
@@ -109,7 +128,6 @@ export default function JobDetailPage() {
                     {/* ACTIONS DESKTOP */}
                     <div className="hidden lg:flex gap-2">
 
-                      {/* SAVE */}
                       <button
                         onClick={() => {
                           const newState = toggleSaveJob(job);
@@ -124,7 +142,6 @@ export default function JobDetailPage() {
                         />
                       </button>
 
-                      {/* SHARE */}
                       <button
                         onClick={() => setOpenShare(true)}
                         className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -152,51 +169,26 @@ export default function JobDetailPage() {
                     </div>
                   </div>
 
-                  {/* MOBILE ACTIONS */}
-                  <div className="mt-3 flex lg:hidden gap-2">
-
-                    <button
-                      onClick={() => {
-                        const newState = toggleSaveJob(job);
-                        setSaved(newState);
-                      }}
-                      className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
-                    >
-                      <BookmarkIcon
-                        className={`h-5 w-5 ${
-                          saved ? "fill-[var(--text)]" : ""
-                        }`}
-                      />
-                    </button>
-
-                    <button
-                      onClick={() => setOpenShare(true)}
-                      className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
-                    >
-                      <ArrowUpRightIcon className="h-5 w-5" />
-                    </button>
-
-                  </div>
                 </div>
 
                 {/* DESCRIPTION */}
                 <div className="p-4">
-                <div
+                  <div
                     className="
-                        ql-display
-                        prose
-                        prose-ul:list-disc
-                        prose-ol:list-decimal
-                        prose-li:ml-4
-                        prose-p:leading-relaxed
-                        dark:prose-invert
-                        max-w-none
-                        text-sm
+                      ql-display
+                      prose
+                      prose-ul:list-disc
+                      prose-ol:list-decimal
+                      prose-li:ml-4
+                      prose-p:leading-relaxed
+                      dark:prose-invert
+                      max-w-none
+                      text-sm
                     "
                     dangerouslySetInnerHTML={{
-                        __html: job.description?.trim(),
+                      __html: job.description?.trim(),
                     }}
-                    />
+                  />
                 </div>
 
                 {/* APPLY */}
@@ -218,22 +210,6 @@ export default function JobDetailPage() {
           <aside className="hidden lg:block pb-10 w-[400px]">
             <div className="sticky top-10">
 
-              <div className="mt-4 flex flex-col gap-2">
-                <SkeletonBlock className="w-20 h-6" />
-                <SkeletonBlock className="w-full h-[150px]" />
-              </div>
-
-              <div className='flex mt-3 gap-2'>
-                <div>
-                  <SkeletonBlock className="w-[100px] h-[100px]"/>
-                </div>
-                <div className='flex-1 flex flex-col gap-2'>
-                    <SkeletonBlock className="h-5 w-full"/>
-                    <SkeletonBlock className="h-5 w-3/4"/>
-                    <SkeletonBlock className="h-5 w-1/4"/>
-                </div>
-              </div>
-
               <Footer />
             </div>
           </aside>
@@ -241,7 +217,7 @@ export default function JobDetailPage() {
         </div>
       </main>
 
-      {/* 🔥 SHARE MODAL */}
+      {/* SHARE MODAL */}
       {job && (
         <ShareModal
           open={openShare}
