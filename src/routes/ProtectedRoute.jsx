@@ -32,11 +32,6 @@ const ProtectedRoute = ({
 
   // 👨‍💼 Staff-only (BUT exclude superuser)
   if (requireStaffOnly) {
-    if (user.is_superuser) {
-      // 🔥 redirect superuser to admin dashboard
-      return <Navigate to="/admin/dashboard" replace />;
-    }
-
     if (!user.is_staff) {
       return <Navigate to="/unauthorized" replace />;
     }
