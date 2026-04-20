@@ -74,10 +74,13 @@ import ShareModal from "../models/ShareModel";
           </div>
     
           {/* DESCRIPTION */}
-          <div
-            className="text-sm text-gray-600 dark:text-gray-300 mt-3 line-clamp-2"
-            dangerouslySetInnerHTML={{ __html: job.description }}
-          />
+          <Link to={`/jobs/${job.public_id}`}>
+            <div
+              className="text-sm text-gray-600 dark:text-gray-300 mt-3 line-clamp-2"
+              dangerouslySetInnerHTML={{ __html: job.description }}
+            />
+          </Link>
+          
     
           {/* LOCATION */}
           <p className="text-sm mt-2 text-gray-500">

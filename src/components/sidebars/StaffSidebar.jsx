@@ -50,11 +50,11 @@ const StaffSidebar = ({ toggleDrawer }) => {
   }
 
   const navLinks = [
-    { name: "Home", icon: HomeIcon, to: "/", replace: true },
+    { name: "Home", icon: HomeIcon, to: "/", replace: false },
     { name: "Dashboard", icon: Squares2X2Icon, to: dashboardUrl, replace: false },
-    { name: "Notifications", icon: BellIcon, to: "/notifications", replace: true },
-    { name: "Bookmarked", icon: BookmarkIcon, to: "/bookmarked", replace: true },
-    { name: "FAQ", icon: QuestionMarkCircleIcon, to: "/faq", replace: true },
+    { name: "Notifications", icon: BellIcon, to: "/notifications", replace: false },
+    { name: "Bookmarked", icon: BookmarkIcon, to: "/bookmarked", replace: false },
+    { name: "FAQ", icon: QuestionMarkCircleIcon, to: "/faq", replace: false },
     { name: "Logout", icon: ArrowLeftStartOnRectangleIcon, action: "logout" },
   ];
 
