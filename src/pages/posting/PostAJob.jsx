@@ -212,8 +212,8 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
 
     //  SUBMITION HANDLER ( Posting after a form validation) 
     const handlePostJob = async (finalLocations) => {
-        console.log("🔥 handlePostJob CALLED!");
-        console.log("🔥 LOCATIONS LENGTH:", finalLocations?.length);
+        // console.log("🔥 handlePostJob CALLED!");
+        // console.log("🔥 LOCATIONS LENGTH:", finalLocations?.length);
       
         const formData = new FormData();
       
@@ -260,11 +260,11 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
           setIsLoading(false);
       
           // 🔥 FULL ERROR BREAKDOWN
-          console.log("========== JOB POST ERROR ==========");
-          console.log("Message:", error.message);
-          console.log("Status:", error.response?.status);
-          console.log("Data:", error.response?.data);
-          console.log("Full Error:", error);
+        //   console.log("========== JOB POST ERROR ==========");
+        //   console.log("Message:", error.message);
+        //   console.log("Status:", error.response?.status);
+        //   console.log("Data:", error.response?.data);
+        //   console.log("Full Error:", error);
       
           toast.error(
             error.response?.data?.detail ||

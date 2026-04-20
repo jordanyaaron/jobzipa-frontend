@@ -26,7 +26,7 @@ import ShareModal from "../models/ShareModel";
   
     return (
       <>
-        <div className="border border-[var(--border)] rounded-xl p-4 bg-white dark:bg-gray-900 hover:shadow-md transition">
+        <div className="border mb-5 border-[var(--border)] rounded-xl p-4 bg-white dark:bg-gray-900 hover:shadow-md transition">
           
           {/* HEADER */}
           <div className="flex items-start justify-between">

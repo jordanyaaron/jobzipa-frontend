@@ -165,7 +165,7 @@ export default function JobDetailPage() {
                     <div>
                       {JOB_TYPE_MAP[job.job_type]} •{" "}
                       {JOB_MODE_MAP[job.job_mode]} •{" "}
-                      {shortTimeAgo(job.created_at)}
+                      {shortTimeAgo(job.actual_date)}
                     </div>
                   </div>
 
