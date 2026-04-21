@@ -86,16 +86,16 @@ const Home = () => {
             
               </main>
         }
-        <aside className="hidden lg:block pb-10 w-[400px]">
+        <aside className="lg:block pb-10 lg: w-full w-[400px]">
             <div className="sticky top-10">
 
                 {/* ADS */}
-                <div className='mt-4 flex flex-col gap-2'>
+                <div className='mt-4 hidden lg:flex flex-col gap-2'>
                     <SkeletonBlock className="w-20 h-6"/>
                     <SkeletonBlock className="w-full h-[150px]"/>
                 </div>
 
-                <div className='flex mt-3 gap-2'>
+                <div className='hidden lg:flex mt-3 gap-2'>
                   <div>
                     <SkeletonBlock className="w-[100px] h-[100px]"/>
                   </div>
