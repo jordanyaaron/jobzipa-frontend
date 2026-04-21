@@ -66,7 +66,7 @@ const Home = () => {
           content="jobs in Tanzania, jobs in Kenya, remote jobs, latest jobs, apply jobs online, Jobzipa"
         />
       </Helmet>
-      <div className="w-fulll flex gap-10" >
+      <div className="w-fulll flex flex-col lg:flex-row  gap-10" >
         {
           blockSkeleton 
           ?  <JobsSkeleton />
