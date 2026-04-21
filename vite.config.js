@@ -12,7 +12,8 @@ export default defineConfig({
     },
   },
 
-  base: process.env.VITE_BASE_PATH || '/jobzipa-frontend'
+  base: "/"
+  // base: process.env.VITE_BASE_PATH || '/jobzipa-frontend'
 })
 
 

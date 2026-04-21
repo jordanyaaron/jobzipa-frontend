@@ -66,7 +66,7 @@ const Home = () => {
           content="jobs in Tanzania, jobs in Kenya, remote jobs, latest jobs, apply jobs online, Jobzipa"
         />
       </Helmet>
-      <div className="w-fulll flex flex-col lg:flex-row  gap-10" >
+      <div className="w-full flex flex-col lg:flex-row  gap-10" >
         {
           blockSkeleton 
           ?  <JobsSkeleton />
@@ -74,7 +74,8 @@ const Home = () => {
                 className="
                   w-full
                   pt-6
-                  lg:w-[560px] 
+                  flex-1
+                  lg:w-[560px]
                 "
               >
                 {jobs.map((job) => (
@@ -86,7 +87,7 @@ const Home = () => {
             
               </main>
         }
-        <aside className="lg:block pb-10 lg: w-full w-[400px]">
+        <aside className="lg:block pb-10 w-full lg:w-[400px]">
             <div className="sticky top-10">
 
                 {/* ADS */}
