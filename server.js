@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
  * 🔥 STATIC FILES
  * =========================
  */
-app.use(express.static("dist"));
+
 
 /**
  * =========================
@@ -52,6 +52,8 @@ app.get("/", (req, res) => {
 
   res.send(html);
 });
+
+app.use(express.static("dist"));
 
 /**
  * =========================
