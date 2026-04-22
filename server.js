@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
   
     const seoHead = `
       <title>Latest Jobs in Tanzania, Kenya & Remote Jobs | JobZipa</title>
+      <meta name="robots" content="index, follow">
       <meta name="description" content="Find verified jobs in Tanzania, Kenya and remote work." />
       <meta name="keywords" content="jobs, Tanzania jobs, Kenya jobs, remote jobs" />
       <meta property="og:title" content="JobZipa - Latest Jobs" />
