@@ -1,20 +1,35 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
+import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
+
 /**
  * =========================
- * 🔥 STATIC FILES
+ * 🔁 REDIRECT WWW → NON-WWW
  * =========================
  */
-
+app.use((req, res, next) => {
+  if (req.headers.host === "www.jobzipa.com") {
+    return res.redirect(301, "https://jobzipa.com" + req.url);
+  }
+  next();
+});
 
 /**
  * =========================
- * 🔥 SSR HOME + SEO INJECTION
+ * 📦 STATIC FILES
+ * =========================
+ */
+app.use(express.static("dist"));
+
+/**
+ * =========================
+ * 🔥 SSR HOME + SEO
  * =========================
  */
 app.get("/", (req, res) => {
@@ -23,18 +38,10 @@ app.get("/", (req, res) => {
     "utf-8"
   );
 
-  /**
-   * =========================
-   * 🧹 REMOVE OLD ROBOTS TAG (CLEAN SLATE)
-   * =========================
-   */
+  // 🧹 remove old robots
   html = html.replace(/<meta name="robots"[^>]*>/g, "");
 
-  /**
-   * =========================
-   * 🔥 SEO HEAD (PRODUCTION)
-   * =========================
-   */
+  // 🔥 SEO
   const seoHead = `
     <title>Latest Jobs in Tanzania, Kenya & Remote Jobs | JobZipa</title>
     <meta name="robots" content="index, follow">
@@ -43,21 +50,28 @@ app.get("/", (req, res) => {
     <meta property="og:title" content="JobZipa - Latest Jobs" />
   `;
 
-  /**
-   * =========================
-   * 🔥 INJECT SEO BEFORE </head>
-   * =========================
-   */
   html = html.replace("</head>", `${seoHead}</head>`);
 
   res.send(html);
 });
 
-app.use(express.static("dist"));
+/**
+ * =========================
+ * 🌐 CORS ()
+ * =========================
+ */
+app.use(cors({
+    origin: [
+      "https://jobzipa.com",
+      "https://www.jobzipa.com"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+  }));
 
 /**
  * =========================
- * 🔥 SPA FALLBACK (React ROUTING)
+ * 🔁 SPA FALLBACK
  * =========================
  */
 app.get(/.*/, (req, res) => {
@@ -66,7 +80,7 @@ app.get(/.*/, (req, res) => {
 
 /**
  * =========================
- * 🔥 START SERVER (RENDER SAFE)
+ * 🚀 START SERVER
  * =========================
  */
 app.listen(PORT, () => {
