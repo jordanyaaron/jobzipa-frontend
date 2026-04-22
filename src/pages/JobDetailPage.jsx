@@ -169,6 +169,32 @@ export default function JobDetailPage() {
                     </div>
                   </div>
 
+                  {/* ACTIONS Mobile */}
+                  <div className="flex lg:hidden gap-2">
+
+                    <button
+                      onClick={() => {
+                        const newState = toggleSaveJob(job);
+                        setSaved(newState);
+                      }}
+                      className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                    >
+                      <BookmarkIcon
+                        className={`h-5 w-5 ${
+                          saved ? "fill-[var(--text)]" : ""
+                        }`}
+                      />
+                    </button>
+
+                    <button
+                      onClick={() => setOpenShare(true)}
+                      className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                    >
+                      <ArrowUpRightIcon className="h-5 w-5" />
+                    </button>
+
+                    </div>
+
                 </div>
 
                 {/* DESCRIPTION */}
