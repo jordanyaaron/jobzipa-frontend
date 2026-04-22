@@ -7,6 +7,19 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 
+/**
+ * =========================
+ * 🌐 CORS ()
+ * =========================
+ */
+app.use(cors({
+    origin: [
+      "https://jobzipa.com",
+      "https://www.jobzipa.com"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+  }));
 
 /**
  * =========================
@@ -14,18 +27,13 @@ const PORT = process.env.PORT || 3000;
  * =========================
  */
 app.use((req, res, next) => {
-  if (req.headers.host === "www.jobzipa.com") {
-    return res.redirect(301, "https://jobzipa.com" + req.url);
-  }
-  next();
-});
+    if (req.headers.host === "www.jobzipa.com") {
+      return res.redirect(301, "https://jobzipa.com" + req.url);
+    }
+    next();
+  });
 
-/**
- * =========================
- * 📦 STATIC FILES
- * =========================
- */
-app.use(express.static("dist"));
+
 
 /**
  * =========================
@@ -55,19 +63,14 @@ app.get("/", (req, res) => {
   res.send(html);
 });
 
+
 /**
  * =========================
- * 🌐 CORS ()
+ * 📦 STATIC FILES
  * =========================
  */
-app.use(cors({
-    origin: [
-      "https://jobzipa.com",
-      "https://www.jobzipa.com"
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
-  }));
+app.use(express.static("dist"));
+
 
 /**
  * =========================
