@@ -4,6 +4,7 @@ import contactUsIttustration from "@/assets/illustrations/contactus.png"
 import emailjs from "@emailjs/browser";
 
 export default function ContactPage() {
+  const [loading, setLoading] = useState()
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -99,7 +100,7 @@ export default function ContactPage() {
               value={form.name}
               onChange={handleChange}
               required
-              className="w-full p-3 border rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
+              className="w-full p-3 border border-[var(--border)]  rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
             />
 
             <input
@@ -109,7 +110,7 @@ export default function ContactPage() {
               value={form.email}
               onChange={handleChange}
               required
-              className="w-full p-3 border rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
+              className="w-full p-3 border border-[var(--border)]  rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
             />
 
             <textarea
@@ -119,21 +120,21 @@ export default function ContactPage() {
               onChange={handleChange}
               required
               rows={5}
-              className="w-full p-3 border rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
+              className="w-full p-3 border border-[var(--border)] rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
             />
-
             <button
               type="submit"
-              className="w-full py-3 rounded-lg bg-black text-white hover:opacity-90 transition"
+              disabled={loading}
+              className="w-full py-3 rounded-lg bg-black text-white dark:bg-white dark:text-black   hover:opacity-90 transition"
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
           </form>
 
           {/* CONTACT INFO */}
           <div className="mt-6 text-sm text-[var(--placeholder)]">
-            <p>📧 support@jobzipa.com</p>
-            <p>🤝 info@jobzipa.com</p>
+            <p>For Support 📧: support@jobzipa.com</p>
+            <p>For Business 🤝 info@jobzipa.com</p>
           </div>
         </motion.div>
 

@@ -25,7 +25,7 @@ export default function InfoLayout() {
                 to={link.path}
                 className={`px-4 py-2 rounded-md text-sm transition ${
                   active
-                    ? "bg-black text-white"
+                    ? "bg-black text-white dark:bg-white dark:text-black "
                     : "text-[var(--text)] hover:bg-gray-100 dark:hover:bg-gray-800"
                 }`}
               >
