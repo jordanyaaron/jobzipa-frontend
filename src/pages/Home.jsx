@@ -53,19 +53,7 @@ const Home = () => {
  
   return (
     <>
-      <Helmet>
-        <title>Latest Jobs in Tanzania, Kenya & Remote Jobs | Jobzipa</title>
-
-        <meta
-          name="description"
-          content="Find the latest job opportunities in Tanzania, Kenya and remote work. Browse verified job listings and apply easily on Jobzipa."
-        />
-
-        <meta
-          name="keywords"
-          content="jobs in Tanzania, jobs in Kenya, remote jobs, latest jobs, apply jobs online, Jobzipa"
-        />
-      </Helmet>
+      
       <div className="w-full flex flex-col lg:flex-row  gap-10" >
         {
           blockSkeleton 
