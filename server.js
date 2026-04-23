@@ -41,10 +41,18 @@ app.use((req, res, next) => {
 
 /**
  * =========================
- * 🔥 SEO + SSR (ALL ROUTES)
+ * 📦 STATIC FILES (REACT BUILD)
+ * =========================
+ * MUST BE FIRST before any fallback routes
+ */
+app.use(express.static(path.join(process.cwd(), "dist")));
+
+/**
+ * =========================
+ * 🔥 SEO ROUTE (OPTIONAL SSR FOR HOME)
  * =========================
  */
-app.get(/(.*)/, (req, res) => {
+app.get("/", (req, res) => {
   const filePath = path.join(process.cwd(), "dist/index.html");
 
   if (!fs.existsSync(filePath)) {
@@ -53,76 +61,35 @@ app.get(/(.*)/, (req, res) => {
 
   let html = fs.readFileSync(filePath, "utf-8");
 
-  /**
-   * =========================
-   * 🧹 CLEAN DUPLICATES
-   * =========================
-   */
   html = html.replace(/<meta name="robots"[^>]*>/g, "");
-  html = html.replace(/<link rel="canonical"[^>]*>/g, "");
 
-  /**
-   * =========================
-   * 🧠 ROUTE-BASED SEO
-   * =========================
-   */
-  let title = "JobZipa - Latest Jobs in Tanzania & Remote Jobs";
-  let description =
-    "Find verified job opportunities in Tanzania, Kenya and remote work on JobZipa.";
-
-  const pathName = req.path;
-
-  if (pathName.startsWith("/about")) {
-    title = "About JobZipa";
-    description = "Learn about JobZipa and our mission to connect job seekers.";
-  }
-
-  if (pathName.startsWith("/contact")) {
-    title = "Contact JobZipa";
-    description = "Get in touch with JobZipa support team.";
-  }
-
-  if (pathName.startsWith("/privacy")) {
-    title = "Privacy Policy | JobZipa";
-    description = "Read how JobZipa handles user privacy and data.";
-  }
-
-  /**
-   * =========================
-   * 🔥 SEO HEAD INJECTION
-   * =========================
-   */
   const seoHead = `
-    <title>${title}</title>
-    <link rel="canonical" href="${DOMAIN}${req.url}" />
+    <title>JobZipa - Latest Jobs in Tanzania & Remote Jobs</title>
+    <link rel="canonical" href="${DOMAIN}/" />
 
     <meta name="robots" content="index, follow" />
-    <meta name="description" content="${description}" />
+    <meta name="description" content="Find verified job opportunities in Tanzania, Kenya and remote work on JobZipa." />
 
-    <meta property="og:title" content="${title}" />
-    <meta property="og:description" content="${description}" />
-    <meta property="og:url" content="${DOMAIN}${req.url}" />
+    <meta property="og:title" content="JobZipa - Latest Jobs" />
+    <meta property="og:description" content="Find verified job opportunities in Tanzania, Kenya and remote work." />
+    <meta property="og:url" content="${DOMAIN}/" />
     <meta property="og:type" content="website" />
   `;
 
   html = html.replace("</head>", `${seoHead}</head>`);
 
-  /**
-   * =========================
-   * 🚀 RESPONSE
-   * =========================
-   */
-  res.status(200).send(html);
+  res.send(html);
 });
-
-
 
 /**
  * =========================
- * 📦 STATIC FILES (REACT BUILD)
+ * 🔁 SPA FALLBACK (MUST BE LAST)
  * =========================
  */
-app.use(express.static(path.join(process.cwd(), "dist")));
+app.get(/(.*)/, (req, res) => {
+  res.sendFile(path.join(process.cwd(), "dist/index.html"));
+});
+
 /**
  * =========================
  * 🚀 START SERVER
