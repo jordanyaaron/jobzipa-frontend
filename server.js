@@ -39,13 +39,6 @@ app.use((req, res, next) => {
   next();
 });
 
-/**
- * =========================
- * 📦 STATIC FILES (REACT BUILD)
- * =========================
- * MUST BE FIRST before any fallback routes
- */
-app.use(express.static(path.join(process.cwd(), "dist")));
 
 /**
  * =========================
@@ -80,6 +73,15 @@ app.get("/", (req, res) => {
 
   res.send(html);
 });
+
+/**
+ * =========================
+ * 📦 STATIC FILES (REACT BUILD)
+ * =========================
+ * MUST BE FIRST before any fallback routes
+ */
+app.use(express.static(path.join(process.cwd(), "dist")));
+
 
 /**
  * =========================
