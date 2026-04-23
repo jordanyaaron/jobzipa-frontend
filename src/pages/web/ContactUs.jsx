@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import contactUsIttustration from "@/assets/illustrations/contactus.png"
+import emailjs from "@emailjs/browser";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -16,11 +17,33 @@ export default function ContactPage() {
     });
   };
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
-    alert("Message sent!");
-    setForm({ name: "", email: "", message: "" });
+    setLoading(true);
+
+    emailjs
+      .send(
+        "service_w6sv24r",
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        alert("Message sent successfully!");
+        setForm({ name: "", email: "", message: "" });
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Failed to send message");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
