@@ -3,7 +3,23 @@
 
   <url>
     <loc>https://jobzipa.com/</loc>
+    <priority>1.0</priority>
+    <changefreq>daily</changefreq>
   </url>
 
+  <url>
+    <loc>https://jobzipa.com/about</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://jobzipa.com/contact</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://jobzipa.com/privacy</loc>
+    <priority>0.5</priority>
+  </url>
 
 </urlset>
