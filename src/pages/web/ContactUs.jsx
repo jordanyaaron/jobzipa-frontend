@@ -100,7 +100,7 @@ export default function ContactPage() {
               value={form.name}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-[var(--border)]  rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
+              className="w-full text-[var(--text)]  placeholder-[var(--placeholder)]  p-3 border border-[var(--border)]  rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
             />
 
             <input
@@ -110,7 +110,7 @@ export default function ContactPage() {
               value={form.email}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-[var(--border)]  rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
+              className="w-full text-[var(--text)] placeholder-[var(--placeholder)]  p-3 border border-[var(--border)]  rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
             />
 
             <textarea
@@ -120,7 +120,7 @@ export default function ContactPage() {
               onChange={handleChange}
               required
               rows={5}
-              className="w-full p-3 border border-[var(--border)] rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
+              className="w-full text-[var(--text)] placeholder-[var(--placeholder)]  p-3 border border-[var(--border)] rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
             />
             <button
               type="submit"
