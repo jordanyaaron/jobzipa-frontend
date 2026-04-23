@@ -41,13 +41,6 @@ app.use((req, res, next) => {
 
 /**
  * =========================
- * 📦 STATIC FILES (REACT BUILD)
- * =========================
- */
-app.use(express.static(path.join(process.cwd(), "dist")));
-
-/**
- * =========================
  * 🔥 SEO + SSR (ALL ROUTES)
  * =========================
  */
@@ -122,6 +115,14 @@ app.get(/(.*)/, (req, res) => {
   res.status(200).send(html);
 });
 
+
+
+/**
+ * =========================
+ * 📦 STATIC FILES (REACT BUILD)
+ * =========================
+ */
+app.use(express.static(path.join(process.cwd(), "dist")));
 /**
  * =========================
  * 🚀 START SERVER
