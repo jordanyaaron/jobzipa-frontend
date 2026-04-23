@@ -10,13 +10,15 @@ const DOMAIN = "https://jobzipa.com";
 
 /**
  * =========================
- * 🌐 CORS
+ * 🌐 CORS CONFIG
  * =========================
  */
 app.use(cors({
   origin: [
     "https://jobzipa.com",
-    "https://www.jobzipa.com"
+    "https://www.jobzipa.com",
+    "https://prototype.jobzipa.com",
+    "https://jobzipa-frontend.vercel.app"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
@@ -24,7 +26,7 @@ app.use(cors({
 
 /**
  * =========================
- * 🔁 FORCE HTTPS + NON-WWW
+ * 🔁 FORCE WWW → NON-WWW
  * =========================
  */
 app.use((req, res, next) => {
@@ -34,28 +36,23 @@ app.use((req, res, next) => {
     return res.redirect(301, DOMAIN + req.url);
   }
 
-  // Optional: force https (Render usually handles this)
-  if (req.headers["x-forwarded-proto"] === "http") {
-    return res.redirect(301, DOMAIN + req.url);
-  }
-
   next();
 });
 
 /**
  * =========================
- * 📦 STATIC FILES
+ * 📦 STATIC FILES (REACT BUILD)
  * =========================
  */
-app.use(express.static("dist"));
+app.use(express.static(path.join(process.cwd(), "dist")));
 
 /**
  * =========================
- * 🔥 SSR + SEO (ALL ROUTES)
+ * 🔥 SEO + SSR (ALL ROUTES)
  * =========================
  */
-app.get("*", (req, res) => {
-  const filePath = path.resolve("dist/index.html");
+app.get(/(.*)/, (req, res) => {
+  const filePath = path.join(process.cwd(), "dist/index.html");
 
   if (!fs.existsSync(filePath)) {
     return res.status(500).send("Build not found");
@@ -63,50 +60,52 @@ app.get("*", (req, res) => {
 
   let html = fs.readFileSync(filePath, "utf-8");
 
-  // 🧹 Clean duplicate tags
+  /**
+   * =========================
+   * 🧹 CLEAN DUPLICATES
+   * =========================
+   */
   html = html.replace(/<meta name="robots"[^>]*>/g, "");
   html = html.replace(/<link rel="canonical"[^>]*>/g, "");
 
   /**
    * =========================
-   * 🧠 BASIC ROUTE DETECTION
+   * 🧠 ROUTE-BASED SEO
    * =========================
    */
-  let title = "JobZipa - Latest Jobs";
-  let description = "Find verified jobs in Tanzania, Kenya and remote work.";
+  let title = "JobZipa - Latest Jobs in Tanzania & Remote Jobs";
+  let description =
+    "Find verified job opportunities in Tanzania, Kenya and remote work on JobZipa.";
 
-  if (req.url.startsWith("/jobs")) {
-    title = "Browse Jobs | JobZipa";
-    description = "Explore latest job opportunities in Tanzania and remote.";
-  }
+  const pathName = req.path;
 
-  if (req.url.startsWith("/contact")) {
-    title = "Contact Us | JobZipa";
-    description = "Get in touch with JobZipa team.";
-  }
-
-  if (req.url.startsWith("/privacy")) {
-    title = "Privacy Policy | JobZipa";
-    description = "Read JobZipa privacy policy.";
-  }
-
-  if (req.url.startsWith("/about")) {
+  if (pathName.startsWith("/about")) {
     title = "About JobZipa";
-    description = "Learn more about JobZipa and how we help job seekers find opportunities.";
+    description = "Learn about JobZipa and our mission to connect job seekers.";
+  }
+
+  if (pathName.startsWith("/contact")) {
+    title = "Contact JobZipa";
+    description = "Get in touch with JobZipa support team.";
+  }
+
+  if (pathName.startsWith("/privacy")) {
+    title = "Privacy Policy | JobZipa";
+    description = "Read how JobZipa handles user privacy and data.";
   }
 
   /**
    * =========================
-   * 🔥 SEO HEAD
+   * 🔥 SEO HEAD INJECTION
    * =========================
    */
   const seoHead = `
     <title>${title}</title>
     <link rel="canonical" href="${DOMAIN}${req.url}" />
+
     <meta name="robots" content="index, follow" />
     <meta name="description" content="${description}" />
 
-    <!-- Open Graph -->
     <meta property="og:title" content="${title}" />
     <meta property="og:description" content="${description}" />
     <meta property="og:url" content="${DOMAIN}${req.url}" />
@@ -117,20 +116,10 @@ app.get("*", (req, res) => {
 
   /**
    * =========================
-   * 🚨 OPTIONAL: BASIC 404 DETECTION
+   * 🚀 RESPONSE
    * =========================
    */
-  const knownRoutes = ["/", "/jobs", "/contact", "/privacy"];
-
-  const isKnown = knownRoutes.some(route =>
-    req.path === route || req.path.startsWith(route + "/")
-  );
-
-  if (!isKnown) {
-    res.status(404);
-  }
-
-  res.send(html);
+  res.status(200).send(html);
 });
 
 /**
