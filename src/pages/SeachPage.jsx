@@ -17,7 +17,7 @@ const SearchPage = () => {
       setLoading(true);
 
       try {
-        const res = await api.get(`jobs/get?search=${query}`);
+        const res = await api.get(`jobs/get?search=${query}`,{ skipAuth: true });
         setJobs(res.data);
       } catch (err) {
         console.log(err);
