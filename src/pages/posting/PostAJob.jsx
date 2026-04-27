@@ -7,8 +7,7 @@ import React, { useEffect, useRef, useState ,useCallback} from "react";
 import Cropper from "react-easy-crop";
 import QuillEditor from '../../components/QuilEditor';
 import logoAddIcon from '../../assets/icons/gallery.png';
-import closeIcon from '../../assets/icons/close.png';
-import plusIcon from '../../assets/icons/plus.png';
+import JobSuccessModal from '@/components/models/AddMoreJob';
 import JobzipaLogo from '../../assets/logos/jobzipa.png';
 import { formatDate } from 'date-fns';
 // import plusIcon from '../../assets/icons/plus.png';
@@ -21,7 +20,6 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     const [jobDescriptions, setJobDescriptions] = useState("");
     const [companyName, setCompanyName] = useState("");
     const [title, setTitle] = useState("");
-    const [position, setPosition] = useState("");
     const [locationRigion, setLocationRegion] = useState("");
     const [locationCountry, setLocationCountry] = useState("");
     const [locations, setLocations] = useState([]);
@@ -47,13 +45,12 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     const [zoom, setZoom] = useState(1);
     const [crop, setCrop] = useState({ x: 0, y: 0 });
     const [errors, setErrors] = useState({});
-    const [isPostCommand, setIsPostCommand] = useState(false);
-    const isAuthenticated = useState(false);
+    const [descriptionSummery, setDescriptionSummery] = useState(null); 
+    const [showModal, setShowModal] = useState(false);
     
     // const ac = useState(false);
 
     const [isLoading, setIsLoading] = useState(false);
-    const [status, setStatus] = useState(null); 
 
     // REFS FOR EVERY INPUT LOCATION
     const logPickerRef = useRef(null);
@@ -61,12 +58,10 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     const biographyRef = useRef(null);
     const titleRef = useRef(null);
     const descriptionsRef = useRef(null);
+    const descriptionsSummeryRef = useRef(null);
     const positionRef = useRef(null);
     const locationRef = useRef(null);
     const dateRef = useRef(null);
-    // const applicationLink = useRef(null);
-    const contentRef = useRef(null);
-    const imageRef = useRef(null);
 
     // REFS FOR EVERY INPUT LOCATION
     const bioQuill = useRef(null);
@@ -82,7 +77,6 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     const jobTypeFieldRef = useRef(null);
     const jobModeFieldRef = useRef(null);
     const appLinkFieldRef = useRef(null);
-    // const FieldRef = useRef(null);
     
     // Date Data
     const [dateData, setDateData] = useState({
@@ -110,6 +104,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
             if (!title.trim()){newErrors.title = "Title is required!";}   
             if (!jobDescriptions.trim()){newErrors.description = "Job description's required!";}   
             if (!positionValue.trim()){newErrors.position = "Position should not be empty!";}
+            if (!descriptionsSummeryRef.trim()){newErrors.summary = "Descriptions summery should not be empty!";}
             let finalLocations = [...locations];
 
             // Kama kuna kitu kimeandikwa kwenye input
@@ -170,7 +165,8 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                     description: descriptionsRef,
                     position: positionRef,
                     locations : locationRef ,
-                    dates: dateRef
+                    dates: dateRef ,
+                    summary : descriptionsSummeryRef
                 };
 
                 const firstRef = refMap[firstErrorKey];
@@ -219,6 +215,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
       
         formData.append("title", title);
         formData.append("description", jobDescriptions);
+        formData.append("description_summary", descriptionSummery);
         formData.append("biography", biography);
         formData.append("company", companyName);
         formData.append("location", JSON.stringify(finalLocations));
@@ -550,8 +547,54 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
             }
         };
 
+
+        const restData = () => {
+            setShowModal(false);
+            setApplicationsLink('')
+            setLocations([])
+            setDescriptionSummery('')
+            setJobDescriptions('')
+            setTitle('')
+            setPositionValue('')
+            setMode('ON')
+            setMode('FT')
+            setIsMultiple(false)
+            setTags([])
+            setDateData(prev => ({
+                ...prev,
+                actual_date: ""
+            }))
+            setDateData(prev => ({
+                ...prev,
+                deadline_date: ""
+            }));
+        };
+
+
+        const handleClose = () => {
+            setShowModal(false);
+            setTimeout(() => {
+                window.location.reload();
+            }, 900);
+        };
+        
+        const handlePostAnother = () => {
+          setShowModal(false);
+          restData()
+        };
+
     return(
         <>
+
+            {
+                showModal && (
+                    <JobSuccessModal
+                        open={showModal}
+                        onClose={handleClose}
+                        onPostAnother={handlePostAnother}
+                    />
+                )
+            }
             <div className="min-h-screen  bg-gray-100 dark:bg-gray-900 transition-colors  transition-colors duration-300">
                 <header className="fixed top-0 left-0 w-screen z-40  bg-white dark:bg-gray-800">
                     
@@ -865,6 +908,47 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                             <div className="relative sm:m-[4px]  mx-[5px]   lg:mx-[60px] mt-[70px]">
                                                 <p className='font-semibold sm:mt-[50px] md:mt-[60px] text-gray-800 dark:text-gray-500'>Hints:</p>
                                                 <p className=' text-xs text-gray-500 dark:text-gray-600 mx-1'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
+                                            </div>
+                                        </div>
+                                        <div className="m-[10px] mt-[20px]" ref={descriptionsSummeryRef}>
+                                            <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Descriptions</h3>
+                                            
+                                            <div 
+                                                className="
+                                                    pt-0
+                                                    mx-0 md:2 lg:mx-5
+                                                    mb-5
+                                                    border-0
+                                                " 
+                                            >
+                                                <textarea 
+                                                    name=""
+                                                    className="
+                                                        w-full
+                                                        mx-0
+                                                        my-0
+                                                        mt-[15px] lg:mt-[20px]
+                                                        pt-4 pb-4 md:pt-6 md:pb-6
+                                                        px-1.5 md:px-2.5
+                                                        text-sm md:text-lg  
+                                                        rounded-md
+                                                        border
+                                                        border-[var(--post-border)]
+                                                        bg-transparent
+                                                        text-[var(--text)]
+                                                        focus:outline-none
+                                                        focus:ring-2 focus:ring-green-500
+                                                        transition-colors duration-300
+                                                    "
+                                                    placeholder="
+                                                        Write a clear and detailed job 
+                                                        description. Include responsibilities, 
+                                                        requirements, and any important information applicants should know...
+                                                    "
+                                                    value={descriptionSummery} 
+                                                    onChange={(e) => setDescriptionSummery(e.target.value)} 
+                                                    id="">
+                                                </textarea>
                                             </div>
                                         </div>
                                         <div className="m-[10px] mt-[25px]" ref={positionRef}>
