@@ -779,7 +779,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                             <input ref={fileInputRef} type="file" id="logoInput" className="hidden" accept="image/*"  onChange={handleFileChange}/>
                                         </div>
                                         <div className="m-[10px]">
-                                            <h3 className='text-sm md:text-lg  lg:text-xl   font-normal text-gray-800 dark:text-gray-200 h-auto'>Company Name</h3> 
+                                            <h3 className=' text-sm md:text-lg  lg:text-xl   font-black text-gray-800 dark:text-gray-200 h-auto'>Company Name</h3> 
                                             <div 
                                                 className="
                                                     pt-0
@@ -820,7 +820,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                         </div>
 
                                         <div className="m-[10px] relative" ref={biographyRef}>
-                                            <h3 className='text-sm md:text-lg  lg:text-xl   font-normal text-gray-800 dark:text-gray-200 h-auto'>Company Biography</h3> 
+                                            <h3 className='text-sm md:text-lg  lg:text-xl   font-black text-gray-800 dark:text-gray-200 h-auto'>Company Biography</h3> 
                                             {errors.biography && (
                                                 <p className='error-displayer for-qiull'>{errors.biography}</p>
                                             )}
@@ -910,7 +910,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                             </div>
                                         </div>
                                         <div className="m-[10px] mt-[20px]" ref={descriptionsSummaryRef}>
-                                            <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Descriptions Summary</h3>
+                                            <h3 className='text-sm md:text-lg  lg:text-xl  font-black text-gray-800 dark:text-gray-200 h-auto'>Descriptions Summary</h3>
                                             
                                             <div 
                                                 className="
@@ -940,9 +940,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                         focus:ring-2 focus:ring-green-500
                                                         transition-colors duration-300
                                                     "
-                                                    placeholder="
-                                                        Write a clear and detailed job description. Include responsibilities, requirements, and any important information applicants should know...
-                                                    "
+                                                    placeholder="Write a clear and detailed job description. Include responsibilities, requirements, and any important information applicants should know..."
                                                     value={descriptionSummary} 
                                                     onChange={(e) => setDescriptionSummary(e.target.value)} 
                                                     id="">
@@ -950,7 +948,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                             </div>
                                         </div>
                                         <div className="m-[10px] mt-[25px]" ref={positionRef}>
-                                            <h3 className='text-sm md:text-lg  lg:text-xl  mb-[15px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Positions</h3> 
+                                            <h3 className='text-sm md:text-lg  lg:text-xl  mb-[15px] font-black text-gray-800 dark:text-gray-200 h-auto'>Job Positions</h3> 
                                             <div 
                                                 className="
                                                     pt-0
@@ -1032,7 +1030,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                         </div>
 
                                         <div ref={locationRef} className="m-[10px] mt-[25px] lg:mt[20px]">
-                                            <h3  className='text-sm md:text-lg  lg:text-xl  mb-[5px] md:mb-[5px] font-normal text-gray-800 dark:text-gray-200 h-auto'  >Job Locations:</h3>
+                                            <h3  className='text-sm md:text-lg  lg:text-xl  mb-[5px] md:mb-[5px] font-black text-gray-800 dark:text-gray-200 h-auto'  >Job Locations:</h3>
                                             {locations.length > 0 && (
                                                 <ul 
                                                     id="location-list" 
@@ -1224,7 +1222,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                         </div>
 
                                         <div className="m-[10px] mt-[20px] lg:mt-[20px]">
-                                            <h3 className='text-sm md:text-lg  lg:text-xl  mb-[10px] font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Categorisations</h3>
+                                            <h3 className='text-sm md:text-lg  lg:text-xl  mb-[10px] font-black text-gray-800 dark:text-gray-200 h-auto'>Job Categorisations</h3>
                                             <div className="
                                                     mx-0 md:mx-2 lg:mx-5
                                                     grid grid-cols-2 gap-3
@@ -1597,7 +1595,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                             Aplication Link
                                         </h1>
                                         <div className="m-[10px]">
-                                            <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Spesify Application link</h3>
+                                            <h3 className='text-sm md:text-lg  lg:text-xl  font-black text-gray-800 dark:text-gray-200 h-auto'>Spesify Application link</h3>
                                             <div 
                                                 className="
                                                     pt-0
