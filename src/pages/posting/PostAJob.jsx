@@ -15,9 +15,9 @@ import { formatDate } from 'date-fns';
 
 export default function PostAJob ({ darkMode, setDarkMode })  {
     const fileInputRef = useRef(null); // tunatumia ref ku-access input
-    const [selectedFiles, setSelectedFiles] = useState([]);
     const [biography, setBiography] = useState("");
     const [jobDescriptions, setJobDescriptions] = useState("");
+    const [descriptionSummary, setDescriptionSummary] = useState(''); 
     const [companyName, setCompanyName] = useState("");
     const [title, setTitle] = useState("");
     const [locationRigion, setLocationRegion] = useState("");
@@ -45,7 +45,6 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     const [zoom, setZoom] = useState(1);
     const [crop, setCrop] = useState({ x: 0, y: 0 });
     const [errors, setErrors] = useState({});
-    const [descriptionSummary, setDescriptionSummary] = useState(null); 
     const [showModal, setShowModal] = useState(false);
     
     // const ac = useState(false);
@@ -911,7 +910,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                             </div>
                                         </div>
                                         <div className="m-[10px] mt-[20px]" ref={descriptionsSummaryRef}>
-                                            <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Descriptions</h3>
+                                            <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Descriptions Summary</h3>
                                             
                                             <div 
                                                 className="
@@ -924,9 +923,10 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                 <textarea 
                                                     name=""
                                                     className="
-                                                        w-full
+                                                        w-4/5
                                                         mx-0
                                                         my-0
+                                                        min-h-20
                                                         mt-[15px] lg:mt-[20px]
                                                         pt-4 pb-4 md:pt-6 md:pb-6
                                                         px-1.5 md:px-2.5
@@ -941,9 +941,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                         transition-colors duration-300
                                                     "
                                                     placeholder="
-                                                        Write a clear and detailed job 
-                                                        description. Include responsibilities, 
-                                                        requirements, and any important information applicants should know...
+                                                        Write a clear and detailed job description. Include responsibilities, requirements, and any important information applicants should know...
                                                     "
                                                     value={descriptionSummary} 
                                                     onChange={(e) => setDescriptionSummary(e.target.value)} 
