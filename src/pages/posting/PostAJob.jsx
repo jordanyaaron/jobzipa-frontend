@@ -45,7 +45,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     const [zoom, setZoom] = useState(1);
     const [crop, setCrop] = useState({ x: 0, y: 0 });
     const [errors, setErrors] = useState({});
-    const [descriptionSummery, setDescriptionSummery] = useState(null); 
+    const [descriptionSummary, setDescriptionSummary] = useState(null); 
     const [showModal, setShowModal] = useState(false);
     
     // const ac = useState(false);
@@ -58,7 +58,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     const biographyRef = useRef(null);
     const titleRef = useRef(null);
     const descriptionsRef = useRef(null);
-    const descriptionsSummeryRef = useRef(null);
+    const descriptionsSummaryRef = useRef(null);
     const positionRef = useRef(null);
     const locationRef = useRef(null);
     const dateRef = useRef(null);
@@ -104,7 +104,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
             if (!title.trim()){newErrors.title = "Title is required!";}   
             if (!jobDescriptions.trim()){newErrors.description = "Job description's required!";}   
             if (!positionValue.trim()){newErrors.position = "Position should not be empty!";}
-            if (!descriptionsSummeryRef.trim()){newErrors.summary = "Descriptions summery should not be empty!";}
+            if (!descriptionSummary.trim()){newErrors.summary = "Descriptions summery should not be empty!";}
             let finalLocations = [...locations];
 
             // Kama kuna kitu kimeandikwa kwenye input
@@ -166,7 +166,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                     position: positionRef,
                     locations : locationRef ,
                     dates: dateRef ,
-                    summary : descriptionsSummeryRef
+                    summary : descriptionsSummaryRef
                 };
 
                 const firstRef = refMap[firstErrorKey];
@@ -215,7 +215,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
       
         formData.append("title", title);
         formData.append("description", jobDescriptions);
-        formData.append("description_summary", descriptionSummery);
+        formData.append("description_summary", descriptionSummary);
         formData.append("biography", biography);
         formData.append("company", companyName);
         formData.append("location", JSON.stringify(finalLocations));
@@ -552,7 +552,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
             setShowModal(false);
             setApplicationsLink('')
             setLocations([])
-            setDescriptionSummery('')
+            setDescriptionSummary('')
             setJobDescriptions('')
             setTitle('')
             setPositionValue('')
@@ -910,7 +910,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                 <p className=' text-xs text-gray-500 dark:text-gray-600 mx-1'>Responsibility, Purpose, Skills, Knowledgy,Qualifictions, Experiences.</p>
                                             </div>
                                         </div>
-                                        <div className="m-[10px] mt-[20px]" ref={descriptionsSummeryRef}>
+                                        <div className="m-[10px] mt-[20px]" ref={descriptionsSummaryRef}>
                                             <h3 className='text-sm md:text-lg  lg:text-xl  font-normal text-gray-800 dark:text-gray-200 h-auto'>Job Descriptions</h3>
                                             
                                             <div 
@@ -945,8 +945,8 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                         description. Include responsibilities, 
                                                         requirements, and any important information applicants should know...
                                                     "
-                                                    value={descriptionSummery} 
-                                                    onChange={(e) => setDescriptionSummery(e.target.value)} 
+                                                    value={descriptionSummary} 
+                                                    onChange={(e) => setDescriptionSummary(e.target.value)} 
                                                     id="">
                                                 </textarea>
                                             </div>
