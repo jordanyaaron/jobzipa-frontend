@@ -260,7 +260,10 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
           
         } catch (error) {
             setIsLoading(false);
-            toast.error("Failed to post job. Please try again.");
+            toast.error(
+                error.response?.data?.detail ||
+                "Failed to post job. Please try again."
+            );
             console.error(error);
         }
       
@@ -271,11 +274,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
         //   console.log("Data:", error.response?.data);
         //   console.log("Full Error:", error);
       
-          toast.error(
-            error.response?.data?.detail ||
-            "Failed to post job. Please try again."
-          );
-        }
+          
     };
 
     const handleAddMoreJob = async (finalLocations) => {
@@ -311,7 +310,10 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
           
         } catch (error) {
             setIsLoading(false);
-            toast.error("Failed to post job. Please try again.");
+            toast.error(
+                error.response?.data?.detail ||
+                "Failed to post job. Please try again."
+            );
             console.error(error);
         }
     
