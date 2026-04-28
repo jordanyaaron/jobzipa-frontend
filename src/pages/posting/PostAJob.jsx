@@ -232,25 +232,19 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
       
         setIsLoading(true);
       
-        // 🔥 FULL DEBUG (IMPORTANT)
-        console.log("===== FORM DATA =====");
-        for (let pair of formData.entries()) {
-          console.log(pair[0], ":", pair[1]);
-        }
+        
       
         try {
           const res = await api.post("jobs/create/", formData);
       
-          console.log("🔥 SUCCESS RESPONSE:", res.data);
-      
-          setIsLoading(false);
-          toast.success("Job posted successfully!");
-      
-          resetJobForm();
+          
       
           setTimeout(() => {
-            window.location.reload();
-          }, 1500);
+            toast.success("Job posted successfully!");
+            resetData();
+            setIsLoading(false);
+            setShowModal(true)
+          }, 700);
       
         } catch (error) {
           setIsLoading(false);
@@ -547,7 +541,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
         };
 
 
-        const restData = () => {
+        const resetData = () => {
             setShowModal(false);
             setApplicationsLink('')
             setLocations([])
