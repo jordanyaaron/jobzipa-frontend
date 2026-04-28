@@ -602,7 +602,6 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
         setApplicationsLink('')
         setLocations([])
         setDescriptionSummary('')
-        setJobDescriptions('')
         setTitle('')
         setPositionValue('')
         setMode('ON')
@@ -617,6 +616,9 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
             ...prev,
             deadline_date: ""
         }));
+        setTimeout(() => {
+            setJobDescriptions('');
+          }, 1);
     };
 
 
@@ -882,7 +884,8 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                             <div id='company-bio-wrapper'  className=' h-[calc(100vh-200px)] lg:h-[calc(100vh-100px)]  mx-0 md:2 lg:mx-5 pt-[20px] relative mb-[15px]'>
                                                 <QuillEditor 
                                                     ref={bioQuill}
-                                                    disabled={addMoreJob}
+                                                    readOnly={addMoreJob}
+                                                    modules={{ toolbar: addMoreJob }}
                                                     value={biography} 
                                                     onChange={handleBioChange} 
                                                     placeholder="Describe about the company..."
@@ -982,7 +985,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                         w-4/5
                                                         mx-0
                                                         my-0
-                                                        min-h-20
+                                                        min-h-25
                                                         mt-[15px] lg:mt-[20px]
                                                         pt-4 pb-4 md:pt-6 md:pb-6
                                                         px-1.5 md:px-2.5
