@@ -8,7 +8,7 @@ import Quill from "quill";
 import "quill/dist/quill.snow.css";
 
 const QuillEditor = forwardRef(
-  ({ value = "", onChange, placeholder = "Write here...", darkMode }, ref) => {
+  ({ value = "", onChange, placeholder = "Write here...", darkMode ,readOnly = false, }, ref) => {
 
     const editorRef = useRef(null);
     const quillInstance = useRef(null);
@@ -38,8 +38,29 @@ const QuillEditor = forwardRef(
           onChange && onChange(html);
         });
       }
-    }, []); // muhimu: iwe empty dependency
-        // 2️⃣ DARK MODE EFFECT (run kila darkMode ikibadilika)
+    }, []); 
+    
+
+    // 2️⃣ SYNC VALUE (for reset / external changes)
+    useEffect(() => {
+      if (quillInstance.current) {
+        const currentHTML = quillInstance.current.root.innerHTML;
+
+        if ((value || "") !== currentHTML) {
+          quillInstance.current.root.innerHTML = value || "";
+        }
+      }
+    }, [value]);
+
+    // 3️⃣ DISABLE / ENABLE EDITOR
+    useEffect(() => {
+      if (quillInstance.current) {
+        quillInstance.current.enable(!readOnly);
+      }
+    }, [readOnly]);
+
+// muhimu: iwe empty dependency
+    // 2️⃣ DARK MODE EFFECT (run kila darkMode ikibadilika)
         useEffect(() => {
           if (quillInstance.current) {
             const editorRoot = quillInstance.current.root;

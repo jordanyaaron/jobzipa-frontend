@@ -109,7 +109,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
         let finalLocations = [...locations];
 
         if(addMoreJob){
-            if(companyCode){
+            if(!companyCode){
                 newErrors.code="No Company Code Found"
             }
         }
@@ -885,7 +885,6 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                 <QuillEditor 
                                                     ref={bioQuill}
                                                     readOnly={addMoreJob}
-                                                    modules={{ toolbar: addMoreJob }}
                                                     value={biography} 
                                                     onChange={handleBioChange} 
                                                     placeholder="Describe about the company..."
