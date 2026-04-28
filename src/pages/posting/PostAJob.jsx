@@ -46,6 +46,8 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     const [crop, setCrop] = useState({ x: 0, y: 0 });
     const [errors, setErrors] = useState({});
     const [showModal, setShowModal] = useState(false);
+    const [addMoreJob, setAddMoreJob] = useState(false);
+    const [companyCode, setCompanyCode] = useState(null);
     
     // const ac = useState(false);
 
@@ -95,115 +97,126 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     
 
     //  SUBMITION HANDLER ( Form validation )
-        const handleSubmit = async () => {
-            let newErrors = {};
-            if (!createCroppedImage){newErrors.logo = "Logo is equired!";} 
-            if (!companyName.trim()){ newErrors.name = "Company name is required!";}  
-            if (!biography){newErrors.biography = "Biography is equired!";}   
-            if (!title.trim()){newErrors.title = "Title is required!";}   
-            if (!jobDescriptions.trim()){newErrors.description = "Job description's required!";}   
-            if (!positionValue.trim()){newErrors.position = "Position should not be empty!";}
-            if (!descriptionSummary.trim()){newErrors.summary = "Descriptions summery should not be empty!";}
-            let finalLocations = [...locations];
+    const handleSubmit = async () => {
+        let newErrors = {};
+        if (!createCroppedImage){newErrors.logo = "Logo is equired!";} 
+        if (!companyName.trim()){ newErrors.name = "Company name is required!";}  
+        if (!biography){newErrors.biography = "Biography is equired!";}   
+        if (!title.trim()){newErrors.title = "Title is required!";}   
+        if (!jobDescriptions.trim()){newErrors.description = "Job description's required!";}   
+        if (!positionValue.trim()){newErrors.position = "Position should not be empty!";}
+        if (!descriptionSummary.trim()){newErrors.summary = "Descriptions summery should not be empty!";}
+        let finalLocations = [...locations];
 
-            // Kama kuna kitu kimeandikwa kwenye input
-            if (locationRigion && locationRigion.trim() !== "") {
-                const result = buildNewLocationIfValid();
-
-                if (result.error) {
-                    newErrors.locations = result.error;
-                } else {
-                    finalLocations.push(result.location);
-                }
+        if(addMoreJob){
+            if(companyCode){
+                newErrors.code="No Company Code Found"
             }
+        }
 
-            // Kama bado hakuna location
-            if (finalLocations.length === 0) {
-                newErrors.locations = "At least one location is required!";
+        // Kama kuna kitu kimeandikwa kwenye input
+        if (locationRigion && locationRigion.trim() !== "") {
+            const result = buildNewLocationIfValid();
+
+            if (result.error) {
+                newErrors.locations = result.error;
+            } else {
+                finalLocations.push(result.location);
             }
-            
-            
-            
-            if (isQuillContentEmpty(jobDescriptions)) {
-                {newErrors.description = "Job description's required!";} 
-            }
-            if (isQuillContentEmpty(biography)) {
-                {newErrors.biography = "Biography is equired!";} 
-            }
+        }
 
-            const { actual_date, deadline_date } = dateData
-
-            const isIncomplete = (date) => {
-                if (!date) return false
-                return date.length !== 10
-            }
-
-            if (isIncomplete(actual_date)) {
-                newErrors.dates = "Actual date is incomplete. Finish it or remove it."
-            }
-
-            if (isIncomplete(deadline_date)) {
-                newErrors.dates = "Deadline date is incomplete. Finish it or remove it."
-            }
-              
-
-            // setErrors(newErrors);
-
-            // scroll to first input with error
-                // Kama kuna errors
-            if (Object.keys(newErrors).length > 0) {
-                // Pata key ya kwanza yenye error
-                const firstErrorKey = Object.keys(newErrors)[0];
-
-                // Scroll kwenye field husika
-                const refMap = {
-                    logo: logPickerRef,
-                    name: companyNameRef,
-                    biography: biographyRef,
-                    title: titleRef,
-                    description: descriptionsRef,
-                    position: positionRef,
-                    locations : locationRef ,
-                    dates: dateRef ,
-                    summary : descriptionsSummaryRef
-                };
-
-                const firstRef = refMap[firstErrorKey];
-                if (firstRef?.current) {
-                    firstRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
-                }
-
-                // Set only one error to display
-                toast.error(newErrors[firstErrorKey]);
-                // setErrors({ [firstErrorKey]: newErrors[firstErrorKey] });
-                return;
-            }  
-            handlePostJob(finalLocations);
-        };
-
-        // HELPER FUNCTION FOR handleSubmitFunction 
-        const buildNewLocationIfValid = () => {
-            if (!locationRigion || !locationRigion.trim()) {
-                return { error: "Please enter a region or city!" };
-            }
+        // Kama bado hakuna location
+        if (finalLocations.length === 0) {
+            newErrors.locations = "At least one location is required!";
+        }
         
-            const duplicate = locations.some(
-                (loc) =>
-                    loc.locationRigion.toLowerCase() === locationRigion.trim().toLowerCase() &&
-                    loc.locationCountry.toLowerCase() === locationCountry.toLowerCase()
-            );
         
-            if (duplicate) {
-                return { error: "This location already exists" };
-            }
         
-            return {
-                location: {
-                    locationRigion: locationRigion.trim(),
-                    locationCountry
-                }
+        if (isQuillContentEmpty(jobDescriptions)) {
+            {newErrors.description = "Job description's required!";} 
+        }
+        if (isQuillContentEmpty(biography)) {
+            {newErrors.biography = "Biography is equired!";} 
+        }
+
+        const { actual_date, deadline_date } = dateData
+
+        const isIncomplete = (date) => {
+            if (!date) return false
+            return date.length !== 10
+        }
+
+        if (isIncomplete(actual_date)) {
+            newErrors.dates = "Actual date is incomplete. Finish it or remove it."
+        }
+
+        if (isIncomplete(deadline_date)) {
+            newErrors.dates = "Deadline date is incomplete. Finish it or remove it."
+        }
+            
+
+        // setErrors(newErrors);
+
+        // scroll to first input with error
+            // Kama kuna errors
+        if (Object.keys(newErrors).length > 0) {
+            // Pata key ya kwanza yenye error
+            const firstErrorKey = Object.keys(newErrors)[0];
+
+            // Scroll kwenye field husika
+            const refMap = {
+                logo: logPickerRef,
+                name: companyNameRef,
+                biography: biographyRef,
+                title: titleRef,
+                description: descriptionsRef,
+                position: positionRef,
+                locations : locationRef ,
+                dates: dateRef ,
+                summary : descriptionsSummaryRef ,
+                code : logPickerRef
             };
+
+            const firstRef = refMap[firstErrorKey];
+            if (firstRef?.current) {
+                firstRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+
+            // Set only one error to display
+            toast.error(newErrors[firstErrorKey]);
+            // setErrors({ [firstErrorKey]: newErrors[firstErrorKey] });
+            return;
+        } 
+        if(addMoreJob){
+            handleAddMoreJob(finalLocations)
+        } else{
+            handlePostJob(finalLocations);
+        }
+    };
+
+    // HELPER FUNCTION FOR handleSubmitFunction 
+    const buildNewLocationIfValid = () => {
+        if (!locationRigion || !locationRigion.trim()) {
+            return { error: "Please enter a region or city!" };
+        }
+    
+        const duplicate = locations.some(
+            (loc) =>
+                loc.locationRigion.toLowerCase() === locationRigion.trim().toLowerCase() &&
+                loc.locationCountry.toLowerCase() === locationCountry.toLowerCase()
+        );
+    
+        if (duplicate) {
+            return { error: "This location already exists" };
+        }
+    
+        return {
+            location: {
+                locationRigion: locationRigion.trim(),
+                locationCountry
+            }
         };
+    };
 
     //  SUBMITION HANDLER ( Posting after a form validation) 
     const handlePostJob = async (finalLocations) => {
@@ -261,320 +274,368 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
             "Failed to post job. Please try again."
           );
         }
-      };
+    };
 
-
-        const resetJobForm = () => {
-            // resting state
-            setTitle("");
-            setJobDescriptions("");
-            setBiography("");
-            setCompanyName("");
-            setLocations([]);
-            setTags([]);
-            setType("FT");
-            setMode("ON");
-            setPositionValue("");
-            setIsMultiple(false)
-            setLocationRegion('')
-            setLocationCountry('')
-            setApplicationsLink('');
-            handleRemoveLogo()
-            bioQuill.current?.clear();
-            descriptionQuill.current?.clear();
-          };
-          
-        const isQuillContentEmpty = (html) => {
-            if (!html) return true;
-            const temp = document.createElement("div");
-            temp.innerHTML = html;
-            // chukua maandishi halisi
-            const text = temp.textContent || temp.innerText || "";
-            return text.trim().length === 0;
-        };
-          
-           
-
-
-    //  LOGO PICKER OPEN
-        const handleButtonClick = () => {
-            fileInputRef.current.click();
-        };
-
-    //  LOGO CHANGE HANDLER
-        const handleFileChange = (e) => {
-                const file = e.target.files?.[0];
-                if (file) {
-                const imageURL = URL.createObjectURL(file);
-                setSelectedImage(imageURL);
-                setCrop({ x: 0, y: 0 }); // reset crop state
-                setZoom(1);
-            }
-            setCropperDisplay("block");
-        };
-
-        //  Crop complete
-        const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
-            setCroppedAreaPixels(croppedAreaPixels);
-        }, []);
-
-        //  Helper function to generate cropped image
-        //  CROPING LOGO IMAGE
-        const createCroppedImage = async () => {
-            try {
-            const image = await createImage(selectedImage);
-            const canvas = document.createElement("canvas");
-            const ctx = canvas.getContext("2d");
-
-            canvas.width = croppedAreaPixels.width;
-            canvas.height = croppedAreaPixels.height;
-
-            ctx.drawImage(
-                image,
-                croppedAreaPixels.x,
-                croppedAreaPixels.y,
-                croppedAreaPixels.width,
-                croppedAreaPixels.height,
-                0,
-                0,
-                croppedAreaPixels.width,
-                croppedAreaPixels.height
-            );
-
-            const base64Image = canvas.toDataURL("image/jpeg");
-            const file = base64ToFile(base64Image, "company_logo.jpg");
-            setCompanyLogo(file);
-            setCroppedImage(base64Image);
-            setSelectedImage(null);
-            } catch (e) {
-            console.error(e);
-            }
-        };
-
-
-        // 🔹 HELPER FUNCTION (nje)
-        function base64ToFile(base64, filename) {
-            const arr = base64.split(",");
-            const mime = arr[0].match(/:(.*?);/)[1];
-            const bstr = atob(arr[1]);
-            let n = bstr.length;
-            const u8arr = new Uint8Array(n);
-
-            while (n--) {
-                u8arr[n] = bstr.charCodeAt(n);
-            }
-
-            return new File([u8arr], filename, { type: mime });
-        }
-
-    //  Utility to load image
-        const createImage = (url) =>
-            new Promise((resolve, reject) => {
-            const image = new Image();
-            image.addEventListener("load", () => resolve(image));
-            image.addEventListener("error", (error) => reject(error));
-            image.setAttribute("crossOrigin", "anonymous");
-            image.src = url;
-        });
-
-    //  CANCEL CROPPING
-        const handleCancelCropping = () => {
-            setSelectedImage(null);
-            setSelectedImage(null);
-        };
-
-    //  CANCEL CROPPING
-        const handleRemoveLogo = () => {
-            setCroppedImage(null);
-            setSelectedImage(null)
-        };
-
-    //  BACK CROPPING
-        useEffect(() => {
-            const handleBack = (event) => {
-                // condition yako
-                if (window.confirm("Una hakika unataka kurudi nyuma?")) {
-                console.log("User anajaribu kurudi nyuma");
-                } else {
-                // block back
-                navigate(1); // stay kwenye page
-                }
-            };
-
-            window.addEventListener("popstate", handleBack);
-
-            return () => window.removeEventListener("popstate", handleBack);
-        }, [navigate]);
-
-    //  BIOGRAPHY CROPPING
-        const handleBioChange = (value) => {
-            setBiography(value); // update useState kila change
-        };
-
+    const handleAddMoreJob = async (finalLocations) => {
+        // console.log("🔥 handlePostJob CALLED!");
+        // console.log("🔥 LOCATIONS LENGTH:", finalLocations?.length);
     
-    // DESCIPTION OF JOB 
-        const handleContentChange = (value) => {
-            setJobDescriptions(value); // update useState kila change
-        };
-       
-
-    //  ADD TAGS
-        const handleSelectChange = (e) => {
-            const value = e.target.value;
-
-            if (!value) return;
-
-            // Check duplicates
-            if (tags.includes(value)) {
-            toast.error("This tag is already added!");
-            e.target.value = ""; // reset select
-            return;
-            }
-
-            // Add tag
-            setTags([...tags, value]);
-            toast.success(`Tag "${value}" added!`);
-            e.target.value = ""; // reset select after adding
-        };
-
-    //  REMOVE TAGS
-        const handleRemoveTag = (index) => {
-            const removed = tags[index];
-            setTags(tags.filter((_, i) => i !== index));
-            toast.success(`Tag "${removed}" removed!`);
-        };
-
-    //  ADD LOCATION
-        const handleAddLocation = () => {
-            
-            const duplicate = locations.some(
-            (loc) =>
-                loc.locationRigion.toLowerCase() === locationRigion.trim().toLowerCase() &&
-                loc.locationCountry.toLowerCase() === locationCountry.toLowerCase()
-            );
-
-            if (!locationRigion) {
-                toast.error('Please enter a region or city!');
-                return;
-            }
-
-
-            if (duplicate) {
-                toast.error('This location already exists');
-                return;
-            }
-            // if (!locationRigion.trim() || !locationCountry) return;
-            const newLocation = { locationRigion: locationRigion.trim(), locationCountry };
-                setLocations((prev) => [...prev, newLocation]);
-                setLocationRegion("");
-                setLocationCountry("");
-        };
-
-    //  ADD LOCATION ON SUBMIT IF ANY
-        const handleAddLocationOnSubmit  = () => {
-        const region = locationRigion.trim();
-        const country = locationCountry.trim();
-
-
-        console.log('LOCATION IS:' + region)
-      
-    // 1️⃣ Copy current locations
-        let finalLocations = [...locations];
-      
-    // 2️⃣ Auto-add input location ikiwa ipo na si duplicate
-        if (region) {
-          const duplicate = finalLocations.some(
-            (loc) =>
-              loc.locationRigion.toLowerCase() === region.toLowerCase() &&
-              loc.locationCountry.toLowerCase() === country.toLowerCase()
-          );
-      
-          if (!duplicate) {
-            finalLocations.push({ locationRigion: region, locationCountry: country });
-            setLocations(finalLocations)
-
-            console.log("LOCATION NUMBER IS",setLocations.length)
-            console.log(finalLocations.length)
-            console.log({finalLocations})
-          } else {
-            toast.error("This location already exists!");
-          }
-
-        }
-      
-        // 3️⃣ Check if after this, locations is empty
-        if (finalLocations.length === 0) {
-          toast.error("At least one location is required!");
-          return;
-        }
-      
-        // 4️⃣ Use finalLocations to submit (API / whatever)
-        console.log("Submitting locations:", finalLocations);
-      
-        // 5️⃣ Clear input fields
-        setLocationRegion("");
-        setLocationCountry("");
-      
-        // 6️⃣ Optional: update state if you want list to reflect new addition
-        setLocations(finalLocations);
-      };
-      
+        const formData = new FormData();
     
-    //  REMOVE LOCATION
-        const handleRemoveLocation = (index) => {
-            setLocations((prev) => prev.filter((_, i) => i !== index));
-        };
-
-
-    //  CHECKBOX
-        const handleCheckboxChange = (e) => {
-            const checked = e.target.checked;
-            setIsMultiple(checked);
-
-            if (checked) {
-                setPositionType("text");
-                setPositionValue("multiple Positions");
-            } else {
-                setPositionType("number");
-                setPositionValue("");
-            }
-        };
-
-
-        const resetData = () => {
-            setShowModal(false);
-            setApplicationsLink('')
-            setLocations([])
-            setDescriptionSummary('')
-            setJobDescriptions('')
-            setTitle('')
-            setPositionValue('')
-            setMode('ON')
-            setMode('FT')
-            setIsMultiple(false)
-            setTags([])
-            setDateData(prev => ({
-                ...prev,
-                actual_date: ""
-            }))
-            setDateData(prev => ({
-                ...prev,
-                deadline_date: ""
-            }));
-        };
-
-
-        const handleClose = () => {
-            setShowModal(false);
-            setTimeout(() => {
-                window.location.reload();
-            }, 900);
-        };
+        formData.append("title", title);
+        formData.append("description", jobDescriptions);
+        formData.append("description_summary", descriptionSummary);
+        formData.append("location", JSON.stringify(finalLocations));
+        formData.append("tags", JSON.stringify(tags));
+        formData.append("job_type", type);
+        formData.append("job_mode", mode);
+        formData.append("position", positionValue);
+        formData.append("actual_date", dateData.actual_date);
+        formData.append("deadline_date", dateData.deadline_date);
+        formData.append("application_link", applicationLink);
         
-        const handlePostAnother = () => {
-          setShowModal(false);
-          restData()
+        setIsLoading(true);
+    
+        try {
+            const res = await api.post("jobs/create/more/", formData);
+                setTimeout(() => {
+                toast.success("Job posted successfully!");
+                resetData();
+                setIsLoading(false);
+                setShowModal(true)
+            }, 700);
+        
+        } catch (error) {
+            setIsLoading(false);
+        
+            // 🔥 FULL ERROR BREAKDOWN
+        //   console.log("========== JOB POST ERROR ==========");
+        //   console.log("Message:", error.message);
+        //   console.log("Status:", error.response?.status);
+        //   console.log("Data:", error.response?.data);
+        //   console.log("Full Error:", error);
+        
+            toast.error(
+            error.response?.data?.detail ||
+            "Failed to post job. Please try again."
+            );
+        }
+    };
+
+
+    const resetJobForm = () => {
+        // resting state
+        setTitle("");
+        setJobDescriptions("");
+        setBiography("");
+        setCompanyName("");
+        setLocations([]);
+        setTags([]);
+        setType("FT");
+        setMode("ON");
+        setPositionValue("");
+        setIsMultiple(false)
+        setLocationRegion('')
+        setLocationCountry('')
+        setApplicationsLink('');
+        handleRemoveLogo()
+        bioQuill.current?.clear();
+        descriptionQuill.current?.clear();
+    };
+        
+    const isQuillContentEmpty = (html) => {
+        if (!html) return true;
+        const temp = document.createElement("div");
+        temp.innerHTML = html;
+        // chukua maandishi halisi
+        const text = temp.textContent || temp.innerText || "";
+        return text.trim().length === 0;
+    };
+        
+        
+
+
+//  LOGO PICKER OPEN
+    const handleButtonClick = () => {
+        fileInputRef.current.click();
+    };
+
+//  LOGO CHANGE HANDLER
+    const handleFileChange = (e) => {
+            const file = e.target.files?.[0];
+            if (file) {
+            const imageURL = URL.createObjectURL(file);
+            setSelectedImage(imageURL);
+            setCrop({ x: 0, y: 0 }); // reset crop state
+            setZoom(1);
+        }
+        setCropperDisplay("block");
+    };
+
+    //  Crop complete
+    const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+        setCroppedAreaPixels(croppedAreaPixels);
+    }, []);
+
+    //  Helper function to generate cropped image
+    //  CROPING LOGO IMAGE
+    const createCroppedImage = async () => {
+        try {
+        const image = await createImage(selectedImage);
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = croppedAreaPixels.width;
+        canvas.height = croppedAreaPixels.height;
+
+        ctx.drawImage(
+            image,
+            croppedAreaPixels.x,
+            croppedAreaPixels.y,
+            croppedAreaPixels.width,
+            croppedAreaPixels.height,
+            0,
+            0,
+            croppedAreaPixels.width,
+            croppedAreaPixels.height
+        );
+
+        const base64Image = canvas.toDataURL("image/jpeg");
+        const file = base64ToFile(base64Image, "company_logo.jpg");
+        setCompanyLogo(file);
+        setCroppedImage(base64Image);
+        setSelectedImage(null);
+        } catch (e) {
+        console.error(e);
+        }
+    };
+
+
+    // 🔹 HELPER FUNCTION (nje)
+    function base64ToFile(base64, filename) {
+        const arr = base64.split(",");
+        const mime = arr[0].match(/:(.*?);/)[1];
+        const bstr = atob(arr[1]);
+        let n = bstr.length;
+        const u8arr = new Uint8Array(n);
+
+        while (n--) {
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+
+        return new File([u8arr], filename, { type: mime });
+    }
+
+//  Utility to load image
+    const createImage = (url) =>
+        new Promise((resolve, reject) => {
+        const image = new Image();
+        image.addEventListener("load", () => resolve(image));
+        image.addEventListener("error", (error) => reject(error));
+        image.setAttribute("crossOrigin", "anonymous");
+        image.src = url;
+    });
+
+//  CANCEL CROPPING
+    const handleCancelCropping = () => {
+        setSelectedImage(null);
+        setSelectedImage(null);
+    };
+
+//  CANCEL CROPPING
+    const handleRemoveLogo = () => {
+        setCroppedImage(null);
+        setSelectedImage(null)
+    };
+
+//  BACK CROPPING
+    useEffect(() => {
+        const handleBack = (event) => {
+            // condition yako
+            if (window.confirm("Una hakika unataka kurudi nyuma?")) {
+            console.log("User anajaribu kurudi nyuma");
+            } else {
+            // block back
+            navigate(1); // stay kwenye page
+            }
         };
+
+        window.addEventListener("popstate", handleBack);
+
+        return () => window.removeEventListener("popstate", handleBack);
+    }, [navigate]);
+
+//  BIOGRAPHY CROPPING
+    const handleBioChange = (value) => {
+        setBiography(value); // update useState kila change
+    };
+
+
+// DESCIPTION OF JOB 
+    const handleContentChange = (value) => {
+        setJobDescriptions(value); // update useState kila change
+    };
+    
+
+//  ADD TAGS
+    const handleSelectChange = (e) => {
+        const value = e.target.value;
+
+        if (!value) return;
+
+        // Check duplicates
+        if (tags.includes(value)) {
+        toast.error("This tag is already added!");
+        e.target.value = ""; // reset select
+        return;
+        }
+
+        // Add tag
+        setTags([...tags, value]);
+        toast.success(`Tag "${value}" added!`);
+        e.target.value = ""; // reset select after adding
+    };
+
+//  REMOVE TAGS
+    const handleRemoveTag = (index) => {
+        const removed = tags[index];
+        setTags(tags.filter((_, i) => i !== index));
+        toast.success(`Tag "${removed}" removed!`);
+    };
+
+//  ADD LOCATION
+    const handleAddLocation = () => {
+        
+        const duplicate = locations.some(
+        (loc) =>
+            loc.locationRigion.toLowerCase() === locationRigion.trim().toLowerCase() &&
+            loc.locationCountry.toLowerCase() === locationCountry.toLowerCase()
+        );
+
+        if (!locationRigion) {
+            toast.error('Please enter a region or city!');
+            return;
+        }
+
+
+        if (duplicate) {
+            toast.error('This location already exists');
+            return;
+        }
+        // if (!locationRigion.trim() || !locationCountry) return;
+        const newLocation = { locationRigion: locationRigion.trim(), locationCountry };
+            setLocations((prev) => [...prev, newLocation]);
+            setLocationRegion("");
+            setLocationCountry("");
+    };
+
+//  ADD LOCATION ON SUBMIT IF ANY
+    const handleAddLocationOnSubmit  = () => {
+    const region = locationRigion.trim();
+    const country = locationCountry.trim();
+
+
+    console.log('LOCATION IS:' + region)
+    
+// 1️⃣ Copy current locations
+    let finalLocations = [...locations];
+    
+// 2️⃣ Auto-add input location ikiwa ipo na si duplicate
+    if (region) {
+        const duplicate = finalLocations.some(
+        (loc) =>
+            loc.locationRigion.toLowerCase() === region.toLowerCase() &&
+            loc.locationCountry.toLowerCase() === country.toLowerCase()
+        );
+    
+        if (!duplicate) {
+        finalLocations.push({ locationRigion: region, locationCountry: country });
+        setLocations(finalLocations)
+
+        console.log("LOCATION NUMBER IS",setLocations.length)
+        console.log(finalLocations.length)
+        console.log({finalLocations})
+        } else {
+        toast.error("This location already exists!");
+        }
+
+    }
+    
+    // 3️⃣ Check if after this, locations is empty
+    if (finalLocations.length === 0) {
+        toast.error("At least one location is required!");
+        return;
+    }
+    
+    // 4️⃣ Use finalLocations to submit (API / whatever)
+    console.log("Submitting locations:", finalLocations);
+    
+    // 5️⃣ Clear input fields
+    setLocationRegion("");
+    setLocationCountry("");
+    
+    // 6️⃣ Optional: update state if you want list to reflect new addition
+    setLocations(finalLocations);
+    };
+    
+
+//  REMOVE LOCATION
+    const handleRemoveLocation = (index) => {
+        setLocations((prev) => prev.filter((_, i) => i !== index));
+    };
+
+
+//  CHECKBOX
+    const handleCheckboxChange = (e) => {
+        const checked = e.target.checked;
+        setIsMultiple(checked);
+
+        if (checked) {
+            setPositionType("text");
+            setPositionValue("multiple Positions");
+        } else {
+            setPositionType("number");
+            setPositionValue("");
+        }
+    };
+
+
+    const resetData = () => {
+        setShowModal(false);
+        setApplicationsLink('')
+        setLocations([])
+        setDescriptionSummary('')
+        setJobDescriptions('')
+        setTitle('')
+        setPositionValue('')
+        setMode('ON')
+        setMode('FT')
+        setIsMultiple(false)
+        setTags([])
+        setDateData(prev => ({
+            ...prev,
+            actual_date: ""
+        }))
+        setDateData(prev => ({
+            ...prev,
+            deadline_date: ""
+        }));
+    };
+
+
+    const handleClose = () => {
+        setShowModal(false);
+        setTimeout(() => {
+            window.location.reload();
+        }, 900);
+    };
+    
+    const handlePostAnother = () => {
+        setShowModal(false);
+        resetData()
+        setAddMoreJob(true)
+        setCompanyCode(res.data.company_logo)
+    };
 
     return(
         <>
@@ -729,6 +790,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                         <div className="absolute top-1 right-1 flex flex-col gap-2">
                                                             <button
                                                                 onClick={handleRemoveLogo}
+                                                                disabled={addMoreJob}
                                                                 className="
                                                                     flex items-center justify-center
                                                                     w-6 md:w-7  lg:w-8   h-6  md:h-7  lg:h-8
@@ -750,6 +812,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
 
                                                             <button
                                                                 onClick={handleButtonClick}
+                                                                disabled={addMoreJob}
                                                                 className="
                                                                     flex items-center justify-center
                                                                     w-6 md:w-7  lg:w-8   h-6  md:h-7  lg:h-8
@@ -784,7 +847,8 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                 ref={companyNameRef}
                                             >
                                                 <input 
-                                                    type="text" 
+                                                    type="text"
+                                                    disabled={addMoreJob} 
                                                     className="
                                                         w-full
                                                         mx-0
@@ -804,6 +868,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                                     "
                                                     placeholder='Enter Company Name . . .' 
                                                     value={companyName} 
+                                                    
                                                     onChange={(e) => setCompanyName(e.target.value)}
                                                 />
                                                 {/* <p style={{ color: "red", margin: "5px 0 0 0" }}>please add a company logo img</p> */}
@@ -821,6 +886,7 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
                                             <div id='company-bio-wrapper'  className=' h-[calc(100vh-200px)] lg:h-[calc(100vh-100px)]  mx-0 md:2 lg:mx-5 pt-[20px] relative mb-[15px]'>
                                                 <QuillEditor 
                                                     ref={bioQuill}
+                                                    disabled={addMoreJob}
                                                     value={biography} 
                                                     onChange={handleBioChange} 
                                                     placeholder="Describe about the company..."
