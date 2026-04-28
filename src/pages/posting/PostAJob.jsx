@@ -248,19 +248,21 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
         
       
         try {
-          const res = await api.post("jobs/create/", formData);
-      
+            const res = await api.post("jobs/create/", formData);
           
-      
-          setTimeout(() => {
             toast.success("Job posted successfully!");
+          
             resetData();
+            setCompanyCode(res.data.company_code || null);
+          
+            setShowModal(true);
             setIsLoading(false);
-            setShowModal(true)
-          }, 700);
-      
+          
         } catch (error) {
-          setIsLoading(false);
+            setIsLoading(false);
+            toast.error("Failed to post job. Please try again.");
+            console.error(error);
+        }
       
           // 🔥 FULL ERROR BREAKDOWN
         //   console.log("========== JOB POST ERROR ==========");
@@ -295,31 +297,24 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
         formData.append("application_link", applicationLink);
         
         setIsLoading(true);
-    
+
         try {
             const res = await api.post("jobs/create/more/", formData);
-                setTimeout(() => {
-                toast.success("Job posted successfully!");
-                resetData();
-                setIsLoading(false);
-                setShowModal(true)
-            }, 700);
-        
+          
+            toast.success("Job posted successfully!");
+          
+            resetData();
+            setCompanyCode(res.data.company_code || null);
+          
+            setShowModal(true);
+            setIsLoading(false);
+          
         } catch (error) {
             setIsLoading(false);
-        
-            // 🔥 FULL ERROR BREAKDOWN
-        //   console.log("========== JOB POST ERROR ==========");
-        //   console.log("Message:", error.message);
-        //   console.log("Status:", error.response?.status);
-        //   console.log("Data:", error.response?.data);
-        //   console.log("Full Error:", error);
-        
-            toast.error(
-            error.response?.data?.detail ||
-            "Failed to post job. Please try again."
-            );
+            toast.error("Failed to post job. Please try again.");
+            console.error(error);
         }
+    
     };
 
 
@@ -634,7 +629,6 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
         setShowModal(false);
         resetData()
         setAddMoreJob(true)
-        setCompanyCode(res.data.company_logo)
     };
 
     return(
