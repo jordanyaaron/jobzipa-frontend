@@ -670,7 +670,7 @@ export default function UpdateAJob ({ darkMode, setDarkMode })  {
           }
         };
         fetchJob();
-      }, [publicId]);
+      }, [public_id]);
 
 
     return(
