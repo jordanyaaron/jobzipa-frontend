@@ -1,4 +1,4 @@
-import { Link ,useNavigate} from 'react-router-dom';
+import { Link , useNavigate, useParams} from "react-router-dom";
 import toast , { Toaster } from 'react-hot-toast';
 import { countries , categories  } from "@/data/post-page";
 import { XMarkIcon , PlusIcon , PencilIcon , ArrowUpTrayIcon } from '@heroicons/react/24/outline';
