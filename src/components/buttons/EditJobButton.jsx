@@ -8,7 +8,7 @@ export default function EditJobFAB({ job, canEdit }) {
 
   return (
     <button
-      onClick={() => navigate(`/jobs/edit/${job.public_id}`)}
+      onClick={() => navigate(`/jobs/edit/${job.public_id}`,{replace:true})}
       className="
         fixed bottom-6 right-6 z-50
         flex items-center justify-center

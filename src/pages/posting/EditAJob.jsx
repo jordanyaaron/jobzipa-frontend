@@ -184,11 +184,8 @@ export default function UpdateAJob ({ darkMode, setDarkMode })  {
             // setErrors({ [firstErrorKey]: newErrors[firstErrorKey] });
             return;
         } 
-        if(addMoreJob){
-            handleAddMoreJob(finalLocations)
-        } else{
-            handlePostJob(finalLocations);
-        }
+        
+        handleUpdateJob(finalLocations);
     };
 
     // HELPER FUNCTION FOR handleSubmitFunction 
@@ -216,7 +213,7 @@ export default function UpdateAJob ({ darkMode, setDarkMode })  {
     };
 
     //  SUBMITION HANDLER ( Posting after a form validation) 
-    const handlePostJob = async (finalLocations) => {
+    const handleUpdateJob = async (finalLocations) => {
         // console.log("🔥 handlePostJob CALLED!");
         // console.log("🔥 LOCATIONS LENGTH:", finalLocations?.length);
       
@@ -231,7 +228,8 @@ export default function UpdateAJob ({ darkMode, setDarkMode })  {
         formData.append("tags", JSON.stringify(tags));
         formData.append("job_type", type);
         formData.append("job_mode", mode);
-        formData.append("position", positionValue);
+        formData.append("vacancies", positionValue);
+        formData.append("is_multiple_hiring", isMultiple);
         formData.append("actual_date", dateData.actual_date);
         formData.append("deadline_date", dateData.deadline_date);
         formData.append("application_link", applicationLink);
@@ -245,15 +243,11 @@ export default function UpdateAJob ({ darkMode, setDarkMode })  {
         
       
         try {
-            const res = await api.post("jobs/create/", formData);
+            const res = await api.put(`update/${public_id}/`, formData);
           
             toast.success("Job posted successfully!");
           
-            resetData();
-            setCompanyCode(res.data.company_code || null);
-          
-            setShowModal(true);
-            setIsLoading(false);
+            navigate("/",{ replace : true })
           
         } catch (error) {
             setIsLoading(false);
@@ -263,58 +257,9 @@ export default function UpdateAJob ({ darkMode, setDarkMode })  {
             );
             console.error(error);
         }
-      
-          // 🔥 FULL ERROR BREAKDOWN
-        //   console.log("========== JOB POST ERROR ==========");
-        //   console.log("Message:", error.message);
-        //   console.log("Status:", error.response?.status);
-        //   console.log("Data:", error.response?.data);
-        //   console.log("Full Error:", error);
-      
-          
     };
 
-    const handleAddMoreJob = async (finalLocations) => {
-        // console.log("🔥 handlePostJob CALLED!");
-        // console.log("🔥 LOCATIONS LENGTH:", finalLocations?.length);
     
-        const formData = new FormData();
-    
-        formData.append("title", title);
-        formData.append("description", jobDescriptions);
-        formData.append("description_summary", descriptionSummary);
-        formData.append("location", JSON.stringify(finalLocations));
-        formData.append("tags", JSON.stringify(tags));
-        formData.append("job_type", type);
-        formData.append("job_mode", mode);
-        formData.append("position", positionValue);
-        formData.append("actual_date", dateData.actual_date);
-        formData.append("deadline_date", dateData.deadline_date);
-        formData.append("application_link", applicationLink);
-        
-        setIsLoading(true);
-
-        try {
-            const res = await api.post("jobs/create/more/", formData);
-          
-            toast.success("Job posted successfully!");
-          
-            resetData();
-            setCompanyCode(res.data.company_code || null);
-          
-            setShowModal(true);
-            setIsLoading(false);
-          
-        } catch (error) {
-            setIsLoading(false);
-            toast.error(
-                error.response?.data?.detail ||
-                "Failed to post job. Please try again."
-            );
-            console.error(error);
-        }
-    
-    };
 
 
     const resetJobForm = () => {
@@ -655,6 +600,8 @@ export default function UpdateAJob ({ darkMode, setDarkMode })  {
             setMode( job.job_mode || "" )
             setType( job.job_type || "" )
             setLocations( job.location || [] )
+            setIsMultiple( job.is_multiple_hiring || false )
+            setPositionValue( job.vacancies || "" )
             setImageSrc(job.company_logo || "")
             setTags( job.tags || "" )
             setDateData(prev => ({
