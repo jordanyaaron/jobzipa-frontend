@@ -7,6 +7,10 @@ import { useParams } from "react-router-dom";
 import { isJobSaved, toggleSaveJob } from "@/utils/bookmark";
 import ShareModal from "@/components/models/ShareModel";
 import { Helmet } from "react-helmet-async";
+import { getUser, isAuthenticated } from "../utils/auth";
+import EditJobFAB from "@/components/buttons/EditJobButton";
+
+
 
 import {
   BookmarkIcon,
@@ -28,6 +32,7 @@ const JOB_MODE_MAP = {
 };
 
 export default function JobDetailPage() {
+  const user = getUser()
   const { id } = useParams();
 
   const [job, setJob] = useState(null);
@@ -259,6 +264,7 @@ export default function JobDetailPage() {
       </main>
 
       {/* SHARE MODAL */}
+      <EditJobFAB canEdit={ user.is_admin } job={job}/>
       {job && (
         <ShareModal
           open={openShare}

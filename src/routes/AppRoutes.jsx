@@ -35,6 +35,7 @@ import NotFound from '../pages/NotFound';
 
 import PostAJob from '../pages/posting/PostAJob';
 import PostOnDashboard from '../pages/dashboard/PostOnDashboard';
+import UpdateAJob from '@/pages/posting/EditAJob';
 
 import Login from '../pages/auth/Login';
 import ForgotPassword from '../pages/auth/ForgotPassword';
@@ -121,6 +122,15 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
         <Route path="/jobs" element={<JobLayout />}>
           <Route path=":id" element={<JobDetailPage />} />
         </Route>
+
+        <Route
+          path="/jobs/edit/:public_id"
+          element={
+            <ProtectedRoute requireAdminAndSuper={true}>
+              <UpdateAJob />
+            </ProtectedRoute>
+          }
+        />
 
         <Route element={<AuthLayout/>}>
             <Route path="/login" element={<Login />} />

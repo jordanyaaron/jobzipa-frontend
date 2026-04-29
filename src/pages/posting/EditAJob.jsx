@@ -13,7 +13,8 @@ import { formatDate } from 'date-fns';
 // import plusIcon from '../../assets/icons/plus.png';
 
 
-export default function PostAJob ({ darkMode, setDarkMode })  {
+export default function UpdateAJob ({ darkMode, setDarkMode })  {
+    const { public_id } = useParams();
     const fileInputRef = useRef(null); // tunatumia ref ku-access input
     const [biography, setBiography] = useState("");
     const [jobDescriptions, setJobDescriptions] = useState("");
@@ -28,12 +29,8 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     const [type, setType] = useState("FT");
     const [applicationLink,setApplicationsLink ] = useState("");
     const [cropperDisplay,setCropperDisplay ] = useState("none");
-    const [isSubmitCommand,setIsSubmitComand ] = useState(false); // for location 
     const [, ] = useState("");
     const [companyLogo, setCompanyLogo] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
     const navigate = useNavigate();
     const [isMultiple, setIsMultiple] = useState(false); // checkbox state
     const [positionType, setPositionType] = useState("number"); // input type
@@ -266,7 +263,15 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
             );
             console.error(error);
         }
-       
+      
+          // 🔥 FULL ERROR BREAKDOWN
+        //   console.log("========== JOB POST ERROR ==========");
+        //   console.log("Message:", error.message);
+        //   console.log("Status:", error.response?.status);
+        //   console.log("Data:", error.response?.data);
+        //   console.log("Full Error:", error);
+      
+          
     };
 
     const handleAddMoreJob = async (finalLocations) => {
@@ -628,7 +633,46 @@ export default function PostAJob ({ darkMode, setDarkMode })  {
     };
 
 
-    
+    const formatDateWithouTimeZone = (date) => {
+        if (!date) return "";
+        return new Date(date).toISOString().split("T")[0];
+      };
+
+
+    useEffect(() => {
+        const fetchJob = async () => {
+          try {
+            const res = await api.get(`jobs/${public_id}/`);
+      
+            const job = res.data;
+      
+            setBiography( job.biography || "" )
+            setCompanyName( job.company || "" )
+            setDescriptionSummary( job.description_summary || "" )
+            setJobDescriptions( job.description || "" )
+            setTitle(  job.title || "" )
+            setApplicationsLink( job.application_link || "", )
+            setMode( job.job_mode || "" )
+            setType( job.job_type || "" )
+            setLocations( job.location || [] )
+            setImageSrc(job.company_logo || "")
+            setTags( job.tags || "" )
+            setDateData(prev => ({
+                ...prev,
+                actual_date: formatDateWithouTimeZone(job.actual_date) || ""
+            }))
+            setDateData(prev => ({
+                ...prev,
+                deadline_date: formatDateWithouTimeZone(job.deadline_date) || ""
+            }));
+          } catch (err) {
+            console.error(err);
+          }
+        };
+        fetchJob();
+      }, [publicId]);
+
+
     return(
         <>
 
