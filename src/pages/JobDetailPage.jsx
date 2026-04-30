@@ -264,7 +264,7 @@ export default function JobDetailPage() {
       </main>
 
       {/* SHARE MODAL */}
-      <EditJobFAB canEdit={ user.is_admin || null } job={job}/>
+      <EditJobFAB canEdit={ user?.is_admin || null } job={job}/>
       {job && (
         <ShareModal
           open={openShare}
