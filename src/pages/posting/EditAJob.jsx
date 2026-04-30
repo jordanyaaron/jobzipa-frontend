@@ -243,7 +243,7 @@ export default function UpdateAJob ({ darkMode, setDarkMode })  {
         
       
         try {
-            const res = await api.put(`update/${public_id}/`, formData);
+            const res = await api.put(`jobs/update/${public_id}/`, formData);
           
             toast.success("Job posted successfully!");
           
