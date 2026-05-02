@@ -48,7 +48,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-10 bg-[var(--main-bg)]">
+    <div className="min-h-screen flex items-center justify-center px-4 py-6 bg-[var(--main-bg)]">
 
       <div className="max-w-5xl w-full grid lg:grid-cols-2 gap-8 items-center">
 
@@ -57,7 +57,7 @@ export default function ContactPage() {
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="hidden lg:flex flex-col gap-4"
+          className=" lg:flex flex-col gap-4"
         >
           <img
             src={contactUsIttustration}

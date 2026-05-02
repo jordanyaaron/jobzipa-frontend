@@ -37,7 +37,7 @@ export default function InfoLayout() {
       </div>
 
       {/* CONTENT (IMPORTANT SPACING) */}
-      <div className="max-w-5xl mx-auto w-full flex-1 pt-2">
+      <div className="max-w-5xl mx-auto w-full flex-1 pt-4">
         <Outlet />
       </div>
 
