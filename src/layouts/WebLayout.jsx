@@ -13,10 +13,9 @@ export default function InfoLayout() {
   return (
     <div className="min-h-screen flex flex-col bg-[var(--main-bg)] px-4 py-10">
 
-      <div className="max-w-5xl mx-auto w-full flex-1">
-
-        {/* NAVIGATION */}
-        <div className="flex gap-2 mb-6 border-b border-[var(--border)] pb-2">
+      {/* FIXED NAV */}
+      <div className="fixed top-0 left-0 w-full bg-[var(--main-bg)] border-b border-[var(--border)] z-50">
+        <div className="max-w-5xl mx-auto flex gap-2 py-3 px-4 overflow-x-auto">
           {links.map((link) => {
             const active = pathname === link.path;
 
@@ -24,9 +23,9 @@ export default function InfoLayout() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-md text-sm transition ${
+                className={`px-4 py-2 rounded-md text-sm whitespace-nowrap transition ${
                   active
-                    ? "bg-black text-white dark:bg-white dark:text-black "
+                    ? "bg-black text-white dark:bg-white dark:text-black"
                     : "text-[var(--text)] hover:bg-gray-100 dark:hover:bg-gray-800"
                 }`}
               >
@@ -35,8 +34,10 @@ export default function InfoLayout() {
             );
           })}
         </div>
+      </div>
 
-        {/* CONTENT */}
+      {/* CONTENT (IMPORTANT SPACING) */}
+      <div className="max-w-5xl mx-auto w-full flex-1 pt-20">
         <Outlet />
       </div>
 
