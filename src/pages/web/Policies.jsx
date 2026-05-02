@@ -4,13 +4,13 @@ import React from "react";
 
 function PrivacyPage() {
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-4 text-[var(--text)]">
+    <div className="max-w-4xl mx-auto p-4 space-y-4 text-[var(--text)]">
       <h1 className="text-3xl font-bold">Privacy Policy</h1>
 
-      <p><strong>Effective Date:</strong> Satuday 02 may 2016</p>
+      <p><strong>Effective Date:</strong><span className="text-[var(--placeholder)]">Satuday 02 may 2016</span></p>
 
       <p>
-        At JobZipa (https://jobzipa.com), we value your privacy and are committed
+        At JobZipa <span className="text-blue-500">(https://jobzipa.com)</span>., we value your privacy and are committed
         to protecting your personal information. This Privacy Policy explains how
         we collect, use, and safeguard your data.
       </p>

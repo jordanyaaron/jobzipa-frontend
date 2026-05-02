@@ -2,13 +2,13 @@ import React from "react";
 
 function Terms() {
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-4 text-[var(--text)]">
+    <div className="max-w-4xl mx-auto p-4 space-y-4 text-[var(--text)]">
       <h1 className="text-3xl font-bold">Terms & Conditions</h1>
 
-      <p><strong>Effective Date:</strong> Satuday 02 may 2016</p>
+      <p><strong>Effective Date:</strong> <span className="text-[var(--placeholder)]">Satuday 02 may 2016</span></p>
 
       <p>
-        Welcome to JobZipa (https://jobzipa.com). By accessing or using this
+        Welcome to JobZipa <span className="text-blue-500">(https://jobzipa.com)</span>. By accessing or using this
         website, you agree to be bound by these Terms and Conditions.
       </p>
 
