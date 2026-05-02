@@ -17,10 +17,11 @@ import InfoLayout from '@/layouts/WebLayout';
 
 
 
-// elements
+// webs
 import AboutPage from '@/pages/web/AboutUs';
 import ContactPage from '@/pages/web/ContactUs';
 import PrivacyPage from '@/pages/web/Policies';
+import Terms from '@/pages/web/terms';
 
 
 
@@ -88,6 +89,7 @@ const AppRoutes = ({ darkMode, setDarkMode }) => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<Terms />} />
         </Route>
 
         <Route  element={<HomeLayout darkMode={darkMode} setDarkMode={setDarkMode} />}>

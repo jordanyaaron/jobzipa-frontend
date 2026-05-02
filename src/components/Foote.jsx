@@ -19,7 +19,8 @@ function Footer() {
                 <p className="text-[var(--placeholder)] text-xs">
                     <a href="/about" className="no-underline text-[var(--placeholder)]  ml-1 hover:underline">About Us</a> |
                     <a href="/contact" className="no-underline text-[var(--placeholder)]  ml-1 hover:underline">Contact Us</a> |
-                    <a href="/privacy" className="no-underline text-[var(--placeholder)]  ml-1 hover:underline">Privacy & Cookies Policies</a>
+                    <a href="/privacy" className="no-underline text-[var(--placeholder)]  ml-1 hover:underline">Privacy & Cookies Policies</a> | 
+                    <a href="/privacy" className="no-underline text-[var(--placeholder)]  ml-1 hover:underline">Terms & Conditions</a>
                 </p>
 
                 <p className="text-[var(--placeholder)]  text-xs mt-1">
