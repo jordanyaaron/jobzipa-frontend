@@ -111,7 +111,7 @@ function PrivacyPage() {
 
       <h2 className="text-xl font-semibold">13. Contact Us</h2>
       <p>
-        Email: <a href="mailto:support.jobzipa@gmailcom" className="text-blue-500">support.jobzipa@gmailcom</a><br />
+        Email: <a href="mailto:support.jobzipa@gmail.com" className="text-blue-500">support.jobzipa@gmail.com</a><br />
         Website: https://jobzipa.com
       </p>
     </div>

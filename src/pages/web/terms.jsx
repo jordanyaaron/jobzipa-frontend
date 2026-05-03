@@ -99,7 +99,7 @@ function Terms() {
       <p>
         If you have any questions about these Terms, contact us at:
         <br />
-        <a href="mailto:support.jobzipa@gmailcom" className="text-blue-500">support.jobzipa@gmailcom</a>
+        <a href="mailto:support.jobzipa@gmail.com" className="text-blue-500">support.jobzipa@gmail.com</a>
       </p>
     </div>
   );
