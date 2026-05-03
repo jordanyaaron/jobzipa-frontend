@@ -133,9 +133,8 @@ export default function ContactPage() {
 
           {/* CONTACT INFO */}
           <div className="mt-6 text-sm text-[var(--placeholder)]">
-            <p>For Support 📧: <a href="mailto:support.jobzipa@gmailcom">support.jobzipa@gmailcom</a></p>
-            
-            <p>For Business 🤝 <a href="mailto:jobzipainc@gmail.com">jobzipainc@gmail.com</a></p>
+            <p>For Support 📧: <a href="mailto:support.jobzipa@gmailcom" className="text-blue-500">support.jobzipa@gmailcom</a></p>
+            <p>For Business 🤝 <a href="mailto:jobzipainc@gmail.com" className="text-blue-500">jobzipainc@gmail.com</a></p>
           </div>
         </motion.div>
 

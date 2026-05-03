@@ -5,7 +5,7 @@ function Terms() {
     <div className="max-w-4xl mx-auto p-4 space-y-4 text-[var(--text)]">
       <h1 className="text-3xl font-bold">Terms & Conditions</h1>
 
-      <p><strong>Effective Date:</strong> <span className="text-[var(--placeholder)]">Satuday 02 may 2016</span></p>
+      <p><strong>Effective Date :</strong> <span className="text-[var(--placeholder)]"> Satuday 02 may 2016</span></p>
 
       <p>
         Welcome to JobZipa <span className="text-blue-500">(https://jobzipa.com)</span>. By accessing or using this
@@ -99,7 +99,7 @@ function Terms() {
       <p>
         If you have any questions about these Terms, contact us at:
         <br />
-        📧 support@jobzipa.com
+        <a href="mailto:support.jobzipa@gmailcom" className="text-blue-500">support.jobzipa@gmailcom</a>
       </p>
     </div>
   );

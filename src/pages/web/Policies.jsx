@@ -7,7 +7,7 @@ function PrivacyPage() {
     <div className="max-w-4xl mx-auto p-4 space-y-4 text-[var(--text)]">
       <h1 className="text-3xl font-bold">Privacy Policy</h1>
 
-      <p><strong>Effective Date:</strong><span className="text-[var(--placeholder)]">Satuday 02 may 2016</span></p>
+      <p><strong>Effective Date:</strong><span className="text-[var(--placeholder)]"> Satuday 02 may 2016</span></p>
 
       <p>
         At JobZipa <span className="text-blue-500">(https://jobzipa.com)</span>., we value your privacy and are committed
@@ -111,7 +111,7 @@ function PrivacyPage() {
 
       <h2 className="text-xl font-semibold">13. Contact Us</h2>
       <p>
-        Email: support@jobzipa.com <br />
+        Email: <a href="mailto:support.jobzipa@gmailcom" className="text-blue-500">support.jobzipa@gmailcom</a><br />
         Website: https://jobzipa.com
       </p>
     </div>
