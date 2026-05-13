@@ -1,4 +1,4 @@
-import React, { useEffect , useState } from 'react';
+import React, { useEffect , useState , useRef} from 'react';
 import { Helmet } from "react-helmet-async";
 import { BookmarkIcon, ForwardIcon } from "@heroicons/react/24/outline";
 import { Link } from 'react-router-dom';
@@ -17,6 +17,7 @@ import { saveJobsToCache, getJobsFromCache } from "@/utils/jobCache";
 const Home = () => {
   const [ blockSkeleton , setBlockSkeleton ] = useState(true);
   const [jobs, setJobs] = useState([]);
+  const adRef = useRef(null)
 
   useEffect(() => {
     const fetchJobs = async () => {
