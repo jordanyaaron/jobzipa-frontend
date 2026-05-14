@@ -57,10 +57,10 @@ const Home = () => {
   const script1 = document.createElement("script");
   script1.innerHTML = `
     atOptions = {
-      'key' : 'c19acf17a50b54480aeff4aa3a225032',
+      'key' : '8e88afa87734f47e37f619b78251c6ba',
       'format' : 'iframe',
-      'height' : 50,
-      'width' : 320,
+      'height' : 60,
+      'width' : 468,
       'params' : {}
     };
   `;
@@ -68,7 +68,7 @@ const Home = () => {
   
   const script2 = document.createElement("script");
   script2.src =
-    "https://www.highperformanceformat.com/c19acf17a50b54480aeff4aa3a225032/invoke.js";
+    "https://www.highperformanceformat.com/8e88afa87734f47e37f619b78251c6ba/invoke.js";
   script2.async = true;
 
   if (adRef.current) {
@@ -76,6 +76,8 @@ const Home = () => {
     adRef.current.appendChild(script2);
   }
 }, []);
+
+
  
   return (
     <>
@@ -89,7 +91,7 @@ const Home = () => {
                   w-full
                   pt-6
                   flex-1
-                  lg:w-[560px]
+                  lg:w-[391px]
                 "
               >
                 {jobs.map((job) => (
@@ -108,7 +110,7 @@ const Home = () => {
                 <div className='mt-4 hidden lg:flex flex-col gap-2'>
                     <div className="text-xs text-gray-400">Sponsored</div>
 
-                    <div ref={adRef} className="w-[320px] h-[50px] mx-auto" />
+                    <div ref={adRef} className="w-[320px] h-[60px] mx-auto" />
                 </div>
 
                 <div className='hidden lg:flex mt-3 gap-2'>

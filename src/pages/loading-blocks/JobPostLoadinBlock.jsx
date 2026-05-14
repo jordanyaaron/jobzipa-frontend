@@ -6,7 +6,6 @@
           <div
             className="
               w-full
-              lg:w-[700px]
             "
           >
             <div className="grid grid-cols-1  pt-6">
