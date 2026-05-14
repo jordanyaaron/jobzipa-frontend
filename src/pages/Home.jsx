@@ -130,7 +130,7 @@ useEffect(() => {
                     <div ref={adRef} className="w-[469px] h-[60px] mb-[15px] mx-auto" />
                 </div>
 
-                <div className='hidden lg:flex mt-3 gap-2'>
+                <div className='hidden lg:flex mt-3 gap-2' boder>
                   <div className="mt-4 hidden lg:flex flex-col gap-2">
                     <div className="text-xs text-blue-400">
                       Ad
@@ -142,6 +142,9 @@ useEffect(() => {
                       className="mx-auto"
                     />
                   </div>
+
+                  
+
                   {/* <div>
                     <SkeletonBlock className="w-[100px] h-[100px]"/>
                   </div>
