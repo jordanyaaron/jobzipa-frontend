@@ -59,7 +59,7 @@ const Home = () => {
     atOptions = {
       'key' : '8e88afa87734f47e37f619b78251c6ba',
       'format' : 'iframe',
-      'height' : 60,
+      'height' : 100,
       'width' : 468,
       'params' : {}
     };
@@ -110,7 +110,7 @@ const Home = () => {
                 <div className='mt-4 hidden lg:flex flex-col gap-2'>
                     <div className="text-xs text-gray-400">Sponsored</div>
 
-                    <div ref={adRef} className="w-[469px] h-[60px] mx-auto" />
+                    <div ref={adRef} className="w-[469px] h-[100px] mx-auto" />
                 </div>
 
                 <div className='hidden lg:flex mt-3 gap-2'>
