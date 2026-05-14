@@ -18,6 +18,7 @@ const Home = () => {
   const [ blockSkeleton , setBlockSkeleton ] = useState(true);
   const [jobs, setJobs] = useState([]);
   const adRef = useRef(null)
+  const nativeAdRef = useRef(null)
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -59,7 +60,7 @@ const Home = () => {
     atOptions = {
       'key' : '8e88afa87734f47e37f619b78251c6ba',
       'format' : 'iframe',
-      'height' : 100,
+      'height' : 60,
       'width' : 468,
       'params' : {}
     };
@@ -74,6 +75,22 @@ const Home = () => {
   if (adRef.current) {
     adRef.current.appendChild(script1);
     adRef.current.appendChild(script2);
+  }
+}, []);
+
+useEffect(() => {
+  if (window.location.hostname !== "jobzipa.com") return;
+
+  const script = document.createElement("script");
+
+  script.src =
+    "https://pl29439802.profitablecpmratenetwork.com/1b363497faa51091189902cbeda1d156/invoke.js";
+
+  script.async = true;
+  script.setAttribute("data-cfasync", "false");
+
+  if (nativeAdRef.current) {
+    nativeAdRef.current.appendChild(script);
   }
 }, []);
 
@@ -110,18 +127,29 @@ const Home = () => {
                 <div className='mt-4 hidden lg:flex flex-col gap-2'>
                     <div className="text-xs text-gray-400">Sponsored</div>
 
-                    <div ref={adRef} className="w-[469px] h-[100px] mx-auto" />
+                    <div ref={adRef} className="w-[469px] h-[60px] mb-[15px] mx-auto" />
                 </div>
 
                 <div className='hidden lg:flex mt-3 gap-2'>
-                  <div>
+                  <div className="mt-4 hidden lg:flex flex-col gap-2">
+                    <div className="text-xs text-blue-400">
+                      Ad
+                    </div>
+
+                    <div
+                      id="container-1b363497faa51091189902cbeda1d156"
+                      ref={nativeAdRef}
+                      className="mx-auto"
+                    />
+                  </div>
+                  {/* <div>
                     <SkeletonBlock className="w-[100px] h-[100px]"/>
                   </div>
                   <div className='flex-1 flex flex-col gap-2'>
                       <SkeletonBlock className="h-5 w-full"/>
                       <SkeletonBlock className="h-5 w-3/4"/>
                       <SkeletonBlock className="h-5 w-1/4"/>
-                  </div>
+                  </div> */}
                 </div>
               
                 <Footer />
