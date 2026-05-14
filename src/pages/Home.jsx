@@ -103,14 +103,14 @@ const Home = () => {
             
               </main>
         }
-        <aside className="lg:block pb-10 w-full lg:w-[400px]">
+        <aside className="lg:block pb-10 w-full lg:w-[469px]">
             <div className="sticky top-10">
 
                 {/* ADS */}
                 <div className='mt-4 hidden lg:flex flex-col gap-2'>
                     <div className="text-xs text-gray-400">Sponsored</div>
 
-                    <div ref={adRef} className="w-[320px] h-[60px] mx-auto" />
+                    <div ref={adRef} className="w-[469px] h-[60px] mx-auto" />
                 </div>
 
                 <div className='hidden lg:flex mt-3 gap-2'>
