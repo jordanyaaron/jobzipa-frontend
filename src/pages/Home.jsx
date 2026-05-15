@@ -18,6 +18,7 @@ const Home = () => {
   const [ blockSkeleton , setBlockSkeleton ] = useState(true);
   const [jobs, setJobs] = useState([]);
   const adRef = useRef(null)
+  const bottomAddRef = useRef(null)
   const nativeAdRef = useRef(null)
 
   useEffect(() => {
@@ -77,6 +78,37 @@ const Home = () => {
     adRef.current.appendChild(script2);
   }
 }, []);
+
+
+useEffect(() => {
+  if (window.location.hostname !== "jobzipa.com") return;
+
+  const script1 = document.createElement("script");
+  script1.innerHTML = `
+    atOptions = {
+      'key' : 'c19acf17a50b54480aeff4aa3a225032',
+      'format' : 'iframe',
+      'height' : 50,
+      'width' : 320,
+      'params' : {}
+    };
+  `;
+
+  
+  const script2 = document.createElement("script");
+  script2.src =
+    "https://www.highperformanceformat.com/c19acf17a50b54480aeff4aa3a225032/invoke.js";
+  script2.async = true;
+
+  if (adRef.current) {
+    bottomAddRef.current.appendChild(script1);
+    bottomAddRef.current.appendChild(script2);
+  }
+}, []);
+
+
+
+
 
 useEffect(() => {
   if (window.location.hostname !== "jobzipa.com") return;
@@ -156,6 +188,8 @@ useEffect(() => {
                 </div>
               
                 <Footer />
+
+                <div ref={bottomAddRef} className="fixed bottom-1 h-[90px] lg:hidden w-full  mx-auto" />
 
             </div>
         </aside>
