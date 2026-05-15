@@ -101,7 +101,9 @@ export default function UpdateAJob ({ darkMode, setDarkMode })  {
         if (!biography){newErrors.biography = "Biography is equired!";}   
         if (!title.trim()){newErrors.title = "Title is required!";}   
         if (!jobDescriptions.trim()){newErrors.description = "Job description's required!";}   
-        if (!positionValue.trim()){newErrors.position = "Position should not be empty!";}
+        if (!String(positionValue).trim()) {
+            newErrors.position = "Position should not be empty!";
+        }
         if (!descriptionSummary.trim()){newErrors.summary = "Descriptions summery should not be empty!";}
         let finalLocations = [...locations];
 
