@@ -214,7 +214,7 @@ export default function JobDetailPage() {
       </Helmet>
       {/* SEO END */}
 
-      <main className="pb-[100px] lg:pt-10  lg:pt-16 bg-[var(--main-bg)] px-1 md:px-6 flex-1 overflow-y-auto">
+      <main className="pb-[100px] pt-10  lg:pt-16 bg-[var(--main-bg)] px-1 md:px-6 flex-1 overflow-y-auto">
         <div className="w-full flex gap-2 justify-center relative">
 
           {blockSkeleton ? (
