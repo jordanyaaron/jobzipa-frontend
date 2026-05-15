@@ -194,7 +194,6 @@ useEffect(() => {
             </div>
         </aside>
         <div
-        ref={bottomAdRef}
           className="
             fixed
             bottom-0
@@ -205,9 +204,17 @@ useEffect(() => {
             z-50
             lg:hidden
             min-h-[50px]
-            bg-transparent
           "
-        />
+        >
+          <div
+            ref={bottomAdRef}
+            className="
+              overflow-hidden
+              rounded-2xl
+              shadow-lg
+            "
+          />
+        </div>
       </div>
     </>
   )
