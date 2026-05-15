@@ -203,14 +203,14 @@ useEffect(() => {
             justify-center
             z-50
             lg:hidden
-            min-h-[50px]
+            min-h-[60px]
           "
         >
           <div
             ref={bottomAdRef}
             className="
               overflow-hidden
-              rounded-2xl
+              rounded-lg
               shadow-lg
             "
           />
