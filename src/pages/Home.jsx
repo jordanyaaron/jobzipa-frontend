@@ -99,7 +99,7 @@ useEffect(() => {
   return (
     <>
       
-      <div className="w-full flex flex-col lg:flex-row  gap-10" >
+      <div className="w-full pb-[100px] lg:pb-0 flex flex-col lg:flex-row  gap-10" >
         {
           blockSkeleton 
           ?  <JobsSkeleton />
@@ -120,7 +120,7 @@ useEffect(() => {
             
               </main>
         }
-        <aside className="lg:block pb-10 w-full lg:w-[469px]">
+        <aside className="lg:block pb-10 w-full  lg:w-[469px]">
             <div className="sticky top-10">
 
                 {/* ADS */}
