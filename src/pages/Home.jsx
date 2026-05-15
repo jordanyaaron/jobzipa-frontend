@@ -196,14 +196,14 @@ useEffect(() => {
         <div
           className="
             fixed
-            bottom-0
+            bottom-[10px]
             left-0
             right-0
             flex
             justify-center
             z-50
             lg:hidden
-            min-h-[60px]
+            min-h-[50px]
           "
         >
           <div
