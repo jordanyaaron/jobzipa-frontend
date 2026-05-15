@@ -194,18 +194,20 @@ useEffect(() => {
             </div>
         </aside>
         <div
-          ref={bottomAdRef}
-          className="
-            fixed
-            bottom-1
-            left-0
-            right-0
-            flex
-            justify-center
-            z-50
-            lg:hidden
-          "
-        />
+  ref={bottomAdRef}
+  className="
+    fixed
+    bottom-1
+    left-0
+    right-0
+    flex
+    justify-center
+    z-50
+    lg:hidden
+    min-h-[60px]
+    bg-red-500
+  "
+/>
       </div>
     </>
   )
