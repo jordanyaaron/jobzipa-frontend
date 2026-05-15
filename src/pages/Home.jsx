@@ -81,10 +81,10 @@ const Home = () => {
 
 
 useEffect(() => {
-  if (window.location.hostname !== "jobzipa.com" || window.location.hostname !== "w.w.wjobzipa.com") return;
+  if (window.location.hostname !== "jobzipa.com") return;
 
-  const script1 = document.createElement("script");
-  script1.innerHTML = `
+  const myscript1 = document.createElement("script");
+  myscript1.text = `
     atOptions = {
       'key' : 'c19acf17a50b54480aeff4aa3a225032',
       'format' : 'iframe',
@@ -95,14 +95,14 @@ useEffect(() => {
   `;
 
   
-  const script2 = document.createElement("script");
-  script2.src =
+  const myscript2 = document.createElement("script");
+  myscript2.src =
     "https://www.highperformanceformat.com/c19acf17a50b54480aeff4aa3a225032/invoke.js";
-  script2.async = true;
+  myscript2.async = true;
 
   if (bottomAdRef.current) {
-    bottomAdRef.current.appendChild(script1);
-    bottomAdRef.current.appendChild(script2);
+    bottomAdRef.current.appendChild(myscript1);
+    bottomAdRef.current.appendChild(myscript2);
   }
 }, []);
 
@@ -194,20 +194,20 @@ useEffect(() => {
             </div>
         </aside>
         <div
-  ref={bottomAdRef}
-  className="
-    fixed
-    bottom-1
-    left-0
-    right-0
-    flex
-    justify-center
-    z-50
-    lg:hidden
-    min-h-[60px]
-    bg-red-500
-  "
-/>
+        ref={bottomAdRef}
+          className="
+            fixed
+            bottom-0
+            left-0
+            right-0
+            flex
+            justify-center
+            z-50
+            lg:hidden
+            min-h-[70px]
+            bg-gray-200
+          "
+        />
       </div>
     </>
   )
