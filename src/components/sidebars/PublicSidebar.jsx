@@ -11,6 +11,9 @@ import {
   UserCircleIcon ,
   ArrowRightStartOnRectangleIcon,
   ArrowLeftStartOnRectangleIcon,
+  LockClosedIcon,
+  InformationCircleIcon
+
 
 } from "@heroicons/react/24/outline";
 import JobzipaLogo from "../../assets/logos/jobzipa.png";
@@ -22,7 +25,8 @@ const PublicSidebar = ({ toggleDrawer }) => {
     { name: "Home", icon: HomeIcon, to: "/", replace: false },
     { name: "Bookmarked", icon: BookmarkIcon, to: "/bookmarked", replace: false },
     { name: "FAQ", icon: QuestionMarkCircleIcon, to: "/faq", replace: false },
-    { name: "Login", icon: UserCircleIcon, to: "/login", replace: false },
+    { name: "About US", icon: InformationCircleIcon, to: "/about", replace: false },
+    { name: "Privacy Policy", icon: LockClosedIcon, to: "/privacy", replace: false },
   ];
 
   return (
