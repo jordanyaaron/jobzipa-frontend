@@ -204,8 +204,8 @@ useEffect(() => {
             justify-center
             z-50
             lg:hidden
-            min-h-[70px]
-            bg-gray-200
+            min-h-[65px]
+            bg-transparent
           "
         />
       </div>
