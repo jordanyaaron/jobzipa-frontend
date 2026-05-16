@@ -48,97 +48,107 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-6 bg-[var(--main-bg)]">
+    <>
+      <Helmet>
+        <title>Contact Us | JobZipa</title>
 
-      <div className="max-w-5xl w-full grid lg:grid-cols-2 gap-8 items-center">
+        <meta
+          name="description"
+          content="Get in touch with the JobZipa team for support or inquiries."
+        />
+      </Helmet>
+      <div className="min-h-screen flex items-center justify-center px-4 py-6 bg-[var(--main-bg)]">
 
-        {/* LEFT SIDE (IMAGE + TEXT) */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className=" lg:flex flex-col gap-4"
-        >
-          <img
-            src={contactUsIttustration}
-            alt="contact"
-            className="w-full max-w-md"
-          />
+        <div className="max-w-5xl w-full grid lg:grid-cols-2 gap-8 items-center">
 
-          <h2 className="text-2xl font-bold text-[var(--text)]">
-            Get in touch with us
-          </h2>
-
-          <p className="text-[var(--placeholder)]">
-            Have questions, suggestions, or business inquiries?  
-            Our team is ready to help you anytime.
-          </p>
-        </motion.div>
-
-        {/* RIGHT SIDE (FORM) */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg"
-        >
-          <h1 className="text-2xl font-bold mb-4 text-[var(--text)]">
-            Contact Us
-          </h1>
-
-          <p className="mb-6 text-sm text-[var(--placeholder)]">
-            Send us a message and we’ll respond as soon as possible.
-          </p>
-
-          {/* FORM */}
-          <form onSubmit={handleSubmit} className="space-y-4">
-
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={form.name}
-              onChange={handleChange}
-              required
-              className="w-full text-[var(--text)]  placeholder-[var(--placeholder)]  p-3 border border-[var(--border)]  rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
+          {/* LEFT SIDE (IMAGE + TEXT) */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className=" lg:flex flex-col gap-4"
+          >
+            <img
+              src={contactUsIttustration}
+              alt="contact"
+              className="w-full max-w-md"
             />
 
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={form.email}
-              onChange={handleChange}
-              required
-              className="w-full text-[var(--text)] placeholder-[var(--placeholder)]  p-3 border border-[var(--border)]  rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
-            />
+            <h2 className="text-2xl font-bold text-[var(--text)]">
+              Get in touch with us
+            </h2>
 
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              value={form.message}
-              onChange={handleChange}
-              required
-              rows={5}
-              className="w-full text-[var(--text)] placeholder-[var(--placeholder)]  p-3 border border-[var(--border)] rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
-            />
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full py-3 rounded-lg bg-black text-white dark:bg-white dark:text-black   hover:opacity-90 transition"
-            >
-              {loading ? "Sending..." : "Send Message"}
-            </button>
-          </form>
+            <p className="text-[var(--placeholder)]">
+              Have questions, suggestions, or business inquiries?  
+              Our team is ready to help you anytime.
+            </p>
+          </motion.div>
 
-          {/* CONTACT INFO */}
-          <div className="mt-6 text-sm text-[var(--placeholder)]">
-            <p>For Support 📧: <a href="mailto:support.jobzipa@gmail.com" className="text-blue-500">support.jobzipa@gmail.com</a></p>
-            <p>For Business 🤝 <a href="mailto:jobzipainc@gmail.com" className="text-blue-500">jobzipainc@gmail.com</a></p>
-          </div>
-        </motion.div>
+          {/* RIGHT SIDE (FORM) */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg"
+          >
+            <h1 className="text-2xl font-bold mb-4 text-[var(--text)]">
+              Contact Us
+            </h1>
 
+            <p className="mb-6 text-sm text-[var(--placeholder)]">
+              Send us a message and we’ll respond as soon as possible.
+            </p>
+
+            {/* FORM */}
+            <form onSubmit={handleSubmit} className="space-y-4">
+
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={form.name}
+                onChange={handleChange}
+                required
+                className="w-full text-[var(--text)]  placeholder-[var(--placeholder)]  p-3 border border-[var(--border)]  rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
+              />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={form.email}
+                onChange={handleChange}
+                required
+                className="w-full text-[var(--text)] placeholder-[var(--placeholder)]  p-3 border border-[var(--border)]  rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
+              />
+
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                value={form.message}
+                onChange={handleChange}
+                required
+                rows={5}
+                className="w-full text-[var(--text)] placeholder-[var(--placeholder)]  p-3 border border-[var(--border)] rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-black"
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-3 rounded-lg bg-black text-white dark:bg-white dark:text-black   hover:opacity-90 transition"
+              >
+                {loading ? "Sending..." : "Send Message"}
+              </button>
+            </form>
+
+            {/* CONTACT INFO */}
+            <div className="mt-6 text-sm text-[var(--placeholder)]">
+              <p>For Support 📧: <a href="mailto:support.jobzipa@gmail.com" className="text-blue-500">support.jobzipa@gmail.com</a></p>
+              <p>For Business 🤝 <a href="mailto:jobzipainc@gmail.com" className="text-blue-500">jobzipainc@gmail.com</a></p>
+            </div>
+          </motion.div>
+
+        </div>
       </div>
-    </div>
+    </> 
   );
 }
