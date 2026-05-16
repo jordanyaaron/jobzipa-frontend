@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import contactUsIttustration from "@/assets/illustrations/contactus.png"
 import emailjs from "@emailjs/browser";
+import { Helmet } from "react-helmet-async";
 
 export default function ContactPage() {
   const [loading, setLoading] = useState()
