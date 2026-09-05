@@ -133,25 +133,7 @@ Preview Production Build
 
 npm run preview
 
-📸 Screenshots
 
-Screenshots of the application will be added here to demonstrate the main user interface and functionality.
-
-Home Page
-
-Add screenshot here
-
-Job Listings
-
-Add screenshot here
-
-User Dashboard
-
-Add screenshot here
-
-Admin Dashboard
-
-Add screenshot here
 
 🔐 Authentication
 
@@ -170,7 +152,7 @@ https://jobzipa-frontend.vercel.app
 
 - Live Application: https://jobzipa-frontend.vercel.app
 - Frontend Repository: https://github.com/jordanyaaron/jobzipa-frontend
-- Backend Repository: YOUR_BACKEND_REPOSITORY_LINK
+- Backend Repository: https://github.com/jordanyaaron/jobzipa-backend.git
 
 🚧 Future Improvements
 
