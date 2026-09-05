@@ -16,7 +16,7 @@ The frontend communicates with a separate backend API responsible for authentica
 
 ✨ Features
 
-- User registration and authentication
+- User registration and authentication(only for staff can access registration features currently)
 - Browse available job opportunities
 - Search and explore job listings
 - Bookmark jobs
