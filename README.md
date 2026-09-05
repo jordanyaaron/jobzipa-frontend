@@ -75,19 +75,6 @@ Backend:
 "JobZipa Backend" (https://github.com/jordanyaaron/jobzipa-backend.git)
 «The backend repository will be linked here once the final repository URL is added.»
 
-📂 Project Structure
-
-src/
-├── assets/
-├── components/
-├── pages/
-├── context/
-├── hooks/
-├── services/
-├── utils/
-└── ...
-
-⚙️ Getting Started
 
 Prerequisites
 
