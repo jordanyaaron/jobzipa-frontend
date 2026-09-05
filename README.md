@@ -72,8 +72,7 @@ JobZipa is structured as a full-stack application with the frontend and backend 
 Related Repository
 
 Backend:
-"JobZipa Backend" (https://github.com/jordanyaaron/
-
+"JobZipa Backend" (https://github.com/jordanyaaron/jobzipa-backend.git)
 «The backend repository will be linked here once the final repository URL is added.»
 
 📂 Project Structure
